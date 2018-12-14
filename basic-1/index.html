@@ -15,20 +15,20 @@
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jeongmin Oh","sameAs":["https://github.com/ggomi","https://twitter.com/","https://www.facebook.com/Jeongmin.Oo","https://www.linkedin.com/in/%EC%A0%95%EB%AF%BC-%EC%98%A4-50b22511b/"],"image":"profile.jpg"},"articleBody":"기초 개발상식 및 개념들 - 1\n\n1. OOP(객체지향프로그래밍)\n인간중심적 프로그래밍 패러다임이라고 할 수 있다.1234567891011121314151617181920212223- ```OOP```로 작성한 코드는 재사용성이 높다.- 소프트웨어의 가치는 변화이다.- 이전처럼 잘동작하게 하는 것이 유지보수가 아니다. 변화를 주어서 계속 유용하게 하는 작업이 유지보수이다. Jessica Kerr    - ## 1.1 객체지향과 절차지향 프로그래밍 비교        - **절차지향**            - 일단 쉽다. 하지만 시간이 갈수록 이런 ```데이터를 공유하는 방식```은 변화가 필요할 때 수정을 복잡하게 만든다                        - 요구사항이 늘어갈수록 ```소스의 복잡도```는 올라가고, 수정해야할 코드는 늘어간다.                    - **객체지향**            - 객체는 데이터와 프로시저로 구성된다.                        - 절차지향에 비해서 처음 프로젝트를 시작할 때 어려울 수 있다.                         - 데이터와 프로시저를 알맞게 작성하고, 나누어야하는 부분에서 어려울 수 있다.                        - **```객체의 핵심``` == ```기능 제공```**            - **캡슐화 **    - ```데이터 + 관련 기능 묶기\n\n\n- 캡슐화를 통해 기능을 사용하는 코드에 영향을 주지 않고 내부구현을 변경할 수 있는 유연함.\n\n- 정보은닉 의미를 포함한다.\n\n- 객체가 기능을 어떻게 구현했는지 외부에 감추는 것\n\n- 외부에 영향없이 객체 내부 구현 변경가능\n\n- 기능에 대한 이해를 높인다.(의도를 파악하는데 도움을 준다.)\n\n- **캡슐화를 위한 규칙**\n    1. Don't Ask``` 122. ```Demeter&apos;s Law\n\n        - Method에서 생성한 객체의 Method만 호출\n        - 파라미터로 받은 객체의 Method만 호출\n        - 필드로 참조하는 객체의 Method만 호출\n\n다형성\n\n한 객체가 여러타입을 갖는 것\n즉 한 객체가 여러타입의 기능을 제공\n타입상속으로 다형성을 구현\n\n\n\n\n추상화\n\n데이터나 프로세스 등을 의미가 비슷한 개념이나 의미있는 표현으로 정의하는 과정\n\n아직 존재하지않는 기능에 대한 이른 추상화는 주의\n\n실제 변경, 확장이 발생할 때 추상화 시도하는 것이 좋다.\n\n구현을 한 이유가 무엇 때문인지 정확하게 알고, 생각해야함.\n\n타입 추상화\n\n여러구현 클래스를 대표하는 상위타입도출\n추상타입을 사용하면 코드의 유연함을 가져올 수 있다.\n\n\n\n\n\n\n2. 객체 지향적 설계 5대 원칙(S.O.L.I.D)\nSRP(Single Responsibility Principle) : 단일 책임 원칙\n\n클래스는 단 하나의 책임을 져야하며 클래스를 변경하는 이유는 단 하나의 이유여야 한다.\n\n이 규칙만 잘지켜도 클래스 구성도가 깔끔하게 정리될 것.\n\nDivergent Change, Shotgun Surgery (참고)\n\n지켜지지않은 예시\n\n변수레벨\n하나의 속성이 여러의미를 갖는 경우\n어떤 곳에서는 쓰고, 어떤곳에선 쓰지않은 속성이 있는 경우\n\n\nMethod 레벨\n분기처리를 위한 if문이 많을 경우\n\n\n\n\n\n\nOCP(Open-Closed Principle) : 개방-폐쇄 원칙\n\n확장에는 열려 있어야하고, 변경에는 닫혀있어야한다.??\n\n자신을 확장시키는 것에는 열려있고, 주변의 변화에 대해서는 닫혀있어야한다.\n\n\n\nLSP(Liskov Substitution Principle) : 리스코프 치환 원칙\n\n상위 타입의 객체를 하위 타입의 객체로 치환해도 상위 타입을 사용하는 프로그램을 정상적으로 동작해야한다.??\n\n\nISP(Interface Segregation Principle) : 인터페이스 분리 원칙\n\n인터페이스는 그 인터페이스를 사용하는 클라이언트를 기준으로 분리해야한다.??\n\n한 클래스는 자신이 사용하지 않는 인터페이스는 구현하지 말아야한다.\n\nSRP가 클래스의 단일 책임을 강조한다면, ISP는 인터페이스의 단일 책임을 강조한다.\n\n\n\n\nDIP(Dependency Inversion Principle) : 의존 역전 원칙\n\n고수준 모듈은 저수준 모듈의 구현에 의존해서는 안된다.??\n\n\n\n이 원칙들은 객체간의 응집도는 높이고, 결합도는 낮추자는 원칙을 재정립한 것이다.\n\n출처: Inflearn  객체 지향 프로그래밍 입문  강의\n\nvelog\n\n\n\n","dateCreated":"2018-12-12T11:18:26+09:00","dateModified":"2018-12-13T19:00:48+09:00","datePublished":"2018-12-12T11:18:26+09:00","description":"","headline":"개발자 기초 다지기 - 1","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://ggomi.github.io/basic-1/"},"publisher":{"@type":"Organization","name":"Jeongmin Oh","sameAs":["https://github.com/ggomi","https://twitter.com/","https://www.facebook.com/Jeongmin.Oo","https://www.linkedin.com/in/%EC%A0%95%EB%AF%BC-%EC%98%A4-50b22511b/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://ggomi.github.io/basic-1/","keywords":"개발자 기초다지기_1"}</script>
-    <meta name="description" content="기초 개발상식 및 개념들 - 1  1. OOP(객체지향프로그래밍) 인간중심적 프로그래밍 패러다임이라고 할 수 있다.1234567891011121314151617181920212223- ```OOP```로 작성한 코드는 재사용성이 높다.- 소프트웨어의 가치는 변화이다.- 이전처럼 잘동작하게 하는 것이 유지보수가 아니다. 변화를 주어서 계속 유용하게 하는 작업">
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jeongmin Oh","sameAs":["https://github.com/ggomi","https://twitter.com/","https://www.facebook.com/Jeongmin.Oo","https://www.linkedin.com/in/%EC%A0%95%EB%AF%BC-%EC%98%A4-50b22511b/"],"image":"profile.jpg"},"articleBody":"기초 개발상식 및 개념들 - 1\n\n1. OOP(객체지향프로그래밍)\nOOP 란 인간중심적 프로그래밍 패러다임이라고 할 수 있다.\n\nOOP로 작성한 코드는 재사용성이 높다.\n\n소프트웨어의 가치는 변화이다.\n\n이전처럼 잘동작하게 하는 것이 유지보수가 아니다. 변화를 주어서 계속 유용하게 하는 작업이 유지보수이다. Jessica Kerr\n\n\n\n\n1.1 객체지향과 절차지향 프로그래밍 비교\n절차지향\n일단 쉽다. 하지만 시간이 갈수록 이런 데이터를 공유하는 방식은 변화가 필요할 때 수정을 복잡하게 만든다\n요구사항이 늘어갈수록 소스의 복잡도는 올라가고, 수정해야할 코드는 늘어간다.\n\n\n객체지향\n객체는 데이터와 프로시저로 구성된다.\n절차지향에 비해서 처음 프로젝트를 시작할 때 어려울 수 있다. \n데이터와 프로시저를 알맞게 작성하고, 나누어야하는 부분에서 어려울 수 있다.\n객체의 핵심 == 기능 제공\n\n\n\n\n\n2. 캡슐화\n데이터 + 관련 기능 묶기\n캡슐화를 통해 기능을 사용하는 코드에 영향을 주지 않고 내부구현을 변경할 수 있는 유연함.\n정보은닉 의미를 포함한다.\n객체가 기능을 어떻게 구현했는지 외부에 감추는 것\n외부에 영향없이 객체 내부 구현 변경가능\n기능에 대한 이해를 높인다.(의도를 파악하는데 도움을 준다.)\n\n\n\n2.1 캡슐화를 위한 규칙\n1. Tell, Don’t Ask =&gt; \n데이터를 달라 하지말고 처리해서 결과만 줘!\n\n\n2. Demeter’s Law =&gt;\nMethod에서 생성한 객체의 Method만 호출\n파라미터로 받은 객체의 Method만 호출\n필드로 참조하는 객체의 Method만 호출\n\n\n\n\n\n3. 다형성\n한 객체가 여러타입을 갖는 것\n\n즉 한 객체가 여러타입의 기능을 제공 \n타입상속으로 다형성을 구현\n\n\n\n\n추상화- 데이터나 프로세스 등을 의미가 비슷한 개념이나 의미있는 표현으로 정의하는 과정\n\n- 아직 존재하지않는 기능에 대한 이른 추상화는 주의\n\n- 실제 변경, 확장이 발생할 때 추상화 시도하는 것이 좋다.\n\n- 구현을 한 이유가 무엇 때문인지 정확하게 알고, 생각해야함.\n\n- **타입 추상화**\n    - 여러구현 클래스를 대표하는 상위타입도출\n    - 추상타입을 사용하면 코드의 유연함을 가져올 수 있다.\n\n2. 객체 지향적 설계 5대 원칙(S.O.L.I.D)\nSRP(Single Responsibility Principle) : 단일 책임 원칙\n\n클래스는 단 하나의 책임을 져야하며 클래스를 변경하는 이유는 단 하나의 이유여야 한다.\n\n이 규칙만 잘지켜도 클래스 구성도가 깔끔하게 정리될 것.\n\nDivergent Change, Shotgun Surgery (참고)\n\n지켜지지않은 예시\n\n변수레벨\n하나의 속성이 여러의미를 갖는 경우\n어떤 곳에서는 쓰고, 어떤곳에선 쓰지않은 속성이 있는 경우\n\n\nMethod 레벨\n분기처리를 위한 if문이 많을 경우\n\n\n\n\n\n\nOCP(Open-Closed Principle) : 개방-폐쇄 원칙\n\n확장에는 열려 있어야하고, 변경에는 닫혀있어야한다.??\n\n자신을 확장시키는 것에는 열려있고, 주변의 변화에 대해서는 닫혀있어야한다.\n\n\n\nLSP(Liskov Substitution Principle) : 리스코프 치환 원칙\n\n상위 타입의 객체를 하위 타입의 객체로 치환해도 상위 타입을 사용하는 프로그램을 정상적으로 동작해야한다.??\n\n\nISP(Interface Segregation Principle) : 인터페이스 분리 원칙\n\n인터페이스는 그 인터페이스를 사용하는 클라이언트를 기준으로 분리해야한다.??\n\n한 클래스는 자신이 사용하지 않는 인터페이스는 구현하지 말아야한다.\n\nSRP가 클래스의 단일 책임을 강조한다면, ISP는 인터페이스의 단일 책임을 강조한다.\n\n\n\n\nDIP(Dependency Inversion Principle) : 의존 역전 원칙\n\n고수준 모듈은 저수준 모듈의 구현에 의존해서는 안된다.??\n\n\n\n이 원칙들은 객체간의 응집도는 높이고, 결합도는 낮추자는 원칙을 재정립한 것이다.\n\n출처: Inflearn  객체 지향 프로그래밍 입문  강의\n\nvelog\n\n\n\n","dateCreated":"2018-12-12T11:18:26+09:00","dateModified":"2018-12-13T22:37:19+09:00","datePublished":"2018-12-12T11:18:26+09:00","description":"","headline":"개발자 기초 다지기 - 1","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://ggomi.github.io/basic-1/"},"publisher":{"@type":"Organization","name":"Jeongmin Oh","sameAs":["https://github.com/ggomi","https://twitter.com/","https://www.facebook.com/Jeongmin.Oo","https://www.linkedin.com/in/%EC%A0%95%EB%AF%BC-%EC%98%A4-50b22511b/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://ggomi.github.io/basic-1/","keywords":"개발자 기초다지기_1"}</script>
+    <meta name="description" content="기초 개발상식 및 개념들 - 1  1. OOP(객체지향프로그래밍) OOP 란 인간중심적 프로그래밍 패러다임이라고 할 수 있다.  OOP로 작성한 코드는 재사용성이 높다.  소프트웨어의 가치는 변화이다.  이전처럼 잘동작하게 하는 것이 유지보수가 아니다. 변화를 주어서 계속 유용하게 하는 작업이 유지보수이다. Jessica Kerr     1.1 객체지향과">
 <meta name="keywords" content="개발자 기초다지기_1">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="개발자 기초 다지기 - 1">
 <meta property="og:url" content="https://ggomi.github.io/basic-1/index.html">
 <meta property="og:site_name" content="Jeongmin&#39;s Blog">
-<meta property="og:description" content="기초 개발상식 및 개념들 - 1  1. OOP(객체지향프로그래밍) 인간중심적 프로그래밍 패러다임이라고 할 수 있다.1234567891011121314151617181920212223- ```OOP```로 작성한 코드는 재사용성이 높다.- 소프트웨어의 가치는 변화이다.- 이전처럼 잘동작하게 하는 것이 유지보수가 아니다. 변화를 주어서 계속 유용하게 하는 작업">
+<meta property="og:description" content="기초 개발상식 및 개념들 - 1  1. OOP(객체지향프로그래밍) OOP 란 인간중심적 프로그래밍 패러다임이라고 할 수 있다.  OOP로 작성한 코드는 재사용성이 높다.  소프트웨어의 가치는 변화이다.  이전처럼 잘동작하게 하는 것이 유지보수가 아니다. 변화를 주어서 계속 유용하게 하는 작업이 유지보수이다. Jessica Kerr     1.1 객체지향과">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://ggomi.github.io/basic-1/images/basic1.png">
-<meta property="og:updated_time" content="2018-12-13T10:00:48.164Z">
+<meta property="og:updated_time" content="2018-12-13T13:37:19.205Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="개발자 기초 다지기 - 1">
-<meta name="twitter:description" content="기초 개발상식 및 개념들 - 1  1. OOP(객체지향프로그래밍) 인간중심적 프로그래밍 패러다임이라고 할 수 있다.1234567891011121314151617181920212223- ```OOP```로 작성한 코드는 재사용성이 높다.- 소프트웨어의 가치는 변화이다.- 이전처럼 잘동작하게 하는 것이 유지보수가 아니다. 변화를 주어서 계속 유용하게 하는 작업">
+<meta name="twitter:description" content="기초 개발상식 및 개념들 - 1  1. OOP(객체지향프로그래밍) OOP 란 인간중심적 프로그래밍 패러다임이라고 할 수 있다.  OOP로 작성한 코드는 재사용성이 높다.  소프트웨어의 가치는 변화이다.  이전처럼 잘동작하게 하는 것이 유지보수가 아니다. 변화를 주어서 계속 유용하게 하는 작업이 유지보수이다. Jessica Kerr     1.1 객체지향과">
 <meta name="twitter:image" content="https://ggomi.github.io/basic-1/images/basic1.png">
     
     
@@ -281,57 +281,80 @@
             <h2 id="기초-개발상식-및-개념들-1"><a href="#기초-개발상식-및-개념들-1" class="headerlink" title="기초 개발상식 및 개념들 - 1"></a>기초 개발상식 및 개념들 - 1</h2><hr>
 <p><img src="images/basic1.png" alt="기초개발상식"></p>
 <h2 id="1-OOP-객체지향프로그래밍"><a href="#1-OOP-객체지향프로그래밍" class="headerlink" title="1. OOP(객체지향프로그래밍)"></a>1. OOP(객체지향프로그래밍)</h2><ul>
-<li><figure class="highlight plain"><figcaption><span>인간중심적 프로그래밍 패러다임이라고 할 수 있다.</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- ```OOP```로 작성한 코드는 재사용성이 높다.</span><br><span class="line"></span><br><span class="line">- 소프트웨어의 가치는 변화이다.</span><br><span class="line"></span><br><span class="line">- 이전처럼 잘동작하게 하는 것이 유지보수가 아니다. 변화를 주어서 계속 유용하게 하는 작업이 유지보수이다. Jessica Kerr</span><br><span class="line">    - ## 1.1 객체지향과 절차지향 프로그래밍 비교</span><br><span class="line">        - **절차지향**</span><br><span class="line">            - 일단 쉽다. 하지만 시간이 갈수록 이런 ```데이터를 공유하는 방식```은 변화가 필요할 때 수정을 복잡하게 만든다</span><br><span class="line">            </span><br><span class="line">            - 요구사항이 늘어갈수록 ```소스의 복잡도```는 올라가고, 수정해야할 코드는 늘어간다.</span><br><span class="line">            </span><br><span class="line">        - **객체지향**</span><br><span class="line">            - 객체는 데이터와 프로시저로 구성된다.</span><br><span class="line">            </span><br><span class="line">            - 절차지향에 비해서 처음 프로젝트를 시작할 때 어려울 수 있다. </span><br><span class="line">            </span><br><span class="line">            - 데이터와 프로시저를 알맞게 작성하고, 나누어야하는 부분에서 어려울 수 있다.</span><br><span class="line">            </span><br><span class="line">            - **```객체의 핵심``` == ```기능 제공```**</span><br><span class="line">            </span><br><span class="line">- **캡슐화 **</span><br><span class="line">    - ```데이터 + 관련 기능 묶기</span><br></pre></td></tr></table></figure>
+<li><p><code>OOP</code> 란 인간중심적 프로그래밍 패러다임이라고 할 수 있다.</p>
 </li>
-</ul>
-<pre><code>- 캡슐화를 통해 기능을 사용하는 코드에 영향을 주지 않고 내부구현을 변경할 수 있는 유연함.
-
-- 정보은닉 의미를 포함한다.
-
-- 객체가 기능을 어떻게 구현했는지 외부에 감추는 것
-
-- 외부에 영향없이 객체 내부 구현 변경가능
-
-- 기능에 대한 이해를 높인다.(의도를 파악하는데 도움을 준다.)
-
-- **캡슐화를 위한 규칙**
-    1. <figure class="highlight plain"><figcaption><span>Don't Ask``` </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2. ```Demeter&apos;s Law</span><br></pre></td></tr></table></figure>
-
-        - Method에서 생성한 객체의 Method만 호출
-        - 파라미터로 받은 객체의 Method만 호출
-        - 필드로 참조하는 객체의 Method만 호출
-</code></pre><ul>
-<li><p><strong>다형성</strong></p>
-<ul>
-<li>한 객체가 여러타입을 갖는 것<ul>
-<li>즉 한 객체가 여러타입의 기능을 제공</li>
-<li>타입상속으로 다형성을 구현</li>
-</ul>
+<li><p><code>OOP</code>로 작성한 코드는 재사용성이 높다.</p>
 </li>
-</ul>
+<li><p>소프트웨어의 가치는 변화이다.</p>
 </li>
-<li><p><strong>추상화</strong></p>
-<ul>
-<li><p>데이터나 프로세스 등을 의미가 비슷한 개념이나 의미있는 표현으로 정의하는 과정</p>
-</li>
-<li><p>아직 존재하지않는 기능에 대한 이른 추상화는 주의</p>
-</li>
-<li><p>실제 변경, 확장이 발생할 때 추상화 시도하는 것이 좋다.</p>
-</li>
-<li><p>구현을 한 이유가 무엇 때문인지 정확하게 알고, 생각해야함.</p>
-</li>
-<li><p><strong>타입 추상화</strong></p>
-<ul>
-<li>여러구현 클래스를 대표하는 상위타입도출</li>
-<li>추상타입을 사용하면 코드의 유연함을 가져올 수 있다.</li>
-</ul>
-</li>
-</ul>
+<li><p>이전처럼 잘동작하게 하는 것이 유지보수가 아니다. 변화를 주어서 계속 유용하게 하는 작업이 유지보수이다. <em>Jessica Kerr</em></p>
 </li>
 </ul>
 <hr>
+<blockquote>
+<h3 id="1-1-객체지향과-절차지향-프로그래밍-비교"><a href="#1-1-객체지향과-절차지향-프로그래밍-비교" class="headerlink" title="1.1 객체지향과 절차지향 프로그래밍 비교"></a>1.1 객체지향과 절차지향 프로그래밍 비교</h3><ul>
+<li><strong>절차지향</strong><ul>
+<li>일단 쉽다. 하지만 시간이 갈수록 이런 데이터를 공유하는 방식은 변화가 필요할 때 수정을 복잡하게 만든다</li>
+<li>요구사항이 늘어갈수록 소스의 복잡도는 올라가고, 수정해야할 코드는 늘어간다.</li>
+</ul>
+</li>
+<li><strong>객체지향</strong><ul>
+<li>객체는 데이터와 프로시저로 구성된다.</li>
+<li>절차지향에 비해서 처음 프로젝트를 시작할 때 어려울 수 있다. </li>
+<li>데이터와 프로시저를 알맞게 작성하고, 나누어야하는 부분에서 어려울 수 있다.</li>
+<li><strong>객체의 핵심 == 기능 제공</strong></li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<hr>
+<h2 id="2-캡슐화"><a href="#2-캡슐화" class="headerlink" title="2. 캡슐화"></a>2. 캡슐화</h2><ul>
+<li>데이터 + 관련 기능 묶기</li>
+<li>캡슐화를 통해 기능을 사용하는 코드에 영향을 주지 않고 내부구현을 변경할 수 있는 유연함.</li>
+<li>정보은닉 의미를 포함한다.</li>
+<li>객체가 기능을 어떻게 구현했는지 외부에 감추는 것</li>
+<li>외부에 영향없이 객체 내부 구현 변경가능</li>
+<li>기능에 대한 이해를 높인다.(의도를 파악하는데 도움을 준다.)</li>
+</ul>
+<hr>
+<blockquote>
+<h3 id="2-1-캡슐화를-위한-규칙"><a href="#2-1-캡슐화를-위한-규칙" class="headerlink" title="2.1 캡슐화를 위한 규칙"></a>2.1 캡슐화를 위한 규칙</h3><ul>
+<li><strong>1. Tell, Don’t Ask</strong> =&gt; <ul>
+<li><code>데이터</code>를 달라 하지말고 처리해서 결과만 줘!</li>
+</ul>
+</li>
+<li><strong>2. Demeter’s Law</strong> =&gt;<ul>
+<li>Method에서 생성한 객체의 <code>Method</code>만 호출</li>
+<li>파라미터로 받은 객체의 <code>Method</code>만 호출</li>
+<li>필드로 참조하는 객체의 <code>Method</code>만 호출</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<hr>
+<h2 id="3-다형성"><a href="#3-다형성" class="headerlink" title="3. 다형성"></a>3. 다형성</h2><ul>
+<li>한 객체가 여러타입을 갖는 것<blockquote>
+<ul>
+<li>즉 한 객체가 여러타입의 기능을 제공 </li>
+<li>타입상속으로 다형성을 구현</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h2 id="추상화"><a href="#추상화" class="headerlink" title="추상화"></a>추상화</h2><pre><code>- 데이터나 프로세스 등을 의미가 비슷한 개념이나 의미있는 표현으로 정의하는 과정
+
+- 아직 존재하지않는 기능에 대한 이른 추상화는 주의
+
+- 실제 변경, 확장이 발생할 때 추상화 시도하는 것이 좋다.
+
+- 구현을 한 이유가 무엇 때문인지 정확하게 알고, 생각해야함.
+
+- **타입 추상화**
+    - 여러구현 클래스를 대표하는 상위타입도출
+    - 추상타입을 사용하면 코드의 유연함을 가져올 수 있다.
+</code></pre><hr>
 <h2 id="2-객체-지향적-설계-5대-원칙-S-O-L-I-D"><a href="#2-객체-지향적-설계-5대-원칙-S-O-L-I-D" class="headerlink" title="2. 객체 지향적 설계 5대 원칙(S.O.L.I.D)"></a>2. 객체 지향적 설계 5대 원칙(S.O.L.I.D)</h2><ul>
-<li><p><strong><code>SRP</code>(Single Responsibility Principle)</strong> : 단일 책임 원칙</p>
+<li><p><strong>SRP(Single Responsibility Principle)</strong> : 단일 책임 원칙</p>
 <ul>
 <li><p>클래스는 단 하나의 책임을 져야하며 클래스를 변경하는 이유는 단 하나의 이유여야 한다.</p>
 </li>
@@ -354,7 +377,7 @@
 </li>
 </ul>
 </li>
-<li><p><strong><code>OCP</code>(Open-Closed Principle)</strong> : 개방-폐쇄 원칙</p>
+<li><p><strong>OCP(Open-Closed Principle)</strong> : 개방-폐쇄 원칙</p>
 <ul>
 <li><p>확장에는 열려 있어야하고, 변경에는 닫혀있어야한다.??</p>
 </li>
@@ -362,23 +385,23 @@
 </li>
 </ul>
 </li>
-<li><p><strong><code>LSP</code>(Liskov Substitution Principle)</strong> : 리스코프 치환 원칙</p>
+<li><p><strong>LSP(Liskov Substitution Principle)</strong> : 리스코프 치환 원칙</p>
 <ul>
 <li>상위 타입의 객체를 하위 타입의 객체로 치환해도 상위 타입을 사용하는 프로그램을 정상적으로 동작해야한다.??</li>
 </ul>
 </li>
-<li><p><strong><code>ISP</code>(Interface Segregation Principle)</strong> : 인터페이스 분리 원칙</p>
+<li><p><strong>ISP(Interface Segregation Principle)</strong> : 인터페이스 분리 원칙</p>
 <ul>
 <li><p>인터페이스는 그 인터페이스를 사용하는 클라이언트를 기준으로 분리해야한다.??</p>
 </li>
 <li><p>한 클래스는 자신이 사용하지 않는 인터페이스는 구현하지 말아야한다.</p>
 <ul>
-<li><code>SRP</code>가 클래스의 단일 책임을 강조한다면, ISP는 인터페이스의 단일 책임을 강조한다.</li>
+<li>SRP가 클래스의 단일 책임을 강조한다면, ISP는 인터페이스의 단일 책임을 강조한다.</li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p><strong><code>DIP</code>(Dependency Inversion Principle)</strong> : 의존 역전 원칙</p>
+<li><p><strong>DIP(Dependency Inversion Principle)</strong> : 의존 역전 원칙</p>
 <ul>
 <li>고수준 모듈은 저수준 모듈의 구현에 <strong>의존</strong>해서는 안된다.??</li>
 </ul>
@@ -386,7 +409,7 @@
 </ul>
 <h3 id="이-원칙들은-객체간의-응집도는-높이고-결합도는-낮추자는-원칙을-재정립한-것이다"><a href="#이-원칙들은-객체간의-응집도는-높이고-결합도는-낮추자는-원칙을-재정립한-것이다" class="headerlink" title="이 원칙들은 객체간의 응집도는 높이고, 결합도는 낮추자는 원칙을 재정립한 것이다."></a>이 원칙들은 객체간의 응집도는 높이고, 결합도는 낮추자는 원칙을 재정립한 것이다.</h3><hr>
 <ul>
-<li><p><code>출처:</code> Inflearn <a href="https://www.inflearn.com/course/%EA%B0%9D%EC%B2%B4-%EC%A7%80%ED%96%A5-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-%EC%9E%85%EB%AC%B8/" rel="external nofollow noopener noreferrer" target="_blank"> 객체 지향 프로그래밍 입문 </a> 강의</p>
+<li><p>출처: Inflearn <a href="https://www.inflearn.com/course/%EA%B0%9D%EC%B2%B4-%EC%A7%80%ED%96%A5-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-%EC%9E%85%EB%AC%B8/" rel="external nofollow noopener noreferrer" target="_blank"> 객체 지향 프로그래밍 입문 </a> 강의</p>
 </li>
 <li><p><a href="https://velog.io/@essri/%EA%B8%B0%EC%B4%88-%EA%B0%9C%EB%B0%9C%EC%83%81%EC%8B%9D-%EB%B0%8F-%EA%B0%9C%EB%85%90%EB%93%A4-1-" rel="external nofollow noopener noreferrer" target="_blank">velog</a></p>
 </li>
