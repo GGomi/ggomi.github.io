@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://ggomi.github.io/"/>
-  <updated>2018-12-14T06:11:58.472Z</updated>
+  <updated>2018-12-15T04:40:13.358Z</updated>
   <id>https://ggomi.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>기초 개발상식 및 개념들 - 2 (상속과 재사용)</title>
+    <link href="https://ggomi.github.io/basic-2/"/>
+    <id>https://ggomi.github.io/basic-2/</id>
+    <published>2018-12-15T03:57:25.000Z</published>
+    <updated>2018-12-15T04:40:13.358Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="기초-개발상식-및-개념들-2"><a href="#기초-개발상식-및-개념들-2" class="headerlink" title="기초 개발상식 및 개념들 - 2"></a>기초 개발상식 및 개념들 - 2</h2><p><img src="/assets/images/basic1.png" alt="기초개발상식"></p><hr><h2 id="1-상속과-재사용"><a href="#1-상속과-재사용" class="headerlink" title="1. 상속과 재사용"></a>1. 상속과 재사용</h2><h3 id="1-1-상속을-통한-재사용-단점"><a href="#1-1-상속을-통한-재사용-단점" class="headerlink" title="1.1 상속을 통한 재사용 단점"></a>1.1 상속을 통한 재사용 단점</h3><ul><li><p><em>상위클래스의 변경이 어렵다.</em></p><blockquote><p>상위클래스를 변경하게되면 그에 해당하는 하위클래스 모두에게 영향을 줄 수 있다. 상위클래스 입장에서 앞으로 어떤 하위클래스가 생길지 모르기 때문에 쉽게 변경하기 어렵다.</p></blockquote></li><li><p><em>클래스가 증가할 수 있다.</em></p></li><li><p><em>상속 오용</em></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 예시 코드</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Container</span> <span class="keyword">extends</span> <span class="title">ArrayList</span>&lt;<span class="title">Luggage</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> maxSize;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> currentSize;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Container</span><span class="params">(<span class="keyword">int</span> maxSize)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.maxSize = maxSize;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">put</span><span class="params">(Luggage lug)</span> <span class="keyword">throws</span> NotEnoughSpaceException</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!canContain(lug))&#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> NotEnoughSpaceException();</span><br><span class="line">        &#125; </span><br><span class="line">        <span class="keyword">super</span>.add(lug);</span><br><span class="line">        currentSize += lug.size();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">extract</span><span class="params">(Luggage lug)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.remove(lug);</span><br><span class="line">        <span class="keyword">this</span>.currentSize -= lug.size();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">canContain</span><span class="params">(Luggage lug)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> maxSize &gt;= currentSize + lug.size();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>이러한 경우에 <code>put()</code> 메소드를 사용해야 <code>Luggage</code>사이즈를 변경할 수 있는데 Container 클래스를 상속받아서 사용하는 입장에서는 ArrayList클래스의 <code>add()</code>도 함께 상속받고, 사용가능하기 때문에 <code>put</code>과 <code>add</code>이 의미상 같기 때문에 오용할 수 있다. 오용한 사람보다 <code>Container</code>클래스를 오용하게끔 설계한 사람에게 더 잘못이 있다.</p></li></ul><h3 id="1-2-상속의-단점-해결방법"><a href="#1-2-상속의-단점-해결방법" class="headerlink" title="1.2 상속의 단점 해결방법"></a>1.2 상속의 단점 해결방법</h3><h4 id="1-2-1-조립"><a href="#1-2-1-조립" class="headerlink" title="1.2.1 조립"></a>1.2.1 조립</h4><ul><li><p>여러<code>객체</code>를 묶어서 더 복잡한 기능을 제공</p></li><li><p>보통<code>필드</code>로 다른 객체를 참조하는 방식으로 조립 또는 객체를 필요시점에 생성</p></li></ul><h4 id="1-2-2-조립을-통한-기능-재사용"><a href="#1-2-2-조립을-통한-기능-재사용" class="headerlink" title="1.2.2 조립을 통한 기능 재사용"></a>1.2.2 조립을 통한 기능 재사용</h4><ul><li><p>이전코드에서 <code>ArrayList&lt;Luggage&gt;</code>를 상속을 받아서 사용하고있는데 이 클래스는 <code>Container</code>클래스에서만 사용되어야하기 때문에 상속하지않고, 필드생성으로 재사용을 한다.</p></li><li><p><strong>상속하기에 앞서 조립으로 풀 수 없는지 검토를 먼저 해볼 것.</strong></p></li><li><strong>진짜 하위타입인 경우에만 상속을 사용한다.</strong></li></ul><hr><ul><li>객체지향적 사고를 제대로 갖추기 위해서 기초적인 것부터 하나씩 다시 공부하고있는데 개념으로는 알겠는데 막상 코드로 직접 설계하고, 구현해보려고하니 한계가 있었다. 잘짜여진 코드를 많이보고 연구해보아야 할 것 같다.</li></ul><hr><ul><li><p>inflearn <a href="https://www.inflearn.com/course/%EA%B0%9D%EC%B2%B4-%EC%A7%80%ED%96%A5-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-%EC%9E%85%EB%AC%B8/" rel="external nofollow noopener noreferrer" target="_blank"> 객체 지향 프로그래밍 입문 </a> 강의를 보고 작성한 글입니다.</p></li><li><p><a href="https://github.com/ggomi" rel="external nofollow noopener noreferrer" target="_blank">Github</a></p></li><li><a href="https://velog.io/@essri" rel="external nofollow noopener noreferrer" target="_blank">velog</a></li><li><a href="https://ggomi.github.io">Blog</a></li></ul><hr>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;기초-개발상식-및-개념들-2&quot;&gt;&lt;a href=&quot;#기초-개발상식-및-개념들-2&quot; class=&quot;headerlink&quot; title=&quot;기초 개발상식 및 개념들 - 2&quot;&gt;&lt;/a&gt;기초 개발상식 및 개념들 - 2&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;/ass
+      
+    
+    </summary>
+    
+      <category term="Basic_sense" scheme="https://ggomi.github.io/categories/Basic-sense/"/>
+    
+    
+      <category term="개발자 기초다지기_1" scheme="https://ggomi.github.io/tags/%EA%B0%9C%EB%B0%9C%EC%9E%90-%EA%B8%B0%EC%B4%88%EB%8B%A4%EC%A7%80%EA%B8%B0-1/"/>
+    
+      <category term="상속" scheme="https://ggomi.github.io/tags/%EC%83%81%EC%86%8D/"/>
+    
+      <category term="조립" scheme="https://ggomi.github.io/tags/%EC%A1%B0%EB%A6%BD/"/>
+    
+  </entry>
   
   <entry>
     <title>개발자 기초 다지기 - 1</title>
