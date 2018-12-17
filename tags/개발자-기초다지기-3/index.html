@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Jeongmin&#39;s Blog">
-    <title>Categories - Jeongmin&#39;s Blog</title>
+    <title>Tag: 개발자 기초다지기_3 - Jeongmin&#39;s Blog</title>
     <meta name="author" content="Jeongmin Oh">
     
         <meta name="keywords" content="java,spring boot,JPA,jpa,Java,Spring Boot,lombok,">
@@ -17,16 +17,15 @@
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"Website","@id":"https://ggomi.github.io","author":{"@type":"Person","name":"Jeongmin Oh","sameAs":["https://github.com/ggomi","https://twitter.com/","https://www.facebook.com/Jeongmin.Oo","https://www.linkedin.com/in/%EC%A0%95%EB%AF%BC-%EC%98%A4-50b22511b/"],"image":"profile.jpg"},"name":"Jeongmin's Blog","description":null,"url":"https://ggomi.github.io","keywords":"java, spring boot, JPA, jpa, Java, Spring Boot, lombok"}</script>
+    <script type="application/ld+json">{}</script>
     <meta name="keywords" content="java,spring boot,JPA,jpa,Java,Spring Boot,lombok">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="Categories">
-<meta property="og:url" content="https://ggomi.github.io/all-categories/index.html">
+<meta property="og:title" content="Jeongmin&#39;s Blog">
+<meta property="og:url" content="https://ggomi.github.io/tags/개발자-기초다지기-3/index.html">
 <meta property="og:site_name" content="Jeongmin&#39;s Blog">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-12-12T06:08:20.171Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Categories">
+<meta name="twitter:title" content="Jeongmin&#39;s Blog">
     
     
         
@@ -83,7 +82,7 @@
         
         </a>
     
-    <link rel="canonical" href="https://ggomi.github.io/all-categories/">
+    <link rel="canonical" href="https://ggomi.github.io/tags/개발자-기초다지기-3/">
 </header>
 
             <!-- Define author's picture -->
@@ -244,27 +243,100 @@
                         hasCoverMetaIn
                         ">
                 
-<div id="categories-archives" class="main-content-wrap">
-    <form id="filter-form" action="##">
-        <input name="category" type="text" class="form-control input--xlarge" placeholder="Search category" autofocus="autofocus">
-    </form>
-    <h5 class="archive-result text-color-base text-xlarge" data-message-zero="no category found" data-message-one="1 cartegory found" data-message-other="{n} categories found"></h5>
+    <section class="postShorten-group main-content-wrap">
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a class="link-unstyled" href="/basic-3/">
+                            재사용과 함수 추출
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2018-12-17T16:37:15+09:00">
+	
+		    Dec 17, 2018
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/Basic-sense/">Basic_sense</a>
 
-        <section class="boxes">
-        
-            
-                <div><a href="#posts-list-Basic_sense" class="category-anchor" data-category="basic_sense" data-parent-categories="">Basic_sense</a></div>
-            
-        
-    </section>
-    <section class="boxes">
-        
-            
-                    <div id="posts-list-Basic_sense" class="archive box" data-category="basic_sense" data-parent-categories=""><h4 class="archive-title text-xlarge"><a class="link-unstyled" href="/categories/Basic-sense/">Basic_sense (4)</a></h4><ul class="archive-posts"><li class="archive-post"><a class="archive-post-title" href="/basic-3/">재사용과 함수 추출</a><span class="archive-post-date"> - Dec 17, 2018</span></li><li class="archive-post"><a class="archive-post-title" href="/basic-2/">기초 개발상식 및 개념들 - 2 (상속과 재사용)</a><span class="archive-post-date"> - Dec 15, 2018</span></li><li class="archive-post"><a class="archive-post-title" href="/basic-1/">개발자 기초 다지기 - 1</a><span class="archive-post-date"> - Dec 12, 2018</span></li><li class="archive-post"><a class="archive-post-title" href="/basic-0/">기초 다지기 - 0</a><span class="archive-post-date"> - Dec 12, 2018</span></li></ul></div>
-            
-        
-    </section>
+
+    
 </div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <p><img src="/assets/images/basic1.png" alt="기초개발상식"></p>
+<h1 id="재사용"><a href="#재사용" class="headerlink" title="재사용"></a>재사용</h1><ul>
+<li>코드에 변경이 일어나도 내가 짰던 코드는 문제가 안생긴다. =&gt; 재사용</li>
+<li>여기저기에서 쓰일수있다 =&gt; 재사용이 아니다.</li>
+<li>상세한 구현에 너무 몰입해서 빠지지 말고, 고수준에서도 생각하면서 개발할 것.</li>
+</ul>
+<h1 id="함수-Method"><a href="#함수-Method" class="headerlink" title="함수(Method)"></a>함수(Method)</h1><ul>
+<li><code>Method</code>는 <strong>한가지</strong> 일만 해야한다.</li>
+<li><code>Method</code> 이름이 길다고 두려워하지말고, 의미부여를 갖게하면된다.</li>
+</ul>
+<h2 id="Rules"><a href="#Rules" class="headerlink" title="Rules"></a>Rules</h2><ul>
+<li>더 이상 작아질 수 없을만큼 함수는 크기가 작아져야한다.</li>
+<li>큰 함수를 보면 클래스로 추출할 생각을 해야한다.</li>
+<li>함수추출을 진행해도 더 이상 추상화 단계가 변하지 않을 때까지 진행한다.</li>
+</ul>
+<h3 id="이러한-작업을-Refactor라고-한다"><a href="#이러한-작업을-Refactor라고-한다" class="headerlink" title="이러한 작업을 Refactor라고 한다."></a>이러한 작업을 <code>Refactor</code>라고 한다.</h3><h2 id="Refactor-효과"><a href="#Refactor-효과" class="headerlink" title="Refactor 효과"></a>Refactor 효과</h2><ul>
+<li>코드를 읽기 쉬워지고, 이해하기 쉬워지며, 의미전달이 용이해진다.</li>
+</ul>
+<h2 id="어떻게-이런-효과를-가져오지"><a href="#어떻게-이런-효과를-가져오지" class="headerlink" title="어떻게 이런 효과를 가져오지??"></a>어떻게 이런 효과를 가져오지??</h2><ul>
+<li>함수의 하나하나의 크기가 작아졌으므로 읽기 편해진다.</li>
+<li><code>if, else, while</code> 내부블록이 한줄 수준으로 변함</li>
+</ul>
+<blockquote>
+<p>하지만, 의미있게 최종적으로 줄이는 것은 어렵다. 연습과 노력이 필요하다. 잘 짜여진 소스코드를 많이 봐야할 것 같다.</p>
+</blockquote>
+<hr>
+<ul>
+<li><a href="https://www.youtube.com/user/codetemplate/videos" rel="external nofollow noopener noreferrer" target="_blank"> 클린코더스 - 백명석님 </a> 강의를 보고 작성한 글입니다.</li>
+<li><p><a href="https://velog.io/@essri/%EA%B8%B0%EC%B4%88-%EA%B0%9C%EB%B0%9C%EC%83%81%EC%8B%9D-%EB%B0%8F-%EA%B0%9C%EB%85%90%EB%93%A4-1-" rel="external nofollow noopener noreferrer" target="_blank">velog</a></p>
+</li>
+<li><p><a href="https://ggomi.github.io">Blog</a></p>
+</li>
+</ul>
+<hr>
+
+                    
+                        
+
+                    
+                    
+                        <p>
+                            <a href="/basic-3/#post-footer" class="postShorten-excerpt_link link">
+                                Comment and share
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    <div class="pagination-bar">
+    <ul class="pagination">
+        
+        
+        <li class="pagination-number">page 1 of 1</li>
+    </ul>
+</div>
+
+</section>
+
 
                 <footer id="footer" class="main-content-wrap">
     <span class="copyrights">

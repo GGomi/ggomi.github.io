@@ -17,9 +17,9 @@
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jeongmin Oh","sameAs":["https://github.com/ggomi","https://twitter.com/","https://www.facebook.com/Jeongmin.Oo","https://www.linkedin.com/in/%EC%A0%95%EB%AF%BC-%EC%98%A4-50b22511b/"],"image":"profile.jpg"},"articleBody":"기초 개발상식 및 개념들 - 2\n\n1. 상속과 재사용1.1 상속을 통한 재사용 단점\n상위클래스의 변경이 어렵다.\n\n상위클래스를 변경하게되면 그에 해당하는 하위클래스 모두에게 영향을 줄 수 있다. 상위클래스 입장에서 앞으로 어떤 하위클래스가 생길지 모르기 때문에 쉽게 변경하기 어렵다.\n\n\n클래스가 증가할 수 있다.\n\n상속 오용\n123456789101112131415161718192021222324// 예시 코드public class Container extends ArrayList&lt;Luggage&gt; &#123;    private int maxSize;    private int currentSize;    public Container(int maxSize) &#123;        this.maxSize = maxSize;    &#125;    public void put(Luggage lug) throws NotEnoughSpaceException&#123;        if(!canContain(lug))&#123;            throw new NotEnoughSpaceException();        &#125;         super.add(lug);        currentSize += lug.size();    &#125;    public void extract(Luggage lug) &#123;        super.remove(lug);        this.currentSize -= lug.size();    &#125;    public boolean canContain(Luggage lug) &#123;        return maxSize &gt;= currentSize + lug.size();    &#125;&#125;\n\n이러한 경우에 put() 메소드를 사용해야 Luggage사이즈를 변경할 수 있는데 Container 클래스를 상속받아서 사용하는 입장에서는 ArrayList클래스의 add()도 함께 상속받고, 사용가능하기 때문에 put과 add이 의미상 같기 때문에 오용할 수 있다. 오용한 사람보다 Container클래스를 오용하게끔 설계한 사람에게 더 잘못이 있다.\n\n\n1.2 상속의 단점 해결방법1.2.1 조립\n여러객체를 묶어서 더 복잡한 기능을 제공\n\n보통필드로 다른 객체를 참조하는 방식으로 조립 또는 객체를 필요시점에 생성\n\n\n1.2.2 조립을 통한 기능 재사용\n이전코드에서 ArrayList&lt;Luggage&gt;를 상속을 받아서 사용하고있는데 이 클래스는 Container클래스에서만 사용되어야하기 때문에 상속하지않고, 필드생성으로 재사용을 한다.\n\n상속하기에 앞서 조립으로 풀 수 없는지 검토를 먼저 해볼 것.\n\n진짜 하위타입인 경우에만 상속을 사용한다.\n\n\n\n객체지향적 사고를 제대로 갖추기 위해서 기초적인 것부터 하나씩 다시 공부하고있는데 개념으로는 알겠는데 막상 코드로 직접 설계하고, 구현해보려고하니 한계가 있었다. 잘짜여진 코드를 많이보고 연구해보아야 할 것 같다.\n\n\n\ninflearn  객체 지향 프로그래밍 입문  강의를 보고 작성한 글입니다.\n\nGithub\n\nvelog\nBlog\n\n\n","dateCreated":"2018-12-15T12:57:25+09:00","dateModified":"2018-12-15T13:40:13+09:00","datePublished":"2018-12-15T12:57:25+09:00","description":"","headline":"기초 개발상식 및 개념들 - 2 (상속과 재사용)","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://ggomi.github.io/basic-2/"},"publisher":{"@type":"Organization","name":"Jeongmin Oh","sameAs":["https://github.com/ggomi","https://twitter.com/","https://www.facebook.com/Jeongmin.Oo","https://www.linkedin.com/in/%EC%A0%95%EB%AF%BC-%EC%98%A4-50b22511b/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://ggomi.github.io/basic-2/","keywords":"개발자 기초다지기_1, 상속, 조립"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jeongmin Oh","sameAs":["https://github.com/ggomi","https://twitter.com/","https://www.facebook.com/Jeongmin.Oo","https://www.linkedin.com/in/%EC%A0%95%EB%AF%BC-%EC%98%A4-50b22511b/"],"image":"profile.jpg"},"articleBody":"기초 개발상식 및 개념들 - 2\n\n1. 상속과 재사용1.1 상속을 통한 재사용 단점\n상위클래스의 변경이 어렵다.\n\n상위클래스를 변경하게되면 그에 해당하는 하위클래스 모두에게 영향을 줄 수 있다. 상위클래스 입장에서 앞으로 어떤 하위클래스가 생길지 모르기 때문에 쉽게 변경하기 어렵다.\n\n\n클래스가 증가할 수 있다.\n\n상속 오용\n123456789101112131415161718192021222324// 예시 코드public class Container extends ArrayList&lt;Luggage&gt; &#123;    private int maxSize;    private int currentSize;    public Container(int maxSize) &#123;        this.maxSize = maxSize;    &#125;    public void put(Luggage lug) throws NotEnoughSpaceException&#123;        if(!canContain(lug))&#123;            throw new NotEnoughSpaceException();        &#125;         super.add(lug);        currentSize += lug.size();    &#125;    public void extract(Luggage lug) &#123;        super.remove(lug);        this.currentSize -= lug.size();    &#125;    public boolean canContain(Luggage lug) &#123;        return maxSize &gt;= currentSize + lug.size();    &#125;&#125;\n\n이러한 경우에 put() 메소드를 사용해야 Luggage사이즈를 변경할 수 있는데 Container 클래스를 상속받아서 사용하는 입장에서는 ArrayList클래스의 add()도 함께 상속받고, 사용가능하기 때문에 put과 add이 의미상 같기 때문에 오용할 수 있다. 오용한 사람보다 Container클래스를 오용하게끔 설계한 사람에게 더 잘못이 있다.\n\n\n1.2 상속의 단점 해결방법1.2.1 조립\n여러객체를 묶어서 더 복잡한 기능을 제공\n\n보통필드로 다른 객체를 참조하는 방식으로 조립 또는 객체를 필요시점에 생성\n\n\n1.2.2 조립을 통한 기능 재사용\n이전코드에서 ArrayList&lt;Luggage&gt;를 상속을 받아서 사용하고있는데 이 클래스는 Container클래스에서만 사용되어야하기 때문에 상속하지않고, 필드생성으로 재사용을 한다.\n\n상속하기에 앞서 조립으로 풀 수 없는지 검토를 먼저 해볼 것.\n\n진짜 하위타입인 경우에만 상속을 사용한다.\n\n\n\n객체지향적 사고를 제대로 갖추기 위해서 기초적인 것부터 하나씩 다시 공부하고있는데 개념으로는 알겠는데 막상 코드로 직접 설계하고, 구현해보려고하니 한계가 있었다. 잘짜여진 코드를 많이보고 연구해보아야 할 것 같다.\n\n\n\ninflearn  객체 지향 프로그래밍 입문  강의를 보고 작성한 글입니다.\n\nGithub\n\nvelog\nBlog\n\n\n","dateCreated":"2018-12-15T12:57:25+09:00","dateModified":"2018-12-17T16:39:07+09:00","datePublished":"2018-12-15T12:57:25+09:00","description":"","headline":"기초 개발상식 및 개념들 - 2 (상속과 재사용)","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://ggomi.github.io/basic-2/"},"publisher":{"@type":"Organization","name":"Jeongmin Oh","sameAs":["https://github.com/ggomi","https://twitter.com/","https://www.facebook.com/Jeongmin.Oo","https://www.linkedin.com/in/%EC%A0%95%EB%AF%BC-%EC%98%A4-50b22511b/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://ggomi.github.io/basic-2/","keywords":"개발자 기초다지기_2, 상속, 조립"}</script>
     <meta name="description" content="기초 개발상식 및 개념들 - 2  1. 상속과 재사용1.1 상속을 통한 재사용 단점 상위클래스의 변경이 어렵다.  상위클래스를 변경하게되면 그에 해당하는 하위클래스 모두에게 영향을 줄 수 있다. 상위클래스 입장에서 앞으로 어떤 하위클래스가 생길지 모르기 때문에 쉽게 변경하기 어렵다.   클래스가 증가할 수 있다.  상속 오용 12345678910111213">
-<meta name="keywords" content="개발자 기초다지기_1,상속,조립">
+<meta name="keywords" content="개발자 기초다지기_2,상속,조립">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="기초 개발상식 및 개념들 - 2 (상속과 재사용)">
 <meta property="og:url" content="https://ggomi.github.io/basic-2/index.html">
@@ -27,7 +27,7 @@
 <meta property="og:description" content="기초 개발상식 및 개념들 - 2  1. 상속과 재사용1.1 상속을 통한 재사용 단점 상위클래스의 변경이 어렵다.  상위클래스를 변경하게되면 그에 해당하는 하위클래스 모두에게 영향을 줄 수 있다. 상위클래스 입장에서 앞으로 어떤 하위클래스가 생길지 모르기 때문에 쉽게 변경하기 어렵다.   클래스가 증가할 수 있다.  상속 오용 12345678910111213">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://ggomi.github.io/assets/images/basic1.png">
-<meta property="og:updated_time" content="2018-12-15T04:40:13.358Z">
+<meta property="og:updated_time" content="2018-12-17T07:39:07.151Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="기초 개발상식 및 개념들 - 2 (상속과 재사용)">
 <meta name="twitter:description" content="기초 개발상식 및 개념들 - 2  1. 상속과 재사용1.1 상속을 통한 재사용 단점 상위클래스의 변경이 어렵다.  상위클래스를 변경하게되면 그에 해당하는 하위클래스 모두에게 영향을 줄 수 있다. 상위클래스 입장에서 앞으로 어떤 하위클래스가 생길지 모르기 때문에 쉽게 변경하기 어렵다.   클래스가 증가할 수 있다.  상속 오용 12345678910111213">
@@ -333,7 +333,7 @@
             <div class="post-footer-tags">
                 <span class="text-color-light text-small">TAGGED IN</span><br>
                 
-    <a class="tag tag--primary tag--small t-link" href="/tags/개발자-기초다지기-1/">개발자 기초다지기_1</a> <a class="tag tag--primary tag--small t-link" href="/tags/상속/">상속</a> <a class="tag tag--primary tag--small t-link" href="/tags/조립/">조립</a>
+    <a class="tag tag--primary tag--small t-link" href="/tags/개발자-기초다지기-2/">개발자 기초다지기_2</a> <a class="tag tag--primary tag--small t-link" href="/tags/상속/">상속</a> <a class="tag tag--primary tag--small t-link" href="/tags/조립/">조립</a>
 
             </div>
         
@@ -343,7 +343,8 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--disabled">
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/basic-3/" data-tooltip="재사용과 함수 추출" aria-label="PREVIOUS: 재사용과 함수 추출">
                 
                     <i class="fa fa-angle-left" aria-hidden="true"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -428,7 +429,8 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--disabled">
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/basic-3/" data-tooltip="재사용과 함수 추출" aria-label="PREVIOUS: 재사용과 함수 추출">
                 
                     <i class="fa fa-angle-left" aria-hidden="true"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
