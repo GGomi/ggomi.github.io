@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Jeongmin&#39;s Blog">
-    <title>개발자 기초 다지기 - 0 - Jeongmin&#39;s Blog</title>
+    <title>함수 리팩토링, 추상화 예제 (2) - Jeongmin&#39;s Blog</title>
     <meta name="author" content="Jeongmin Oh">
     
         <meta name="keywords" content="java,spring boot,JPA,jpa,Java,Spring Boot,lombok,">
@@ -17,19 +17,26 @@
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jeongmin Oh","sameAs":["https://github.com/ggomi","https://twitter.com/","https://www.facebook.com/Jeongmin.Oo","https://www.linkedin.com/in/%EC%A0%95%EB%AF%BC-%EC%98%A4-50b22511b/"],"image":"profile.jpg"},"articleBody":"기초다지기!!\n졸업이 두달 정도 남은 상황이다. 취업을 앞두고, 해왔던 것들에 대해서 회의감이 들어서 지금까지 해왔던 공부들을 복습하고, 기초를 다시 다져보려고한다.\n\n\n\n\n목차\n기초 개발상식 및 개념들\n자료구조\n데이터베이스(RDBS)\n운영체제\n중요 알고리즘 공부\n네트워크\n\n\n위의 순서대로 공부를 시작할 생각이고, ‘최소한 이정도는 알아야한다.’ 하는 그 최소한을 공부하면서 계획을 진행할 예정이다.\n\n","dateCreated":"2018-12-12T08:58:33+09:00","dateModified":"2018-12-18T11:45:33+09:00","datePublished":"2018-12-12T08:58:33+09:00","description":"","headline":"개발자 기초 다지기 - 0","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://ggomi.github.io/basic-0/"},"publisher":{"@type":"Organization","name":"Jeongmin Oh","sameAs":["https://github.com/ggomi","https://twitter.com/","https://www.facebook.com/Jeongmin.Oo","https://www.linkedin.com/in/%EC%A0%95%EB%AF%BC-%EC%98%A4-50b22511b/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://ggomi.github.io/basic-0/","keywords":"OOP, 객체지향프로그래밍, 취업준비, 개발자 기초다지기_0"}</script>
-    <meta name="description" content="기초다지기!! 졸업이 두달 정도 남은 상황이다. 취업을 앞두고, 해왔던 것들에 대해서 회의감이 들어서 지금까지 해왔던 공부들을 복습하고, 기초를 다시 다져보려고한다.     목차 기초 개발상식 및 개념들 자료구조 데이터베이스(RDBS) 운영체제 중요 알고리즘 공부 네트워크   위의 순서대로 공부를 시작할 생각이고, ‘최소한 이정도는 알아야한다.’ 하는 그">
-<meta name="keywords" content="OOP,객체지향프로그래밍,취업준비,개발자 기초다지기_0">
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jeongmin Oh","sameAs":["https://github.com/ggomi","https://twitter.com/","https://www.facebook.com/Jeongmin.Oo","https://www.linkedin.com/in/%EC%A0%95%EB%AF%BC-%EC%98%A4-50b22511b/"],"image":"profile.jpg"},"articleBody":"함수 리팩토링, 추상화 예제 (2)\n\n 클린코더스 - 백명석님  강의를 보고 작성한 글입니다.Source Code\n\n\n\n\n함수의 파라미터에 Extract Valuable를 진행하고, Extract Method를 진행하기위해 가장안쪽 if 내부에 있던 지역변수를 if문 밖으로 꺼내어 메소드 추출 준비를 합니다.\n그리고 유사한 코드를 찾아 메소드로 추출합니다.\n\n\n\n추출하고 남아있는 코드에서 의미없이 라인만 차지하는 코드들을 inline형태로 변경하고, 다시 메소드 추출을 진행합니다.\n\n\n\n마지막으로 같은레벨의 if문 두개로 나누어져있는 코드를 하나로 병합해줍니다.\n\n\n\n이렇게 코드를 리팩토링을 연습해보았는데, 저번 포스트에서 나온 것처럼 함수추출을 진행해도 추상화단계에 변화가 없을 때까지 추출을 진행해야 한다는 것이 크게 와닿지 않았었는데 코드예제를 보고 연습을 하다보니 왜 그렇게 해야할지 알 수 있었고, 역시 어렵다..\n같은 코드만 10번정도 반복한 것 같다.. 멍청..\n\n\n\nvelog\n\nBlog\n\n\n\n","dateCreated":"2018-12-18T11:14:05+09:00","dateModified":"2018-12-18T11:56:58+09:00","datePublished":"2018-12-18T11:14:05+09:00","description":"","headline":"함수 리팩토링, 추상화 예제 (2)","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://ggomi.github.io/function-example2/"},"publisher":{"@type":"Organization","name":"Jeongmin Oh","sameAs":["https://github.com/ggomi","https://twitter.com/","https://www.facebook.com/Jeongmin.Oo","https://www.linkedin.com/in/%EC%A0%95%EB%AF%BC-%EC%98%A4-50b22511b/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://ggomi.github.io/function-example2/","keywords":"개발자 기초다지기_함수, 함수, 리팩토링"}</script>
+    <meta name="description" content="함수 리팩토링, 추상화 예제 (2)   클린코더스 - 백명석님  강의를 보고 작성한 글입니다.Source Code     함수의 파라미터에 Extract Valuable를 진행하고, Extract Method를 진행하기위해 가장안쪽 if 내부에 있던 지역변수를 if문 밖으로 꺼내어 메소드 추출 준비를 합니다. 그리고 유사한 코드를 찾아 메소드로 추출합니다.">
+<meta name="keywords" content="개발자 기초다지기_함수,함수,리팩토링">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="개발자 기초 다지기 - 0">
-<meta property="og:url" content="https://ggomi.github.io/basic-0/index.html">
+<meta property="og:title" content="함수 리팩토링, 추상화 예제 (2)">
+<meta property="og:url" content="https://ggomi.github.io/function-example2/index.html">
 <meta property="og:site_name" content="Jeongmin&#39;s Blog">
-<meta property="og:description" content="기초다지기!! 졸업이 두달 정도 남은 상황이다. 취업을 앞두고, 해왔던 것들에 대해서 회의감이 들어서 지금까지 해왔던 공부들을 복습하고, 기초를 다시 다져보려고한다.     목차 기초 개발상식 및 개념들 자료구조 데이터베이스(RDBS) 운영체제 중요 알고리즘 공부 네트워크   위의 순서대로 공부를 시작할 생각이고, ‘최소한 이정도는 알아야한다.’ 하는 그">
+<meta property="og:description" content="함수 리팩토링, 추상화 예제 (2)   클린코더스 - 백명석님  강의를 보고 작성한 글입니다.Source Code     함수의 파라미터에 Extract Valuable를 진행하고, Extract Method를 진행하기위해 가장안쪽 if 내부에 있던 지역변수를 if문 밖으로 꺼내어 메소드 추출 준비를 합니다. 그리고 유사한 코드를 찾아 메소드로 추출합니다.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-12-18T02:45:33.088Z">
+<meta property="og:image" content="https://ggomi.github.io/assets/images/function.jpg">
+<meta property="og:image" content="https://ggomi.github.io/assets/images/gif/test5.gif">
+<meta property="og:image" content="https://ggomi.github.io/assets/images/gif/test6.gif">
+<meta property="og:image" content="https://ggomi.github.io/assets/images/gif/test7.gif">
+<meta property="og:image" content="https://ggomi.github.io/assets/images/gif/test8.gif">
+<meta property="og:image" content="https://ggomi.github.io/assets/images/result.png">
+<meta property="og:updated_time" content="2018-12-18T02:56:58.842Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="개발자 기초 다지기 - 0">
-<meta name="twitter:description" content="기초다지기!! 졸업이 두달 정도 남은 상황이다. 취업을 앞두고, 해왔던 것들에 대해서 회의감이 들어서 지금까지 해왔던 공부들을 복습하고, 기초를 다시 다져보려고한다.     목차 기초 개발상식 및 개념들 자료구조 데이터베이스(RDBS) 운영체제 중요 알고리즘 공부 네트워크   위의 순서대로 공부를 시작할 생각이고, ‘최소한 이정도는 알아야한다.’ 하는 그">
+<meta name="twitter:title" content="함수 리팩토링, 추상화 예제 (2)">
+<meta name="twitter:description" content="함수 리팩토링, 추상화 예제 (2)   클린코더스 - 백명석님  강의를 보고 작성한 글입니다.Source Code     함수의 파라미터에 Extract Valuable를 진행하고, Extract Method를 진행하기위해 가장안쪽 if 내부에 있던 지역변수를 if문 밖으로 꺼내어 메소드 추출 준비를 합니다. 그리고 유사한 코드를 찾아 메소드로 추출합니다.">
+<meta name="twitter:image" content="https://ggomi.github.io/assets/images/function.jpg">
     
     
         
@@ -86,7 +93,7 @@
         
         </a>
     
-    <link rel="canonical" href="https://ggomi.github.io/basic-0/">
+    <link rel="canonical" href="https://ggomi.github.io/function-example2/">
 </header>
 
             <!-- Define author's picture -->
@@ -253,22 +260,16 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title">
-            개발자 기초 다지기 - 0
+            함수 리팩토링, 추상화 예제 (2)
         </h1>
     
     
         <div class="post-meta">
-    <time datetime="2018-12-12T08:58:33+09:00">
+    <time datetime="2018-12-18T11:14:05+09:00">
 	
-		    Dec 12, 2018
+		    Dec 18, 2018
     	
     </time>
-    
-        <span>in </span>
-        
-    <a class="category-link" href="/categories/Basic-sense/">Basic_sense</a>
-
-
     
 </div>
 
@@ -278,23 +279,37 @@
     
     <div class="post-content markdown">
         <div class="main-content-wrap">
-            <h2 id="기초다지기"><a href="#기초다지기" class="headerlink" title="기초다지기!!"></a>기초다지기!!</h2><ul>
-<li>졸업이 두달 정도 남은 상황이다. 취업을 앞두고, 해왔던 것들에 대해서 회의감이 들어서 지금까지 해왔던 공부들을 복습하고, 기초를 다시 다져보려고한다.</li>
+            <h2 id="함수-리팩토링-추상화-예제-2"><a href="#함수-리팩토링-추상화-예제-2" class="headerlink" title="함수 리팩토링, 추상화 예제 (2)"></a>함수 리팩토링, 추상화 예제 (2)</h2><p><img src="/assets/images/function.jpg" alt="banner"></p>
+<blockquote>
+<p><a href="https://www.youtube.com/user/codetemplate/videos" rel="external nofollow noopener noreferrer" target="_blank"> 클린코더스 - 백명석님 </a> 강의를 보고 작성한 글입니다.<br><a href="https://github.com/msbaek/clean-coders-2013" rel="external nofollow noopener noreferrer" target="_blank">Source Code</a></p>
+</blockquote>
+<hr>
+<p><img src="/assets/images/gif/test5.gif" alt="pageName"><br><img src="/assets/images/gif/test6.gif" alt="method Extract"></p>
+<ul>
+<li>함수의 파라미터에 <code>Extract Valuable</code>를 진행하고, <code>Extract Method</code>를 진행하기위해 가장안쪽 <code>if</code> 내부에 있던 지역변수를 <code>if</code>문 밖으로 꺼내어 메소드 추출 준비를 합니다.</li>
+<li>그리고 유사한 코드를 찾아 메소드로 추출합니다.</li>
+</ul>
+<p><img src="/assets/images/gif/test7.gif" alt="inline"><br><img src="/assets/images/gif/test8.gif" alt="method Extract"></p>
+<ul>
+<li>추출하고 남아있는 코드에서 의미없이 라인만 차지하는 코드들을 <code>inline</code>형태로 변경하고, 다시 메소드 추출을 진행합니다.</li>
+</ul>
+<p><img src="/assets/images/result.png" alt="method Extract"></p>
+<ul>
+<li>마지막으로 같은레벨의 <code>if</code>문 두개로 나누어져있는 코드를 하나로 병합해줍니다.</li>
 </ul>
 <hr>
-<blockquote>
-</blockquote>
-<h2 id="목차"><a href="#목차" class="headerlink" title="목차"></a>목차</h2><ol>
-<li>기초 개발상식 및 개념들</li>
-<li>자료구조</li>
-<li>데이터베이스(RDBS)</li>
-<li>운영체제</li>
-<li>중요 알고리즘 공부</li>
-<li>네트워크</li>
-</ol>
 <ul>
-<li>위의 순서대로 공부를 시작할 생각이고, <strong>‘최소한 이정도는 알아야한다.’</strong> 하는 그 최소한을 공부하면서 계획을 진행할 예정이다.</li>
+<li>이렇게 코드를 리팩토링을 연습해보았는데, 저번 <a href="/basic-3">포스트</a>에서 나온 것처럼 함수추출을 진행해도 추상화단계에 변화가 없을 때까지 추출을 진행해야 한다는 것이 크게 와닿지 않았었는데 코드예제를 보고 연습을 하다보니 왜 그렇게 해야할지 알 수 있었고, 역시 어렵다..</li>
+<li>같은 코드만 10번정도 반복한 것 같다.. <del>멍청..</del></li>
 </ul>
+<hr>
+<ul>
+<li><p><a href="https://velog.io/@essri" rel="external nofollow noopener noreferrer" target="_blank">velog</a></p>
+</li>
+<li><p><a href="https://ggomi.github.io">Blog</a></p>
+</li>
+</ul>
+<hr>
 
             
 
@@ -305,7 +320,7 @@
             <div class="post-footer-tags">
                 <span class="text-color-light text-small">TAGGED IN</span><br>
                 
-    <a class="tag tag--primary tag--small t-link" href="/tags/OOP/">OOP</a> <a class="tag tag--primary tag--small t-link" href="/tags/개발자-기초다지기-0/">개발자 기초다지기_0</a> <a class="tag tag--primary tag--small t-link" href="/tags/객체지향프로그래밍/">객체지향프로그래밍</a> <a class="tag tag--primary tag--small t-link" href="/tags/취업준비/">취업준비</a>
+    <a class="tag tag--primary tag--small t-link" href="/tags/개발자-기초다지기-함수/">개발자 기초다지기_함수</a> <a class="tag tag--primary tag--small t-link" href="/tags/리팩토링/">리팩토링</a> <a class="tag tag--primary tag--small t-link" href="/tags/함수/">함수</a>
 
             </div>
         
@@ -315,8 +330,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/basic-1/" data-tooltip="개발자 기초 다지기 - 1" aria-label="PREVIOUS: 개발자 기초 다지기 - 1">
+                    <a class="post-action-btn btn btn--disabled">
                 
                     <i class="fa fa-angle-left" aria-hidden="true"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -324,7 +338,8 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--disabled">
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/function-example/" data-tooltip="함수 리팩토링, 추상화 예제 (1)" aria-label="NEXT: 함수 리팩토링, 추상화 예제 (1)">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                     <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -342,7 +357,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ggomi.github.io/basic-0/" title="Share on Facebook" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ggomi.github.io/function-example2/" title="Share on Facebook" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -350,7 +365,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=https://ggomi.github.io/basic-0/" title="Share on Twitter" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=https://ggomi.github.io/function-example2/" title="Share on Twitter" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -358,7 +373,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=https://ggomi.github.io/basic-0/" title="Share on Google+" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=https://ggomi.github.io/function-example2/" title="Share on Google+" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -400,8 +415,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/basic-1/" data-tooltip="개발자 기초 다지기 - 1" aria-label="PREVIOUS: 개발자 기초 다지기 - 1">
+                    <a class="post-action-btn btn btn--disabled">
                 
                     <i class="fa fa-angle-left" aria-hidden="true"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -409,7 +423,8 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--disabled">
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/function-example/" data-tooltip="함수 리팩토링, 추상화 예제 (1)" aria-label="NEXT: 함수 리팩토링, 추상화 예제 (1)">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                     <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -427,7 +442,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ggomi.github.io/basic-0/" title="Share on Facebook" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ggomi.github.io/function-example2/" title="Share on Facebook" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -435,7 +450,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=https://ggomi.github.io/basic-0/" title="Share on Twitter" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=https://ggomi.github.io/function-example2/" title="Share on Twitter" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -443,7 +458,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=https://ggomi.github.io/basic-0/" title="Share on Google+" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=https://ggomi.github.io/function-example2/" title="Share on Google+" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -470,7 +485,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ggomi.github.io/basic-0/" rel="external nofollow noopener noreferrer">
+                <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ggomi.github.io/function-example2/" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
                 </a>
             </li>
@@ -478,7 +493,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=https://ggomi.github.io/basic-0/" rel="external nofollow noopener noreferrer">
+                <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=https://ggomi.github.io/function-example2/" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
                 </a>
             </li>
@@ -486,7 +501,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=https://ggomi.github.io/basic-0/" rel="external nofollow noopener noreferrer">
+                <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=https://ggomi.github.io/function-example2/" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
                 </a>
             </li>

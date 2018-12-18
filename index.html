@@ -251,6 +251,148 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
+                        <a class="link-unstyled" href="/function-example2/">
+                            함수 리팩토링, 추상화 예제 (2)
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2018-12-18T11:14:05+09:00">
+	
+		    Dec 18, 2018
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h2 id="함수-리팩토링-추상화-예제-2"><a href="#함수-리팩토링-추상화-예제-2" class="headerlink" title="함수 리팩토링, 추상화 예제 (2)"></a>함수 리팩토링, 추상화 예제 (2)</h2><p><img src="/assets/images/function.jpg" alt="banner"></p>
+<blockquote>
+<p><a href="https://www.youtube.com/user/codetemplate/videos" rel="external nofollow noopener noreferrer" target="_blank"> 클린코더스 - 백명석님 </a> 강의를 보고 작성한 글입니다.<br><a href="https://github.com/msbaek/clean-coders-2013" rel="external nofollow noopener noreferrer" target="_blank">Source Code</a></p>
+</blockquote>
+<hr>
+<p><img src="/assets/images/gif/test5.gif" alt="pageName"><br><img src="/assets/images/gif/test6.gif" alt="method Extract"></p>
+<ul>
+<li>함수의 파라미터에 <code>Extract Valuable</code>를 진행하고, <code>Extract Method</code>를 진행하기위해 가장안쪽 <code>if</code> 내부에 있던 지역변수를 <code>if</code>문 밖으로 꺼내어 메소드 추출 준비를 합니다.</li>
+<li>그리고 유사한 코드를 찾아 메소드로 추출합니다.</li>
+</ul>
+<p><img src="/assets/images/gif/test7.gif" alt="inline"><br><img src="/assets/images/gif/test8.gif" alt="method Extract"></p>
+<ul>
+<li>추출하고 남아있는 코드에서 의미없이 라인만 차지하는 코드들을 <code>inline</code>형태로 변경하고, 다시 메소드 추출을 진행합니다.</li>
+</ul>
+<p><img src="/assets/images/result.png" alt="method Extract"></p>
+<ul>
+<li>마지막으로 같은레벨의 <code>if</code>문 두개로 나누어져있는 코드를 하나로 병합해줍니다.</li>
+</ul>
+<hr>
+<ul>
+<li>이렇게 코드를 리팩토링을 연습해보았는데, 저번 <a href="/basic-3">포스트</a>에서 나온 것처럼 함수추출을 진행해도 추상화단계에 변화가 없을 때까지 추출을 진행해야 한다는 것이 크게 와닿지 않았었는데 코드예제를 보고 연습을 하다보니 왜 그렇게 해야할지 알 수 있었고, 역시 어렵다..</li>
+<li>같은 코드만 10번정도 반복한 것 같다.. <del>멍청..</del></li>
+</ul>
+<hr>
+<ul>
+<li><p><a href="https://velog.io/@essri" rel="external nofollow noopener noreferrer" target="_blank">velog</a></p>
+</li>
+<li><p><a href="https://ggomi.github.io">Blog</a></p>
+</li>
+</ul>
+<hr>
+
+                    
+                        
+
+                    
+                    
+                        <p>
+                            <a href="/function-example2/#post-footer" class="postShorten-excerpt_link link">
+                                Comment and share
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a class="link-unstyled" href="/function-example/">
+                            함수 리팩토링, 추상화 예제 (1)
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2018-12-18T10:16:53+09:00">
+	
+		    Dec 18, 2018
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h2 id="함수-리팩토링-추상화-예제-1"><a href="#함수-리팩토링-추상화-예제-1" class="headerlink" title="함수 리팩토링, 추상화 예제 (1)"></a>함수 리팩토링, 추상화 예제 (1)</h2><p><img src="/assets/images/function.jpg" alt="banner"></p>
+<blockquote>
+<p><a href="https://www.youtube.com/user/codetemplate/videos" rel="external nofollow noopener noreferrer" target="_blank"> 클린코더스 - 백명석님 </a> 강의를 보고 작성한 글입니다.<br><a href="https://github.com/msbaek/clean-coders-2013" rel="external nofollow noopener noreferrer" target="_blank">Source Code</a></p>
+</blockquote>
+<hr>
+<p><img src="/assets/images/initialize_builder.PNG" alt="initialize-Builder"></p>
+<ul>
+<li>처음 상태에 <code>Method</code> 하나에 너무 많은 내용이 들어있다. 위의 사진처럼 따로 Builder라는 클래스를 따로 빼주었다.</li>
+</ul>
+<p><img src="/assets/images/gif/test2.gif" alt="Extract-field"></p>
+<ul>
+<li><code>WikiPage</code>와 <code>builder</code> 지역 변수가 여러 번에 걸쳐서 사용되고 있으므로 필드 변수로 뺄 수 있다. 이작업으로 인해 <code>Method</code>는 최소한의 변수를 가져야한다는 사항을 만족시킬 수 있다.</li>
+<li>그리고 <code>Method</code>에서 두개 이상의 변수를 가지고, 수정하고 있으면 IDE에서 제공하는 Extract기능을 사용할 수 없다.</li>
+</ul>
+<p><img src="/assets/images/gif/test3.gif" alt="Extract-Variable"><br><img src="/assets/images/gif/test4.gif" alt="Extract-Method"></p>
+<ul>
+<li>가장 안쪽의 <code>if</code>문이 비슷한 형태로 반복되고있는걸 볼 수 있다. 하지만 <code>buffer(...)</code>에서 각자 취하고 있는 값이 조금 다르기 때문에 <code>Variable</code>로 Extract 해준다. </li>
+<li>그 후 유사한 부분에 대해서 <code>Extract Method</code>를 진행한다. </li>
+</ul>
+<hr>
+<ul>
+<li><p><a href="https://velog.io/@essri" rel="external nofollow noopener noreferrer" target="_blank">velog</a></p>
+</li>
+<li><p><a href="https://ggomi.github.io">Blog</a></p>
+</li>
+</ul>
+<hr>
+
+                    
+                        
+
+                    
+                    
+                        <p>
+                            <a href="/function-example/#post-footer" class="postShorten-excerpt_link link">
+                                Comment and share
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
                         <a class="link-unstyled" href="/basic-3/">
                             재사용과 함수 추출
                         </a>
@@ -334,7 +476,7 @@
                 <h1 class="postShorten-title">
                     
                         <a class="link-unstyled" href="/basic-2/">
-                            기초 개발상식 및 개념들 - 2 (상속과 재사용)
+                            개발자 기초 다지기 - 2 (상속과 재사용)
                         </a>
                     
                 </h1>
@@ -543,7 +685,9 @@
 <h3 id="5-5-DIP-Dependency-Inversion-Principle-의존-역전-원칙"><a href="#5-5-DIP-Dependency-Inversion-Principle-의존-역전-원칙" class="headerlink" title="5_5 DIP(Dependency Inversion Principle) : 의존 역전 원칙"></a>5_5 <strong>DIP(Dependency Inversion Principle)</strong> : 의존 역전 원칙</h3><ul>
 <li>고수준 모듈은 저수준 모듈의 구현에 <strong>의존</strong>해서는 안된다.??</li>
 </ul>
-<h2 id="이-원칙들은-객체간의-응집도는-높이고-결합도는-낮추자는-원칙을-재정립한-것이다"><a href="#이-원칙들은-객체간의-응집도는-높이고-결합도는-낮추자는-원칙을-재정립한-것이다" class="headerlink" title="이 원칙들은 객체간의 응집도는 높이고, 결합도는 낮추자는 원칙을 재정립한 것이다."></a><strong>이 원칙들은 객체간의 응집도는 높이고, 결합도는 낮추자는 원칙을 재정립한 것이다.</strong></h2><ul>
+<p><strong>이 원칙들은 객체간의 응집도는 높이고, 결합도는 낮추자는 원칙을 재정립한 것이다.</strong></p>
+<hr>
+<ul>
 <li>inflearn <a href="https://www.inflearn.com/course/%EA%B0%9D%EC%B2%B4-%EC%A7%80%ED%96%A5-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-%EC%9E%85%EB%AC%B8/" rel="external nofollow noopener noreferrer" target="_blank"> 객체 지향 프로그래밍 입문 </a> 강의를 보고 작성한 글입니다.</li>
 <li><a href="https://velog.io/@essri/%EA%B8%B0%EC%B4%88-%EA%B0%9C%EB%B0%9C%EC%83%81%EC%8B%9D-%EB%B0%8F-%EA%B0%9C%EB%85%90%EB%93%A4-1-" rel="external nofollow noopener noreferrer" target="_blank">velog</a> 링크</li>
 </ul>
@@ -574,7 +718,7 @@
                 <h1 class="postShorten-title">
                     
                         <a class="link-unstyled" href="/basic-0/">
-                            기초 다지기 - 0
+                            개발자 기초 다지기 - 0
                         </a>
                     
                 </h1>
