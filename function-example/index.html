@@ -17,25 +17,25 @@
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jeongmin Oh","sameAs":["https://github.com/ggomi","https://twitter.com/","https://www.facebook.com/Jeongmin.Oo","https://www.linkedin.com/in/%EC%A0%95%EB%AF%BC-%EC%98%A4-50b22511b/"],"image":"profile.jpg"},"articleBody":"함수 리팩토링, 추상화 예제 (1)\n\n 클린코더스 - 백명석님  강의를 보고 작성한 글입니다.Source Code\n\n\n\n\n처음 상태에 Method 하나에 너무 많은 내용이 들어있다. 위의 사진처럼 따로 Builder라는 클래스를 따로 빼주었다.\n\n\n\nWikiPage와 builder 지역 변수가 여러 번에 걸쳐서 사용되고 있으므로 필드 변수로 뺄 수 있다. 이작업으로 인해 Method는 최소한의 변수를 가져야한다는 사항을 만족시킬 수 있다.\n그리고 Method에서 두개 이상의 변수를 가지고, 수정하고 있으면 IDE에서 제공하는 Extract기능을 사용할 수 없다.\n\n\n\n가장 안쪽의 if문이 비슷한 형태로 반복되고있는걸 볼 수 있다. 하지만 buffer(...)에서 각자 취하고 있는 값이 조금 다르기 때문에 Variable로 Extract 해준다. \n그 후 유사한 부분에 대해서 Extract Method를 진행한다. \n\n\n\nvelog\n\nBlog\n\n\n\n","dateCreated":"2018-12-18T10:16:53+09:00","dateModified":"2018-12-18T11:55:41+09:00","datePublished":"2018-12-18T10:16:53+09:00","description":"","headline":"함수 리팩토링, 추상화 예제 (1)","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://ggomi.github.io/function-example/"},"publisher":{"@type":"Organization","name":"Jeongmin Oh","sameAs":["https://github.com/ggomi","https://twitter.com/","https://www.facebook.com/Jeongmin.Oo","https://www.linkedin.com/in/%EC%A0%95%EB%AF%BC-%EC%98%A4-50b22511b/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://ggomi.github.io/function-example/","keywords":"개발자 기초다지기_함수, 함수, 리팩토링"}</script>
-    <meta name="description" content="함수 리팩토링, 추상화 예제 (1)   클린코더스 - 백명석님  강의를 보고 작성한 글입니다.Source Code     처음 상태에 Method 하나에 너무 많은 내용이 들어있다. 위의 사진처럼 따로 Builder라는 클래스를 따로 빼주었다.    WikiPage와 builder 지역 변수가 여러 번에 걸쳐서 사용되고 있으므로 필드 변수로 뺄 수 있다.">
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jeongmin Oh","sameAs":["https://github.com/ggomi","https://twitter.com/","https://www.facebook.com/Jeongmin.Oo","https://www.linkedin.com/in/%EC%A0%95%EB%AF%BC-%EC%98%A4-50b22511b/"],"image":"profile.jpg"},"articleBody":"함수 리팩토링, 추상화 예제 (1)\n\n 클린코더스 - 백명석님  강의를 보고 작성한 글입니다.Source Code\n\n\n\n해당 강의에서 나온 예제입니다. 처음 소스파일은 클래스 하나에 메소드 하나의 구조로 되어있었습니다.\n\n\n\n처음 상태에 Method 하나에 너무 많은 내용이 들어있다. 위의 사진처럼 따로 Builder라는 클래스를 따로 빼주었다.\n\n\n\nWikiPage와 builder 지역 변수가 여러 번에 걸쳐서 사용되고 있으므로 필드 변수로 뺄 수 있다. 이작업으로 인해 Method는 최소한의 변수를 가져야한다는 사항을 만족시킬 수 있다.\n그리고 Method에서 두개 이상의 변수를 가지고, 수정하고 있으면 IDE에서 제공하는 Extract기능을 사용할 수 없다.\n\n\n\n가장 안쪽의 if문이 비슷한 형태로 반복되고있는걸 볼 수 있다. 하지만 buffer(...)에서 각자 취하고 있는 값이 조금 다르기 때문에 Variable로 Extract 해준다. \n그 후 유사한 부분에 대해서 Extract Method를 진행한다. \n\n\n\nvelog\n\nBlog\n\n\n\n","dateCreated":"2018-12-18T10:16:53+09:00","dateModified":"2018-12-18T13:33:12+09:00","datePublished":"2018-12-18T10:16:53+09:00","description":"","headline":"함수 리팩토링, 추상화 예제 (1)","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://ggomi.github.io/function-example/"},"publisher":{"@type":"Organization","name":"Jeongmin Oh","sameAs":["https://github.com/ggomi","https://twitter.com/","https://www.facebook.com/Jeongmin.Oo","https://www.linkedin.com/in/%EC%A0%95%EB%AF%BC-%EC%98%A4-50b22511b/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://ggomi.github.io/function-example/","keywords":"개발자 기초다지기_함수, 함수, 리팩토링"}</script>
+    <meta name="description" content="함수 리팩토링, 추상화 예제 (1)   클린코더스 - 백명석님  강의를 보고 작성한 글입니다.Source Code    해당 강의에서 나온 예제입니다. 처음 소스파일은 클래스 하나에 메소드 하나의 구조로 되어있었습니다.    처음 상태에 Method 하나에 너무 많은 내용이 들어있다. 위의 사진처럼 따로 Builder라는 클래스를 따로 빼주었다.    Wi">
 <meta name="keywords" content="개발자 기초다지기_함수,함수,리팩토링">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="함수 리팩토링, 추상화 예제 (1)">
 <meta property="og:url" content="https://ggomi.github.io/function-example/index.html">
 <meta property="og:site_name" content="Jeongmin&#39;s Blog">
-<meta property="og:description" content="함수 리팩토링, 추상화 예제 (1)   클린코더스 - 백명석님  강의를 보고 작성한 글입니다.Source Code     처음 상태에 Method 하나에 너무 많은 내용이 들어있다. 위의 사진처럼 따로 Builder라는 클래스를 따로 빼주었다.    WikiPage와 builder 지역 변수가 여러 번에 걸쳐서 사용되고 있으므로 필드 변수로 뺄 수 있다.">
+<meta property="og:description" content="함수 리팩토링, 추상화 예제 (1)   클린코더스 - 백명석님  강의를 보고 작성한 글입니다.Source Code    해당 강의에서 나온 예제입니다. 처음 소스파일은 클래스 하나에 메소드 하나의 구조로 되어있었습니다.    처음 상태에 Method 하나에 너무 많은 내용이 들어있다. 위의 사진처럼 따로 Builder라는 클래스를 따로 빼주었다.    Wi">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://ggomi.github.io/assets/images/function.jpg">
+<meta property="og:image" content="https://ggomi.github.io/assets/images/function.png">
 <meta property="og:image" content="https://ggomi.github.io/assets/images/initialize_builder.PNG">
 <meta property="og:image" content="https://ggomi.github.io/assets/images/gif/test2.gif">
 <meta property="og:image" content="https://ggomi.github.io/assets/images/gif/test3.gif">
 <meta property="og:image" content="https://ggomi.github.io/assets/images/gif/test4.gif">
-<meta property="og:updated_time" content="2018-12-18T02:55:41.423Z">
+<meta property="og:updated_time" content="2018-12-18T04:33:12.791Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="함수 리팩토링, 추상화 예제 (1)">
-<meta name="twitter:description" content="함수 리팩토링, 추상화 예제 (1)   클린코더스 - 백명석님  강의를 보고 작성한 글입니다.Source Code     처음 상태에 Method 하나에 너무 많은 내용이 들어있다. 위의 사진처럼 따로 Builder라는 클래스를 따로 빼주었다.    WikiPage와 builder 지역 변수가 여러 번에 걸쳐서 사용되고 있으므로 필드 변수로 뺄 수 있다.">
-<meta name="twitter:image" content="https://ggomi.github.io/assets/images/function.jpg">
+<meta name="twitter:description" content="함수 리팩토링, 추상화 예제 (1)   클린코더스 - 백명석님  강의를 보고 작성한 글입니다.Source Code    해당 강의에서 나온 예제입니다. 처음 소스파일은 클래스 하나에 메소드 하나의 구조로 되어있었습니다.    처음 상태에 Method 하나에 너무 많은 내용이 들어있다. 위의 사진처럼 따로 Builder라는 클래스를 따로 빼주었다.    Wi">
+<meta name="twitter:image" content="https://ggomi.github.io/assets/images/function.png">
     
     
         
@@ -278,11 +278,14 @@
     
     <div class="post-content markdown">
         <div class="main-content-wrap">
-            <h2 id="함수-리팩토링-추상화-예제-1"><a href="#함수-리팩토링-추상화-예제-1" class="headerlink" title="함수 리팩토링, 추상화 예제 (1)"></a>함수 리팩토링, 추상화 예제 (1)</h2><p><img src="/assets/images/function.jpg" alt="banner"></p>
+            <h2 id="함수-리팩토링-추상화-예제-1"><a href="#함수-리팩토링-추상화-예제-1" class="headerlink" title="함수 리팩토링, 추상화 예제 (1)"></a>함수 리팩토링, 추상화 예제 (1)</h2><p><img src="/assets/images/function.png" alt="banner"></p>
 <blockquote>
 <p><a href="https://www.youtube.com/user/codetemplate/videos" rel="external nofollow noopener noreferrer" target="_blank"> 클린코더스 - 백명석님 </a> 강의를 보고 작성한 글입니다.<br><a href="https://github.com/msbaek/clean-coders-2013" rel="external nofollow noopener noreferrer" target="_blank">Source Code</a></p>
 </blockquote>
 <hr>
+<ul>
+<li>해당 강의에서 나온 예제입니다. 처음 소스파일은 클래스 하나에 메소드 하나의 구조로 되어있었습니다.</li>
+</ul>
 <p><img src="/assets/images/initialize_builder.PNG" alt="initialize-Builder"></p>
 <ul>
 <li>처음 상태에 <code>Method</code> 하나에 너무 많은 내용이 들어있다. 위의 사진처럼 따로 Builder라는 클래스를 따로 빼주었다.</li>
