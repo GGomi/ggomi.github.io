@@ -252,6 +252,274 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
+                        <a class="link-unstyled" href="/function-structure-2/">
+                            함수의 구조 (function Structure) - 2
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2018-12-20T13:57:56+09:00">
+	
+		    Dec 20, 2018
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h1 id="함수의-구조"><a href="#함수의-구조" class="headerlink" title="함수의 구조"></a>함수의 구조</h1><blockquote>
+<p><a href="https://www.youtube.com/user/codetemplate/videos" rel="external nofollow noopener noreferrer" target="_blank"> 클린코더스 - 백명석님 </a> 강의를 보고 작성한 글입니다.<br><a href="https://github.com/msbaek/clean-coders-2013" rel="external nofollow noopener noreferrer" target="_blank">Source Code</a></p>
+</blockquote>
+<hr>
+<blockquote>
+<p><a href="/function-structure">함수의 구조 - 1</a></p>
+</blockquote>
+<p><strong>—————————————————————————————————————</strong></p>
+<h1 id="목차"><a href="#목차" class="headerlink" title="목차"></a>목차</h1><ul>
+<li><a href="#cqs">CQS(Command Query Seperate)</a></li>
+<li><a href="#Tell-Don&#39;t-Ask">Tell Don’t Ask</a></li>
+<li><a href="#law-of-demeter">Law of Demeter</a></li>
+<li><a href="#early-returns">Early returns</a></li>
+<li><a href="#error-handling">Error Handling</a></li>
+<li><a href="#special-cases">Special Cases</a></li>
+<li><a href="#null-is-a-value">Null is a value</a></li>
+<li><a href="#try">try도 하나의 역할 / 기능</a></li>
+</ul>
+<p><strong>—————————————————————————————————————</strong></p>
+<h1 id="CQS"><a href="#CQS" class="headerlink" title="CQS"></a>CQS</h1><ul>
+<li>상태를 변경하는 함수는 값을 반환하면 안된다. 값을 반환하는 함수는 상태를 변경하면 안된다.</li>
+</ul>
+<h2 id="command"><a href="#command" class="headerlink" title="command"></a>command</h2><ul>
+<li>시스템의 상태변경가능</li>
+<li>side effect를 갖는다</li>
+<li>아무것도 반환하지않는다.<h2 id="query"><a href="#query" class="headerlink" title="query"></a>query</h2></li>
+<li>side effect가 없다.</li>
+<li>계산값이나 시스템의 상태를 반환</li>
+<li>신뢰의 문제</li>
+</ul>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">User u = authorize.login(userName, password);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>위의 상황에서 User를 사용하기 위해서는 항상 login을 해야함. login을 하면 원치않아도 User정보를 읽어야만 한다.</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">authorize.login(userName, password);</span><br><span class="line">User u = authorize.getUser(userName);</span><br></pre></td></tr></table></figure>
+<ul>
+<li><figure class="highlight plain"><figcaption><span>Method```의 리턴을 void로 변경하고, ```User``` 정보가 필요할때만 읽음.</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">- 값을 반환하는 함수는 상태를 변경하면 안된다.</span><br><span class="line">상태를 변경하는 함수는 ```exception```을 발생시킬 수는 있지만, 값을 반환할 수 없다.</span><br><span class="line"></span><br><span class="line">- 이것은 SideEffect를 관리하는 약속이다. 약속을 어겨서 혼란을 주지말자.</span><br><span class="line"></span><br><span class="line">**---------------------------------------------------------------------------------------------------------------**</span><br><span class="line"></span><br><span class="line"># Tell Don&apos;t Ask</span><br><span class="line">- extream한 CQS는 C와 Q를 함께 사용하지 말도록</span><br><span class="line"></span><br><span class="line">&lt;img src=&quot;/assets/images/ask.png&quot; style=&quot;width: 60%;&quot;&gt;</span><br><span class="line"></span><br><span class="line">&gt; 로그인 여부는 user객체에 속한다. Tell Don&apos;t Ask 인데 isLoggedIn()은 이상함.</span><br><span class="line">- Tell Don&apos;t Ask 는 CQS를 강화하는 수단</span><br><span class="line">- 이 규칙을 준수하다보면 Query메소드가 많이 필요없어진다. - 매우 좋은 현상(왜냐하면 Q는 Out of control되는 경향이 있기 때문)</span><br><span class="line"></span><br><span class="line"># Law of Demeter</span><br><span class="line">```java</span><br><span class="line">// 예를 들어서 아래와 같은 코드가 있다면, </span><br><span class="line">o.getX()</span><br><span class="line">    .getY()</span><br><span class="line">        .getZ()</span><br><span class="line">            .doSomething();</span><br><span class="line"></span><br><span class="line">// 함수가 시스템에 너무 많은 의존성을 가지게 된다.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>함수가 시스템의 전체를 알게 하면 안된다.</p>
+</li>
+<li>개별 함수는 아주 제한된 지식만 가져야한다.</li>
+<li>이전 메소드 호출의 결과로 얻은 객체의 메소드를 호출하면 안된다.</li>
+<li>Tell Don’t Ask나, Law of Demeter 모두 어떻게 의존도를 낮추고, <em>Testable</em>하게 만들고, 클린하게 만들건지에 대한 방법, 규칙들이다.<blockquote>
+<p><em>ask대신 tell하면 surrounding과 decouple 된다.</em> </p>
+</blockquote>
+</li>
+</ul>
+<h1 id="early-returns"><a href="#early-returns" class="headerlink" title="early returns"></a>early returns</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(...)</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(...)</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(...)</span><br><span class="line"><span class="keyword">else</span> (...)&#123; <span class="keyword">return</span>; &#125;</span><br></pre></td></tr></table></figure>
+<p>위 코드처럼 <em>else</em>에다가 리턴을 두지말고 return 되는 로직을 상단으로 올려서 코드를 끝까지 읽지않아도 될 수 있게하는 것</p>
+<ul>
+<li>루프 중간에서 return 하는 것은 문제이다.</li>
+<li>코드가 동작하도록 하는 것보다 이해할 수 있게하는 것이 더 중요하다.</li>
+</ul>
+<h1 id="Error-handling"><a href="#Error-handling" class="headerlink" title="Error handling"></a>Error handling</h1><ul>
+<li>Error처리를 위해 pop은 null을 반환하고, push는 false를 반환하는 것보다 Exception을 발생시키는 것이 좋다.</li>
+<li>Exception의 이름은 최대한 구체적이어야 한다.</li>
+<li>Inner클래스로 Exception을 정의하면 읽기 편할 수 있다. 고려해볼 것</li>
+<li>checked vs unchecked ?(찾아봐야함.) Checked Exception은 되도록 사용하지말자.</li>
+<li>unchecked는 throws를 말하는 것 같고, checked는 try~catch를 말하는 것 같다.</li>
+</ul>
+<h2 id="Exception은-어떤-메시지를-담아야-할까"><a href="#Exception은-어떤-메시지를-담아야-할까" class="headerlink" title="Exception은 어떤 메시지를 담아야 할까?"></a>Exception은 어떤 메시지를 담아야 할까?</h2><ul>
+<li>필요없는 것이 가장 좋다.</li>
+<li>Exception이름을 명확하게 지어서 이름으로 의미가 전달되도록 하자.</li>
+<li>클래스 내부에 Message를 절대 두지말자.</li>
+</ul>
+<h1 id="Special-Cases"><a href="#Special-Cases" class="headerlink" title="Special Cases"></a>Special Cases</h1><ul>
+<li><a href="https://github.com/msbaek/stack-example" rel="external nofollow noopener noreferrer" target="_blank">Special Cases 참고</a></li>
+</ul>
+<h1 id="Null-is-a-value"><a href="#Null-is-a-value" class="headerlink" title="Null is a value"></a>Null is a value</h1><ul>
+<li>stack이 empty일 때 top함수는 무엇을 반환해야하나?</li>
+<li>Null 대신 Empty 객체를 발생시키는 것이 좋다.</li>
+</ul>
+<h1 id="try"><a href="#try" class="headerlink" title="try"></a>try</h1><ul>
+<li>try가 있다면 함수내에서 변수선언을 제외하고 첫번째문장이여야한다.</li>
+<li>try 블럭 내에는 함수호출만 있어야한다.</li>
+<li>finally가 함수의 마지막 블럭이어야한다. 이후에 어떤라인도 없어야 한다.</li>
+<li>Error handling은 하나의 일이다.</li>
+</ul>
+<hr>
+<blockquote>
+<p>지금은 이해할 수 있고, 다 이해한것 같아도 속지말고, 직접 내 코드에 적용해보고, 설계해보자</p>
+</blockquote>
+<ul>
+<li><p><a href="https://velog.io/@essri" rel="external nofollow noopener noreferrer" target="_blank">velog</a></p>
+</li>
+<li><p><a href="https://ggomi.github.io">Blog</a></p>
+</li>
+</ul>
+<hr>
+
+                    
+                        
+
+                    
+                    
+                        <p>
+                            <a href="/function-structure-2/#post-footer" class="postShorten-excerpt_link link">
+                                Comment and share
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a class="link-unstyled" href="/function-structure/">
+                            함수의 구조 (function Structure) - 1
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2018-12-20T09:14:01+09:00">
+	
+		    Dec 20, 2018
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/Basic-sense/">Basic_sense</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <p><img src="/assets/images/function-structure.png" alt="함수의 구조"></p>
+<blockquote>
+<p><a href="https://www.youtube.com/user/codetemplate/videos" rel="external nofollow noopener noreferrer" target="_blank"> 클린코더스 - 백명석님 </a> 강의를 보고 작성한 글입니다.<br><a href="https://github.com/msbaek/clean-coders-2013" rel="external nofollow noopener noreferrer" target="_blank">Source Code</a></p>
+</blockquote>
+<p><strong>————————————————————————————————————————————————————-</strong></p>
+<h1 id="목차"><a href="#목차" class="headerlink" title="목차"></a>목차</h1><ul>
+<li><a href="#Arguments">Arguments</a></li>
+<li><a href="#The-Stepdown-Rule">The Stepdown Rule</a></li>
+<li><a href="#Switches-and-cases">Switches and cases</a></li>
+<li><a href="#Temporal-Coupling">Tomporal Coupling</a></li>
+</ul>
+<p><strong>————————————————————————————————————————————————————-</strong></p>
+<h1 id="Arguments"><a href="#Arguments" class="headerlink" title="Arguments"></a>Arguments</h1><ul>
+<li>인자가 많아지면 복잡도가 증가한다.</li>
+<li><p>인자를 최대 3개</p>
+<h2 id="생성자의-많은-수의-넘겨야한다면"><a href="#생성자의-많은-수의-넘겨야한다면" class="headerlink" title="생성자의 많은 수의 넘겨야한다면?"></a>생성자의 많은 수의 넘겨야한다면?</h2><pre><code>Java Bean Pattern을 사용(Getter &amp; Setter)
+Builder 패턴을 적용하는 것이 더 좋은방법!!
+</code></pre><h2 id="Boolean-인자-사용-금지"><a href="#Boolean-인자-사용-금지" class="headerlink" title="Boolean 인자 사용 금지"></a>Boolean 인자 사용 금지</h2><pre><code>Boolean 이라면 true, false 두가지 일을 한다는 것이기 때문에 &apos;Method는 한가지 일만 해야한다.&apos; 를 위반한다.
+</code></pre></li>
+</ul>
+<h2 id="Innies-not-Outies"><a href="#Innies-not-Outies" class="headerlink" title="Innies not Outies"></a>Innies not Outies</h2><ul>
+<li>Parameter는 입력으로 작용해야지 출력으로 작용하면 안된다.</li>
+</ul>
+<p><strong>————————————————————————————————————————————————————-</strong></p>
+<h2 id="Null-defense"><a href="#Null-defense" class="headerlink" title="Null defense"></a>Null defense</h2><ul>
+<li><strong>null</strong>을 전달/기대하는 함수는 boolean을 전달하는만큼 잘못된 것</li>
+<li><strong>public api</strong>의 경우는 <strong>defensive</strong>하게 프로그래밍하는 것이 맞지만 같은 팀 내에서 <strong>defensive programming</strong>을 하는것은 잘못됨. =&gt; 팀원이나 단위테스트를 못 믿는다는 말</li>
+<li><strong>null</strong>을 <strong>boolean</strong>처럼 사용하지마라</li>
+<li><strong>null</strong>체크를 한다는 것 자체가 무언가 잘못되었다는 단서</li>
+<li><strong>null</strong>여부를 지속적으로 체크할 것이 아니라 단위테스트에서 검증을 해라.</li>
+</ul>
+<p><strong>————————————————————————————————————————————————————-</strong></p>
+<h1 id="The-Stepdown-Rule"><a href="#The-Stepdown-Rule" class="headerlink" title="The Stepdown Rule"></a>The Stepdown Rule</h1><ul>
+<li>코드 상 public은 위로 private는 아래로</li>
+<li><strong>public</strong> 필드만 보고도 이해할 수 있을정도로</li>
+<li><strong>public</strong> part만 사용자들에게 전달하면 됨.</li>
+<li>중요한 부분은 위로, 상세한 부분은 밑으로  </li>
+</ul>
+<p><strong>———————————————————————————————————————————————————–</strong></p>
+<h1 id="Switches-and-cases"><a href="#Switches-and-cases" class="headerlink" title="Switches and cases"></a>Switches and cases</h1><ul>
+<li>switch문장 사용을 왜 꺼리나 =&gt; OO(Object-Oriented) 스럽지않아서?<h2 id="그럼-OO-Object-Oriented-는-뭐가-좋을까"><a href="#그럼-OO-Object-Oriented-는-뭐가-좋을까" class="headerlink" title="그럼 OO(Object-Oriented)는 뭐가 좋을까?"></a>그럼 OO(Object-Oriented)는 뭐가 좋을까?</h2></li>
+<li>OO의 가장 큰 이점 중 하나는 의존성 관리능력이다.</li>
+<li>예시</li>
+</ul>
+<p><img src="/assets/images/switch.png" alt="switch"></p>
+<ul>
+<li>이상태에서는 독립적으로 배포/컴파일/개발 불가하다.</li>
+<li>runtime 의존성은 그대로 둔 채로 의존성을 역전시킨다.(Dependency Inversion Principle)</li>
+</ul>
+<p><img src="/assets/images/oo2.png" alt="switch2"></p>
+<ul>
+<li>A와 B사이에 interface를 두면 source code 의존성은 runtime 의존성과 반대가 된다.</li>
+<li>Unit테스트도 잘된다 =&gt; 설계가 잘된 것.</li>
+<li>TDD도 잘된다. =&gt; TDD가 잘 안된다, 어렵다 싶으면 설계가 잘못된 것.</li>
+</ul>
+<h2 id="switch-case"><a href="#switch-case" class="headerlink" title="switch case"></a>switch case</h2><ul>
+<li>각 case는 외부 모듈에 의존성을 갖는다.</li>
+<li>독립적 배포에 방해가 됨.</li>
+<li><em>fan-out problem</em></li>
+<li>외부모듈 중 하나라도 변경이 일어나면 switch문 문제생김.</li>
+</ul>
+<h2 id="제거하려면"><a href="#제거하려면" class="headerlink" title="제거하려면?"></a>제거하려면?</h2><blockquote>
+<ol>
+<li>polymorphic interface 호출로 변환 </li>
+<li>case에 있는 문장들을 별도의 클래스로 추출하여 변경 영향이 발생하지 않도록 한다.</li>
+</ol>
+<ul>
+<li><a href="https://github.com/msbaek/videostore" rel="external nofollow noopener noreferrer" target="_blank">switch-case제거 실습</a> <em>branch:</em> remove-switch-statement</li>
+</ul>
+</blockquote>
+<p><strong>———————————————————————————————————————————————————–</strong></p>
+<h1 id="Temporal-Coupling"><a href="#Temporal-Coupling" class="headerlink" title="Temporal Coupling"></a>Temporal Coupling</h1><p>DB연결처럼 Connection을 열고, 닫고, 이런 코딩을 할 때 순서가 중요한 상황을 말한다.</p>
+<ul>
+<li>함수들이 순서를 지키며 호출되어야한다. </li>
+<li><em>Passing a Block</em></li>
+<li>Strategy Pattern</li>
+</ul>
+<p><img src="/assets/images/temporal.png" alt="temporal"></p>
+<ul>
+<li>사용자에게 ‘주의해서 사용하라’가 아니고 위의 사진처럼 구현</li>
+</ul>
+<hr>
+<ul>
+<li><p><a href="https://velog.io/@essri" rel="external nofollow noopener noreferrer" target="_blank">velog</a></p>
+</li>
+<li><p><a href="https://ggomi.github.io">Blog</a></p>
+</li>
+</ul>
+<hr>
+
+                    
+                        
+
+                    
+                    
+                        <p>
+                            <a href="/function-structure/#post-footer" class="postShorten-excerpt_link link">
+                                Comment and share
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
                         <a class="link-unstyled" href="/function-example2/">
                             함수 리팩토링, 추상화 예제 (2)
                         </a>
@@ -263,6 +531,12 @@
 		    Dec 18, 2018
     	
     </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/Basic-sense/">Basic_sense</a>
+
+
     
 </div>
 
@@ -336,6 +610,12 @@
 		    Dec 18, 2018
     	
     </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/Basic-sense/">Basic_sense</a>
+
+
     
 </div>
 

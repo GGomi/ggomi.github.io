@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Jeongmin&#39;s Blog">
-    <title>함수 리팩토링, 추상화 예제 (2) - Jeongmin&#39;s Blog</title>
+    <title>SSE란? - Jeongmin&#39;s Blog</title>
     <meta name="author" content="Jeongmin Oh">
     
         <meta name="keywords" content="java,spring boot,JPA,jpa,Java,Spring Boot,lombok,">
@@ -17,26 +17,19 @@
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jeongmin Oh","sameAs":["https://github.com/ggomi","https://twitter.com/","https://www.facebook.com/Jeongmin.Oo","https://www.linkedin.com/in/%EC%A0%95%EB%AF%BC-%EC%98%A4-50b22511b/"],"image":"profile.jpg"},"articleBody":"함수 리팩토링, 추상화 예제 (2)\n\n 클린코더스 - 백명석님  강의를 보고 작성한 글입니다.Source Code\n\n\n\n\n함수의 파라미터에 Extract Valuable를 진행하고, Extract Method를 진행하기위해 가장안쪽 if 내부에 있던 지역변수를 if문 밖으로 꺼내어 메소드 추출 준비를 합니다.\n그리고 유사한 코드를 찾아 메소드로 추출합니다.\n\n\n\n추출하고 남아있는 코드에서 의미없이 라인만 차지하는 코드들을 inline형태로 변경하고, 다시 메소드 추출을 진행합니다.\n\n\n\n마지막으로 같은레벨의 if문 두개로 나누어져있는 코드를 하나로 병합해줍니다.\n\n\n\n이렇게 코드를 리팩토링을 연습해보았는데, 저번 포스트에서 나온 것처럼 함수추출을 진행해도 추상화단계에 변화가 없을 때까지 추출을 진행해야 한다는 것이 크게 와닿지 않았었는데 코드예제를 보고 연습을 하다보니 왜 그렇게 해야할지 알 수 있었고, 역시 어렵다..\n같은 코드만 10번정도 반복한 것 같다.. 멍청..\n\n\n\nvelog\n\nBlog\n\n\n\n","dateCreated":"2018-12-18T11:14:05+09:00","dateModified":"2018-12-19T13:12:25+09:00","datePublished":"2018-12-18T11:14:05+09:00","description":"","headline":"함수 리팩토링, 추상화 예제 (2)","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://ggomi.github.io/function-example2/"},"publisher":{"@type":"Organization","name":"Jeongmin Oh","sameAs":["https://github.com/ggomi","https://twitter.com/","https://www.facebook.com/Jeongmin.Oo","https://www.linkedin.com/in/%EC%A0%95%EB%AF%BC-%EC%98%A4-50b22511b/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://ggomi.github.io/function-example2/","keywords":"개발자 기초다지기_함수, 함수, 리팩토링"}</script>
-    <meta name="description" content="함수 리팩토링, 추상화 예제 (2)   클린코더스 - 백명석님  강의를 보고 작성한 글입니다.Source Code     함수의 파라미터에 Extract Valuable를 진행하고, Extract Method를 진행하기위해 가장안쪽 if 내부에 있던 지역변수를 if문 밖으로 꺼내어 메소드 추출 준비를 합니다. 그리고 유사한 코드를 찾아 메소드로 추출합니다.">
-<meta name="keywords" content="개발자 기초다지기_함수,함수,리팩토링">
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jeongmin Oh","sameAs":["https://github.com/ggomi","https://twitter.com/","https://www.facebook.com/Jeongmin.Oo","https://www.linkedin.com/in/%EC%A0%95%EB%AF%BC-%EC%98%A4-50b22511b/"],"image":"profile.jpg"},"articleBody":"SSE(Server-Sent Events)\nHTML5 표준안 권고사항!! (IE 미지원)\n\n그래서 뭔데?\n서버가 필요할 때마다 클라이언트에게 데이터를 줄 수 있게 해주는 서버 푸쉬 기술\nHTML5가 등장하기 전까지는 HTML에 서버 푸시를 위한 표준화된 기술이 없었기 때문에 웹에서 실시간 정보를 받아와야 할 때 외부플러그인을 이용하거나 서버푸시를 흉내 낸 Ajax Polling 기법등을 사용했다고 한다.\n\n그럼 뭐가 더 좋을까?먼저, 장점을 말하기 전에 기존 기술을 살펴보자.\n\nPoling\n\n대다수의 AJAX 응용 프로그램에서 사용되는 전통적인 기술입니다.\n기본 개념은 응용 프로그램이 서버에서 데이터를 반복적으로 요청하는 것.\n장점\n일정하게 갱신이 되는 서버 데이터의 경우 매우 유용하며 기존 단순한 모델을 유지 할 수 있습니다.\n\n\n단점\n클라이언트는 요청을 하고 서버가 데이터로 응답 할 때까지 기다립니다. 갱신되지 않은 의미없는 응답이 리턴될 수 도 있습니다. 그렇기 때문에 HTTP 오버헤드가 커지게 된다.\n\n\n\n\nLong Polling\n\n폴링의 변형, 폴링과 비슷하지만 서버에 사용 가능한 데이터가 없으면 서버는 새 데이터를 사용할 수 있을 때까지 요청을 보류한다. 그래서 Hang GET이라고 불리기도 한다.\n폴링의 단점을 해결한 것처럼 보이지만 사용 가능한 데이터가 지속적으로 응답해야하기 때문에 다른 추가적인 방법이 필요하다.\n\n\n\n\nSSE\n처음부터 효율적으로 설계되어서 SSE를 사용하여 통신 할 때 서버는 초기 요청을 하지 않고도 필요할 때마다 데이터를 앱으로 푸시 할 수 있다. 즉, 서버와 클라이언트 사이에 단일 단방향 채널을 열게되는 것. Long Polling과 가장 큰 차이점은 브라우저에서 직접 처리된다는 점이다.\nHTTP를 사용하기 때문에 작동하기위해 별도의 프로토콜이나 서버구현이 필요없다.\n\n","dateCreated":"2018-12-18T13:10:05+09:00","dateModified":"2018-12-20T23:59:54+09:00","datePublished":"2018-12-18T13:10:05+09:00","description":"","headline":"SSE란?","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://ggomi.github.io/SSE/"},"publisher":{"@type":"Organization","name":"Jeongmin Oh","sameAs":["https://github.com/ggomi","https://twitter.com/","https://www.facebook.com/Jeongmin.Oo","https://www.linkedin.com/in/%EC%A0%95%EB%AF%BC-%EC%98%A4-50b22511b/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://ggomi.github.io/SSE/","keywords":"HTML5, SSE"}</script>
+    <meta name="description" content="SSE(Server-Sent Events) HTML5 표준안 권고사항!! (IE 미지원)  그래서 뭔데? 서버가 필요할 때마다 클라이언트에게 데이터를 줄 수 있게 해주는 서버 푸쉬 기술 HTML5가 등장하기 전까지는 HTML에 서버 푸시를 위한 표준화된 기술이 없었기 때문에 웹에서 실시간 정보를 받아와야 할 때 외부플러그인을 이용하거나 서버푸시를 흉내 낸">
+<meta name="keywords" content="HTML5,SSE">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="함수 리팩토링, 추상화 예제 (2)">
-<meta property="og:url" content="https://ggomi.github.io/function-example2/index.html">
+<meta property="og:title" content="SSE란?">
+<meta property="og:url" content="https://ggomi.github.io/SSE/index.html">
 <meta property="og:site_name" content="Jeongmin&#39;s Blog">
-<meta property="og:description" content="함수 리팩토링, 추상화 예제 (2)   클린코더스 - 백명석님  강의를 보고 작성한 글입니다.Source Code     함수의 파라미터에 Extract Valuable를 진행하고, Extract Method를 진행하기위해 가장안쪽 if 내부에 있던 지역변수를 if문 밖으로 꺼내어 메소드 추출 준비를 합니다. 그리고 유사한 코드를 찾아 메소드로 추출합니다.">
+<meta property="og:description" content="SSE(Server-Sent Events) HTML5 표준안 권고사항!! (IE 미지원)  그래서 뭔데? 서버가 필요할 때마다 클라이언트에게 데이터를 줄 수 있게 해주는 서버 푸쉬 기술 HTML5가 등장하기 전까지는 HTML에 서버 푸시를 위한 표준화된 기술이 없었기 때문에 웹에서 실시간 정보를 받아와야 할 때 외부플러그인을 이용하거나 서버푸시를 흉내 낸">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://ggomi.github.io/assets/images/function.png">
-<meta property="og:image" content="https://ggomi.github.io/assets/images/gif/test5.gif">
-<meta property="og:image" content="https://ggomi.github.io/assets/images/gif/test6.gif">
-<meta property="og:image" content="https://ggomi.github.io/assets/images/gif/test7.gif">
-<meta property="og:image" content="https://ggomi.github.io/assets/images/gif/test8.gif">
-<meta property="og:image" content="https://ggomi.github.io/assets/images/result.png">
-<meta property="og:updated_time" content="2018-12-19T04:12:25.505Z">
+<meta property="og:updated_time" content="2018-12-20T14:59:54.539Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="함수 리팩토링, 추상화 예제 (2)">
-<meta name="twitter:description" content="함수 리팩토링, 추상화 예제 (2)   클린코더스 - 백명석님  강의를 보고 작성한 글입니다.Source Code     함수의 파라미터에 Extract Valuable를 진행하고, Extract Method를 진행하기위해 가장안쪽 if 내부에 있던 지역변수를 if문 밖으로 꺼내어 메소드 추출 준비를 합니다. 그리고 유사한 코드를 찾아 메소드로 추출합니다.">
-<meta name="twitter:image" content="https://ggomi.github.io/assets/images/function.png">
+<meta name="twitter:title" content="SSE란?">
+<meta name="twitter:description" content="SSE(Server-Sent Events) HTML5 표준안 권고사항!! (IE 미지원)  그래서 뭔데? 서버가 필요할 때마다 클라이언트에게 데이터를 줄 수 있게 해주는 서버 푸쉬 기술 HTML5가 등장하기 전까지는 HTML에 서버 푸시를 위한 표준화된 기술이 없었기 때문에 웹에서 실시간 정보를 받아와야 할 때 외부플러그인을 이용하거나 서버푸시를 흉내 낸">
     
     
         
@@ -93,7 +86,7 @@
         
         </a>
     
-    <link rel="canonical" href="https://ggomi.github.io/function-example2/">
+    <link rel="canonical" href="https://ggomi.github.io/sse/">
 </header>
 
             <!-- Define author's picture -->
@@ -260,22 +253,16 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title">
-            함수 리팩토링, 추상화 예제 (2)
+            SSE란?
         </h1>
     
     
         <div class="post-meta">
-    <time datetime="2018-12-18T11:14:05+09:00">
+    <time datetime="2018-12-18T13:10:05+09:00">
 	
 		    Dec 18, 2018
     	
     </time>
-    
-        <span>in </span>
-        
-    <a class="category-link" href="/categories/Basic-sense/">Basic_sense</a>
-
-
     
 </div>
 
@@ -285,37 +272,41 @@
     
     <div class="post-content markdown">
         <div class="main-content-wrap">
-            <h2 id="함수-리팩토링-추상화-예제-2"><a href="#함수-리팩토링-추상화-예제-2" class="headerlink" title="함수 리팩토링, 추상화 예제 (2)"></a>함수 리팩토링, 추상화 예제 (2)</h2><p><img src="/assets/images/function.png" alt="banner"></p>
-<blockquote>
-<p><a href="https://www.youtube.com/user/codetemplate/videos" rel="external nofollow noopener noreferrer" target="_blank"> 클린코더스 - 백명석님 </a> 강의를 보고 작성한 글입니다.<br><a href="https://github.com/msbaek/clean-coders-2013" rel="external nofollow noopener noreferrer" target="_blank">Source Code</a></p>
-</blockquote>
-<hr>
-<p><img src="/assets/images/gif/test5.gif" alt="pageName"><br><img src="/assets/images/gif/test6.gif" alt="method Extract"></p>
-<ul>
-<li>함수의 파라미터에 <code>Extract Valuable</code>를 진행하고, <code>Extract Method</code>를 진행하기위해 가장안쪽 <code>if</code> 내부에 있던 지역변수를 <code>if</code>문 밖으로 꺼내어 메소드 추출 준비를 합니다.</li>
-<li>그리고 유사한 코드를 찾아 메소드로 추출합니다.</li>
+            <h2 id="SSE-Server-Sent-Events"><a href="#SSE-Server-Sent-Events" class="headerlink" title="SSE(Server-Sent Events)"></a>SSE(Server-Sent Events)</h2><ul>
+<li>HTML5 표준안 권고사항!! (IE 미지원)</li>
 </ul>
-<p><img src="/assets/images/gif/test7.gif" alt="inline"><br><img src="/assets/images/gif/test8.gif" alt="method Extract"></p>
-<ul>
-<li>추출하고 남아있는 코드에서 의미없이 라인만 차지하는 코드들을 <code>inline</code>형태로 변경하고, 다시 메소드 추출을 진행합니다.</li>
+<h2 id="그래서-뭔데"><a href="#그래서-뭔데" class="headerlink" title="그래서 뭔데?"></a>그래서 뭔데?</h2><ul>
+<li><strong>서버가 필요할 때마다 클라이언트에게 데이터를 줄 수 있게 해주는 서버 푸쉬 기술</strong></li>
+<li>HTML5가 등장하기 전까지는 HTML에 서버 푸시를 위한 표준화된 기술이 없었기 때문에 웹에서 실시간 정보를 받아와야 할 때 외부플러그인을 이용하거나 서버푸시를 흉내 낸 Ajax Polling 기법등을 사용했다고 한다.</li>
 </ul>
-<p><img src="/assets/images/result.png" alt="method Extract"></p>
+<h2 id="그럼-뭐가-더-좋을까"><a href="#그럼-뭐가-더-좋을까" class="headerlink" title="그럼 뭐가 더 좋을까?"></a>그럼 뭐가 더 좋을까?</h2><p>먼저, 장점을 말하기 전에 기존 기술을 살펴보자.</p>
 <ul>
-<li>마지막으로 같은레벨의 <code>if</code>문 두개로 나누어져있는 코드를 하나로 병합해줍니다.</li>
+<li><p><strong>Poling</strong></p>
+<ul>
+<li>대다수의 AJAX 응용 프로그램에서 사용되는 전통적인 기술입니다.</li>
+<li>기본 개념은 응용 프로그램이 서버에서 데이터를 반복적으로 요청하는 것.</li>
+<li><strong>장점</strong><ul>
+<li>일정하게 갱신이 되는 서버 데이터의 경우 매우 유용하며 기존 단순한 모델을 유지 할 수 있습니다.</li>
 </ul>
-<hr>
-<ul>
-<li>이렇게 코드를 리팩토링을 연습해보았는데, 저번 <a href="/basic-3">포스트</a>에서 나온 것처럼 함수추출을 진행해도 추상화단계에 변화가 없을 때까지 추출을 진행해야 한다는 것이 크게 와닿지 않았었는데 코드예제를 보고 연습을 하다보니 왜 그렇게 해야할지 알 수 있었고, 역시 어렵다..</li>
-<li>같은 코드만 10번정도 반복한 것 같다.. <del>멍청..</del></li>
-</ul>
-<hr>
-<ul>
-<li><p><a href="https://velog.io/@essri" rel="external nofollow noopener noreferrer" target="_blank">velog</a></p>
 </li>
-<li><p><a href="https://ggomi.github.io">Blog</a></p>
+<li><strong>단점</strong><ul>
+<li>클라이언트는 요청을 하고 서버가 데이터로 응답 할 때까지 기다립니다. 갱신되지 않은 의미없는 응답이 리턴될 수 도 있습니다. 그렇기 때문에 HTTP 오버헤드가 커지게 된다.</li>
+</ul>
 </li>
 </ul>
+</li>
+<li><p><strong>Long Polling</strong></p>
+<ul>
+<li>폴링의 변형, 폴링과 비슷하지만 서버에 사용 가능한 데이터가 없으면 서버는 새 데이터를 사용할 수 있을 때까지 요청을 보류한다. 그래서 <em>Hang GET</em>이라고 불리기도 한다.</li>
+<li>폴링의 단점을 해결한 것처럼 보이지만 사용 가능한 데이터가 지속적으로 응답해야하기 때문에 다른 추가적인 방법이 필요하다.</li>
+</ul>
+</li>
+</ul>
 <hr>
+<h1 id="SSE"><a href="#SSE" class="headerlink" title="SSE"></a>SSE</h1><ul>
+<li>처음부터 효율적으로 설계되어서 <strong>SSE</strong>를 사용하여 통신 할 때 서버는 초기 요청을 하지 않고도 필요할 때마다 데이터를 앱으로 푸시 할 수 있다. 즉, 서버와 클라이언트 사이에 단일 단방향 채널을 열게되는 것. <strong>Long Polling</strong>과 가장 큰 차이점은 브라우저에서 직접 처리된다는 점이다.</li>
+<li>HTTP를 사용하기 때문에 작동하기위해 별도의 프로토콜이나 서버구현이 필요없다.</li>
+</ul>
 
             
 
@@ -326,7 +317,7 @@
             <div class="post-footer-tags">
                 <span class="text-color-light text-small">TAGGED IN</span><br>
                 
-    <a class="tag tag--primary tag--small t-link" href="/tags/개발자-기초다지기-함수/">개발자 기초다지기_함수</a> <a class="tag tag--primary tag--small t-link" href="/tags/리팩토링/">리팩토링</a> <a class="tag tag--primary tag--small t-link" href="/tags/함수/">함수</a>
+    <a class="tag tag--primary tag--small t-link" href="/tags/HTML5/">HTML5</a> <a class="tag tag--primary tag--small t-link" href="/tags/SSE/">SSE</a>
 
             </div>
         
@@ -337,7 +328,7 @@
             <li class="post-action">
                 
                     
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/basic-1/" data-tooltip="개발자 기초 다지기 - 1" aria-label="PREVIOUS: 개발자 기초 다지기 - 1">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/function-structure/" data-tooltip="함수의 구조 (function Structure) - 1" aria-label="PREVIOUS: 함수의 구조 (function Structure) - 1">
                 
                     <i class="fa fa-angle-left" aria-hidden="true"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -346,7 +337,7 @@
             <li class="post-action">
                 
                     
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/function-example/" data-tooltip="함수 리팩토링, 추상화 예제 (1)" aria-label="NEXT: 함수 리팩토링, 추상화 예제 (1)">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/basic-1/" data-tooltip="개발자 기초 다지기 - 1" aria-label="NEXT: 개발자 기초 다지기 - 1">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                     <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -364,7 +355,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ggomi.github.io/function-example2/" title="Share on Facebook" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ggomi.github.io/SSE/" title="Share on Facebook" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -372,7 +363,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=https://ggomi.github.io/function-example2/" title="Share on Twitter" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=https://ggomi.github.io/SSE/" title="Share on Twitter" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -380,7 +371,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=https://ggomi.github.io/function-example2/" title="Share on Google+" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=https://ggomi.github.io/SSE/" title="Share on Google+" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -423,7 +414,7 @@
             <li class="post-action">
                 
                     
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/basic-1/" data-tooltip="개발자 기초 다지기 - 1" aria-label="PREVIOUS: 개발자 기초 다지기 - 1">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/function-structure/" data-tooltip="함수의 구조 (function Structure) - 1" aria-label="PREVIOUS: 함수의 구조 (function Structure) - 1">
                 
                     <i class="fa fa-angle-left" aria-hidden="true"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -432,7 +423,7 @@
             <li class="post-action">
                 
                     
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/function-example/" data-tooltip="함수 리팩토링, 추상화 예제 (1)" aria-label="NEXT: 함수 리팩토링, 추상화 예제 (1)">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/basic-1/" data-tooltip="개발자 기초 다지기 - 1" aria-label="NEXT: 개발자 기초 다지기 - 1">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                     <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -450,7 +441,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ggomi.github.io/function-example2/" title="Share on Facebook" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ggomi.github.io/SSE/" title="Share on Facebook" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -458,7 +449,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=https://ggomi.github.io/function-example2/" title="Share on Twitter" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=https://ggomi.github.io/SSE/" title="Share on Twitter" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -466,7 +457,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=https://ggomi.github.io/function-example2/" title="Share on Google+" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=https://ggomi.github.io/SSE/" title="Share on Google+" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -493,7 +484,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ggomi.github.io/function-example2/" rel="external nofollow noopener noreferrer">
+                <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ggomi.github.io/SSE/" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
                 </a>
             </li>
@@ -501,7 +492,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=https://ggomi.github.io/function-example2/" rel="external nofollow noopener noreferrer">
+                <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=https://ggomi.github.io/SSE/" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
                 </a>
             </li>
@@ -509,7 +500,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=https://ggomi.github.io/function-example2/" rel="external nofollow noopener noreferrer">
+                <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=https://ggomi.github.io/SSE/" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
                 </a>
             </li>

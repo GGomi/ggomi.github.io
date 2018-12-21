@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Jeongmin&#39;s Blog">
-    <title>Tag: 리팩토링 - Jeongmin&#39;s Blog</title>
+    <title>함수의 구조 (function Structure) - 2 - Jeongmin&#39;s Blog</title>
     <meta name="author" content="Jeongmin Oh">
     
         <meta name="keywords" content="java,spring boot,JPA,jpa,Java,Spring Boot,lombok,">
@@ -17,15 +17,19 @@
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <script type="application/ld+json">{}</script>
-    <meta name="keywords" content="java,spring boot,JPA,jpa,Java,Spring Boot,lombok">
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jeongmin Oh","sameAs":["https://github.com/ggomi","https://twitter.com/","https://www.facebook.com/Jeongmin.Oo","https://www.linkedin.com/in/%EC%A0%95%EB%AF%BC-%EC%98%A4-50b22511b/"],"image":"profile.jpg"},"articleBody":"함수의 구조\n 클린코더스 - 백명석님  강의를 보고 작성한 글입니다.Source Code\n\n\n\n함수의 구조 - 1\n\n—————————————————————————————————————\n목차\nCQS(Command Query Seperate)\nTell Don’t Ask\nLaw of Demeter\nEarly returns\nError Handling\nSpecial Cases\nNull is a value\ntry도 하나의 역할 / 기능\n\n—————————————————————————————————————\nCQS\n상태를 변경하는 함수는 값을 반환하면 안된다. 값을 반환하는 함수는 상태를 변경하면 안된다.\n\ncommand\n시스템의 상태변경가능\nside effect를 갖는다\n아무것도 반환하지않는다.query\nside effect가 없다.\n계산값이나 시스템의 상태를 반환\n신뢰의 문제\n\nExample1User u = authorize.login(userName, password);\n\n위의 상황에서 User를 사용하기 위해서는 항상 login을 해야함. login을 하면 원치않아도 User정보를 읽어야만 한다.\n\n12authorize.login(userName, password);User u = authorize.getUser(userName);\n\nMethod```의 리턴을 void로 변경하고, ```User``` 정보가 필요할때만 읽음.12345678910111213141516171819202122232425- 값을 반환하는 함수는 상태를 변경하면 안된다.상태를 변경하는 함수는 ```exception```을 발생시킬 수는 있지만, 값을 반환할 수 없다.- 이것은 SideEffect를 관리하는 약속이다. 약속을 어겨서 혼란을 주지말자.**---------------------------------------------------------------------------------------------------------------**# Tell Don&apos;t Ask- extream한 CQS는 C와 Q를 함께 사용하지 말도록&lt;img src=&quot;/assets/images/ask.png&quot; style=&quot;width: 60%;&quot;&gt;&gt; 로그인 여부는 user객체에 속한다. Tell Don&apos;t Ask 인데 isLoggedIn()은 이상함.- Tell Don&apos;t Ask 는 CQS를 강화하는 수단- 이 규칙을 준수하다보면 Query메소드가 많이 필요없어진다. - 매우 좋은 현상(왜냐하면 Q는 Out of control되는 경향이 있기 때문)# Law of Demeter```java// 예를 들어서 아래와 같은 코드가 있다면, o.getX()    .getY()        .getZ()            .doSomething();// 함수가 시스템에 너무 많은 의존성을 가지게 된다.\n\n함수가 시스템의 전체를 알게 하면 안된다.\n\n개별 함수는 아주 제한된 지식만 가져야한다.\n이전 메소드 호출의 결과로 얻은 객체의 메소드를 호출하면 안된다.\nTell Don’t Ask나, Law of Demeter 모두 어떻게 의존도를 낮추고, Testable하게 만들고, 클린하게 만들건지에 대한 방법, 규칙들이다.\nask대신 tell하면 surrounding과 decouple 된다. \n\n\n\nearly returns1234if(...)else if(...)else if(...)else (...)&#123; return; &#125;\n위 코드처럼 else에다가 리턴을 두지말고 return 되는 로직을 상단으로 올려서 코드를 끝까지 읽지않아도 될 수 있게하는 것\n\n루프 중간에서 return 하는 것은 문제이다.\n코드가 동작하도록 하는 것보다 이해할 수 있게하는 것이 더 중요하다.\n\nError handling\nError처리를 위해 pop은 null을 반환하고, push는 false를 반환하는 것보다 Exception을 발생시키는 것이 좋다.\nException의 이름은 최대한 구체적이어야 한다.\nInner클래스로 Exception을 정의하면 읽기 편할 수 있다. 고려해볼 것\nchecked vs unchecked ?(찾아봐야함.) Checked Exception은 되도록 사용하지말자.\nunchecked는 throws를 말하는 것 같고, checked는 try~catch를 말하는 것 같다.\n\nException은 어떤 메시지를 담아야 할까?\n필요없는 것이 가장 좋다.\nException이름을 명확하게 지어서 이름으로 의미가 전달되도록 하자.\n클래스 내부에 Message를 절대 두지말자.\n\nSpecial Cases\nSpecial Cases 참고\n\nNull is a value\nstack이 empty일 때 top함수는 무엇을 반환해야하나?\nNull 대신 Empty 객체를 발생시키는 것이 좋다.\n\ntry\ntry가 있다면 함수내에서 변수선언을 제외하고 첫번째문장이여야한다.\ntry 블럭 내에는 함수호출만 있어야한다.\nfinally가 함수의 마지막 블럭이어야한다. 이후에 어떤라인도 없어야 한다.\nError handling은 하나의 일이다.\n\n\n\n지금은 이해할 수 있고, 다 이해한것 같아도 속지말고, 직접 내 코드에 적용해보고, 설계해보자\n\n\nvelog\n\nBlog\n\n\n\n","dateCreated":"2018-12-20T13:57:56+09:00","dateModified":"2018-12-21T15:39:55+09:00","datePublished":"2018-12-20T13:57:56+09:00","description":"","headline":"함수의 구조 (function Structure) - 2","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://ggomi.github.io/function-structure-2/"},"publisher":{"@type":"Organization","name":"Jeongmin Oh","sameAs":["https://github.com/ggomi","https://twitter.com/","https://www.facebook.com/Jeongmin.Oo","https://www.linkedin.com/in/%EC%A0%95%EB%AF%BC-%EC%98%A4-50b22511b/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://ggomi.github.io/function-structure-2/","keywords":"개발자 기초다지기_함수, 함수, 리팩토링"}</script>
+    <meta name="description" content="함수의 구조  클린코더스 - 백명석님  강의를 보고 작성한 글입니다.Source Code    함수의 구조 - 1  ————————————————————————————————————— 목차 CQS(Command Query Seperate) Tell Don’t Ask Law of Demeter Early returns Error Handling Special">
+<meta name="keywords" content="개발자 기초다지기_함수,함수,리팩토링">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="Jeongmin&#39;s Blog">
-<meta property="og:url" content="https://ggomi.github.io/tags/리팩토링/index.html">
+<meta property="og:title" content="함수의 구조 (function Structure) - 2">
+<meta property="og:url" content="https://ggomi.github.io/function-structure-2/index.html">
 <meta property="og:site_name" content="Jeongmin&#39;s Blog">
+<meta property="og:description" content="함수의 구조  클린코더스 - 백명석님  강의를 보고 작성한 글입니다.Source Code    함수의 구조 - 1  ————————————————————————————————————— 목차 CQS(Command Query Seperate) Tell Don’t Ask Law of Demeter Early returns Error Handling Special">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-12-21T06:39:55.646Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jeongmin&#39;s Blog">
+<meta name="twitter:title" content="함수의 구조 (function Structure) - 2">
+<meta name="twitter:description" content="함수의 구조  클린코더스 - 백명석님  강의를 보고 작성한 글입니다.Source Code    함수의 구조 - 1  ————————————————————————————————————— 목차 CQS(Command Query Seperate) Tell Don’t Ask Law of Demeter Early returns Error Handling Special">
     
     
         
@@ -68,7 +72,7 @@
         
     
 
-<header id="header" data-behavior="2">
+<header id="header" data-behavior="5">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <div class="header-title">
         <a class="header-title-link" href="/ ">Jeongmin&#39;s Blog</a>
@@ -82,7 +86,7 @@
         
         </a>
     
-    <link rel="canonical" href="https://ggomi.github.io/tags/리팩토링/">
+    <link rel="canonical" href="https://ggomi.github.io/function-structure-2/">
 </header>
 
             <!-- Define author's picture -->
@@ -92,7 +96,7 @@
         
     
 
-<nav id="sidebar" data-behavior="2">
+<nav id="sidebar" data-behavior="5">
     <div class="sidebar-container">
         
             <div class="sidebar-profile">
@@ -239,25 +243,21 @@
 </nav>
 
             
-            <div id="main" data-behavior="2" class="
+            <div id="main" data-behavior="5" class="
                         hasCoverMetaIn
                         ">
                 
-    <section class="postShorten-group main-content-wrap">
+<article class="post">
     
     
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/function-structure-2/">
-                            함수의 구조 (function Structure) - 2
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title">
+            함수의 구조 (function Structure) - 2
+        </h1>
+    
+    
+        <div class="post-meta">
     <time datetime="2018-12-20T13:57:56+09:00">
 	
 		    Dec 20, 2018
@@ -266,10 +266,13 @@
     
 </div>
 
-            </div>
-            
-                <div class="postShorten-content">
-                    <h1 id="함수의-구조"><a href="#함수의-구조" class="headerlink" title="함수의 구조"></a>함수의 구조</h1><blockquote>
+    
+</div>
+
+    
+    <div class="post-content markdown">
+        <div class="main-content-wrap">
+            <h1 id="함수의-구조"><a href="#함수의-구조" class="headerlink" title="함수의 구조"></a>함수의 구조</h1><blockquote>
 <p><a href="https://www.youtube.com/user/codetemplate/videos" rel="external nofollow noopener noreferrer" target="_blank"> 클린코더스 - 백명석님 </a> 강의를 보고 작성한 글입니다.<br><a href="https://github.com/msbaek/clean-coders-2013" rel="external nofollow noopener noreferrer" target="_blank">Source Code</a></p>
 </blockquote>
 <hr>
@@ -359,326 +362,94 @@
 </ul>
 <hr>
 
-                    
-                        
-
-                    
-                    
-                        <p>
-                            <a href="/function-structure-2/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
-                            </a>
-                        </p>
-                    
-                </div>
             
+
         </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
         
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/function-structure/">
-                            함수의 구조 (function Structure) - 1
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2018-12-20T09:14:01+09:00">
-	
-		    Dec 20, 2018
-    	
-    </time>
-    
-        <span>in </span>
-        
-    <a class="category-link" href="/categories/Basic-sense/">Basic_sense</a>
-
-
-    
-</div>
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/개발자-기초다지기-함수/">개발자 기초다지기_함수</a> <a class="tag tag--primary tag--small t-link" href="/tags/리팩토링/">리팩토링</a> <a class="tag tag--primary tag--small t-link" href="/tags/함수/">함수</a>
 
             </div>
-            
-                <div class="postShorten-content">
-                    <p><img src="/assets/images/function-structure.png" alt="함수의 구조"></p>
-<blockquote>
-<p><a href="https://www.youtube.com/user/codetemplate/videos" rel="external nofollow noopener noreferrer" target="_blank"> 클린코더스 - 백명석님 </a> 강의를 보고 작성한 글입니다.<br><a href="https://github.com/msbaek/clean-coders-2013" rel="external nofollow noopener noreferrer" target="_blank">Source Code</a></p>
-</blockquote>
-<p><strong>————————————————————————————————————————————————————-</strong></p>
-<h1 id="목차"><a href="#목차" class="headerlink" title="목차"></a>목차</h1><ul>
-<li><a href="#Arguments">Arguments</a></li>
-<li><a href="#The-Stepdown-Rule">The Stepdown Rule</a></li>
-<li><a href="#Switches-and-cases">Switches and cases</a></li>
-<li><a href="#Temporal-Coupling">Tomporal Coupling</a></li>
-</ul>
-<p><strong>————————————————————————————————————————————————————-</strong></p>
-<h1 id="Arguments"><a href="#Arguments" class="headerlink" title="Arguments"></a>Arguments</h1><ul>
-<li>인자가 많아지면 복잡도가 증가한다.</li>
-<li><p>인자를 최대 3개</p>
-<h2 id="생성자의-많은-수의-넘겨야한다면"><a href="#생성자의-많은-수의-넘겨야한다면" class="headerlink" title="생성자의 많은 수의 넘겨야한다면?"></a>생성자의 많은 수의 넘겨야한다면?</h2><pre><code>Java Bean Pattern을 사용(Getter &amp; Setter)
-Builder 패턴을 적용하는 것이 더 좋은방법!!
-</code></pre><h2 id="Boolean-인자-사용-금지"><a href="#Boolean-인자-사용-금지" class="headerlink" title="Boolean 인자 사용 금지"></a>Boolean 인자 사용 금지</h2><pre><code>Boolean 이라면 true, false 두가지 일을 한다는 것이기 때문에 &apos;Method는 한가지 일만 해야한다.&apos; 를 위반한다.
-</code></pre></li>
-</ul>
-<h2 id="Innies-not-Outies"><a href="#Innies-not-Outies" class="headerlink" title="Innies not Outies"></a>Innies not Outies</h2><ul>
-<li>Parameter는 입력으로 작용해야지 출력으로 작용하면 안된다.</li>
-</ul>
-<p><strong>————————————————————————————————————————————————————-</strong></p>
-<h2 id="Null-defense"><a href="#Null-defense" class="headerlink" title="Null defense"></a>Null defense</h2><ul>
-<li><strong>null</strong>을 전달/기대하는 함수는 boolean을 전달하는만큼 잘못된 것</li>
-<li><strong>public api</strong>의 경우는 <strong>defensive</strong>하게 프로그래밍하는 것이 맞지만 같은 팀 내에서 <strong>defensive programming</strong>을 하는것은 잘못됨. =&gt; 팀원이나 단위테스트를 못 믿는다는 말</li>
-<li><strong>null</strong>을 <strong>boolean</strong>처럼 사용하지마라</li>
-<li><strong>null</strong>체크를 한다는 것 자체가 무언가 잘못되었다는 단서</li>
-<li><strong>null</strong>여부를 지속적으로 체크할 것이 아니라 단위테스트에서 검증을 해라.</li>
-</ul>
-<p><strong>————————————————————————————————————————————————————-</strong></p>
-<h1 id="The-Stepdown-Rule"><a href="#The-Stepdown-Rule" class="headerlink" title="The Stepdown Rule"></a>The Stepdown Rule</h1><ul>
-<li>코드 상 public은 위로 private는 아래로</li>
-<li><strong>public</strong> 필드만 보고도 이해할 수 있을정도로</li>
-<li><strong>public</strong> part만 사용자들에게 전달하면 됨.</li>
-<li>중요한 부분은 위로, 상세한 부분은 밑으로  </li>
-</ul>
-<p><strong>———————————————————————————————————————————————————–</strong></p>
-<h1 id="Switches-and-cases"><a href="#Switches-and-cases" class="headerlink" title="Switches and cases"></a>Switches and cases</h1><ul>
-<li>switch문장 사용을 왜 꺼리나 =&gt; OO(Object-Oriented) 스럽지않아서?<h2 id="그럼-OO-Object-Oriented-는-뭐가-좋을까"><a href="#그럼-OO-Object-Oriented-는-뭐가-좋을까" class="headerlink" title="그럼 OO(Object-Oriented)는 뭐가 좋을까?"></a>그럼 OO(Object-Oriented)는 뭐가 좋을까?</h2></li>
-<li>OO의 가장 큰 이점 중 하나는 의존성 관리능력이다.</li>
-<li>예시</li>
-</ul>
-<p><img src="/assets/images/switch.png" alt="switch"></p>
-<ul>
-<li>이상태에서는 독립적으로 배포/컴파일/개발 불가하다.</li>
-<li>runtime 의존성은 그대로 둔 채로 의존성을 역전시킨다.(Dependency Inversion Principle)</li>
-</ul>
-<p><img src="/assets/images/oo2.png" alt="switch2"></p>
-<ul>
-<li>A와 B사이에 interface를 두면 source code 의존성은 runtime 의존성과 반대가 된다.</li>
-<li>Unit테스트도 잘된다 =&gt; 설계가 잘된 것.</li>
-<li>TDD도 잘된다. =&gt; TDD가 잘 안된다, 어렵다 싶으면 설계가 잘못된 것.</li>
-</ul>
-<h2 id="switch-case"><a href="#switch-case" class="headerlink" title="switch case"></a>switch case</h2><ul>
-<li>각 case는 외부 모듈에 의존성을 갖는다.</li>
-<li>독립적 배포에 방해가 됨.</li>
-<li><em>fan-out problem</em></li>
-<li>외부모듈 중 하나라도 변경이 일어나면 switch문 문제생김.</li>
-</ul>
-<h2 id="제거하려면"><a href="#제거하려면" class="headerlink" title="제거하려면?"></a>제거하려면?</h2><blockquote>
-<ol>
-<li>polymorphic interface 호출로 변환 </li>
-<li>case에 있는 문장들을 별도의 클래스로 추출하여 변경 영향이 발생하지 않도록 한다.</li>
-</ol>
-<ul>
-<li><a href="https://github.com/msbaek/videostore" rel="external nofollow noopener noreferrer" target="_blank">switch-case제거 실습</a> <em>branch:</em> remove-switch-statement</li>
-</ul>
-</blockquote>
-<p><strong>———————————————————————————————————————————————————–</strong></p>
-<h1 id="Temporal-Coupling"><a href="#Temporal-Coupling" class="headerlink" title="Temporal Coupling"></a>Temporal Coupling</h1><p>DB연결처럼 Connection을 열고, 닫고, 이런 코딩을 할 때 순서가 중요한 상황을 말한다.</p>
-<ul>
-<li>함수들이 순서를 지키며 호출되어야한다. </li>
-<li><em>Passing a Block</em></li>
-<li>Strategy Pattern</li>
-</ul>
-<p><img src="/assets/images/temporal.png" alt="temporal"></p>
-<ul>
-<li>사용자에게 ‘주의해서 사용하라’가 아니고 위의 사진처럼 구현</li>
-</ul>
-<hr>
-<ul>
-<li><p><a href="https://velog.io/@essri" rel="external nofollow noopener noreferrer" target="_blank">velog</a></p>
-</li>
-<li><p><a href="https://ggomi.github.io">Blog</a></p>
-</li>
-</ul>
-<hr>
-
-                    
-                        
-
-                    
-                    
-                        <p>
-                            <a href="/function-structure/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/function-example2/">
-                            함수 리팩토링, 추상화 예제 (2)
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2018-12-18T11:14:05+09:00">
-	
-		    Dec 18, 2018
-    	
-    </time>
-    
-        <span>in </span>
-        
-    <a class="category-link" href="/categories/Basic-sense/">Basic_sense</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h2 id="함수-리팩토링-추상화-예제-2"><a href="#함수-리팩토링-추상화-예제-2" class="headerlink" title="함수 리팩토링, 추상화 예제 (2)"></a>함수 리팩토링, 추상화 예제 (2)</h2><p><img src="/assets/images/function.png" alt="banner"></p>
-<blockquote>
-<p><a href="https://www.youtube.com/user/codetemplate/videos" rel="external nofollow noopener noreferrer" target="_blank"> 클린코더스 - 백명석님 </a> 강의를 보고 작성한 글입니다.<br><a href="https://github.com/msbaek/clean-coders-2013" rel="external nofollow noopener noreferrer" target="_blank">Source Code</a></p>
-</blockquote>
-<hr>
-<p><img src="/assets/images/gif/test5.gif" alt="pageName"><br><img src="/assets/images/gif/test6.gif" alt="method Extract"></p>
-<ul>
-<li>함수의 파라미터에 <code>Extract Valuable</code>를 진행하고, <code>Extract Method</code>를 진행하기위해 가장안쪽 <code>if</code> 내부에 있던 지역변수를 <code>if</code>문 밖으로 꺼내어 메소드 추출 준비를 합니다.</li>
-<li>그리고 유사한 코드를 찾아 메소드로 추출합니다.</li>
-</ul>
-<p><img src="/assets/images/gif/test7.gif" alt="inline"><br><img src="/assets/images/gif/test8.gif" alt="method Extract"></p>
-<ul>
-<li>추출하고 남아있는 코드에서 의미없이 라인만 차지하는 코드들을 <code>inline</code>형태로 변경하고, 다시 메소드 추출을 진행합니다.</li>
-</ul>
-<p><img src="/assets/images/result.png" alt="method Extract"></p>
-<ul>
-<li>마지막으로 같은레벨의 <code>if</code>문 두개로 나누어져있는 코드를 하나로 병합해줍니다.</li>
-</ul>
-<hr>
-<ul>
-<li>이렇게 코드를 리팩토링을 연습해보았는데, 저번 <a href="/basic-3">포스트</a>에서 나온 것처럼 함수추출을 진행해도 추상화단계에 변화가 없을 때까지 추출을 진행해야 한다는 것이 크게 와닿지 않았었는데 코드예제를 보고 연습을 하다보니 왜 그렇게 해야할지 알 수 있었고, 역시 어렵다..</li>
-<li>같은 코드만 10번정도 반복한 것 같다.. <del>멍청..</del></li>
-</ul>
-<hr>
-<ul>
-<li><p><a href="https://velog.io/@essri" rel="external nofollow noopener noreferrer" target="_blank">velog</a></p>
-</li>
-<li><p><a href="https://ggomi.github.io">Blog</a></p>
-</li>
-</ul>
-<hr>
-
-                    
-                        
-
-                    
-                    
-                        <p>
-                            <a href="/function-example2/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/function-example/">
-                            함수 리팩토링, 추상화 예제 (1)
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2018-12-18T10:16:53+09:00">
-	
-		    Dec 18, 2018
-    	
-    </time>
-    
-        <span>in </span>
-        
-    <a class="category-link" href="/categories/Basic-sense/">Basic_sense</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h2 id="함수-리팩토링-추상화-예제-1"><a href="#함수-리팩토링-추상화-예제-1" class="headerlink" title="함수 리팩토링, 추상화 예제 (1)"></a>함수 리팩토링, 추상화 예제 (1)</h2><p><img src="/assets/images/function.png" alt="banner"></p>
-<blockquote>
-<p><a href="https://www.youtube.com/user/codetemplate/videos" rel="external nofollow noopener noreferrer" target="_blank"> 클린코더스 - 백명석님 </a> 강의를 보고 작성한 글입니다.<br><a href="https://github.com/msbaek/clean-coders-2013" rel="external nofollow noopener noreferrer" target="_blank">Source Code</a></p>
-</blockquote>
-<hr>
-<ul>
-<li>해당 강의에서 나온 예제입니다. 처음 소스파일은 클래스 하나에 메소드 하나의 구조로 되어있었습니다.</li>
-</ul>
-<p><img src="/assets/images/initialize_builder.PNG" alt="initialize-Builder"></p>
-<ul>
-<li>처음 상태에 <code>Method</code> 하나에 너무 많은 내용이 들어있다. 위의 사진처럼 따로 Builder라는 클래스를 따로 빼주었다.</li>
-</ul>
-<p><img src="/assets/images/gif/test2.gif" alt="Extract-field"></p>
-<ul>
-<li><code>WikiPage</code>와 <code>builder</code> 지역 변수가 여러 번에 걸쳐서 사용되고 있으므로 필드 변수로 뺄 수 있다. 이작업으로 인해 <code>Method</code>는 최소한의 변수를 가져야한다는 사항을 만족시킬 수 있다.</li>
-<li>그리고 <code>Method</code>에서 두개 이상의 변수를 가지고, 수정하고 있으면 IDE에서 제공하는 Extract기능을 사용할 수 없다.</li>
-</ul>
-<p><img src="/assets/images/gif/test3.gif" alt="Extract-Variable"><br><img src="/assets/images/gif/test4.gif" alt="Extract-Method"></p>
-<ul>
-<li>가장 안쪽의 <code>if</code>문이 비슷한 형태로 반복되고있는걸 볼 수 있다. 하지만 <code>buffer(...)</code>에서 각자 취하고 있는 값이 조금 다르기 때문에 <code>Variable</code>로 Extract 해준다. </li>
-<li>그 후 유사한 부분에 대해서 <code>Extract Method</code>를 진행한다. </li>
-</ul>
-<hr>
-<ul>
-<li><p><a href="https://velog.io/@essri" rel="external nofollow noopener noreferrer" target="_blank">velog</a></p>
-</li>
-<li><p><a href="https://ggomi.github.io">Blog</a></p>
-</li>
-</ul>
-<hr>
-
-                    
-                        
-
-                    
-                    
-                        <p>
-                            <a href="/function-example/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    <div class="pagination-bar">
-    <ul class="pagination">
         
         
-        <li class="pagination-number">page 1 of 1</li>
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <i class="fa fa-angle-left" aria-hidden="true"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/function-structure/" data-tooltip="함수의 구조 (function Structure) - 1" aria-label="NEXT: 함수의 구조 (function Structure) - 1">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ggomi.github.io/function-structure-2/" title="Share on Facebook" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=https://ggomi.github.io/function-structure-2/" title="Share on Twitter" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=https://ggomi.github.io/function-structure-2/" title="Share on Google+" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
     </ul>
 </div>
 
-</section>
+
+        
+        
+            
+        
+    </div>
+</article>
+
 
 
                 <footer id="footer" class="main-content-wrap">
@@ -688,6 +459,107 @@ Builder 패턴을 적용하는 것이 더 좋은방법!!
 </footer>
 
             </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <i class="fa fa-angle-left" aria-hidden="true"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/function-structure/" data-tooltip="함수의 구조 (function Structure) - 1" aria-label="NEXT: 함수의 구조 (function Structure) - 1">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ggomi.github.io/function-structure-2/" title="Share on Facebook" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=https://ggomi.github.io/function-structure-2/" title="Share on Twitter" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=https://ggomi.github.io/function-structure-2/" title="Share on Google+" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+    <i id="btn-close-shareoptions" class="fa fa-times"></i>
+    <ul class="share-options">
+        
+            
+            
+            <li class="share-option">
+                <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ggomi.github.io/function-structure-2/" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="share-option">
+                <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=https://ggomi.github.io/function-structure-2/" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="share-option">
+                <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=https://ggomi.github.io/function-structure-2/" rel="external nofollow noopener noreferrer">
+                    <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
+                </a>
+            </li>
+        
+    </ul>
+</div>
+
             
         </div>
         
@@ -754,6 +626,8 @@ Builder 패턴을 적용하는 것이 더 좋은방법!!
 <script src="/assets/js/thumbs.js"></script>
 <script src="/assets/js/tranquilpeak.js"></script>
 <!--SCRIPTS END-->
+
+    
 
 
 

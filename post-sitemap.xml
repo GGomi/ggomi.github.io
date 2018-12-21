@@ -8,8 +8,40 @@
     </url>
 
     <url>
+        <loc>https://ggomi.github.io/function-structure/</loc>
+        <lastmod>2018-12-21T06:40:07.485Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://ggomi.github.io/function-structure-2/</loc>
+        <lastmod>2018-12-21T06:39:55.646Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://ggomi.github.io/basic-1/</loc>
+        <lastmod>2018-12-21T00:25:43.038Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://ggomi.github.io/SSE/</loc>
+        <lastmod>2018-12-20T14:59:54.539Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://ggomi.github.io/function-example2/</loc>
-        <lastmod>2018-12-18T04:33:31.745Z</lastmod>
+        <lastmod>2018-12-19T04:12:25.505Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -17,7 +49,7 @@
 
     <url>
         <loc>https://ggomi.github.io/function-example/</loc>
-        <lastmod>2018-12-18T04:33:12.791Z</lastmod>
+        <lastmod>2018-12-19T04:11:43.199Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -34,14 +66,6 @@
     <url>
         <loc>https://ggomi.github.io/basic-0/</loc>
         <lastmod>2018-12-18T02:45:33.088Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://ggomi.github.io/basic-1/</loc>
-        <lastmod>2018-12-18T02:42:52.084Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
