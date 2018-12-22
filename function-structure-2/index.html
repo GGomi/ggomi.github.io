@@ -17,19 +17,21 @@
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jeongmin Oh","sameAs":["https://github.com/ggomi","https://twitter.com/","https://www.facebook.com/Jeongmin.Oo","https://www.linkedin.com/in/%EC%A0%95%EB%AF%BC-%EC%98%A4-50b22511b/"],"image":"profile.jpg"},"articleBody":"함수의 구조\n 클린코더스 - 백명석님  강의를 보고 작성한 글입니다.Source Code\n\n\n\n함수의 구조 - 1\n\n—————————————————————————————————————\n목차\nCQS(Command Query Seperate)\nTell Don’t Ask\nLaw of Demeter\nEarly returns\nError Handling\nSpecial Cases\nNull is a value\ntry도 하나의 역할 / 기능\n\n—————————————————————————————————————\nCQS\n상태를 변경하는 함수는 값을 반환하면 안된다. 값을 반환하는 함수는 상태를 변경하면 안된다.\n\ncommand\n시스템의 상태변경가능\nside effect를 갖는다\n아무것도 반환하지않는다.query\nside effect가 없다.\n계산값이나 시스템의 상태를 반환\n신뢰의 문제\n\nExample1User u = authorize.login(userName, password);\n\n위의 상황에서 User를 사용하기 위해서는 항상 login을 해야함. login을 하면 원치않아도 User정보를 읽어야만 한다.\n\n12authorize.login(userName, password);User u = authorize.getUser(userName);\n\nMethod```의 리턴을 void로 변경하고, ```User``` 정보가 필요할때만 읽음.12345678910111213141516171819202122232425- 값을 반환하는 함수는 상태를 변경하면 안된다.상태를 변경하는 함수는 ```exception```을 발생시킬 수는 있지만, 값을 반환할 수 없다.- 이것은 SideEffect를 관리하는 약속이다. 약속을 어겨서 혼란을 주지말자.**---------------------------------------------------------------------------------------------------------------**# Tell Don&apos;t Ask- extream한 CQS는 C와 Q를 함께 사용하지 말도록&lt;img src=&quot;/assets/images/ask.png&quot; style=&quot;width: 60%;&quot;&gt;&gt; 로그인 여부는 user객체에 속한다. Tell Don&apos;t Ask 인데 isLoggedIn()은 이상함.- Tell Don&apos;t Ask 는 CQS를 강화하는 수단- 이 규칙을 준수하다보면 Query메소드가 많이 필요없어진다. - 매우 좋은 현상(왜냐하면 Q는 Out of control되는 경향이 있기 때문)# Law of Demeter```java// 예를 들어서 아래와 같은 코드가 있다면, o.getX()    .getY()        .getZ()            .doSomething();// 함수가 시스템에 너무 많은 의존성을 가지게 된다.\n\n함수가 시스템의 전체를 알게 하면 안된다.\n\n개별 함수는 아주 제한된 지식만 가져야한다.\n이전 메소드 호출의 결과로 얻은 객체의 메소드를 호출하면 안된다.\nTell Don’t Ask나, Law of Demeter 모두 어떻게 의존도를 낮추고, Testable하게 만들고, 클린하게 만들건지에 대한 방법, 규칙들이다.\nask대신 tell하면 surrounding과 decouple 된다. \n\n\n\nearly returns1234if(...)else if(...)else if(...)else (...)&#123; return; &#125;\n위 코드처럼 else에다가 리턴을 두지말고 return 되는 로직을 상단으로 올려서 코드를 끝까지 읽지않아도 될 수 있게하는 것\n\n루프 중간에서 return 하는 것은 문제이다.\n코드가 동작하도록 하는 것보다 이해할 수 있게하는 것이 더 중요하다.\n\nError handling\nError처리를 위해 pop은 null을 반환하고, push는 false를 반환하는 것보다 Exception을 발생시키는 것이 좋다.\nException의 이름은 최대한 구체적이어야 한다.\nInner클래스로 Exception을 정의하면 읽기 편할 수 있다. 고려해볼 것\nchecked vs unchecked ?(찾아봐야함.) Checked Exception은 되도록 사용하지말자.\nunchecked는 throws를 말하는 것 같고, checked는 try~catch를 말하는 것 같다.\n\nException은 어떤 메시지를 담아야 할까?\n필요없는 것이 가장 좋다.\nException이름을 명확하게 지어서 이름으로 의미가 전달되도록 하자.\n클래스 내부에 Message를 절대 두지말자.\n\nSpecial Cases\nSpecial Cases 참고\n\nNull is a value\nstack이 empty일 때 top함수는 무엇을 반환해야하나?\nNull 대신 Empty 객체를 발생시키는 것이 좋다.\n\ntry\ntry가 있다면 함수내에서 변수선언을 제외하고 첫번째문장이여야한다.\ntry 블럭 내에는 함수호출만 있어야한다.\nfinally가 함수의 마지막 블럭이어야한다. 이후에 어떤라인도 없어야 한다.\nError handling은 하나의 일이다.\n\n\n\n지금은 이해할 수 있고, 다 이해한것 같아도 속지말고, 직접 내 코드에 적용해보고, 설계해보자\n\n\nvelog\n\nBlog\n\n\n\n","dateCreated":"2018-12-20T13:57:56+09:00","dateModified":"2018-12-21T15:39:55+09:00","datePublished":"2018-12-20T13:57:56+09:00","description":"","headline":"함수의 구조 (function Structure) - 2","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://ggomi.github.io/function-structure-2/"},"publisher":{"@type":"Organization","name":"Jeongmin Oh","sameAs":["https://github.com/ggomi","https://twitter.com/","https://www.facebook.com/Jeongmin.Oo","https://www.linkedin.com/in/%EC%A0%95%EB%AF%BC-%EC%98%A4-50b22511b/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://ggomi.github.io/function-structure-2/","keywords":"개발자 기초다지기_함수, 함수, 리팩토링"}</script>
-    <meta name="description" content="함수의 구조  클린코더스 - 백명석님  강의를 보고 작성한 글입니다.Source Code    함수의 구조 - 1  ————————————————————————————————————— 목차 CQS(Command Query Seperate) Tell Don’t Ask Law of Demeter Early returns Error Handling Special">
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jeongmin Oh","sameAs":["https://github.com/ggomi","https://twitter.com/","https://www.facebook.com/Jeongmin.Oo","https://www.linkedin.com/in/%EC%A0%95%EB%AF%BC-%EC%98%A4-50b22511b/"],"image":"profile.jpg"},"articleBody":"함수의 구조\n 클린코더스 - 백명석님  강의를 보고 작성한 글입니다.\n\n\n\n함수의 구조 - 1\n\n—————————————————————————————————————\n목차\nCQS(Command Query Seperate)\nTell Don’t Ask\nLaw of Demeter\nEarly returns\nError Handling\nSpecial Cases\nNull is a value\ntry도 하나의 역할 / 기능\n\n———————————————————————————————————————————————–\nCQS\n상태를 변경하는 함수는 값을 반환하면 안된다. 값을 반환하는 함수는 상태를 변경하면 안된다.\n\ncommand\n시스템의 상태변경가능\nside effect를 갖는다\n아무것도 반환하지않는다.\n\nquery\nside effect가 없다.\n계산값이나 시스템의 상태를 반환\n신뢰의 문제\n\nExample1User u = authorize.login(userName, password);\n\n위의 상황에서 User를 사용하기 위해서는 항상 login을 해야함. login을 하면 원치않아도 User정보를 읽어야만 한다.\n\n12authorize.login(userName, password);User u = authorize.getUser(userName);\n\nlogin Method의 리턴을 void로 변경하고, User 정보가 필요할때만 읽음.\n값을 반환하는 함수는 상태를 변경하면 안된다.상태를 변경하는 함수는 exception을 발생시킬 수는 있지만, 값을 반환할 수 없다.\n\n이것은 SideEffect를 관리하는 약속이다. 약속을 어겨서 혼란을 주지말자.\n\n\n———————————————————————————————————————————————–\nTell Don’t Ask\nextream한 CQS는 C와 Q를 함께 사용하지 말도록\n\n\n\n로그인 여부는 user객체에 속한다. Tell Don’t Ask 인데 isLoggedIn()은 이상함.\n\nTell Don’t Ask 는 CQS를 강화하는 수단\n이 규칙을 준수하다보면 Query메소드가 많이 필요없어진다. - 매우 좋은 현상(왜냐하면 Q는 Out of control되는 경향이 있기 때문)\n\n\nLaw of Demeter1234567// 예를 들어서 아래와 같은 코드가 있다면, o.getX()    .getY()        .getZ()            .doSomething();// 함수가 시스템에 너무 많은 의존성을 가지게 된다.\n\n함수가 시스템의 전체를 알게 하면 안된다.\n개별 함수는 아주 제한된 지식만 가져야한다.\n이전 메소드 호출의 결과로 얻은 객체의 메소드를 호출하면 안된다.\nTell Don’t Ask나, Law of Demeter 모두 어떻게 의존도를 낮추고, Testable하게 만들고, 클린하게 만들건지에 대한 방법, 규칙들이다.\nask대신 tell하면 surrounding과 decouple 된다. \n\n\n\nearly returns1234if(...)else if(...)else if(...)else (...)&#123; return; &#125;\n위 코드처럼 else에다가 리턴을 두지말고 return 되는 로직을 상단으로 올려서 코드를 끝까지 읽지않아도 될 수 있게하는 것\n\n루프 중간에서 return 하는 것은 문제이다.\n코드가 동작하도록 하는 것보다 이해할 수 있게하는 것이 더 중요하다.\n\nError handling\nError처리를 위해 pop은 null을 반환하고, push는 false를 반환하는 것보다 Exception을 발생시키는 것이 좋다.\nException의 이름은 최대한 구체적이어야 한다.\nInner클래스로 Exception을 정의하면 읽기 편할 수 있다. 고려해볼 것\nchecked vs unchecked ?(찾아봐야함.) Checked Exception은 되도록 사용하지말자.\nunchecked는 throws를 말하는 것 같고, checked는 try~catch를 말하는 것 같다.\n\nException은 어떤 메시지를 담아야 할까?\n필요없는 것이 가장 좋다.\nException이름을 명확하게 지어서 이름으로 의미가 전달되도록 하자.\n클래스 내부에 Message를 절대 두지말자.\n\nSpecial Cases\nSpecial Cases 참고\n\nNull is a value\nstack이 empty일 때 top함수는 무엇을 반환해야하나?\nNull 대신 Empty 객체를 발생시키는 것이 좋다.\n\ntry\ntry가 있다면 함수내에서 변수선언을 제외하고 첫번째문장이여야한다.\ntry 블럭 내에는 함수호출만 있어야한다.\nfinally가 함수의 마지막 블럭이어야한다. 이후에 어떤라인도 없어야 한다.\nError handling은 하나의 일이다.\n\n\n\n지금은 이해할 수 있고, 다 이해한것 같아도 속지말고, 직접 내 코드에 적용해보고, 설계해보자\n\n\nvelog\n\nBlog\n\n\n\n","dateCreated":"2018-12-20T13:57:56+09:00","dateModified":"2018-12-21T15:45:32+09:00","datePublished":"2018-12-20T13:57:56+09:00","description":"","headline":"함수의 구조 (function Structure) - 2","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://ggomi.github.io/function-structure-2/"},"publisher":{"@type":"Organization","name":"Jeongmin Oh","sameAs":["https://github.com/ggomi","https://twitter.com/","https://www.facebook.com/Jeongmin.Oo","https://www.linkedin.com/in/%EC%A0%95%EB%AF%BC-%EC%98%A4-50b22511b/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://ggomi.github.io/function-structure-2/","keywords":"개발자 기초다지기_함수, 함수, 리팩토링"}</script>
+    <meta name="description" content="함수의 구조  클린코더스 - 백명석님  강의를 보고 작성한 글입니다.    함수의 구조 - 1  ————————————————————————————————————— 목차 CQS(Command Query Seperate) Tell Don’t Ask Law of Demeter Early returns Error Handling Special Cases Null">
 <meta name="keywords" content="개발자 기초다지기_함수,함수,리팩토링">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="함수의 구조 (function Structure) - 2">
 <meta property="og:url" content="https://ggomi.github.io/function-structure-2/index.html">
 <meta property="og:site_name" content="Jeongmin&#39;s Blog">
-<meta property="og:description" content="함수의 구조  클린코더스 - 백명석님  강의를 보고 작성한 글입니다.Source Code    함수의 구조 - 1  ————————————————————————————————————— 목차 CQS(Command Query Seperate) Tell Don’t Ask Law of Demeter Early returns Error Handling Special">
+<meta property="og:description" content="함수의 구조  클린코더스 - 백명석님  강의를 보고 작성한 글입니다.    함수의 구조 - 1  ————————————————————————————————————— 목차 CQS(Command Query Seperate) Tell Don’t Ask Law of Demeter Early returns Error Handling Special Cases Null">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-12-21T06:39:55.646Z">
+<meta property="og:image" content="https://ggomi.github.io/assets/images/ask.png">
+<meta property="og:updated_time" content="2018-12-21T06:45:32.781Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="함수의 구조 (function Structure) - 2">
-<meta name="twitter:description" content="함수의 구조  클린코더스 - 백명석님  강의를 보고 작성한 글입니다.Source Code    함수의 구조 - 1  ————————————————————————————————————— 목차 CQS(Command Query Seperate) Tell Don’t Ask Law of Demeter Early returns Error Handling Special">
+<meta name="twitter:description" content="함수의 구조  클린코더스 - 백명석님  강의를 보고 작성한 글입니다.    함수의 구조 - 1  ————————————————————————————————————— 목차 CQS(Command Query Seperate) Tell Don’t Ask Law of Demeter Early returns Error Handling Special Cases Null">
+<meta name="twitter:image" content="https://ggomi.github.io/assets/images/ask.png">
     
     
         
@@ -273,7 +275,7 @@
     <div class="post-content markdown">
         <div class="main-content-wrap">
             <h1 id="함수의-구조"><a href="#함수의-구조" class="headerlink" title="함수의 구조"></a>함수의 구조</h1><blockquote>
-<p><a href="https://www.youtube.com/user/codetemplate/videos" rel="external nofollow noopener noreferrer" target="_blank"> 클린코더스 - 백명석님 </a> 강의를 보고 작성한 글입니다.<br><a href="https://github.com/msbaek/clean-coders-2013" rel="external nofollow noopener noreferrer" target="_blank">Source Code</a></p>
+<p><a href="https://www.youtube.com/user/codetemplate/videos" rel="external nofollow noopener noreferrer" target="_blank"> 클린코더스 - 백명석님 </a> 강의를 보고 작성한 글입니다.</p>
 </blockquote>
 <hr>
 <blockquote>
@@ -290,14 +292,16 @@
 <li><a href="#null-is-a-value">Null is a value</a></li>
 <li><a href="#try">try도 하나의 역할 / 기능</a></li>
 </ul>
-<p><strong>—————————————————————————————————————</strong></p>
+<p><strong>———————————————————————————————————————————————–</strong></p>
 <h1 id="CQS"><a href="#CQS" class="headerlink" title="CQS"></a>CQS</h1><ul>
 <li>상태를 변경하는 함수는 값을 반환하면 안된다. 값을 반환하는 함수는 상태를 변경하면 안된다.</li>
 </ul>
-<h2 id="command"><a href="#command" class="headerlink" title="command"></a>command</h2><ul>
+<h3 id="command"><a href="#command" class="headerlink" title="command"></a>command</h3><ul>
 <li>시스템의 상태변경가능</li>
 <li>side effect를 갖는다</li>
-<li>아무것도 반환하지않는다.<h2 id="query"><a href="#query" class="headerlink" title="query"></a>query</h2></li>
+<li>아무것도 반환하지않는다.</li>
+</ul>
+<h3 id="query"><a href="#query" class="headerlink" title="query"></a>query</h3><ul>
 <li>side effect가 없다.</li>
 <li>계산값이나 시스템의 상태를 반환</li>
 <li>신뢰의 문제</li>
@@ -308,10 +312,27 @@
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">authorize.login(userName, password);</span><br><span class="line">User u = authorize.getUser(userName);</span><br></pre></td></tr></table></figure>
 <ul>
-<li><figure class="highlight plain"><figcaption><span>Method```의 리턴을 void로 변경하고, ```User``` 정보가 필요할때만 읽음.</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">- 값을 반환하는 함수는 상태를 변경하면 안된다.</span><br><span class="line">상태를 변경하는 함수는 ```exception```을 발생시킬 수는 있지만, 값을 반환할 수 없다.</span><br><span class="line"></span><br><span class="line">- 이것은 SideEffect를 관리하는 약속이다. 약속을 어겨서 혼란을 주지말자.</span><br><span class="line"></span><br><span class="line">**---------------------------------------------------------------------------------------------------------------**</span><br><span class="line"></span><br><span class="line"># Tell Don&apos;t Ask</span><br><span class="line">- extream한 CQS는 C와 Q를 함께 사용하지 말도록</span><br><span class="line"></span><br><span class="line">&lt;img src=&quot;/assets/images/ask.png&quot; style=&quot;width: 60%;&quot;&gt;</span><br><span class="line"></span><br><span class="line">&gt; 로그인 여부는 user객체에 속한다. Tell Don&apos;t Ask 인데 isLoggedIn()은 이상함.</span><br><span class="line">- Tell Don&apos;t Ask 는 CQS를 강화하는 수단</span><br><span class="line">- 이 규칙을 준수하다보면 Query메소드가 많이 필요없어진다. - 매우 좋은 현상(왜냐하면 Q는 Out of control되는 경향이 있기 때문)</span><br><span class="line"></span><br><span class="line"># Law of Demeter</span><br><span class="line">```java</span><br><span class="line">// 예를 들어서 아래와 같은 코드가 있다면, </span><br><span class="line">o.getX()</span><br><span class="line">    .getY()</span><br><span class="line">        .getZ()</span><br><span class="line">            .doSomething();</span><br><span class="line"></span><br><span class="line">// 함수가 시스템에 너무 많은 의존성을 가지게 된다.</span><br></pre></td></tr></table></figure>
+<li><strong>login Method</strong>의 리턴을 void로 변경하고, <strong>User</strong> 정보가 필요할때만 읽음.</li>
+<li><p>값을 반환하는 함수는 상태를 변경하면 안된다.<br>상태를 변경하는 함수는 <strong>exception</strong>을 발생시킬 수는 있지만, 값을 반환할 수 없다.</p>
 </li>
-<li><p>함수가 시스템의 전체를 알게 하면 안된다.</p>
+<li><p>이것은 SideEffect를 관리하는 약속이다. 약속을 어겨서 혼란을 주지말자.</p>
 </li>
+</ul>
+<p><strong>———————————————————————————————————————————————–</strong></p>
+<h1 id="Tell-Don’t-Ask"><a href="#Tell-Don’t-Ask" class="headerlink" title="Tell Don’t Ask"></a>Tell Don’t Ask</h1><ul>
+<li>extream한 CQS는 C와 Q를 함께 사용하지 말도록</li>
+</ul>
+<p><img src="/assets/images/ask.png" style="width: 60%;"></p>
+<blockquote>
+<p>로그인 여부는 user객체에 속한다. Tell Don’t Ask 인데 isLoggedIn()은 이상함.</p>
+<ul>
+<li>Tell Don’t Ask 는 CQS를 강화하는 수단</li>
+<li>이 규칙을 준수하다보면 Query메소드가 많이 필요없어진다. - 매우 좋은 현상(왜냐하면 Q는 Out of control되는 경향이 있기 때문)</li>
+</ul>
+</blockquote>
+<h1 id="Law-of-Demeter"><a href="#Law-of-Demeter" class="headerlink" title="Law of Demeter"></a>Law of Demeter</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 예를 들어서 아래와 같은 코드가 있다면, </span></span><br><span class="line">o.getX()</span><br><span class="line">    .getY()</span><br><span class="line">        .getZ()</span><br><span class="line">            .doSomething();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 함수가 시스템에 너무 많은 의존성을 가지게 된다.</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>함수가 시스템의 전체를 알게 하면 안된다.</li>
 <li>개별 함수는 아주 제한된 지식만 가져야한다.</li>
 <li>이전 메소드 호출의 결과로 얻은 객체의 메소드를 호출하면 안된다.</li>
 <li>Tell Don’t Ask나, Law of Demeter 모두 어떻게 의존도를 낮추고, <em>Testable</em>하게 만들고, 클린하게 만들건지에 대한 방법, 규칙들이다.<blockquote>
@@ -381,7 +402,8 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--disabled">
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/comments-rules/" data-tooltip="Comments Rules" aria-label="PREVIOUS: Comments Rules">
                 
                     <i class="fa fa-angle-left" aria-hidden="true"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -466,7 +488,8 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--disabled">
+                    
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/comments-rules/" data-tooltip="Comments Rules" aria-label="PREVIOUS: Comments Rules">
                 
                     <i class="fa fa-angle-left" aria-hidden="true"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>

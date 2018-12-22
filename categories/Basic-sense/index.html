@@ -252,6 +252,132 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
+                        <a class="link-unstyled" href="/comments-rules/">
+                            Comments Rules
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2018-12-22T14:18:29+09:00">
+	
+		    Dec 22, 2018
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/Basic-sense/">Basic_sense</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <blockquote>
+<p><a href="https://www.youtube.com/user/codetemplate/videos" rel="external nofollow noopener noreferrer" target="_blank"> 클린코더스 - 백명석님 </a> 강의를 보고 작성한 글입니다.</p>
+</blockquote>
+<hr>
+<h1 id="Comments"><a href="#Comments" class="headerlink" title="Comments"></a>Comments</h1><blockquote>
+<p><strong>조직이 일정수준의 크기가 되면 문서화를 요구한다. 하지만 별도의 문서를 작성하는 것은 반대!!</strong></p>
+</blockquote>
+<p>처음에는 별도의 문서가 있어도 괜찮을거라고 생각이 들었는데 강의를 듣다보니 생각이 바뀌었다. 코드에 대한 설명을 코드 자체로 설명하는 것이지 별도의 문서로 설명한다는 것은 아니라고 한다. 별도의 문서가 필요하다는 말은 해당 코드가 Coding Standard의 예로 적합하지 않다는 뜻이 된다.<br>Comments 작성을 강요하면 프로그래머는 필요해서가 아니라 해야하므로 Comment를 작성하게된다.<br>그리고 이런 Comments는 무의미하고, 무시당하기 십상이다. <del>너무해ㅠ</del><br>Comments를 보는사람이 감사하는 마음이 생겨야 좋은 Comments이다.</p>
+<blockquote>
+<p><strong>모든 Comments는 당신의 코드가 ‘제대로 표현되고있지않다’라는 실패의 상징이다.</strong></p>
+</blockquote>
+<p>이 말은 좀 충격이었다. 지금까지 사람들에게 내 코드를 이해시키기위해 주석을 열심히 써왔는데… 차라리 이 노력을 코드표현력에 쏟을걸 하는 생각이 들었다.</p>
+<p>그렇다면 Comments를 꼭 써야하는 상황에서의 좋은 Comments 그리고 나쁜 Comments는 무엇일까?</p>
+<hr>
+<h2 id="좋은-Comments"><a href="#좋은-Comments" class="headerlink" title="좋은 Comments"></a>좋은 Comments</h2><p><strong>Legal Comments</strong></p>
+<ul>
+<li>법적인 문제가 쓰여져있는 Comments</li>
+<li>Ex) LICENSE 문제</li>
+</ul>
+<p><strong>Informative Comments</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="comment">// format matched kk:mm:ss EEE, MMM dd, yyyy</span></span><br><span class="line">Pattern timePattern = Pattern.compile(<span class="string">"\\d*:\\d*:\\d* \\w*. \\w* \\d*, \\d*"</span>);</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>예를 들면 정규식을 사용할 때 이 패턴이 어떤 패턴인지 설명해주는 그런 정보를 제공하는 Comments</li>
+</ul>
+<p><strong>Warning of Consequences</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// don't run unless you have some time to kill</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">readReallyBigFile</span><span class="params">()</span> </span>&#123;...&#125;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>코드에 관해서 <strong>경고</strong>할 때</li>
+</ul>
+<p><strong>TODO Comments</strong></p>
+<ul>
+<li>TODO(해야할 일에 관한 Comment)<br><strong>Public API Documentation</strong></li>
+</ul>
+<hr>
+<h2 id="나쁜-Comments"><a href="#나쁜-Comments" class="headerlink" title="나쁜 Comments"></a>나쁜 Comments</h2><p><strong>Mumbling</strong> </p>
+<ul>
+<li>주저리주저리 써놓은 Comments들</li>
+</ul>
+<p><strong>Redundant Explanations</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// The Child Containers belong to this container, keyed by name</span></span><br><span class="line"><span class="keyword">private</span> Map&lt;String, Child&gt; children = <span class="keyword">new</span> HashMap&lt;String, Child&gt;();</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>코드한줄만 봐도 뻔히 알 수 있는 내용인데 굳이 Comment에서 중복되게 다시 설명하고 있는 Comment</li>
+</ul>
+<p><strong>Mandated Redundancy</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> dateIn input date</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> formatted string</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">convertDateFormat</span><span class="params">(String dateIn)</span> </span>&#123;</span><br><span class="line">     ...</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>IDE에서 자동으로 생기는 Comment</li>
+</ul>
+<p><strong>Journal Comments</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 변경이력</span></span><br><span class="line"><span class="comment"> * 2018.11.01 : 생성</span></span><br><span class="line"><span class="comment"> * 2018.11.05 : convertDateFormat 메소드 구현 ...</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>코드의 변경이력을 써놓은 Comment</li>
+</ul>
+<p><strong>Noways Comments</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DateFormatUtils</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     *  default constructor</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="title">DateFormatUtils</span><span class="params">()</span> </span>&#123;</span><br><span class="line">         ...</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>누가봐도 default 생성자인데 굳이 위에 생성자라고 Comment를 작성하는 것처럼 너무 말도 안되게 뻔한 Comments (<strong>절대 해선안된다!!</strong>)</li>
+</ul>
+<p><strong>Big Banner Comments</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DateFormatUtils</span> </span>&#123;</span><br><span class="line">    <span class="comment">/************************</span></span><br><span class="line"><span class="comment">     * instance variables   *</span></span><br><span class="line"><span class="comment">     ************************/</span></span><br><span class="line">     <span class="keyword">private</span> <span class="keyword">int</span> day;</span><br><span class="line">     <span class="keyword">private</span> <span class="keyword">int</span> date;</span><br><span class="line">     ... </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>잘보이게 하려고 특수문자로 도배해놓은 Comment</li>
+</ul>
+<p><strong>Closing Brace Comments</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i&lt; length; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span>(...) &#123;</span><br><span class="line"></span><br><span class="line">    &#125; <span class="comment">//end of if</span></span><br><span class="line">&#125; <span class="comment">//end of for</span></span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>loop의 끝과 Method의 끝 등등 코드블록 끝을 표시해놓은 Comment</li>
+</ul>
+<p><strong>Attribution Comments</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// add by jm</span></span><br><span class="line"><span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">Child</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>누가 작성했는지 써놓은 Comment, 굳이 코드에 써놓을 필요가 없다.</li>
+</ul>
+<p><strong>HTML in Comments</strong> </p>
+<ul>
+<li>HTML 코드로 Comment 작성 (javadoc 작성을 위해서 이렇게 하는 사람들이 있다고한다.)</li>
+</ul>
+<p><strong>Non-Local Information</strong> </p>
+<ul>
+<li>local이 아닌 멀리 떨어진 곳의 코드를 설명하는 Comments는 Comments와 무고나하게 변경될 수 있다.</li>
+</ul>
+<hr>
+<ul>
+<li><a href="https://velog.io/@essri" rel="external nofollow noopener noreferrer" target="_blank">velog</a></li>
+<li><a href="https://ggomi.github.io">Blog</a></li>
+<li><a href="https://github.com/ggomi" rel="external nofollow noopener noreferrer" target="_blank">Github</a></li>
+</ul>
+
+                    
+                        
+
+                    
+                    
+                        <p>
+                            <a href="/comments-rules/#post-footer" class="postShorten-excerpt_link link">
+                                Comment and share
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
                         <a class="link-unstyled" href="/function-structure/">
                             함수의 구조 (function Structure) - 1
                         </a>
@@ -277,7 +403,7 @@
                 <div class="postShorten-content">
                     <p><img src="/assets/images/function-structure.png" alt="함수의 구조"></p>
 <blockquote>
-<p><a href="https://www.youtube.com/user/codetemplate/videos" rel="external nofollow noopener noreferrer" target="_blank"> 클린코더스 - 백명석님 </a> 강의를 보고 작성한 글입니다.<br><a href="https://github.com/msbaek/clean-coders-2013" rel="external nofollow noopener noreferrer" target="_blank">Source Code</a></p>
+<p><a href="https://www.youtube.com/user/codetemplate/videos" rel="external nofollow noopener noreferrer" target="_blank"> 클린코더스 - 백명석님 </a> 강의를 보고 작성한 글입니다.</p>
 </blockquote>
 <p><strong>————————————————————————————————————————————————————-</strong></p>
 <h1 id="목차"><a href="#목차" class="headerlink" title="목차"></a>목차</h1><ul>
