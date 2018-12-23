@@ -94,20 +94,6 @@
     </url>
 
     <url>
-        <loc>https://ggomi.github.io/tags/%EA%B0%9C%EB%B0%9C%EC%9E%90-%EA%B8%B0%EC%B4%88%EB%8B%A4%EC%A7%80%EA%B8%B0-Comment/</loc>
-        <lastmod>2018-12-22T06:26:22.617Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://ggomi.github.io/tags/%EC%A3%BC%EC%84%9D/</loc>
-        <lastmod>2018-12-22T06:26:22.617Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://ggomi.github.io/tags/Comments/</loc>
         <lastmod>2018-12-22T06:26:22.617Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -115,8 +101,36 @@
     </url>
 
     <url>
+        <loc>https://ggomi.github.io/tags/%EA%B0%9C%EB%B0%9C%EC%9E%90-%EA%B8%B0%EC%B4%88%EB%8B%A4%EC%A7%80%EA%B8%B0-Comment/</loc>
+        <lastmod>2018-12-23T14:43:07.971Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://ggomi.github.io/tags/%EC%A3%BC%EC%84%9D/</loc>
+        <lastmod>2018-12-23T14:43:07.971Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://ggomi.github.io/tags/%EB%AC%B8%EC%84%9C%ED%99%94/</loc>
-        <lastmod>2018-12-22T06:26:22.617Z</lastmod>
+        <lastmod>2018-12-23T14:43:07.971Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://ggomi.github.io/tags/Vertical-Formatting/</loc>
+        <lastmod>2018-12-23T14:43:07.971Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://ggomi.github.io/tags/Classes/</loc>
+        <lastmod>2018-12-23T14:43:07.971Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

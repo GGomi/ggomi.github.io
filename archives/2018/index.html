@@ -252,6 +252,89 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
+                        <a class="link-unstyled" href="/vertical-classes/">
+                            Vertical Formatting과 Classes
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2018-12-23T22:23:20+09:00">
+	
+		    Dec 23, 2018
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/Basic-sense/">Basic_sense</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <hr>
+<h1 id="Vertical-Formatting"><a href="#Vertical-Formatting" class="headerlink" title="Vertical Formatting"></a>Vertical Formatting</h1><hr>
+<h2 id="1-공란을-함부로-사용하지마라"><a href="#1-공란을-함부로-사용하지마라" class="headerlink" title="1. 공란을 함부로 사용하지마라."></a>1. 공란을 함부로 사용하지마라.</h2><blockquote>
+<p>공란은 비어있는 라인을 말하는데 이것도 일련의 규칙을 가지고 하는 것이 좋다고 한다. 아래와 같은 경우에 공란을 주자!</p>
+</blockquote>
+<ul>
+<li>메소드 사이</li>
+<li>private 변수들과 public 변수들 사이</li>
+<li>변수선언과 메소드 실행의 나머지 부분 사이</li>
+<li>if / while 블록과 다른 코드 사이</li>
+</ul>
+<h2 id="2-서로-관련된-것들은-Vertical하게-근접해야한다"><a href="#2-서로-관련된-것들은-Vertical하게-근접해야한다" class="headerlink" title="2. 서로 관련된 것들은 Vertical하게 근접해야한다."></a>2. 서로 관련된 것들은 Vertical하게 근접해야한다.</h2><blockquote>
+<p>Vertical한 거리가 그들간의 관련성을 나타낸다!</p>
+</blockquote>
+<hr>
+<h1 id="Class"><a href="#Class" class="headerlink" title="Class"></a>Class</h1><h2 id="1-Class란-무엇인가"><a href="#1-Class란-무엇인가" class="headerlink" title="1. Class란 무엇인가?"></a>1. Class란 무엇인가?</h2><blockquote>
+<p>private 변수와 그 변수들에 대해서 동작하는 public 함수들의 집합이다.(private함수일 수 도..)</p>
+</blockquote>
+<p><em>private</em>변수들을 작성함으로써 클래스를 작성한다. 그리고 <em>private</em>변수들을 public 함수들로 조작한다. 그렇기 때문에 외부에서는 클래스 내의 <em>private</em>변수들이 존재하지 않는 것처럼 보인다.</p>
+<h2 id="하지만"><a href="#하지만" class="headerlink" title="하지만,"></a><strong>하지만,</strong></h2><p>너무 잘 보인다.</p>
+<p>왜냐하면 <em>Getter/Setter</em> 때문에 짐작할 수 있게된다. 왜 변수는 <em>private</em>로 선언하고, <em>Getter/Setter</em>를 제공하나?</p>
+<blockquote>
+<p><strong>필요하지도 않는 <em>Getter/Setter</em>들을 만드는 것은 정말 좋지않은 습관이다.</strong></p>
+</blockquote>
+<p>또한, 객체의 상태를 외부에서 사용할 수 있도록 하는 <em>Getter/Setter/property</em> 등을 제공하는 것은 잘못 된 설계다.</p>
+<p>여기서, 또다시 <em>Tell, Don’t Ask Rule</em>이 나온다.</p>
+<blockquote>
+<p>객체가 관찰할 수 있는 상태를 가지지 않는다면, Tell 하기 쉽고, ask할 가치가 없어진다. 이 규칙을 따르게 되면 Getter가 많지않고, Getter가 많지않으므로 Setter도 적다.</p>
+</blockquote>
+<p>Max cohesive(응집도 최대)를 생각했을 때 Getter/Setter는 cohesive 하지않다.<br>왜냐하면 하나의 변수만 사용하기 때문에 응집도가 높을 수 없다. 그렇다고 해서 Getter/Setter가 없을 수는 없다.. </p>
+<p><strong>그래서 최소화하고 본래변수를 그대로 노출하지않고, 추상화를 통해 제공해야한다.</strong></p>
+<p> <img src="/assets/images/class.png" alt="class"></p>
+<p> 위의 사진처럼 getter를 추상화를 통해서 제공하고, 추상화하기 때문에 getter 이름을 잘 정해야한다.</p>
+<p> 이렇게 했을 때 다형성이 자연스럽게 따라오게 된다.<br> 다형성은 클라이언트 코드를 서버코드의 구현 변경으로부터 보호하고,<br> IoC를 통해 High Level Policy(클라이언트, 비즈니스 로직)를 Low Level Detail로부터 보호하는 것.</p>
+<p> <em>다음에 계속..</em></p>
+
+                    
+                        
+
+                    
+                    
+                        <p>
+                            <a href="/vertical-classes/#post-footer" class="postShorten-excerpt_link link">
+                                Comment and share
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
                         <a class="link-unstyled" href="/comments-rules/">
                             Comments Rules
                         </a>
@@ -1216,76 +1299,18 @@ Builder 패턴을 적용하는 것이 더 좋은방법!!
         
     </article>
     
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/basic-0/">
-                            개발자 기초 다지기 - 0
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2018-12-12T08:58:33+09:00">
-	
-		    Dec 12, 2018
-    	
-    </time>
-    
-        <span>in </span>
-        
-    <a class="category-link" href="/categories/Basic-sense/">Basic_sense</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h2 id="기초다지기"><a href="#기초다지기" class="headerlink" title="기초다지기!!"></a>기초다지기!!</h2><ul>
-<li>졸업이 두달 정도 남은 상황이다. 취업을 앞두고, 해왔던 것들에 대해서 회의감이 들어서 지금까지 해왔던 공부들을 복습하고, 기초를 다시 다져보려고한다.</li>
-</ul>
-<hr>
-<blockquote>
-</blockquote>
-<h2 id="목차"><a href="#목차" class="headerlink" title="목차"></a>목차</h2><ol>
-<li>기초 개발상식 및 개념들</li>
-<li>자료구조</li>
-<li>데이터베이스(RDBS)</li>
-<li>운영체제</li>
-<li>중요 알고리즘 공부</li>
-<li>네트워크</li>
-</ol>
-<ul>
-<li>위의 순서대로 공부를 시작할 생각이고, <strong>‘최소한 이정도는 알아야한다.’</strong> 하는 그 최소한을 공부하면서 계획을 진행할 예정이다.</li>
-</ul>
-
-                    
-                        
-
-                    
-                    
-                        <p>
-                            <a href="/basic-0/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
     <div class="pagination-bar">
     <ul class="pagination">
         
         
-        <li class="pagination-number">page 1 of 1</li>
+          <li class="pagination-next">
+            <a class="btn btn--default btn--small" href="/archives/2018/page/2/">
+              <span>OLDER POSTS</span>
+              <i class="fa fa-angle-right text-base icon-ml"></i>
+            </a>
+          </li>
+        
+        <li class="pagination-number">page 1 of 2</li>
     </ul>
 </div>
 
