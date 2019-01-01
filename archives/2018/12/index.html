@@ -252,6 +252,107 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
+                        <a class="link-unstyled" href="/data-structure/">
+                            Data Structure &amp; Impedance Mismatch
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2018-12-26T17:16:24+09:00">
+	
+		    Dec 26, 2018
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/Basic-sense/">Basic_sense</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <blockquote>
+<p><a href="https://www.youtube.com/user/codetemplate/videos" rel="external nofollow noopener noreferrer" target="_blank"> 클린코더스 - 백명석님 </a> 강의를 보고 작성한 글입니다.</p>
+</blockquote>
+<hr>
+<h2 id="Data-Structure"><a href="#Data-Structure" class="headerlink" title="Data Structure"></a>Data Structure</h2><table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Data Structure</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>private 변수들 + 이를 다루는 함수들</td>
+<td>public 변수들 + Getter/Setter </td>
+</tr>
+<tr>
+<td>cohesive groups of variables를 조작하는 메소드</td>
+<td>개별 변수들을 조작(Getter/Setter)</td>
+</tr>
+<tr>
+<td>구현을 hide, abstract</td>
+<td>구현을 노출</td>
+</tr>
+<tr>
+<td>Tell 가능</td>
+<td>Tell불가, Ask만 가능</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Data Structure는 Class와 반대되는 개념으로 볼 수 있다.</li>
+<li>DS는 기능의 추가에 대해서 자유롭다. 하지만 타입의 추가에 대해서는 취약함. OOP는 타입추가에 대해서 자유롭다.</li>
+</ul>
+<h2 id="Impedance-Mismatch"><a href="#Impedance-Mismatch" class="headerlink" title="Impedance Mismatch"></a>Impedance Mismatch</h2><blockquote>
+<p>OOP에서 RDB를 사용할 때 발생하는 일련의 개념적/기술적 어려움</p>
+</blockquote>
+<ul>
+<li>특히 객체나 클래스의 정의가 데이터베이스 테이블이나 관계스키마에 직접 매핑될 때 발생</li>
+</ul>
+<h3 id="DB-테이블은-DS이다"><a href="#DB-테이블은-DS이다" class="headerlink" title="DB 테이블은 DS이다."></a>DB 테이블은 DS이다.</h3><ul>
+<li>data를 노출하고, 메소드는 없다.</li>
+<li>테이블은 너무 concrete해서 polymorphic(다형화)할 수 없다.</li>
+<li>DB는 어떠한 객체도 포함 할 수 없다.</li>
+</ul>
+<h3 id="ORM"><a href="#ORM" class="headerlink" title="ORM"></a>ORM</h3><ul>
+<li>Hibernate<ul>
+<li>진정한 Object-Relational Mapper는 아니다.</li>
+<li>DB row와 객체간의 직접적인 매핑이 없기 때문</li>
+<li>Hibernate는 DB의 DS를 메모리의 DS로 매핑한다.</li>
+</ul>
+</li>
+</ul>
+
+                    
+                        
+
+                    
+                    
+                        <p>
+                            <a href="/data-structure/#post-footer" class="postShorten-excerpt_link link">
+                                Comment and share
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
                         <a class="link-unstyled" href="/kwpattern/">
                             Algospot(알고스팟) KWPattern
                         </a>
@@ -388,7 +489,12 @@
 <p> <img src="/assets/images/class.png" alt="class"></p>
 <p> 위의 사진처럼 getter를 추상화를 통해서 제공하고, 추상화하기 때문에 getter 이름을 잘 정해야한다.</p>
 <p> 이렇게 했을 때 다형성이 자연스럽게 따라오게 된다.<br> 다형성은 클라이언트 코드를 서버코드의 구현 변경으로부터 보호하고,<br> IoC를 통해 High Level Policy(클라이언트, 비즈니스 로직)를 Low Level Detail로부터 보호하는 것.</p>
-<p> <em>다음에 계속..</em></p>
+<hr>
+<ul>
+<li><a href="https://velog.io/@essri" rel="external nofollow noopener noreferrer" target="_blank">velog</a></li>
+<li><a href="https://ggomi.github.io">Blog</a></li>
+<li><a href="https://github.com/ggomi" rel="external nofollow noopener noreferrer" target="_blank">Github</a></li>
+</ul>
 
                     
                         
@@ -904,6 +1010,85 @@ Builder 패턴을 적용하는 것이 더 좋은방법!!
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
+                        <a class="link-unstyled" href="/function-example2/">
+                            함수 리팩토링, 추상화 예제 (2)
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2018-12-18T11:14:05+09:00">
+	
+		    Dec 18, 2018
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/Basic-sense/">Basic_sense</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h2 id="함수-리팩토링-추상화-예제-2"><a href="#함수-리팩토링-추상화-예제-2" class="headerlink" title="함수 리팩토링, 추상화 예제 (2)"></a>함수 리팩토링, 추상화 예제 (2)</h2><p><img src="/assets/images/function.png" alt="banner"></p>
+<blockquote>
+<p><a href="https://www.youtube.com/user/codetemplate/videos" rel="external nofollow noopener noreferrer" target="_blank"> 클린코더스 - 백명석님 </a> 강의를 보고 작성한 글입니다.<br><a href="https://github.com/msbaek/clean-coders-2013" rel="external nofollow noopener noreferrer" target="_blank">Source Code</a></p>
+</blockquote>
+<hr>
+<p><img src="/assets/images/gif/test5.gif" alt="pageName"><br><img src="/assets/images/gif/test6.gif" alt="method Extract"></p>
+<ul>
+<li>함수의 파라미터에 <code>Extract Valuable</code>를 진행하고, <code>Extract Method</code>를 진행하기위해 가장안쪽 <code>if</code> 내부에 있던 지역변수를 <code>if</code>문 밖으로 꺼내어 메소드 추출 준비를 합니다.</li>
+<li>그리고 유사한 코드를 찾아 메소드로 추출합니다.</li>
+</ul>
+<p><img src="/assets/images/gif/test7.gif" alt="inline"><br><img src="/assets/images/gif/test8.gif" alt="method Extract"></p>
+<ul>
+<li>추출하고 남아있는 코드에서 의미없이 라인만 차지하는 코드들을 <code>inline</code>형태로 변경하고, 다시 메소드 추출을 진행합니다.</li>
+</ul>
+<p><img src="/assets/images/result.png" alt="method Extract"></p>
+<ul>
+<li>마지막으로 같은레벨의 <code>if</code>문 두개로 나누어져있는 코드를 하나로 병합해줍니다.</li>
+</ul>
+<hr>
+<ul>
+<li>이렇게 코드를 리팩토링을 연습해보았는데, 저번 <a href="/basic-3">포스트</a>에서 나온 것처럼 함수추출을 진행해도 추상화단계에 변화가 없을 때까지 추출을 진행해야 한다는 것이 크게 와닿지 않았었는데 코드예제를 보고 연습을 하다보니 왜 그렇게 해야할지 알 수 있었고, 역시 어렵다..</li>
+<li>같은 코드만 10번정도 반복한 것 같다.. <del>멍청..</del></li>
+</ul>
+<hr>
+<ul>
+<li><p><a href="https://velog.io/@essri" rel="external nofollow noopener noreferrer" target="_blank">velog</a></p>
+</li>
+<li><p><a href="https://ggomi.github.io">Blog</a></p>
+</li>
+</ul>
+<hr>
+
+                    
+                        
+
+                    
+                    
+                        <p>
+                            <a href="/function-example2/#post-footer" class="postShorten-excerpt_link link">
+                                Comment and share
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
                         <a class="link-unstyled" href="/basic-1/">
                             개발자 기초 다지기 - 1
                         </a>
@@ -1055,85 +1240,6 @@ Builder 패턴을 적용하는 것이 더 좋은방법!!
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
-                        <a class="link-unstyled" href="/function-example2/">
-                            함수 리팩토링, 추상화 예제 (2)
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2018-12-18T11:14:05+09:00">
-	
-		    Dec 18, 2018
-    	
-    </time>
-    
-        <span>in </span>
-        
-    <a class="category-link" href="/categories/Basic-sense/">Basic_sense</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h2 id="함수-리팩토링-추상화-예제-2"><a href="#함수-리팩토링-추상화-예제-2" class="headerlink" title="함수 리팩토링, 추상화 예제 (2)"></a>함수 리팩토링, 추상화 예제 (2)</h2><p><img src="/assets/images/function.png" alt="banner"></p>
-<blockquote>
-<p><a href="https://www.youtube.com/user/codetemplate/videos" rel="external nofollow noopener noreferrer" target="_blank"> 클린코더스 - 백명석님 </a> 강의를 보고 작성한 글입니다.<br><a href="https://github.com/msbaek/clean-coders-2013" rel="external nofollow noopener noreferrer" target="_blank">Source Code</a></p>
-</blockquote>
-<hr>
-<p><img src="/assets/images/gif/test5.gif" alt="pageName"><br><img src="/assets/images/gif/test6.gif" alt="method Extract"></p>
-<ul>
-<li>함수의 파라미터에 <code>Extract Valuable</code>를 진행하고, <code>Extract Method</code>를 진행하기위해 가장안쪽 <code>if</code> 내부에 있던 지역변수를 <code>if</code>문 밖으로 꺼내어 메소드 추출 준비를 합니다.</li>
-<li>그리고 유사한 코드를 찾아 메소드로 추출합니다.</li>
-</ul>
-<p><img src="/assets/images/gif/test7.gif" alt="inline"><br><img src="/assets/images/gif/test8.gif" alt="method Extract"></p>
-<ul>
-<li>추출하고 남아있는 코드에서 의미없이 라인만 차지하는 코드들을 <code>inline</code>형태로 변경하고, 다시 메소드 추출을 진행합니다.</li>
-</ul>
-<p><img src="/assets/images/result.png" alt="method Extract"></p>
-<ul>
-<li>마지막으로 같은레벨의 <code>if</code>문 두개로 나누어져있는 코드를 하나로 병합해줍니다.</li>
-</ul>
-<hr>
-<ul>
-<li>이렇게 코드를 리팩토링을 연습해보았는데, 저번 <a href="/basic-3">포스트</a>에서 나온 것처럼 함수추출을 진행해도 추상화단계에 변화가 없을 때까지 추출을 진행해야 한다는 것이 크게 와닿지 않았었는데 코드예제를 보고 연습을 하다보니 왜 그렇게 해야할지 알 수 있었고, 역시 어렵다..</li>
-<li>같은 코드만 10번정도 반복한 것 같다.. <del>멍청..</del></li>
-</ul>
-<hr>
-<ul>
-<li><p><a href="https://velog.io/@essri" rel="external nofollow noopener noreferrer" target="_blank">velog</a></p>
-</li>
-<li><p><a href="https://ggomi.github.io">Blog</a></p>
-</li>
-</ul>
-<hr>
-
-                    
-                        
-
-                    
-                    
-                        <p>
-                            <a href="/function-example2/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
                         <a class="link-unstyled" href="/function-example/">
                             함수 리팩토링, 추상화 예제 (1)
                         </a>
@@ -1205,88 +1311,6 @@ Builder 패턴을 적용하는 것이 더 좋은방법!!
         
     </article>
     
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/basic-3/">
-                            재사용과 함수 추출
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2018-12-17T16:37:15+09:00">
-	
-		    Dec 17, 2018
-    	
-    </time>
-    
-        <span>in </span>
-        
-    <a class="category-link" href="/categories/Basic-sense/">Basic_sense</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <p><img src="/assets/images/basic1.png" alt="기초개발상식"></p>
-<h1 id="재사용"><a href="#재사용" class="headerlink" title="재사용"></a>재사용</h1><ul>
-<li>코드에 변경이 일어나도 내가 짰던 코드는 문제가 안생긴다. =&gt; 재사용</li>
-<li>여기저기에서 쓰일수있다 =&gt; 재사용이 아니다.</li>
-<li>상세한 구현에 너무 몰입해서 빠지지 말고, 고수준에서도 생각하면서 개발할 것.</li>
-</ul>
-<h1 id="함수-Method"><a href="#함수-Method" class="headerlink" title="함수(Method)"></a>함수(Method)</h1><ul>
-<li><code>Method</code>는 <strong>한가지</strong> 일만 해야한다.</li>
-<li><code>Method</code> 이름이 길다고 두려워하지말고, 의미부여를 갖게하면된다.</li>
-</ul>
-<h2 id="Rules"><a href="#Rules" class="headerlink" title="Rules"></a>Rules</h2><ul>
-<li>더 이상 작아질 수 없을만큼 함수는 크기가 작아져야한다.</li>
-<li>큰 함수를 보면 클래스로 추출할 생각을 해야한다.</li>
-<li>함수추출을 진행해도 더 이상 추상화 단계가 변하지 않을 때까지 진행한다.</li>
-</ul>
-<h3 id="이러한-작업을-Refactor라고-한다"><a href="#이러한-작업을-Refactor라고-한다" class="headerlink" title="이러한 작업을 Refactor라고 한다."></a>이러한 작업을 <code>Refactor</code>라고 한다.</h3><h2 id="Refactor-효과"><a href="#Refactor-효과" class="headerlink" title="Refactor 효과"></a>Refactor 효과</h2><ul>
-<li>코드를 읽기 쉬워지고, 이해하기 쉬워지며, 의미전달이 용이해진다.</li>
-</ul>
-<h2 id="어떻게-이런-효과를-가져오지"><a href="#어떻게-이런-효과를-가져오지" class="headerlink" title="어떻게 이런 효과를 가져오지??"></a>어떻게 이런 효과를 가져오지??</h2><ul>
-<li>함수의 하나하나의 크기가 작아졌으므로 읽기 편해진다.</li>
-<li><code>if, else, while</code> 내부블록이 한줄 수준으로 변함</li>
-</ul>
-<blockquote>
-<p>하지만, 의미있게 최종적으로 줄이는 것은 어렵다. 연습과 노력이 필요하다. 잘 짜여진 소스코드를 많이 봐야할 것 같다.</p>
-</blockquote>
-<hr>
-<ul>
-<li><a href="https://www.youtube.com/user/codetemplate/videos" rel="external nofollow noopener noreferrer" target="_blank"> 클린코더스 - 백명석님 </a> 강의를 보고 작성한 글입니다.</li>
-<li><p><a href="https://velog.io/@essri/%EA%B8%B0%EC%B4%88-%EA%B0%9C%EB%B0%9C%EC%83%81%EC%8B%9D-%EB%B0%8F-%EA%B0%9C%EB%85%90%EB%93%A4-1-" rel="external nofollow noopener noreferrer" target="_blank">velog</a></p>
-</li>
-<li><p><a href="https://ggomi.github.io">Blog</a></p>
-</li>
-</ul>
-<hr>
-
-                    
-                        
-
-                    
-                    
-                        <p>
-                            <a href="/basic-3/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
     <div class="pagination-bar">
     <ul class="pagination">
         
@@ -1308,7 +1332,7 @@ Builder 패턴을 적용하는 것이 더 좋은방법!!
 
                 <footer id="footer" class="main-content-wrap">
     <span class="copyrights">
-        Copyrights &copy; 2018 Jeongmin Oh. All Rights Reserved.
+        Copyrights &copy; 2019 Jeongmin Oh. All Rights Reserved.
     </span>
 </footer>
 

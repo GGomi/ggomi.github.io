@@ -252,6 +252,107 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
+                        <a class="link-unstyled" href="/data-structure/">
+                            Data Structure &amp; Impedance Mismatch
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2018-12-26T17:16:24+09:00">
+	
+		    Dec 26, 2018
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/Basic-sense/">Basic_sense</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <blockquote>
+<p><a href="https://www.youtube.com/user/codetemplate/videos" rel="external nofollow noopener noreferrer" target="_blank"> 클린코더스 - 백명석님 </a> 강의를 보고 작성한 글입니다.</p>
+</blockquote>
+<hr>
+<h2 id="Data-Structure"><a href="#Data-Structure" class="headerlink" title="Data Structure"></a>Data Structure</h2><table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Data Structure</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>private 변수들 + 이를 다루는 함수들</td>
+<td>public 변수들 + Getter/Setter </td>
+</tr>
+<tr>
+<td>cohesive groups of variables를 조작하는 메소드</td>
+<td>개별 변수들을 조작(Getter/Setter)</td>
+</tr>
+<tr>
+<td>구현을 hide, abstract</td>
+<td>구현을 노출</td>
+</tr>
+<tr>
+<td>Tell 가능</td>
+<td>Tell불가, Ask만 가능</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Data Structure는 Class와 반대되는 개념으로 볼 수 있다.</li>
+<li>DS는 기능의 추가에 대해서 자유롭다. 하지만 타입의 추가에 대해서는 취약함. OOP는 타입추가에 대해서 자유롭다.</li>
+</ul>
+<h2 id="Impedance-Mismatch"><a href="#Impedance-Mismatch" class="headerlink" title="Impedance Mismatch"></a>Impedance Mismatch</h2><blockquote>
+<p>OOP에서 RDB를 사용할 때 발생하는 일련의 개념적/기술적 어려움</p>
+</blockquote>
+<ul>
+<li>특히 객체나 클래스의 정의가 데이터베이스 테이블이나 관계스키마에 직접 매핑될 때 발생</li>
+</ul>
+<h3 id="DB-테이블은-DS이다"><a href="#DB-테이블은-DS이다" class="headerlink" title="DB 테이블은 DS이다."></a>DB 테이블은 DS이다.</h3><ul>
+<li>data를 노출하고, 메소드는 없다.</li>
+<li>테이블은 너무 concrete해서 polymorphic(다형화)할 수 없다.</li>
+<li>DB는 어떠한 객체도 포함 할 수 없다.</li>
+</ul>
+<h3 id="ORM"><a href="#ORM" class="headerlink" title="ORM"></a>ORM</h3><ul>
+<li>Hibernate<ul>
+<li>진정한 Object-Relational Mapper는 아니다.</li>
+<li>DB row와 객체간의 직접적인 매핑이 없기 때문</li>
+<li>Hibernate는 DB의 DS를 메모리의 DS로 매핑한다.</li>
+</ul>
+</li>
+</ul>
+
+                    
+                        
+
+                    
+                    
+                        <p>
+                            <a href="/data-structure/#post-footer" class="postShorten-excerpt_link link">
+                                Comment and share
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
                         <a class="link-unstyled" href="/vertical-classes/">
                             Vertical Formatting과 Classes
                         </a>
@@ -309,7 +410,12 @@
 <p> <img src="/assets/images/class.png" alt="class"></p>
 <p> 위의 사진처럼 getter를 추상화를 통해서 제공하고, 추상화하기 때문에 getter 이름을 잘 정해야한다.</p>
 <p> 이렇게 했을 때 다형성이 자연스럽게 따라오게 된다.<br> 다형성은 클라이언트 코드를 서버코드의 구현 변경으로부터 보호하고,<br> IoC를 통해 High Level Policy(클라이언트, 비즈니스 로직)를 Low Level Detail로부터 보호하는 것.</p>
-<p> <em>다음에 계속..</em></p>
+<hr>
+<ul>
+<li><a href="https://velog.io/@essri" rel="external nofollow noopener noreferrer" target="_blank">velog</a></li>
+<li><a href="https://ggomi.github.io">Blog</a></li>
+<li><a href="https://github.com/ggomi" rel="external nofollow noopener noreferrer" target="_blank">Github</a></li>
+</ul>
 
                     
                         
@@ -1151,7 +1257,7 @@ Builder 패턴을 적용하는 것이 더 좋은방법!!
 
                 <footer id="footer" class="main-content-wrap">
     <span class="copyrights">
-        Copyrights &copy; 2018 Jeongmin Oh. All Rights Reserved.
+        Copyrights &copy; 2019 Jeongmin Oh. All Rights Reserved.
     </span>
 </footer>
 

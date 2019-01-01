@@ -1,0 +1,437 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Jeongmin&#39;s Blog">
+    <title>Tag: Data Structure - Jeongmin&#39;s Blog</title>
+    <meta name="author" content="Jeongmin Oh">
+    
+        <meta name="keywords" content="java,spring boot,JPA,jpa,Java,Spring Boot,lombok,">
+    
+    
+        <link rel="icon" href="https://ggomi.github.io/assets/images/cheese_thumb.jpg">
+    
+    
+        <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
+    
+    <script type="application/ld+json">{}</script>
+    <meta name="keywords" content="java,spring boot,JPA,jpa,Java,Spring Boot,lombok">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="Jeongmin&#39;s Blog">
+<meta property="og:url" content="https://ggomi.github.io/tags/Data-Structure/index.html">
+<meta property="og:site_name" content="Jeongmin&#39;s Blog">
+<meta property="og:locale" content="en">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Jeongmin&#39;s Blog">
+    
+    
+        
+    
+    
+        <meta property="og:image" content="https://ggomi.github.io/assets/images/profile.jpg">
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/all.css">
+    <link rel="stylesheet" href="/assets/css/jquery.fancybox.css">
+    <link rel="stylesheet" href="/assets/css/thumbs.css">
+    <link rel="stylesheet" href="/assets/css/tranquilpeak.css">
+    <!--STYLES END-->
+    
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-109295981-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+        
+            
+        
+    
+
+<header id="header" data-behavior="2">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a class="header-title-link" href="/ ">Jeongmin&#39;s Blog</a>
+    </div>
+    
+        
+            <a class="header-right-picture " href="#about">
+        
+        
+            <img class="header-picture" src="/assets/images/profile.jpg" alt="Author&#39;s picture">
+        
+        </a>
+    
+    <link rel="canonical" href="https://ggomi.github.io/tags/data-structure/">
+</header>
+
+            <!-- Define author's picture -->
+
+
+
+        
+    
+
+<nav id="sidebar" data-behavior="2">
+    <div class="sidebar-container">
+        
+            <div class="sidebar-profile">
+                <a href="/#about">
+                    <img class="sidebar-profile-picture" src="/assets/images/profile.jpg" alt="Author&#39;s picture">
+                </a>
+                <h4 class="sidebar-profile-name">Jeongmin Oh</h4>
+                
+                    <h5 class="sidebar-profile-bio"><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mokpo Univ.</td>
+<td>2013.03 ~ 2019.02</td>
+</tr>
+<tr>
+<td>Mobile C&amp;C</td>
+<td>2018.08 ~ 2019.02(예정)</td>
+</tr>
+</tbody>
+</table>
+</h5>
+                
+            </div>
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/ " title="Home">
+                    
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Home</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-categories" title="Categories">
+                    
+                        <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Categories</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-tags" title="Tags">
+                    
+                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Tags</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/all-archives" title="Archives">
+                    
+                        <i class="sidebar-button-icon fa fa-archive" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Archives</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link open-algolia-search" href="#search" title="Search">
+                    
+                        <i class="sidebar-button-icon fa fa-search" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Search</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="#about" title="About">
+                    
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">About</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://github.com/ggomi" target="_blank" rel="external nofollow noopener noreferrer" title="GitHub">
+                    
+                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://twitter.com/" target="_blank" rel="external nofollow noopener noreferrer" title="Twitter">
+                    
+                        <i class="sidebar-button-icon fab fa-twitter" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Twitter</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://www.facebook.com/Jeongmin.Oo" target="_blank" rel="external nofollow noopener noreferrer" title="Facebook">
+                    
+                        <i class="sidebar-button-icon fab fa-facebook" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Facebook</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="https://www.linkedin.com/in/%EC%A0%95%EB%AF%BC-%EC%98%A4-50b22511b/" target="_blank" rel="external nofollow noopener noreferrer" title="LinkedIn">
+                    
+                        <i class="sidebar-button-icon fab fa-linkedin" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">LinkedIn</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a class="sidebar-button-link " href="/atom.xml" title="RSS">
+                    
+                        <i class="sidebar-button-icon fa fa-rss" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">RSS</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="2" class="
+                        hasCoverMetaIn
+                        ">
+                
+    <section class="postShorten-group main-content-wrap">
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a class="link-unstyled" href="/data-structure/">
+                            Data Structure &amp; Impedance Mismatch
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2018-12-26T17:16:24+09:00">
+	
+		    Dec 26, 2018
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/Basic-sense/">Basic_sense</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <blockquote>
+<p><a href="https://www.youtube.com/user/codetemplate/videos" rel="external nofollow noopener noreferrer" target="_blank"> 클린코더스 - 백명석님 </a> 강의를 보고 작성한 글입니다.</p>
+</blockquote>
+<hr>
+<h2 id="Data-Structure"><a href="#Data-Structure" class="headerlink" title="Data Structure"></a>Data Structure</h2><table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Data Structure</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>private 변수들 + 이를 다루는 함수들</td>
+<td>public 변수들 + Getter/Setter </td>
+</tr>
+<tr>
+<td>cohesive groups of variables를 조작하는 메소드</td>
+<td>개별 변수들을 조작(Getter/Setter)</td>
+</tr>
+<tr>
+<td>구현을 hide, abstract</td>
+<td>구현을 노출</td>
+</tr>
+<tr>
+<td>Tell 가능</td>
+<td>Tell불가, Ask만 가능</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Data Structure는 Class와 반대되는 개념으로 볼 수 있다.</li>
+<li>DS는 기능의 추가에 대해서 자유롭다. 하지만 타입의 추가에 대해서는 취약함. OOP는 타입추가에 대해서 자유롭다.</li>
+</ul>
+<h2 id="Impedance-Mismatch"><a href="#Impedance-Mismatch" class="headerlink" title="Impedance Mismatch"></a>Impedance Mismatch</h2><blockquote>
+<p>OOP에서 RDB를 사용할 때 발생하는 일련의 개념적/기술적 어려움</p>
+</blockquote>
+<ul>
+<li>특히 객체나 클래스의 정의가 데이터베이스 테이블이나 관계스키마에 직접 매핑될 때 발생</li>
+</ul>
+<h3 id="DB-테이블은-DS이다"><a href="#DB-테이블은-DS이다" class="headerlink" title="DB 테이블은 DS이다."></a>DB 테이블은 DS이다.</h3><ul>
+<li>data를 노출하고, 메소드는 없다.</li>
+<li>테이블은 너무 concrete해서 polymorphic(다형화)할 수 없다.</li>
+<li>DB는 어떠한 객체도 포함 할 수 없다.</li>
+</ul>
+<h3 id="ORM"><a href="#ORM" class="headerlink" title="ORM"></a>ORM</h3><ul>
+<li>Hibernate<ul>
+<li>진정한 Object-Relational Mapper는 아니다.</li>
+<li>DB row와 객체간의 직접적인 매핑이 없기 때문</li>
+<li>Hibernate는 DB의 DS를 메모리의 DS로 매핑한다.</li>
+</ul>
+</li>
+</ul>
+
+                    
+                        
+
+                    
+                    
+                        <p>
+                            <a href="/data-structure/#post-footer" class="postShorten-excerpt_link link">
+                                Comment and share
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    <div class="pagination-bar">
+    <ul class="pagination">
+        
+        
+        <li class="pagination-number">page 1 of 1</li>
+    </ul>
+</div>
+
+</section>
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2019 Jeongmin Oh. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+        </div>
+        
+
+
+    
+        
+    
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-times"></i>
+        </div>
+        
+            <img id="about-card-picture" src="/assets/images/profile.jpg" alt="Author&#39;s picture">
+        
+            <h4 id="about-card-name">Jeongmin Oh</h4>
+        
+            <div id="about-card-bio"><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mokpo Univ.</td>
+<td>2013.03 ~ 2019.02</td>
+</tr>
+<tr>
+<td>Mobile C&amp;C</td>
+<td>2018.08 ~ 2019.02(예정)</td>
+</tr>
+</tbody>
+</table>
+</div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br>
+                <p>Mobile C&amp;C 인턴 2018.08 ~</p>
+
+            </div>
+        
+        
+            <div id="about-card-location">
+                <i class="fa fa-map-marker-alt"></i>
+                <br>
+                Seoul, Korea Republic Of.
+            </div>
+        
+    </div>
+</div>
+
+        
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+        <!--SCRIPTS-->
+<script src="/assets/js/jquery.js"></script>
+<script src="/assets/js/jquery.fancybox.js"></script>
+<script src="/assets/js/thumbs.js"></script>
+<script src="/assets/js/tranquilpeak.js"></script>
+<!--SCRIPTS END-->
+
+
+
+    </body>
+</html>

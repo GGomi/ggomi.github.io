@@ -94,43 +94,15 @@
     </url>
 
     <url>
-        <loc>https://ggomi.github.io/tags/Comments/</loc>
+        <loc>https://ggomi.github.io/tags/%EA%B0%9C%EB%B0%9C%EC%9E%90-%EA%B8%B0%EC%B4%88%EB%8B%A4%EC%A7%80%EA%B8%B0-Comment/</loc>
         <lastmod>2018-12-22T06:26:22.617Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://ggomi.github.io/tags/%EA%B0%9C%EB%B0%9C%EC%9E%90-%EA%B8%B0%EC%B4%88%EB%8B%A4%EC%A7%80%EA%B8%B0-Comment/</loc>
-        <lastmod>2018-12-23T14:43:07.971Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://ggomi.github.io/tags/%EC%A3%BC%EC%84%9D/</loc>
-        <lastmod>2018-12-23T14:43:07.971Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://ggomi.github.io/tags/%EB%AC%B8%EC%84%9C%ED%99%94/</loc>
-        <lastmod>2018-12-23T14:43:07.971Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://ggomi.github.io/tags/Vertical-Formatting/</loc>
-        <lastmod>2018-12-23T14:43:07.971Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://ggomi.github.io/tags/Classes/</loc>
-        <lastmod>2018-12-23T14:43:07.971Z</lastmod>
+        <loc>https://ggomi.github.io/tags/Comments/</loc>
+        <lastmod>2018-12-22T06:26:22.617Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -152,6 +124,69 @@
     <url>
         <loc>https://ggomi.github.io/tags/KWPattern/</loc>
         <lastmod>2018-12-26T07:33:45.448Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://ggomi.github.io/tags/%EC%A3%BC%EC%84%9D/</loc>
+        <lastmod>2018-12-26T08:15:29.470Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://ggomi.github.io/tags/%EB%AC%B8%EC%84%9C%ED%99%94/</loc>
+        <lastmod>2018-12-26T08:15:29.470Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://ggomi.github.io/tags/Vertical-Formatting/</loc>
+        <lastmod>2018-12-26T08:15:29.470Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://ggomi.github.io/tags/Classes/</loc>
+        <lastmod>2018-12-26T08:15:29.470Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://ggomi.github.io/tags/TDD/</loc>
+        <lastmod>2019-01-01T13:07:11.455Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://ggomi.github.io/tags/Test-Driven-Development/</loc>
+        <lastmod>2019-01-01T13:07:11.455Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://ggomi.github.io/tags/%EA%B0%9C%EB%B0%9C%EC%9E%90-%EA%B8%B0%EC%B4%88%EB%8B%A4%EC%A7%80%EA%B8%B0/</loc>
+        <lastmod>2019-01-01T13:07:46.351Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://ggomi.github.io/tags/Data-Structure/</loc>
+        <lastmod>2019-01-01T13:07:46.351Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://ggomi.github.io/tags/Boundaries/</loc>
+        <lastmod>2019-01-01T13:07:46.351Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
