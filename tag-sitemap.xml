@@ -157,36 +157,36 @@
     </url>
 
     <url>
-        <loc>https://ggomi.github.io/tags/TDD/</loc>
-        <lastmod>2019-01-01T13:07:11.455Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://ggomi.github.io/tags/Test-Driven-Development/</loc>
-        <lastmod>2019-01-01T13:07:11.455Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://ggomi.github.io/tags/%EA%B0%9C%EB%B0%9C%EC%9E%90-%EA%B8%B0%EC%B4%88%EB%8B%A4%EC%A7%80%EA%B8%B0/</loc>
-        <lastmod>2019-01-01T13:07:46.351Z</lastmod>
+        <lastmod>2019-01-01T13:46:57.503Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://ggomi.github.io/tags/Data-Structure/</loc>
-        <lastmod>2019-01-01T13:07:46.351Z</lastmod>
+        <lastmod>2019-01-01T13:46:57.503Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://ggomi.github.io/tags/Boundaries/</loc>
-        <lastmod>2019-01-01T13:07:46.351Z</lastmod>
+        <lastmod>2019-01-01T13:46:57.503Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://ggomi.github.io/tags/TDD/</loc>
+        <lastmod>2019-01-01T13:47:09.298Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://ggomi.github.io/tags/Test-Driven-Development/</loc>
+        <lastmod>2019-01-01T13:47:09.298Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
