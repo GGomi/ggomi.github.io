@@ -9,35 +9,35 @@
     <title>함수의 구조 (function Structure) - 2 - Jeongmin&#39;s Blog</title>
     <meta name="author" content="Jeongmin Oh">
     
-        <meta name="keywords" content="java,spring boot,JPA,jpa,Java,Spring Boot,lombok,">
+        <meta name="keywords" content="스프링,스프링부트,주니어개발자,개발,자바,알고리즘,알고스팟,algorithm,algospot,TDD,java,spring boot,JPA,jpa,Java,Spring Boot,lombok,">
     
     
-        <link rel="icon" href="https://ggomi.github.io/assets/images/cheese_thumb.jpg">
+        <link rel="icon" href="https://localhost:4000/assets/images/cheese_thumb.jpg">
     
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jeongmin Oh","sameAs":["https://github.com/ggomi","https://twitter.com/","https://www.facebook.com/Jeongmin.Oo","https://www.linkedin.com/in/%EC%A0%95%EB%AF%BC-%EC%98%A4-50b22511b/"],"image":"profile.jpg"},"articleBody":"함수의 구조\n 클린코더스 - 백명석님  강의를 보고 작성한 글입니다.\n\n\n\n함수의 구조 - 1\n\n—————————————————————————————————————\n목차\nCQS(Command Query Seperate)\nTell Don’t Ask\nLaw of Demeter\nEarly returns\nError Handling\nSpecial Cases\nNull is a value\ntry도 하나의 역할 / 기능\n\n———————————————————————————————————————————————–\nCQS\n상태를 변경하는 함수는 값을 반환하면 안된다. 값을 반환하는 함수는 상태를 변경하면 안된다.\n\ncommand\n시스템의 상태변경가능\nside effect를 갖는다\n아무것도 반환하지않는다.\n\nquery\nside effect가 없다.\n계산값이나 시스템의 상태를 반환\n신뢰의 문제\n\nExample1User u = authorize.login(userName, password);\n\n위의 상황에서 User를 사용하기 위해서는 항상 login을 해야함. login을 하면 원치않아도 User정보를 읽어야만 한다.\n\n12authorize.login(userName, password);User u = authorize.getUser(userName);\n\nlogin Method의 리턴을 void로 변경하고, User 정보가 필요할때만 읽음.\n값을 반환하는 함수는 상태를 변경하면 안된다.상태를 변경하는 함수는 exception을 발생시킬 수는 있지만, 값을 반환할 수 없다.\n\n이것은 SideEffect를 관리하는 약속이다. 약속을 어겨서 혼란을 주지말자.\n\n\n———————————————————————————————————————————————–\nTell Don’t Ask\nextream한 CQS는 C와 Q를 함께 사용하지 말도록\n\n\n\n로그인 여부는 user객체에 속한다. Tell Don’t Ask 인데 isLoggedIn()은 이상함.\n\nTell Don’t Ask 는 CQS를 강화하는 수단\n이 규칙을 준수하다보면 Query메소드가 많이 필요없어진다. - 매우 좋은 현상(왜냐하면 Q는 Out of control되는 경향이 있기 때문)\n\n\nLaw of Demeter1234567// 예를 들어서 아래와 같은 코드가 있다면, o.getX()    .getY()        .getZ()            .doSomething();// 함수가 시스템에 너무 많은 의존성을 가지게 된다.\n\n함수가 시스템의 전체를 알게 하면 안된다.\n개별 함수는 아주 제한된 지식만 가져야한다.\n이전 메소드 호출의 결과로 얻은 객체의 메소드를 호출하면 안된다.\nTell Don’t Ask나, Law of Demeter 모두 어떻게 의존도를 낮추고, Testable하게 만들고, 클린하게 만들건지에 대한 방법, 규칙들이다.\nask대신 tell하면 surrounding과 decouple 된다. \n\n\n\nearly returns1234if(...)else if(...)else if(...)else (...)&#123; return; &#125;\n위 코드처럼 else에다가 리턴을 두지말고 return 되는 로직을 상단으로 올려서 코드를 끝까지 읽지않아도 될 수 있게하는 것\n\n루프 중간에서 return 하는 것은 문제이다.\n코드가 동작하도록 하는 것보다 이해할 수 있게하는 것이 더 중요하다.\n\nError handling\nError처리를 위해 pop은 null을 반환하고, push는 false를 반환하는 것보다 Exception을 발생시키는 것이 좋다.\nException의 이름은 최대한 구체적이어야 한다.\nInner클래스로 Exception을 정의하면 읽기 편할 수 있다. 고려해볼 것\nchecked vs unchecked ?(찾아봐야함.) Checked Exception은 되도록 사용하지말자.\nunchecked는 throws를 말하는 것 같고, checked는 try~catch를 말하는 것 같다.\n\nException은 어떤 메시지를 담아야 할까?\n필요없는 것이 가장 좋다.\nException이름을 명확하게 지어서 이름으로 의미가 전달되도록 하자.\n클래스 내부에 Message를 절대 두지말자.\n\nSpecial Cases\nSpecial Cases 참고\n\nNull is a value\nstack이 empty일 때 top함수는 무엇을 반환해야하나?\nNull 대신 Empty 객체를 발생시키는 것이 좋다.\n\ntry\ntry가 있다면 함수내에서 변수선언을 제외하고 첫번째문장이여야한다.\ntry 블럭 내에는 함수호출만 있어야한다.\nfinally가 함수의 마지막 블럭이어야한다. 이후에 어떤라인도 없어야 한다.\nError handling은 하나의 일이다.\n\n\n\n지금은 이해할 수 있고, 다 이해한것 같아도 속지말고, 직접 내 코드에 적용해보고, 설계해보자\n\n\nvelog\n\nBlog\n\n\n\n","dateCreated":"2018-12-20T13:57:56+09:00","dateModified":"2018-12-21T15:45:32+09:00","datePublished":"2018-12-20T13:57:56+09:00","description":"","headline":"함수의 구조 (function Structure) - 2","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://ggomi.github.io/function-structure-2/"},"publisher":{"@type":"Organization","name":"Jeongmin Oh","sameAs":["https://github.com/ggomi","https://twitter.com/","https://www.facebook.com/Jeongmin.Oo","https://www.linkedin.com/in/%EC%A0%95%EB%AF%BC-%EC%98%A4-50b22511b/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://ggomi.github.io/function-structure-2/","keywords":"개발자 기초다지기_함수, 함수, 리팩토링"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jeongmin Oh","sameAs":["https://github.com/ggomi","https://twitter.com/","https://www.facebook.com/Jeongmin.Oo","https://www.linkedin.com/in/%EC%A0%95%EB%AF%BC-%EC%98%A4-50b22511b/"],"image":"profile.jpg"},"articleBody":"함수의 구조\n 클린코더스 - 백명석님  강의를 보고 작성한 글입니다.\n\n\n\n함수의 구조 - 1\n\n—————————————————————————————————————\n목차\nCQS(Command Query Seperate)\nTell Don’t Ask\nLaw of Demeter\nEarly returns\nError Handling\nSpecial Cases\nNull is a value\ntry도 하나의 역할 / 기능\n\n———————————————————————————————————————————————–\nCQS\n상태를 변경하는 함수는 값을 반환하면 안된다. 값을 반환하는 함수는 상태를 변경하면 안된다.\n\ncommand\n시스템의 상태변경가능\nside effect를 갖는다\n아무것도 반환하지않는다.\n\nquery\nside effect가 없다.\n계산값이나 시스템의 상태를 반환\n신뢰의 문제\n\nExample1User u = authorize.login(userName, password);\n\n위의 상황에서 User를 사용하기 위해서는 항상 login을 해야함. login을 하면 원치않아도 User정보를 읽어야만 한다.\n\n12authorize.login(userName, password);User u = authorize.getUser(userName);\n\nlogin Method의 리턴을 void로 변경하고, User 정보가 필요할때만 읽음.\n값을 반환하는 함수는 상태를 변경하면 안된다.상태를 변경하는 함수는 exception을 발생시킬 수는 있지만, 값을 반환할 수 없다.\n\n이것은 SideEffect를 관리하는 약속이다. 약속을 어겨서 혼란을 주지말자.\n\n\n———————————————————————————————————————————————–\nTell Don’t Ask\nextream한 CQS는 C와 Q를 함께 사용하지 말도록\n\n\n\n로그인 여부는 user객체에 속한다. Tell Don’t Ask 인데 isLoggedIn()은 이상함.\n\nTell Don’t Ask 는 CQS를 강화하는 수단\n이 규칙을 준수하다보면 Query메소드가 많이 필요없어진다. - 매우 좋은 현상(왜냐하면 Q는 Out of control되는 경향이 있기 때문)\n\n\nLaw of Demeter1234567// 예를 들어서 아래와 같은 코드가 있다면, o.getX()    .getY()        .getZ()            .doSomething();// 함수가 시스템에 너무 많은 의존성을 가지게 된다.\n\n함수가 시스템의 전체를 알게 하면 안된다.\n개별 함수는 아주 제한된 지식만 가져야한다.\n이전 메소드 호출의 결과로 얻은 객체의 메소드를 호출하면 안된다.\nTell Don’t Ask나, Law of Demeter 모두 어떻게 의존도를 낮추고, Testable하게 만들고, 클린하게 만들건지에 대한 방법, 규칙들이다.\nask대신 tell하면 surrounding과 decouple 된다. \n\n\n\nearly returns1234if(...)else if(...)else if(...)else (...)&#123; return; &#125;\n위 코드처럼 else에다가 리턴을 두지말고 return 되는 로직을 상단으로 올려서 코드를 끝까지 읽지않아도 될 수 있게하는 것\n\n루프 중간에서 return 하는 것은 문제이다.\n코드가 동작하도록 하는 것보다 이해할 수 있게하는 것이 더 중요하다.\n\nError handling\nError처리를 위해 pop은 null을 반환하고, push는 false를 반환하는 것보다 Exception을 발생시키는 것이 좋다.\nException의 이름은 최대한 구체적이어야 한다.\nInner클래스로 Exception을 정의하면 읽기 편할 수 있다. 고려해볼 것\nchecked vs unchecked ?(찾아봐야함.) Checked Exception은 되도록 사용하지말자.\nunchecked는 throws를 말하는 것 같고, checked는 try~catch를 말하는 것 같다.\n\nException은 어떤 메시지를 담아야 할까?\n필요없는 것이 가장 좋다.\nException이름을 명확하게 지어서 이름으로 의미가 전달되도록 하자.\n클래스 내부에 Message를 절대 두지말자.\n\nSpecial Cases\nSpecial Cases 참고\n\nNull is a value\nstack이 empty일 때 top함수는 무엇을 반환해야하나?\nNull 대신 Empty 객체를 발생시키는 것이 좋다.\n\ntry\ntry가 있다면 함수내에서 변수선언을 제외하고 첫번째문장이여야한다.\ntry 블럭 내에는 함수호출만 있어야한다.\nfinally가 함수의 마지막 블럭이어야한다. 이후에 어떤라인도 없어야 한다.\nError handling은 하나의 일이다.\n\n\n\n지금은 이해할 수 있고, 다 이해한것 같아도 속지말고, 직접 내 코드에 적용해보고, 설계해보자\n\n\nvelog\n\nBlog\n\n\n\n","dateCreated":"2018-12-20T13:57:56+09:00","dateModified":"2018-12-21T15:45:32+09:00","datePublished":"2018-12-20T13:57:56+09:00","description":"","headline":"함수의 구조 (function Structure) - 2","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://localhost:4000/function-structure-2/"},"publisher":{"@type":"Organization","name":"Jeongmin Oh","sameAs":["https://github.com/ggomi","https://twitter.com/","https://www.facebook.com/Jeongmin.Oo","https://www.linkedin.com/in/%EC%A0%95%EB%AF%BC-%EC%98%A4-50b22511b/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://localhost:4000/function-structure-2/","keywords":"개발자 기초다지기_함수, 함수, 리팩토링"}</script>
     <meta name="description" content="함수의 구조  클린코더스 - 백명석님  강의를 보고 작성한 글입니다.    함수의 구조 - 1  ————————————————————————————————————— 목차 CQS(Command Query Seperate) Tell Don’t Ask Law of Demeter Early returns Error Handling Special Cases Null">
 <meta name="keywords" content="개발자 기초다지기_함수,함수,리팩토링">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="함수의 구조 (function Structure) - 2">
-<meta property="og:url" content="https://ggomi.github.io/function-structure-2/index.html">
+<meta property="og:url" content="https://localhost:4000/function-structure-2/index.html">
 <meta property="og:site_name" content="Jeongmin&#39;s Blog">
 <meta property="og:description" content="함수의 구조  클린코더스 - 백명석님  강의를 보고 작성한 글입니다.    함수의 구조 - 1  ————————————————————————————————————— 목차 CQS(Command Query Seperate) Tell Don’t Ask Law of Demeter Early returns Error Handling Special Cases Null">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://ggomi.github.io/assets/images/ask.png">
+<meta property="og:image" content="https://localhost:4000/assets/images/ask.png">
 <meta property="og:updated_time" content="2018-12-21T06:45:32.781Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="함수의 구조 (function Structure) - 2">
 <meta name="twitter:description" content="함수의 구조  클린코더스 - 백명석님  강의를 보고 작성한 글입니다.    함수의 구조 - 1  ————————————————————————————————————— 목차 CQS(Command Query Seperate) Tell Don’t Ask Law of Demeter Early returns Error Handling Special Cases Null">
-<meta name="twitter:image" content="https://ggomi.github.io/assets/images/ask.png">
+<meta name="twitter:image" content="https://localhost:4000/assets/images/ask.png">
     
     
         
     
     
-        <meta property="og:image" content="https://ggomi.github.io/assets/images/profile.jpg">
+        <meta property="og:image" content="https://localhost:4000/assets/images/profile.jpg">
     
     
     
@@ -88,7 +88,7 @@
         
         </a>
     
-    <link rel="canonical" href="https://ggomi.github.io/function-structure-2/">
+    <link rel="canonical" href="https://localhost:4000/function-structure-2/">
 </header>
 
             <!-- Define author's picture -->
@@ -378,7 +378,7 @@
 <ul>
 <li><p><a href="https://velog.io/@essri" rel="external nofollow noopener noreferrer" target="_blank">velog</a></p>
 </li>
-<li><p><a href="https://ggomi.github.io">Blog</a></p>
+<li><p><a href="https://ggomi.github.io" rel="external nofollow noopener noreferrer" target="_blank">Blog</a></p>
 </li>
 </ul>
 <hr>
@@ -430,7 +430,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ggomi.github.io/function-structure-2/" title="Share on Facebook" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://localhost:4000/function-structure-2/" title="Share on Facebook" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -438,7 +438,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=https://ggomi.github.io/function-structure-2/" title="Share on Twitter" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=https://localhost:4000/function-structure-2/" title="Share on Twitter" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -446,7 +446,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=https://ggomi.github.io/function-structure-2/" title="Share on Google+" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=https://localhost:4000/function-structure-2/" title="Share on Google+" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -516,7 +516,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ggomi.github.io/function-structure-2/" title="Share on Facebook" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://localhost:4000/function-structure-2/" title="Share on Facebook" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -524,7 +524,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=https://ggomi.github.io/function-structure-2/" title="Share on Twitter" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=https://localhost:4000/function-structure-2/" title="Share on Twitter" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -532,7 +532,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=https://ggomi.github.io/function-structure-2/" title="Share on Google+" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=https://localhost:4000/function-structure-2/" title="Share on Google+" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -559,7 +559,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ggomi.github.io/function-structure-2/" rel="external nofollow noopener noreferrer">
+                <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://localhost:4000/function-structure-2/" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
                 </a>
             </li>
@@ -567,7 +567,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=https://ggomi.github.io/function-structure-2/" rel="external nofollow noopener noreferrer">
+                <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=https://localhost:4000/function-structure-2/" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
                 </a>
             </li>
@@ -575,7 +575,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=https://ggomi.github.io/function-structure-2/" rel="external nofollow noopener noreferrer">
+                <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=https://localhost:4000/function-structure-2/" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
                 </a>
             </li>

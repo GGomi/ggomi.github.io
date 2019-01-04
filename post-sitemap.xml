@@ -2,13 +2,13 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
-        <loc>https://ggomi.github.io</loc>
+        <loc>https://localhost:4000</loc>
         <changefreq>daily</changefreq>
         <priority>1</priority>
     </url>
 
     <url>
-        <loc>https://ggomi.github.io/tdd/</loc>
+        <loc>https://localhost:4000/tdd/</loc>
         <lastmod>2019-01-01T13:47:09.298Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -16,7 +16,7 @@
     </url>
 
     <url>
-        <loc>https://ggomi.github.io/data-structure/</loc>
+        <loc>https://localhost:4000/data-structure/</loc>
         <lastmod>2019-01-01T13:46:57.503Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -24,7 +24,7 @@
     </url>
 
     <url>
-        <loc>https://ggomi.github.io/vertical-classes/</loc>
+        <loc>https://localhost:4000/vertical-classes/</loc>
         <lastmod>2018-12-26T08:15:29.470Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -32,7 +32,7 @@
     </url>
 
     <url>
-        <loc>https://ggomi.github.io/kwpattern/</loc>
+        <loc>https://localhost:4000/kwpattern/</loc>
         <lastmod>2018-12-26T07:33:45.448Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -40,7 +40,7 @@
     </url>
 
     <url>
-        <loc>https://ggomi.github.io/comments-rules/</loc>
+        <loc>https://localhost:4000/comments-rules/</loc>
         <lastmod>2018-12-22T06:26:22.617Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -48,7 +48,7 @@
     </url>
 
     <url>
-        <loc>https://ggomi.github.io/function-structure-2/</loc>
+        <loc>https://localhost:4000/function-structure-2/</loc>
         <lastmod>2018-12-21T06:45:32.781Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -56,7 +56,7 @@
     </url>
 
     <url>
-        <loc>https://ggomi.github.io/function-structure/</loc>
+        <loc>https://localhost:4000/function-structure/</loc>
         <lastmod>2018-12-21T06:41:15.169Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -64,7 +64,7 @@
     </url>
 
     <url>
-        <loc>https://ggomi.github.io/basic-1/</loc>
+        <loc>https://localhost:4000/basic-1/</loc>
         <lastmod>2018-12-21T00:25:43.038Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -72,7 +72,7 @@
     </url>
 
     <url>
-        <loc>https://ggomi.github.io/SSE/</loc>
+        <loc>https://localhost:4000/SSE/</loc>
         <lastmod>2018-12-20T14:59:54.539Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -80,7 +80,7 @@
     </url>
 
     <url>
-        <loc>https://ggomi.github.io/function-example2/</loc>
+        <loc>https://localhost:4000/function-example2/</loc>
         <lastmod>2018-12-19T04:12:25.505Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -88,7 +88,7 @@
     </url>
 
     <url>
-        <loc>https://ggomi.github.io/function-example/</loc>
+        <loc>https://localhost:4000/function-example/</loc>
         <lastmod>2018-12-19T04:11:43.199Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -96,7 +96,7 @@
     </url>
 
     <url>
-        <loc>https://ggomi.github.io/basic-2/</loc>
+        <loc>https://localhost:4000/basic-2/</loc>
         <lastmod>2018-12-18T02:46:10.888Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -104,7 +104,7 @@
     </url>
 
     <url>
-        <loc>https://ggomi.github.io/basic-0/</loc>
+        <loc>https://localhost:4000/basic-0/</loc>
         <lastmod>2018-12-18T02:45:33.088Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -112,7 +112,7 @@
     </url>
 
     <url>
-        <loc>https://ggomi.github.io/basic-3/</loc>
+        <loc>https://localhost:4000/basic-3/</loc>
         <lastmod>2018-12-18T01:42:22.853Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>

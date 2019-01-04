@@ -9,20 +9,20 @@
     <title>SSE란? - Jeongmin&#39;s Blog</title>
     <meta name="author" content="Jeongmin Oh">
     
-        <meta name="keywords" content="java,spring boot,JPA,jpa,Java,Spring Boot,lombok,">
+        <meta name="keywords" content="스프링,스프링부트,주니어개발자,개발,자바,알고리즘,알고스팟,algorithm,algospot,TDD,java,spring boot,JPA,jpa,Java,Spring Boot,lombok,">
     
     
-        <link rel="icon" href="https://ggomi.github.io/assets/images/cheese_thumb.jpg">
+        <link rel="icon" href="https://localhost:4000/assets/images/cheese_thumb.jpg">
     
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jeongmin Oh","sameAs":["https://github.com/ggomi","https://twitter.com/","https://www.facebook.com/Jeongmin.Oo","https://www.linkedin.com/in/%EC%A0%95%EB%AF%BC-%EC%98%A4-50b22511b/"],"image":"profile.jpg"},"articleBody":"SSE(Server-Sent Events)\nHTML5 표준안 권고사항!! (IE 미지원)\n\n그래서 뭔데?\n서버가 필요할 때마다 클라이언트에게 데이터를 줄 수 있게 해주는 서버 푸쉬 기술\nHTML5가 등장하기 전까지는 HTML에 서버 푸시를 위한 표준화된 기술이 없었기 때문에 웹에서 실시간 정보를 받아와야 할 때 외부플러그인을 이용하거나 서버푸시를 흉내 낸 Ajax Polling 기법등을 사용했다고 한다.\n\n그럼 뭐가 더 좋을까?먼저, 장점을 말하기 전에 기존 기술을 살펴보자.\n\nPoling\n\n대다수의 AJAX 응용 프로그램에서 사용되는 전통적인 기술입니다.\n기본 개념은 응용 프로그램이 서버에서 데이터를 반복적으로 요청하는 것.\n장점\n일정하게 갱신이 되는 서버 데이터의 경우 매우 유용하며 기존 단순한 모델을 유지 할 수 있습니다.\n\n\n단점\n클라이언트는 요청을 하고 서버가 데이터로 응답 할 때까지 기다립니다. 갱신되지 않은 의미없는 응답이 리턴될 수 도 있습니다. 그렇기 때문에 HTTP 오버헤드가 커지게 된다.\n\n\n\n\nLong Polling\n\n폴링의 변형, 폴링과 비슷하지만 서버에 사용 가능한 데이터가 없으면 서버는 새 데이터를 사용할 수 있을 때까지 요청을 보류한다. 그래서 Hang GET이라고 불리기도 한다.\n폴링의 단점을 해결한 것처럼 보이지만 사용 가능한 데이터가 지속적으로 응답해야하기 때문에 다른 추가적인 방법이 필요하다.\n\n\n\n\nSSE\n처음부터 효율적으로 설계되어서 SSE를 사용하여 통신 할 때 서버는 초기 요청을 하지 않고도 필요할 때마다 데이터를 앱으로 푸시 할 수 있다. 즉, 서버와 클라이언트 사이에 단일 단방향 채널을 열게되는 것. Long Polling과 가장 큰 차이점은 브라우저에서 직접 처리된다는 점이다.\nHTTP를 사용하기 때문에 작동하기위해 별도의 프로토콜이나 서버구현이 필요없다.\n\n","dateCreated":"2018-12-18T13:10:05+09:00","dateModified":"2018-12-20T23:59:54+09:00","datePublished":"2018-12-18T13:10:05+09:00","description":"","headline":"SSE란?","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://ggomi.github.io/SSE/"},"publisher":{"@type":"Organization","name":"Jeongmin Oh","sameAs":["https://github.com/ggomi","https://twitter.com/","https://www.facebook.com/Jeongmin.Oo","https://www.linkedin.com/in/%EC%A0%95%EB%AF%BC-%EC%98%A4-50b22511b/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://ggomi.github.io/SSE/","keywords":"HTML5, SSE"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jeongmin Oh","sameAs":["https://github.com/ggomi","https://twitter.com/","https://www.facebook.com/Jeongmin.Oo","https://www.linkedin.com/in/%EC%A0%95%EB%AF%BC-%EC%98%A4-50b22511b/"],"image":"profile.jpg"},"articleBody":"SSE(Server-Sent Events)\nHTML5 표준안 권고사항!! (IE 미지원)\n\n그래서 뭔데?\n서버가 필요할 때마다 클라이언트에게 데이터를 줄 수 있게 해주는 서버 푸쉬 기술\nHTML5가 등장하기 전까지는 HTML에 서버 푸시를 위한 표준화된 기술이 없었기 때문에 웹에서 실시간 정보를 받아와야 할 때 외부플러그인을 이용하거나 서버푸시를 흉내 낸 Ajax Polling 기법등을 사용했다고 한다.\n\n그럼 뭐가 더 좋을까?먼저, 장점을 말하기 전에 기존 기술을 살펴보자.\n\nPoling\n\n대다수의 AJAX 응용 프로그램에서 사용되는 전통적인 기술입니다.\n기본 개념은 응용 프로그램이 서버에서 데이터를 반복적으로 요청하는 것.\n장점\n일정하게 갱신이 되는 서버 데이터의 경우 매우 유용하며 기존 단순한 모델을 유지 할 수 있습니다.\n\n\n단점\n클라이언트는 요청을 하고 서버가 데이터로 응답 할 때까지 기다립니다. 갱신되지 않은 의미없는 응답이 리턴될 수 도 있습니다. 그렇기 때문에 HTTP 오버헤드가 커지게 된다.\n\n\n\n\nLong Polling\n\n폴링의 변형, 폴링과 비슷하지만 서버에 사용 가능한 데이터가 없으면 서버는 새 데이터를 사용할 수 있을 때까지 요청을 보류한다. 그래서 Hang GET이라고 불리기도 한다.\n폴링의 단점을 해결한 것처럼 보이지만 사용 가능한 데이터가 지속적으로 응답해야하기 때문에 다른 추가적인 방법이 필요하다.\n\n\n\n\nSSE\n처음부터 효율적으로 설계되어서 SSE를 사용하여 통신 할 때 서버는 초기 요청을 하지 않고도 필요할 때마다 데이터를 앱으로 푸시 할 수 있다. 즉, 서버와 클라이언트 사이에 단일 단방향 채널을 열게되는 것. Long Polling과 가장 큰 차이점은 브라우저에서 직접 처리된다는 점이다.\nHTTP를 사용하기 때문에 작동하기위해 별도의 프로토콜이나 서버구현이 필요없다.\n\n","dateCreated":"2018-12-18T13:10:05+09:00","dateModified":"2018-12-20T23:59:54+09:00","datePublished":"2018-12-18T13:10:05+09:00","description":"","headline":"SSE란?","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://localhost:4000/SSE/"},"publisher":{"@type":"Organization","name":"Jeongmin Oh","sameAs":["https://github.com/ggomi","https://twitter.com/","https://www.facebook.com/Jeongmin.Oo","https://www.linkedin.com/in/%EC%A0%95%EB%AF%BC-%EC%98%A4-50b22511b/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://localhost:4000/SSE/","keywords":"HTML5, SSE"}</script>
     <meta name="description" content="SSE(Server-Sent Events) HTML5 표준안 권고사항!! (IE 미지원)  그래서 뭔데? 서버가 필요할 때마다 클라이언트에게 데이터를 줄 수 있게 해주는 서버 푸쉬 기술 HTML5가 등장하기 전까지는 HTML에 서버 푸시를 위한 표준화된 기술이 없었기 때문에 웹에서 실시간 정보를 받아와야 할 때 외부플러그인을 이용하거나 서버푸시를 흉내 낸">
 <meta name="keywords" content="HTML5,SSE">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="SSE란?">
-<meta property="og:url" content="https://ggomi.github.io/SSE/index.html">
+<meta property="og:url" content="https://localhost:4000/SSE/index.html">
 <meta property="og:site_name" content="Jeongmin&#39;s Blog">
 <meta property="og:description" content="SSE(Server-Sent Events) HTML5 표준안 권고사항!! (IE 미지원)  그래서 뭔데? 서버가 필요할 때마다 클라이언트에게 데이터를 줄 수 있게 해주는 서버 푸쉬 기술 HTML5가 등장하기 전까지는 HTML에 서버 푸시를 위한 표준화된 기술이 없었기 때문에 웹에서 실시간 정보를 받아와야 할 때 외부플러그인을 이용하거나 서버푸시를 흉내 낸">
 <meta property="og:locale" content="en">
@@ -35,7 +35,7 @@
         
     
     
-        <meta property="og:image" content="https://ggomi.github.io/assets/images/profile.jpg">
+        <meta property="og:image" content="https://localhost:4000/assets/images/profile.jpg">
     
     
     
@@ -86,7 +86,7 @@
         
         </a>
     
-    <link rel="canonical" href="https://ggomi.github.io/sse/">
+    <link rel="canonical" href="https://localhost:4000/sse/">
 </header>
 
             <!-- Define author's picture -->
@@ -337,7 +337,7 @@
             <li class="post-action">
                 
                     
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/function-example2/" data-tooltip="함수 리팩토링, 추상화 예제 (2)" aria-label="NEXT: 함수 리팩토링, 추상화 예제 (2)">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/basic-1/" data-tooltip="개발자 기초 다지기 - 1" aria-label="NEXT: 개발자 기초 다지기 - 1">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                     <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -355,7 +355,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ggomi.github.io/SSE/" title="Share on Facebook" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://localhost:4000/SSE/" title="Share on Facebook" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -363,7 +363,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=https://ggomi.github.io/SSE/" title="Share on Twitter" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=https://localhost:4000/SSE/" title="Share on Twitter" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -371,7 +371,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=https://ggomi.github.io/SSE/" title="Share on Google+" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=https://localhost:4000/SSE/" title="Share on Google+" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -423,7 +423,7 @@
             <li class="post-action">
                 
                     
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/function-example2/" data-tooltip="함수 리팩토링, 추상화 예제 (2)" aria-label="NEXT: 함수 리팩토링, 추상화 예제 (2)">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/basic-1/" data-tooltip="개발자 기초 다지기 - 1" aria-label="NEXT: 개발자 기초 다지기 - 1">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                     <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -441,7 +441,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ggomi.github.io/SSE/" title="Share on Facebook" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://localhost:4000/SSE/" title="Share on Facebook" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -449,7 +449,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=https://ggomi.github.io/SSE/" title="Share on Twitter" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=https://localhost:4000/SSE/" title="Share on Twitter" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -457,7 +457,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=https://ggomi.github.io/SSE/" title="Share on Google+" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=https://localhost:4000/SSE/" title="Share on Google+" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -484,7 +484,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ggomi.github.io/SSE/" rel="external nofollow noopener noreferrer">
+                <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://localhost:4000/SSE/" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
                 </a>
             </li>
@@ -492,7 +492,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=https://ggomi.github.io/SSE/" rel="external nofollow noopener noreferrer">
+                <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=https://localhost:4000/SSE/" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
                 </a>
             </li>
@@ -500,7 +500,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=https://ggomi.github.io/SSE/" rel="external nofollow noopener noreferrer">
+                <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=https://localhost:4000/SSE/" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
                 </a>
             </li>

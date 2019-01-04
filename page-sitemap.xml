@@ -2,34 +2,34 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
-        <loc>https://ggomi.github.io</loc>
+        <loc>https://localhost:4000</loc>
         <changefreq>daily</changefreq>
         <priority>1</priority>
     </url>
     
     <url>
-        <loc>https://ggomi.github.io/404-md/</loc>
+        <loc>https://localhost:4000/404-md/</loc>
         <lastmod>2018-12-12T06:32:49.413Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>https://ggomi.github.io/all-tags/</loc>
+        <loc>https://localhost:4000/all-tags/</loc>
         <lastmod>2018-12-12T06:08:29.533Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>https://ggomi.github.io/all-archives/</loc>
+        <loc>https://localhost:4000/all-archives/</loc>
         <lastmod>2018-12-12T06:08:25.843Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>https://ggomi.github.io/all-categories/</loc>
+        <loc>https://localhost:4000/all-categories/</loc>
         <lastmod>2018-12-12T06:08:20.171Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>

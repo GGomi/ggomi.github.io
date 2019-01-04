@@ -9,20 +9,20 @@
     <title>Comments Rules - Jeongmin&#39;s Blog</title>
     <meta name="author" content="Jeongmin Oh">
     
-        <meta name="keywords" content="java,spring boot,JPA,jpa,Java,Spring Boot,lombok,">
+        <meta name="keywords" content="스프링,스프링부트,주니어개발자,개발,자바,알고리즘,알고스팟,algorithm,algospot,TDD,java,spring boot,JPA,jpa,Java,Spring Boot,lombok,">
     
     
-        <link rel="icon" href="https://ggomi.github.io/assets/images/cheese_thumb.jpg">
+        <link rel="icon" href="https://localhost:4000/assets/images/cheese_thumb.jpg">
     
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jeongmin Oh","sameAs":["https://github.com/ggomi","https://twitter.com/","https://www.facebook.com/Jeongmin.Oo","https://www.linkedin.com/in/%EC%A0%95%EB%AF%BC-%EC%98%A4-50b22511b/"],"image":"profile.jpg"},"articleBody":"\n 클린코더스 - 백명석님  강의를 보고 작성한 글입니다.\n\n\nComments\n조직이 일정수준의 크기가 되면 문서화를 요구한다. 하지만 별도의 문서를 작성하는 것은 반대!!\n\n처음에는 별도의 문서가 있어도 괜찮을거라고 생각이 들었는데 강의를 듣다보니 생각이 바뀌었다. 코드에 대한 설명을 코드 자체로 설명하는 것이지 별도의 문서로 설명한다는 것은 아니라고 한다. 별도의 문서가 필요하다는 말은 해당 코드가 Coding Standard의 예로 적합하지 않다는 뜻이 된다.Comments 작성을 강요하면 프로그래머는 필요해서가 아니라 해야하므로 Comment를 작성하게된다.그리고 이런 Comments는 무의미하고, 무시당하기 십상이다. 너무해ㅠComments를 보는사람이 감사하는 마음이 생겨야 좋은 Comments이다.\n\n모든 Comments는 당신의 코드가 ‘제대로 표현되고있지않다’라는 실패의 상징이다.\n\n이 말은 좀 충격이었다. 지금까지 사람들에게 내 코드를 이해시키기위해 주석을 열심히 써왔는데… 차라리 이 노력을 코드표현력에 쏟을걸 하는 생각이 들었다.\n그렇다면 Comments를 꼭 써야하는 상황에서의 좋은 Comments 그리고 나쁜 Comments는 무엇일까?\n\n좋은 CommentsLegal Comments\n\n법적인 문제가 쓰여져있는 Comments\nEx) LICENSE 문제\n\nInformative Comments1234...// format matched kk:mm:ss EEE, MMM dd, yyyyPattern timePattern = Pattern.compile(\"\\\\d*:\\\\d*:\\\\d* \\\\w*. \\\\w* \\\\d*, \\\\d*\");...\n\n예를 들면 정규식을 사용할 때 이 패턴이 어떤 패턴인지 설명해주는 그런 정보를 제공하는 Comments\n\nWarning of Consequences123// don't run unless you have some time to kill@Testpublic void readReallyBigFile() &#123;...&#125;\n\n코드에 관해서 경고할 때\n\nTODO Comments\n\nTODO(해야할 일에 관한 Comment)Public API Documentation\n\n\n나쁜 CommentsMumbling \n\n주저리주저리 써놓은 Comments들\n\nRedundant Explanations12// The Child Containers belong to this container, keyed by nameprivate Map&lt;String, Child&gt; children = new HashMap&lt;String, Child&gt;();\n\n코드한줄만 봐도 뻔히 알 수 있는 내용인데 굳이 Comment에서 중복되게 다시 설명하고 있는 Comment\n\nMandated Redundancy12345678/** * * @param dateIn input date * @return formatted string */ public static String convertDateFormat(String dateIn) &#123;     ... &#125;\n\nIDE에서 자동으로 생기는 Comment\n\nJournal Comments12345/** * 변경이력 * 2018.11.01 : 생성 * 2018.11.05 : convertDateFormat 메소드 구현 ... */\n\n코드의 변경이력을 써놓은 Comment\n\nNoways Comments12345678public class DateFormatUtils &#123;    /**     *  default constructor     */     public DateFormatUtils() &#123;         ...     &#125;&#125;\n\n누가봐도 default 생성자인데 굳이 위에 생성자라고 Comment를 작성하는 것처럼 너무 말도 안되게 뻔한 Comments (절대 해선안된다!!)\n\nBig Banner Comments12345678public class DateFormatUtils &#123;    /************************     * instance variables   *     ************************/     private int day;     private int date;     ... &#125;\n\n잘보이게 하려고 특수문자로 도배해놓은 Comment\n\nClosing Brace Comments12345for (int i = 0; i&lt; length; i++) &#123;    if(...) &#123;    &#125; //end of if&#125; //end of for\n\nloop의 끝과 Method의 끝 등등 코드블록 끝을 표시해놓은 Comment\n\nAttribution Comments1234// add by jmprivate class Child &#123;&#125;\n\n누가 작성했는지 써놓은 Comment, 굳이 코드에 써놓을 필요가 없다.\n\nHTML in Comments \n\nHTML 코드로 Comment 작성 (javadoc 작성을 위해서 이렇게 하는 사람들이 있다고한다.)\n\nNon-Local Information \n\nlocal이 아닌 멀리 떨어진 곳의 코드를 설명하는 Comments는 Comments와 무고나하게 변경될 수 있다.\n\n\n\nvelog\nBlog\nGithub\n\n","dateCreated":"2018-12-22T14:18:29+09:00","dateModified":"2018-12-22T15:26:22+09:00","datePublished":"2018-12-22T14:18:29+09:00","description":"","headline":"Comments Rules","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://ggomi.github.io/comments-rules/"},"publisher":{"@type":"Organization","name":"Jeongmin Oh","sameAs":["https://github.com/ggomi","https://twitter.com/","https://www.facebook.com/Jeongmin.Oo","https://www.linkedin.com/in/%EC%A0%95%EB%AF%BC-%EC%98%A4-50b22511b/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://ggomi.github.io/comments-rules/","keywords":"개발자 기초다지기_Comment, 주석, Comments, 문서화"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jeongmin Oh","sameAs":["https://github.com/ggomi","https://twitter.com/","https://www.facebook.com/Jeongmin.Oo","https://www.linkedin.com/in/%EC%A0%95%EB%AF%BC-%EC%98%A4-50b22511b/"],"image":"profile.jpg"},"articleBody":"\n 클린코더스 - 백명석님  강의를 보고 작성한 글입니다.\n\n\nComments\n조직이 일정수준의 크기가 되면 문서화를 요구한다. 하지만 별도의 문서를 작성하는 것은 반대!!\n\n처음에는 별도의 문서가 있어도 괜찮을거라고 생각이 들었는데 강의를 듣다보니 생각이 바뀌었다. 코드에 대한 설명을 코드 자체로 설명하는 것이지 별도의 문서로 설명한다는 것은 아니라고 한다. 별도의 문서가 필요하다는 말은 해당 코드가 Coding Standard의 예로 적합하지 않다는 뜻이 된다.Comments 작성을 강요하면 프로그래머는 필요해서가 아니라 해야하므로 Comment를 작성하게된다.그리고 이런 Comments는 무의미하고, 무시당하기 십상이다. 너무해ㅠComments를 보는사람이 감사하는 마음이 생겨야 좋은 Comments이다.\n\n모든 Comments는 당신의 코드가 ‘제대로 표현되고있지않다’라는 실패의 상징이다.\n\n이 말은 좀 충격이었다. 지금까지 사람들에게 내 코드를 이해시키기위해 주석을 열심히 써왔는데… 차라리 이 노력을 코드표현력에 쏟을걸 하는 생각이 들었다.\n그렇다면 Comments를 꼭 써야하는 상황에서의 좋은 Comments 그리고 나쁜 Comments는 무엇일까?\n\n좋은 CommentsLegal Comments\n\n법적인 문제가 쓰여져있는 Comments\nEx) LICENSE 문제\n\nInformative Comments1234...// format matched kk:mm:ss EEE, MMM dd, yyyyPattern timePattern = Pattern.compile(\"\\\\d*:\\\\d*:\\\\d* \\\\w*. \\\\w* \\\\d*, \\\\d*\");...\n\n예를 들면 정규식을 사용할 때 이 패턴이 어떤 패턴인지 설명해주는 그런 정보를 제공하는 Comments\n\nWarning of Consequences123// don't run unless you have some time to kill@Testpublic void readReallyBigFile() &#123;...&#125;\n\n코드에 관해서 경고할 때\n\nTODO Comments\n\nTODO(해야할 일에 관한 Comment)Public API Documentation\n\n\n나쁜 CommentsMumbling \n\n주저리주저리 써놓은 Comments들\n\nRedundant Explanations12// The Child Containers belong to this container, keyed by nameprivate Map&lt;String, Child&gt; children = new HashMap&lt;String, Child&gt;();\n\n코드한줄만 봐도 뻔히 알 수 있는 내용인데 굳이 Comment에서 중복되게 다시 설명하고 있는 Comment\n\nMandated Redundancy12345678/** * * @param dateIn input date * @return formatted string */ public static String convertDateFormat(String dateIn) &#123;     ... &#125;\n\nIDE에서 자동으로 생기는 Comment\n\nJournal Comments12345/** * 변경이력 * 2018.11.01 : 생성 * 2018.11.05 : convertDateFormat 메소드 구현 ... */\n\n코드의 변경이력을 써놓은 Comment\n\nNoways Comments12345678public class DateFormatUtils &#123;    /**     *  default constructor     */     public DateFormatUtils() &#123;         ...     &#125;&#125;\n\n누가봐도 default 생성자인데 굳이 위에 생성자라고 Comment를 작성하는 것처럼 너무 말도 안되게 뻔한 Comments (절대 해선안된다!!)\n\nBig Banner Comments12345678public class DateFormatUtils &#123;    /************************     * instance variables   *     ************************/     private int day;     private int date;     ... &#125;\n\n잘보이게 하려고 특수문자로 도배해놓은 Comment\n\nClosing Brace Comments12345for (int i = 0; i&lt; length; i++) &#123;    if(...) &#123;    &#125; //end of if&#125; //end of for\n\nloop의 끝과 Method의 끝 등등 코드블록 끝을 표시해놓은 Comment\n\nAttribution Comments1234// add by jmprivate class Child &#123;&#125;\n\n누가 작성했는지 써놓은 Comment, 굳이 코드에 써놓을 필요가 없다.\n\nHTML in Comments \n\nHTML 코드로 Comment 작성 (javadoc 작성을 위해서 이렇게 하는 사람들이 있다고한다.)\n\nNon-Local Information \n\nlocal이 아닌 멀리 떨어진 곳의 코드를 설명하는 Comments는 Comments와 무고나하게 변경될 수 있다.\n\n\n\nvelog\nBlog\nGithub\n\n","dateCreated":"2018-12-22T14:18:29+09:00","dateModified":"2018-12-22T15:26:22+09:00","datePublished":"2018-12-22T14:18:29+09:00","description":"","headline":"Comments Rules","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://localhost:4000/comments-rules/"},"publisher":{"@type":"Organization","name":"Jeongmin Oh","sameAs":["https://github.com/ggomi","https://twitter.com/","https://www.facebook.com/Jeongmin.Oo","https://www.linkedin.com/in/%EC%A0%95%EB%AF%BC-%EC%98%A4-50b22511b/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://localhost:4000/comments-rules/","keywords":"개발자 기초다지기_Comment, 주석, Comments, 문서화"}</script>
     <meta name="description" content="클린코더스 - 백명석님  강의를 보고 작성한 글입니다.   Comments 조직이 일정수준의 크기가 되면 문서화를 요구한다. 하지만 별도의 문서를 작성하는 것은 반대!!  처음에는 별도의 문서가 있어도 괜찮을거라고 생각이 들었는데 강의를 듣다보니 생각이 바뀌었다. 코드에 대한 설명을 코드 자체로 설명하는 것이지 별도의 문서로 설명한다는 것은 아니라고 한">
 <meta name="keywords" content="개발자 기초다지기_Comment,주석,Comments,문서화">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="Comments Rules">
-<meta property="og:url" content="https://ggomi.github.io/comments-rules/index.html">
+<meta property="og:url" content="https://localhost:4000/comments-rules/index.html">
 <meta property="og:site_name" content="Jeongmin&#39;s Blog">
 <meta property="og:description" content="클린코더스 - 백명석님  강의를 보고 작성한 글입니다.   Comments 조직이 일정수준의 크기가 되면 문서화를 요구한다. 하지만 별도의 문서를 작성하는 것은 반대!!  처음에는 별도의 문서가 있어도 괜찮을거라고 생각이 들었는데 강의를 듣다보니 생각이 바뀌었다. 코드에 대한 설명을 코드 자체로 설명하는 것이지 별도의 문서로 설명한다는 것은 아니라고 한">
 <meta property="og:locale" content="en">
@@ -35,7 +35,7 @@
         
     
     
-        <meta property="og:image" content="https://ggomi.github.io/assets/images/profile.jpg">
+        <meta property="og:image" content="https://localhost:4000/assets/images/profile.jpg">
     
     
     
@@ -86,7 +86,7 @@
         
         </a>
     
-    <link rel="canonical" href="https://ggomi.github.io/comments-rules/">
+    <link rel="canonical" href="https://localhost:4000/comments-rules/">
 </header>
 
             <!-- Define author's picture -->
@@ -353,7 +353,7 @@
 <hr>
 <ul>
 <li><a href="https://velog.io/@essri" rel="external nofollow noopener noreferrer" target="_blank">velog</a></li>
-<li><a href="https://ggomi.github.io">Blog</a></li>
+<li><a href="https://ggomi.github.io" rel="external nofollow noopener noreferrer" target="_blank">Blog</a></li>
 <li><a href="https://github.com/ggomi" rel="external nofollow noopener noreferrer" target="_blank">Github</a></li>
 </ul>
 
@@ -404,7 +404,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ggomi.github.io/comments-rules/" title="Share on Facebook" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://localhost:4000/comments-rules/" title="Share on Facebook" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -412,7 +412,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=https://ggomi.github.io/comments-rules/" title="Share on Twitter" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=https://localhost:4000/comments-rules/" title="Share on Twitter" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -420,7 +420,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=https://ggomi.github.io/comments-rules/" title="Share on Google+" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=https://localhost:4000/comments-rules/" title="Share on Google+" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -490,7 +490,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ggomi.github.io/comments-rules/" title="Share on Facebook" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://localhost:4000/comments-rules/" title="Share on Facebook" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
@@ -498,7 +498,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=https://ggomi.github.io/comments-rules/" title="Share on Twitter" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=https://localhost:4000/comments-rules/" title="Share on Twitter" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
@@ -506,7 +506,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=https://ggomi.github.io/comments-rules/" title="Share on Google+" rel="external nofollow noopener noreferrer">
+                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=https://localhost:4000/comments-rules/" title="Share on Google+" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i>
                 </a>
             </li>
@@ -533,7 +533,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://ggomi.github.io/comments-rules/" rel="external nofollow noopener noreferrer">
+                <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://localhost:4000/comments-rules/" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
                 </a>
             </li>
@@ -541,7 +541,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=https://ggomi.github.io/comments-rules/" rel="external nofollow noopener noreferrer">
+                <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=https://localhost:4000/comments-rules/" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
                 </a>
             </li>
@@ -549,7 +549,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=https://ggomi.github.io/comments-rules/" rel="external nofollow noopener noreferrer">
+                <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=https://localhost:4000/comments-rules/" rel="external nofollow noopener noreferrer">
                     <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
                 </a>
             </li>

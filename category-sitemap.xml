@@ -2,27 +2,27 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
-        <loc>https://ggomi.github.io</loc>
+        <loc>https://localhost:4000</loc>
         <changefreq>daily</changefreq>
         <priority>1</priority>
     </url>
 
     <url>
-        <loc>https://ggomi.github.io/categories/Algorithm/</loc>
+        <loc>https://localhost:4000/categories/Algorithm/</loc>
         <lastmod>2018-12-26T07:33:45.448Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://ggomi.github.io/categories/Basic-sense/</loc>
+        <loc>https://localhost:4000/categories/Basic-sense/</loc>
         <lastmod>2019-01-01T13:46:57.503Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://ggomi.github.io/categories/TDD/</loc>
+        <loc>https://localhost:4000/categories/TDD/</loc>
         <lastmod>2019-01-01T13:47:09.298Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
