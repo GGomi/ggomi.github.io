@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Jeongmin&#39;s Blog">
-    <title>Archives: 2019 - Jeongmin&#39;s Blog</title>
+    <title>Category: JPA - Jeongmin&#39;s Blog</title>
     <meta name="author" content="Jeongmin Oh">
     
         <meta name="keywords" content="스프링,스프링부트,주니어개발자,개발,자바,알고리즘,알고스팟,algorithm,algospot,TDD,java,spring boot,JPA,jpa,Java,Spring Boot,lombok,">
@@ -22,7 +22,7 @@
 <meta name="keywords" content="스프링,스프링부트,주니어개발자,개발,자바,알고리즘,알고스팟,algorithm,algospot,TDD,java,spring boot,JPA,jpa,Java,Spring Boot,lombok">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="Jeongmin&#39;s Blog">
-<meta property="og:url" content="https://localhost:4000/archives/2019/index.html">
+<meta property="og:url" content="https://localhost:4000/categories/JPA/index.html">
 <meta property="og:site_name" content="Jeongmin&#39;s Blog">
 <meta property="og:description" content="주니어개발자의 IT 기술블로그입니다.">
 <meta property="og:locale" content="en">
@@ -85,7 +85,7 @@
         
         </a>
     
-    <link rel="canonical" href="https://localhost:4000/archives/2019/">
+    <link rel="canonical" href="https://localhost:4000/categories/jpa/">
 </header>
 
             <!-- Define author's picture -->
@@ -339,105 +339,6 @@
                     
                         <p>
                             <a href="/JPA-개념-및-설명/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/tdd/">
-                            TDD(Test Driven Development)란?
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2019-01-01T19:55:43+09:00">
-	
-		    Jan 01, 2019
-    	
-    </time>
-    
-        <span>in </span>
-        
-    <a class="category-link" href="/categories/TDD/">TDD</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <blockquote>
-<p><a href="https://www.youtube.com/user/codetemplate/videos" rel="external nofollow noopener noreferrer" target="_blank"> 클린코더스 - 백명석님 </a> 강의를 보고 작성한 글입니다.</p>
-</blockquote>
-<hr>
-<h2 id="1-TDD의-세가지-법칙"><a href="#1-TDD의-세가지-법칙" class="headerlink" title="1. TDD의 세가지 법칙"></a>1. TDD의 세가지 법칙</h2><ul>
-<li>Failing Test가 있을때만 프로덕션코드에 작성하라</li>
-<li>실패를 나타내는데 충분한 테스트만 작성하라.</li>
-<li>테스트가 성공하는 만큼만의 코드를 작성하라. (이해가 아직 잘 안됨..)</li>
-</ul>
-<h2 id="2-TDD-절차"><a href="#2-TDD-절차" class="headerlink" title="2. TDD 절차"></a>2. TDD 절차</h2><p>세가지 법칙이나 TDD작성 절차를 지키지 않았을경우 Stocking이라는 옴짝달싹하지 못하는 상태에 빠질 수 있다.<br><img src="/assets/images/tdd_1.png" alt="TDD 절차"></p>
-<ol>
-<li>Failing 테스트 작성(Red page)</li>
-<li>Failing 테스트를 통과할 만큼의 코드를 작성(Green page) </li>
-<li>Refactor(Blue Page)<blockquote>
-<p>리팩토링 전까지 모두 최소한의 코드를 작성해서 절차를 만족시키기만 하면된다. 일단 돌아만 가게하면된다. Refactor는 선택이 아닌 필수이다.</p>
-</blockquote>
-</li>
-</ol>
-<h2 id="3-원칙"><a href="#3-원칙" class="headerlink" title="3. 원칙"></a>3. 원칙</h2><ul>
-<li>남들이 봤을때 별거 아닌 것처럼 보일만큼 쉬운 것부터!!</li>
-<li>테스트가 구체적으로 변해갈 때 프로덕션코드는 점점 범용(Generic)적이 되어간다.</li>
-</ul>
-<h2 id="4-TDD의-이점"><a href="#4-TDD의-이점" class="headerlink" title="4. TDD의 이점"></a>4. TDD의 이점</h2><h3 id="Debugging-Time"><a href="#Debugging-Time" class="headerlink" title="Debugging Time"></a>Debugging Time</h3><ul>
-<li>TDD가 디버깅시간을 1/10으로 줄여 줄 것이다.</li>
-</ul>
-<h3 id="Design-Documents"><a href="#Design-Documents" class="headerlink" title="Design Documents"></a>Design Documents</h3><ul>
-<li>TDD의 3가지 법칙을 잘 따르면 설계문서를 얻을 수 있다.(low level design Document이다.)</li>
-</ul>
-<h3 id="Decoupling"><a href="#Decoupling" class="headerlink" title="Decoupling"></a>Decoupling</h3><ul>
-<li>테스트를 먼저 작성하면 Prooduction 코드가 테스트 가능해진다.</li>
-<li>모든 코드라인을 테스트하는 유일한 방법은 테스트 코드에서 그 코드들에 접근하는 것이다.</li>
-<li>TDD로 구현하면 보다 decouple된 시스템을 갖게된다.</li>
-</ul>
-<h3 id="Courage-to-Change"><a href="#Courage-to-Change" class="headerlink" title="Courage to Change"></a>Courage to Change</h3><ul>
-<li>테스트가 있기 때문에 시스템이 정상적으로 동작하는지 확인할 수 있다면 변경이 두렵지 않다. =&gt; Refactor를 공격적으로 할 수 있다.</li>
-<li>테스트는 코드를 깨끗하게 하고, 썩는 것을 방지한다.</li>
-<li>하지만, 레거시한 코드에 테스트를 추가하기는 힘들다.</li>
-<li>regression test</li>
-<li>완벽한 설계에 기반해 개발을 했더라도 테스트가 없다면 코드를 clean하는데 두려움이 생길 것이다.</li>
-</ul>
-<h3 id="Trust"><a href="#Trust" class="headerlink" title="Trust"></a>Trust</h3><ul>
-<li>3가지 규칙을 준수했을 때 낙하산을 가지고 있는 것처럼 테스트로 하여금 믿음을 가질 수 있다.</li>
-<li>개발 후 테스트를 작성하게되면, 테스트에 대한 신뢰가 떨어진다.</li>
-<li>이미 작성된 코드에서 테스트를 작성하라고 하면 실행 잘되는 케이스만 생각하게 될 것.</li>
-</ul>
-<hr>
-<ul>
-<li><a href="https://velog.io/@essri" rel="external nofollow noopener noreferrer" target="_blank">velog</a></li>
-<li><a href="https://ggomi.github.io" rel="external nofollow noopener noreferrer" target="_blank">Blog</a></li>
-<li><a href="https://github.com/ggomi" rel="external nofollow noopener noreferrer" target="_blank">Github</a></li>
-</ul>
-
-                    
-                        
-
-                    
-                    
-                        <p>
-                            <a href="/tdd/#post-footer" class="postShorten-excerpt_link link">
                                 Comment and share
                             </a>
                         </p>

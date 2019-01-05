@@ -255,6 +255,107 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title">
                     
+                        <a class="link-unstyled" href="/JPA-개념-및-설명/">
+                            JPA 개념 및 설명
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2019-01-04T22:22:20+09:00">
+	
+		    Jan 04, 2019
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/JPA/">JPA</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <blockquote>
+<p>SpringBoot와 JPA를 사용하면서 제대로 된 이해도가 낮다고 생각해서 JPA의 개념에 대해서 공부해보고, 끄적여보았습니다.. 틀린 점이나 이상한 점 있으시면 조언해주시면 감사드리겠습니다.</p>
+</blockquote>
+<h2 id="객체지향적-개발-vs-SQL-매핑"><a href="#객체지향적-개발-vs-SQL-매핑" class="headerlink" title="객체지향적 개발 vs SQL 매핑"></a>객체지향적 개발 vs SQL 매핑</h2><p>처음 Java라는 객체지향언어를 처음 배우고, 웹에 관심을 가지게 되면서 <em>MVC</em> 같은 디자인패턴도 배우고, 구조적인 부분이나 개발방법 등 기초적인 부분에 대해서 관심을 많이 가지기 시작했다.</p>
+<p><strong>하지만</strong> Spring을 배우고, 익숙해지면서 서로 다른 프로젝트를 해도 내 프로젝트 구조는 점점 획일화되고, 주구장창 SQL매핑만 하고있는 나를 발견하게 되었다.</p>
+<p>SQL매핑에 신경을 쏟다보니 나에게 객체지향은 의미가 없었다..<del>객체지향이 뭐더라</del></p>
+<h2 id="JPA"><a href="#JPA" class="headerlink" title="JPA?"></a>JPA?</h2><p>iBatis, Mybatis 밖에 모르던 때에 개발을 하면 SQL매핑만 잘하고 쿼리 잘 짜면 장땡인 줄 알았다. </p>
+<p>하지만 Mybatis같은 것은 ORM이라고 불린다는 것을 알고, 다른 ORM은 없나하고 찾아보다가 알게된 것이 <strong>JPA</strong>였다. (무려 Java ORM 표준)</p>
+<p>내가 느낀 <strong>JPA</strong>는 서로 상반된 사상을 가진 객체지향과 RDBS 사이를 연결을 시켜주는 ORM역할을 하고, 철저하게 분리 시켜주는 역할을 해주는 것 같아보인다. 그럼 Mybatis도 ORM인데 더 나은 점이 무엇이길래 열광하고, 인기가 있을까?</p>
+<h2 id="JPA를-사용해야하는-이유-장점"><a href="#JPA를-사용해야하는-이유-장점" class="headerlink" title="JPA를 사용해야하는 이유(장점)"></a>JPA를 사용해야하는 이유(장점)</h2><ul>
+<li>SQL 중심적인 개발이 아닌 객체중심으로 개발을 할 수 있다.<ul>
+<li>이러한 이유때문에 비즈니스로직에 집중할 수 있게된다.</li>
+</ul>
+</li>
+<li>생산성<ul>
+<li>쿼리를 작성할 필요없이 jpa가 대신해준다.</li>
+</ul>
+</li>
+<li>유지보수<ul>
+<li>객체중심의 개발이므로 실제 테이블에서 컬럼이 수정,추가,삭제 되었을 때 개발자는 필드만 수정하면된다. </li>
+</ul>
+</li>
+<li><strong>패러다임의 불일치 해결</strong><ul>
+<li>상속<ul>
+<li>저장</li>
+<li>조회</li>
+</ul>
+</li>
+<li>연관관계</li>
+<li>신뢰할 수 있는 엔티티, 계층</li>
+<li>동일한 트랜잭션에서 조회한 엔티티는 같음을 보장한다.(Java Collection처럼)</li>
+</ul>
+</li>
+<li>RDBS와 객체사이에서 동작하기 때문에 성능 상에서 문제가 생길 수 있다고 생각하지만 개발하기 나름이다. 중간 레이어가 있다는 것은 양날의 검이다.</li>
+<li>지연로딩<ul>
+<li>객체가 실제 사용될 때 로딩</li>
+</ul>
+</li>
+<li>즉시로딩<ul>
+<li>JOIN SQL로 한번에 연관된 객체까지 미리 조회</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>JPA가 쿼리를 작성하고 지원하는 기능이 많다고 해서 그냥 아무생각없이 사용하면 안되고, 알고 써야한다! <em>근본</em>이 중요하다.</li>
+</ul>
+<hr>
+<ul>
+<li><a href="https://velog.io/@essri" rel="external nofollow noopener noreferrer" target="_blank">velog</a></li>
+<li><a href="https://ggomi.github.io" rel="external nofollow noopener noreferrer" target="_blank">Blog</a></li>
+<li><a href="https://github.com/ggomi" rel="external nofollow noopener noreferrer" target="_blank">Github</a></li>
+</ul>
+
+                    
+                        
+
+                    
+                    
+                        <p>
+                            <a href="/JPA-개념-및-설명/#post-footer" class="postShorten-excerpt_link link">
+                                Comment and share
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
                         <a class="link-unstyled" href="/tdd/">
                             TDD(Test Driven Development)란?
                         </a>
