@@ -1,465 +1,738 @@
-
 <!DOCTYPE html>
-<html lang="en">
-    
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Jeongmin&#39;s Blog">
-    <title>Tag: Comments - Jeongmin&#39;s Blog</title>
-    <meta name="author" content="Jeongmin Oh">
-    
-        <meta name="keywords" content="스프링,스프링부트,주니어개발자,개발,자바,알고리즘,알고스팟,algorithm,algospot,TDD,java,spring boot,JPA,jpa,Java,Spring Boot,lombok,">
-    
-    
-        <link rel="icon" href="https://localhost:4000/assets/images/cheese_thumb.jpg">
-    
-    
-        <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
-    
-    <script type="application/ld+json">{}</script>
-    <meta name="description" content="주니어개발자의 IT 기술블로그입니다.">
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="ko">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.0.6" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.0.6">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.0.6">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.0.6">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.0.6" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.0.6',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="IT 기술블로그입니다.">
 <meta name="keywords" content="스프링,스프링부트,주니어개발자,개발,자바,알고리즘,알고스팟,algorithm,algospot,TDD,java,spring boot,JPA,jpa,Java,Spring Boot,lombok">
-<meta property="og:type" content="blog">
+<meta property="og:type" content="website">
 <meta property="og:title" content="Jeongmin&#39;s Blog">
 <meta property="og:url" content="https://localhost:4000/tags/Comments/index.html">
 <meta property="og:site_name" content="Jeongmin&#39;s Blog">
-<meta property="og:description" content="주니어개발자의 IT 기술블로그입니다.">
-<meta property="og:locale" content="en">
+<meta property="og:description" content="IT 기술블로그입니다.">
+<meta property="og:locale" content="ko">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Jeongmin&#39;s Blog">
-<meta name="twitter:description" content="주니어개발자의 IT 기술블로그입니다.">
-    
-    
-        
-    
-    
-        <meta property="og:image" content="https://localhost:4000/assets/images/profile.jpg">
-    
-    
-    
-    
-    <!--STYLES-->
-    <link rel="stylesheet" href="/assets/css/all.css">
-    <link rel="stylesheet" href="/assets/css/jquery.fancybox.css">
-    <link rel="stylesheet" href="/assets/css/thumbs.css">
-    <link rel="stylesheet" href="/assets/css/tranquilpeak.css">
-    <!--STYLES END-->
-    
-    <script type="text/javascript">
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-109295981-1', 'auto');
-        ga('send', 'pageview');
-    </script>
+<meta name="twitter:description" content="IT 기술블로그입니다.">
 
 
-    
+
+  <link rel="alternate" href="/atom.xml" title="Jeongmin's Blog" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="https://localhost:4000/tags/Comments/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>태그: Comments | Jeongmin's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
 </head>
 
-    <body>
-        <div id="blog">
-            <!-- Define author's picture -->
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="ko">
 
-
+  
+  
     
-        
-            
-        
+  
+
+  <div class="container sidebar-position-left ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> 
+
+<div class="site-brand-wrapper">
+  <div class="site-meta ">
     
 
-<header id="header" data-behavior="2">
-    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
-    <div class="header-title">
-        <a class="header-title-link" href="/ ">Jeongmin&#39;s Blog</a>
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jeongmin's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
+      
+        <h1 class="site-subtitle" itemprop="description">Tech & Note</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+          
+  <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>홈</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>태그</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>카테고리</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>아카이브</a>
+</li>
+
+      
+
+      
+    </ul>
+  
+
+  
     
-        
-            <a class="header-right-picture " href="#about">
-        
-        
-            <img class="header-picture" src="/assets/images/profile.jpg" alt="Author&#39;s picture">
-        
-        </a>
+
     
-    <link rel="canonical" href="https://localhost:4000/tags/comments/">
-</header>
-
-            <!-- Define author's picture -->
-
-
-
-        
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
     
 
-<nav id="sidebar" data-behavior="2">
-    <div class="sidebar-container">
-        
-            <div class="sidebar-profile">
-                <a href="/#about">
-                    <img class="sidebar-profile-picture" src="/assets/images/profile.jpg" alt="Author&#39;s picture">
-                </a>
-                <h4 class="sidebar-profile-name">Jeongmin Oh</h4>
-                
-                    <h5 class="sidebar-profile-bio"><table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Mokpo Univ.</td>
-<td>2013.03 ~ 2019.02</td>
-</tr>
-<tr>
-<td>Mobile C&amp;C</td>
-<td>2018.08 ~ 2019.02(예정)</td>
-</tr>
-</tbody>
-</table>
-</h5>
-                
-            </div>
-        
-        
-            <ul class="sidebar-buttons">
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link " href="/ " title="Home">
-                    
-                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Home</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link " href="/all-categories" title="Categories">
-                    
-                        <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Categories</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link " href="/all-tags" title="Tags">
-                    
-                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Tags</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link " href="/all-archives" title="Archives">
-                    
-                        <i class="sidebar-button-icon fa fa-archive" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Archives</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link open-algolia-search" href="#search" title="Search">
-                    
-                        <i class="sidebar-button-icon fa fa-search" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Search</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link " href="#about" title="About">
-                    
-                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">About</span>
-                    </a>
-            </li>
-            
-        </ul>
-        
-            <ul class="sidebar-buttons">
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link " href="https://github.com/ggomi" target="_blank" rel="external nofollow noopener noreferrer" title="GitHub">
-                    
-                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">GitHub</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link " href="https://twitter.com/" target="_blank" rel="external nofollow noopener noreferrer" title="Twitter">
-                    
-                        <i class="sidebar-button-icon fab fa-twitter" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Twitter</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link " href="https://www.facebook.com/Jeongmin.Oo" target="_blank" rel="external nofollow noopener noreferrer" title="Facebook">
-                    
-                        <i class="sidebar-button-icon fab fa-facebook" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Facebook</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link " href="https://www.linkedin.com/in/%EC%A0%95%EB%AF%BC-%EC%98%A4-50b22511b/" target="_blank" rel="external nofollow noopener noreferrer" title="LinkedIn">
-                    
-                        <i class="sidebar-button-icon fab fa-linkedin" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">LinkedIn</span>
-                    </a>
-            </li>
-            
-        </ul>
-        
-            <ul class="sidebar-buttons">
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link " href="/atom.xml" title="RSS">
-                    
-                        <i class="sidebar-button-icon fa fa-rss" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">RSS</span>
-                    </a>
-            </li>
-            
-        </ul>
-        
-    </div>
+  
+
+
+  
+
+  
 </nav>
 
+
+  
+
+
+
+ </div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
             
-            <div id="main" data-behavior="2" class="
-                        hasCoverMetaIn
-                        ">
-                
-    <section class="postShorten-group main-content-wrap">
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/comments-rules/">
-                            Comments Rules
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2018-12-22T14:18:29+09:00">
-	
-		    Dec 22, 2018
-    	
-    </time>
-    
-        <span>in </span>
-        
-    <a class="category-link" href="/categories/Basic-sense/">Basic_sense</a>
 
+  
+  
+  
+  <div class="post-block tag">
 
-    
-</div>
+    <div id="posts" class="posts-collapse">
+      <div class="collection-title">
+        <h2>Comments<small>태그</small>
+        </h2>
+      </div>
 
-            </div>
-            
-                <div class="postShorten-content">
-                    <blockquote>
-<p><a href="https://www.youtube.com/user/codetemplate/videos" rel="external nofollow noopener noreferrer" target="_blank"> 클린코더스 - 백명석님 </a> 강의를 보고 작성한 글입니다.</p>
-</blockquote>
-<hr>
-<h1 id="Comments"><a href="#Comments" class="headerlink" title="Comments"></a>Comments</h1><blockquote>
-<p><strong>조직이 일정수준의 크기가 되면 문서화를 요구한다. 하지만 별도의 문서를 작성하는 것은 반대!!</strong></p>
-</blockquote>
-<p>처음에는 별도의 문서가 있어도 괜찮을거라고 생각이 들었는데 강의를 듣다보니 생각이 바뀌었다. 코드에 대한 설명을 코드 자체로 설명하는 것이지 별도의 문서로 설명한다는 것은 아니라고 한다. 별도의 문서가 필요하다는 말은 해당 코드가 Coding Standard의 예로 적합하지 않다는 뜻이 된다.<br>Comments 작성을 강요하면 프로그래머는 필요해서가 아니라 해야하므로 Comment를 작성하게된다.<br>그리고 이런 Comments는 무의미하고, 무시당하기 십상이다. <del>너무해ㅠ</del><br>Comments를 보는사람이 감사하는 마음이 생겨야 좋은 Comments이다.</p>
-<blockquote>
-<p><strong>모든 Comments는 당신의 코드가 ‘제대로 표현되고있지않다’라는 실패의 상징이다.</strong></p>
-</blockquote>
-<p>이 말은 좀 충격이었다. 지금까지 사람들에게 내 코드를 이해시키기위해 주석을 열심히 써왔는데… 차라리 이 노력을 코드표현력에 쏟을걸 하는 생각이 들었다.</p>
-<p>그렇다면 Comments를 꼭 써야하는 상황에서의 좋은 Comments 그리고 나쁜 Comments는 무엇일까?</p>
-<hr>
-<h2 id="좋은-Comments"><a href="#좋은-Comments" class="headerlink" title="좋은 Comments"></a>좋은 Comments</h2><p><strong>Legal Comments</strong></p>
-<ul>
-<li>법적인 문제가 쓰여져있는 Comments</li>
-<li>Ex) LICENSE 문제</li>
-</ul>
-<p><strong>Informative Comments</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="comment">// format matched kk:mm:ss EEE, MMM dd, yyyy</span></span><br><span class="line">Pattern timePattern = Pattern.compile(<span class="string">"\\d*:\\d*:\\d* \\w*. \\w* \\d*, \\d*"</span>);</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>예를 들면 정규식을 사용할 때 이 패턴이 어떤 패턴인지 설명해주는 그런 정보를 제공하는 Comments</li>
-</ul>
-<p><strong>Warning of Consequences</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// don't run unless you have some time to kill</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">readReallyBigFile</span><span class="params">()</span> </span>&#123;...&#125;</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>코드에 관해서 <strong>경고</strong>할 때</li>
-</ul>
-<p><strong>TODO Comments</strong></p>
-<ul>
-<li>TODO(해야할 일에 관한 Comment)<br><strong>Public API Documentation</strong></li>
-</ul>
-<hr>
-<h2 id="나쁜-Comments"><a href="#나쁜-Comments" class="headerlink" title="나쁜 Comments"></a>나쁜 Comments</h2><p><strong>Mumbling</strong> </p>
-<ul>
-<li>주저리주저리 써놓은 Comments들</li>
-</ul>
-<p><strong>Redundant Explanations</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// The Child Containers belong to this container, keyed by name</span></span><br><span class="line"><span class="keyword">private</span> Map&lt;String, Child&gt; children = <span class="keyword">new</span> HashMap&lt;String, Child&gt;();</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>코드한줄만 봐도 뻔히 알 수 있는 내용인데 굳이 Comment에서 중복되게 다시 설명하고 있는 Comment</li>
-</ul>
-<p><strong>Mandated Redundancy</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> dateIn input date</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> formatted string</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">convertDateFormat</span><span class="params">(String dateIn)</span> </span>&#123;</span><br><span class="line">     ...</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>IDE에서 자동으로 생기는 Comment</li>
-</ul>
-<p><strong>Journal Comments</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 변경이력</span></span><br><span class="line"><span class="comment"> * 2018.11.01 : 생성</span></span><br><span class="line"><span class="comment"> * 2018.11.05 : convertDateFormat 메소드 구현 ...</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>코드의 변경이력을 써놓은 Comment</li>
-</ul>
-<p><strong>Noways Comments</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DateFormatUtils</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     *  default constructor</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="title">DateFormatUtils</span><span class="params">()</span> </span>&#123;</span><br><span class="line">         ...</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>누가봐도 default 생성자인데 굳이 위에 생성자라고 Comment를 작성하는 것처럼 너무 말도 안되게 뻔한 Comments (<strong>절대 해선안된다!!</strong>)</li>
-</ul>
-<p><strong>Big Banner Comments</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DateFormatUtils</span> </span>&#123;</span><br><span class="line">    <span class="comment">/************************</span></span><br><span class="line"><span class="comment">     * instance variables   *</span></span><br><span class="line"><span class="comment">     ************************/</span></span><br><span class="line">     <span class="keyword">private</span> <span class="keyword">int</span> day;</span><br><span class="line">     <span class="keyword">private</span> <span class="keyword">int</span> date;</span><br><span class="line">     ... </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>잘보이게 하려고 특수문자로 도배해놓은 Comment</li>
-</ul>
-<p><strong>Closing Brace Comments</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i&lt; length; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span>(...) &#123;</span><br><span class="line"></span><br><span class="line">    &#125; <span class="comment">//end of if</span></span><br><span class="line">&#125; <span class="comment">//end of for</span></span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>loop의 끝과 Method의 끝 등등 코드블록 끝을 표시해놓은 Comment</li>
-</ul>
-<p><strong>Attribution Comments</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// add by jm</span></span><br><span class="line"><span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">Child</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>누가 작성했는지 써놓은 Comment, 굳이 코드에 써놓을 필요가 없다.</li>
-</ul>
-<p><strong>HTML in Comments</strong> </p>
-<ul>
-<li>HTML 코드로 Comment 작성 (javadoc 작성을 위해서 이렇게 하는 사람들이 있다고한다.)</li>
-</ul>
-<p><strong>Non-Local Information</strong> </p>
-<ul>
-<li>local이 아닌 멀리 떨어진 곳의 코드를 설명하는 Comments는 Comments와 무고나하게 변경될 수 있다.</li>
-</ul>
-<hr>
-<ul>
-<li><a href="https://velog.io/@essri" rel="external nofollow noopener noreferrer" target="_blank">velog</a></li>
-<li><a href="https://ggomi.github.io" rel="external nofollow noopener noreferrer" target="_blank">Blog</a></li>
-<li><a href="https://github.com/ggomi" rel="external nofollow noopener noreferrer" target="_blank">Github</a></li>
-</ul>
-
-                    
-                        
-
-                    
-                    
-                        <p>
-                            <a href="/comments-rules/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    <div class="pagination-bar">
-    <ul class="pagination">
-        
-        
-        <li class="pagination-number">page 1 of 1</li>
-    </ul>
-</div>
-
-</section>
-
-
-                <footer id="footer" class="main-content-wrap">
-    <span class="copyrights">
-        Copyrights &copy; 2019 Jeongmin Oh. All Rights Reserved.
-    </span>
-</footer>
-
-            </div>
-            
-        </div>
+      
         
 
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+    <header class="post-header">
 
-    
+      <h3 class="post-title">
         
-    
+            <a class="post-title-link" href="/comments-rules/" itemprop="url">
+              
+                <span itemprop="name">Comments Rules</span>
+              
+            </a>
+        
+      </h3>
 
-<div id="about">
-    <div id="about-card">
-        <div id="about-btn-close">
-            <i class="fa fa-times"></i>
-        </div>
-        
-            <img id="about-card-picture" src="/assets/images/profile.jpg" alt="Author&#39;s picture">
-        
-            <h4 id="about-card-name">Jeongmin Oh</h4>
-        
-            <div id="about-card-bio"><table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Mokpo Univ.</td>
-<td>2013.03 ~ 2019.02</td>
-</tr>
-<tr>
-<td>Mobile C&amp;C</td>
-<td>2018.08 ~ 2019.02(예정)</td>
-</tr>
-</tbody>
-</table>
-</div>
-        
-        
-            <div id="about-card-job">
-                <i class="fa fa-briefcase"></i>
-                <br>
-                <p>Mobile C&amp;C 인턴 2018.08 ~</p>
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2018-12-22T14:18:29+09:00" content="2018-12-22">
+          12-22
+        </time>
+      </div>
 
-            </div>
-        
-        
-            <div id="about-card-location">
-                <i class="fa fa-map-marker-alt"></i>
-                <br>
-                Seoul, Korea Republic Of.
-            </div>
-        
+    </header>
+  </article>
+
+
+      
     </div>
+
+  </div>
+  
+  
+  
+
+  
+
+
+          </div>
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/profile.jpg" alt="Jeongmin Oh">
+            
+              <p class="site-author-name" itemprop="name">Jeongmin Oh</p>
+              <p class="site-description motion-element" itemprop="description">IT 기술블로그입니다.</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-name">포스트</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">카테고리</span>
+                  
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">32</span>
+                    <span class="site-state-item-name">태그</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/ggomi" target="_blank" title="GitHub" rel="external nofollow noopener noreferrer"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:dhkdn4042@gmail.com" target="_blank" title="E-Mail" rel="external nofollow noopener noreferrer"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jeongmin Oh</span>
+
+  
+
+  
 </div>
 
+
+  
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" rel="external nofollow noopener noreferrer" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.0.6</div>
+
+
+
+
         
+
+
+
+
+
+
+
+
         
-<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
-        <!--SCRIPTS-->
-<script src="/assets/js/jquery.js"></script>
-<script src="/assets/js/jquery.fancybox.js"></script>
-<script src="/assets/js/thumbs.js"></script>
-<script src="/assets/js/tranquilpeak.js"></script>
-<!--SCRIPTS END-->
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
 
 
 
-    </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.0.6"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.0.6"></script>
+
+
+
+  
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.6"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
 </html>

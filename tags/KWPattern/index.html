@@ -1,418 +1,738 @@
-
 <!DOCTYPE html>
-<html lang="en">
-    
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Jeongmin&#39;s Blog">
-    <title>Tag: KWPattern - Jeongmin&#39;s Blog</title>
-    <meta name="author" content="Jeongmin Oh">
-    
-        <meta name="keywords" content="스프링,스프링부트,주니어개발자,개발,자바,알고리즘,알고스팟,algorithm,algospot,TDD,java,spring boot,JPA,jpa,Java,Spring Boot,lombok,">
-    
-    
-        <link rel="icon" href="https://localhost:4000/assets/images/cheese_thumb.jpg">
-    
-    
-        <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
-    
-    <script type="application/ld+json">{}</script>
-    <meta name="description" content="주니어개발자의 IT 기술블로그입니다.">
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="ko">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.0.6" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.0.6">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.0.6">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.0.6">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.0.6" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.0.6',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="IT 기술블로그입니다.">
 <meta name="keywords" content="스프링,스프링부트,주니어개발자,개발,자바,알고리즘,알고스팟,algorithm,algospot,TDD,java,spring boot,JPA,jpa,Java,Spring Boot,lombok">
-<meta property="og:type" content="blog">
+<meta property="og:type" content="website">
 <meta property="og:title" content="Jeongmin&#39;s Blog">
 <meta property="og:url" content="https://localhost:4000/tags/KWPattern/index.html">
 <meta property="og:site_name" content="Jeongmin&#39;s Blog">
-<meta property="og:description" content="주니어개발자의 IT 기술블로그입니다.">
-<meta property="og:locale" content="en">
+<meta property="og:description" content="IT 기술블로그입니다.">
+<meta property="og:locale" content="ko">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Jeongmin&#39;s Blog">
-<meta name="twitter:description" content="주니어개발자의 IT 기술블로그입니다.">
-    
-    
-        
-    
-    
-        <meta property="og:image" content="https://localhost:4000/assets/images/profile.jpg">
-    
-    
-    
-    
-    <!--STYLES-->
-    <link rel="stylesheet" href="/assets/css/all.css">
-    <link rel="stylesheet" href="/assets/css/jquery.fancybox.css">
-    <link rel="stylesheet" href="/assets/css/thumbs.css">
-    <link rel="stylesheet" href="/assets/css/tranquilpeak.css">
-    <!--STYLES END-->
-    
-    <script type="text/javascript">
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-109295981-1', 'auto');
-        ga('send', 'pageview');
-    </script>
+<meta name="twitter:description" content="IT 기술블로그입니다.">
 
 
-    
+
+  <link rel="alternate" href="/atom.xml" title="Jeongmin's Blog" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="https://localhost:4000/tags/KWPattern/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>태그: KWPattern | Jeongmin's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
 </head>
 
-    <body>
-        <div id="blog">
-            <!-- Define author's picture -->
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="ko">
 
-
+  
+  
     
-        
-            
-        
+  
+
+  <div class="container sidebar-position-left ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> 
+
+<div class="site-brand-wrapper">
+  <div class="site-meta ">
     
 
-<header id="header" data-behavior="2">
-    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
-    <div class="header-title">
-        <a class="header-title-link" href="/ ">Jeongmin&#39;s Blog</a>
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jeongmin's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
+      
+        <h1 class="site-subtitle" itemprop="description">Tech & Note</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+          
+  <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>홈</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>태그</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>카테고리</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>아카이브</a>
+</li>
+
+      
+
+      
+    </ul>
+  
+
+  
     
-        
-            <a class="header-right-picture " href="#about">
-        
-        
-            <img class="header-picture" src="/assets/images/profile.jpg" alt="Author&#39;s picture">
-        
-        </a>
+
     
-    <link rel="canonical" href="https://localhost:4000/tags/kwpattern/">
-</header>
-
-            <!-- Define author's picture -->
-
-
-
-        
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
     
 
-<nav id="sidebar" data-behavior="2">
-    <div class="sidebar-container">
-        
-            <div class="sidebar-profile">
-                <a href="/#about">
-                    <img class="sidebar-profile-picture" src="/assets/images/profile.jpg" alt="Author&#39;s picture">
-                </a>
-                <h4 class="sidebar-profile-name">Jeongmin Oh</h4>
-                
-                    <h5 class="sidebar-profile-bio"><table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Mokpo Univ.</td>
-<td>2013.03 ~ 2019.02</td>
-</tr>
-<tr>
-<td>Mobile C&amp;C</td>
-<td>2018.08 ~ 2019.02(예정)</td>
-</tr>
-</tbody>
-</table>
-</h5>
-                
-            </div>
-        
-        
-            <ul class="sidebar-buttons">
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link " href="/ " title="Home">
-                    
-                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Home</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link " href="/all-categories" title="Categories">
-                    
-                        <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Categories</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link " href="/all-tags" title="Tags">
-                    
-                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Tags</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link " href="/all-archives" title="Archives">
-                    
-                        <i class="sidebar-button-icon fa fa-archive" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Archives</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link open-algolia-search" href="#search" title="Search">
-                    
-                        <i class="sidebar-button-icon fa fa-search" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Search</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link " href="#about" title="About">
-                    
-                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">About</span>
-                    </a>
-            </li>
-            
-        </ul>
-        
-            <ul class="sidebar-buttons">
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link " href="https://github.com/ggomi" target="_blank" rel="external nofollow noopener noreferrer" title="GitHub">
-                    
-                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">GitHub</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link " href="https://twitter.com/" target="_blank" rel="external nofollow noopener noreferrer" title="Twitter">
-                    
-                        <i class="sidebar-button-icon fab fa-twitter" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Twitter</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link " href="https://www.facebook.com/Jeongmin.Oo" target="_blank" rel="external nofollow noopener noreferrer" title="Facebook">
-                    
-                        <i class="sidebar-button-icon fab fa-facebook" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Facebook</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link " href="https://www.linkedin.com/in/%EC%A0%95%EB%AF%BC-%EC%98%A4-50b22511b/" target="_blank" rel="external nofollow noopener noreferrer" title="LinkedIn">
-                    
-                        <i class="sidebar-button-icon fab fa-linkedin" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">LinkedIn</span>
-                    </a>
-            </li>
-            
-        </ul>
-        
-            <ul class="sidebar-buttons">
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link " href="/atom.xml" title="RSS">
-                    
-                        <i class="sidebar-button-icon fa fa-rss" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">RSS</span>
-                    </a>
-            </li>
-            
-        </ul>
-        
-    </div>
+  
+
+
+  
+
+  
 </nav>
 
+
+  
+
+
+
+ </div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
             
-            <div id="main" data-behavior="2" class="
-                        hasCoverMetaIn
-                        ">
-                
-    <section class="postShorten-group main-content-wrap">
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/kwpattern/">
-                            Algospot(알고스팟) KWPattern
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2018-12-26T16:20:21+09:00">
-	
-		    Dec 26, 2018
-    	
-    </time>
-    
-        <span>in </span>
-        
-    <a class="category-link" href="/categories/Algorithm/">Algorithm</a>
 
+  
+  
+  
+  <div class="post-block tag">
 
-    
-</div>
+    <div id="posts" class="posts-collapse">
+      <div class="collection-title">
+        <h2>KWPattern<small>태그</small>
+        </h2>
+      </div>
 
-            </div>
-            
-                <div class="postShorten-content">
-                    <h2 id="KWPATTERN"><a href="#KWPATTERN" class="headerlink" title="KWPATTERN"></a>KWPATTERN</h2><h3 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h3><p>서기 2222년, cdinside 알고스팟 갤러리에서 WonhaJin은 무패 전설의 키보드 워리어로 유명하다. WonhaJin은 항상 만년떡밥을 던짐으로써 낚여든 상대방을 무참히 공격하여 굴복시키곤 했다. 이러한 패턴으로 그는 한 번도 키보드 배틀에서 패배한 적이 없다.</p>
-<p>한편, 그동안 그와 대등하게 승부했지만 한 번도 이겨 본 적이 없는 숙명의 라이벌 WookMan은 WonhaJin에게 패배를 안겨주고자 22개월간 WonhaJin의 키보드 배틀 패턴을 파악하고자 노력하였다.</p>
-<p>그러던 도중 2222년 2월 22일 22시 22분 22초에 그가 뻘글을 쓰는 것을 확인하였다. 이는 키보드 워리어에게 있어 치명적인 약점이다. WookMan은 이로부터 그가 성시마다 약점을 보인다는 가설을 세웠다. 성시란 다음과 같다:</p>
-<p>어떤 시각이 24시간제 기준으로 X 년 Y 월 Z 일 A시 B분 C 초이면, 이를 XY ZABC 의 형태로 이어 붙인 것과 그것을 뒤집은 문자열이 서로 같을 때 그 시각은 성시이다.<br>시각은 그레고리력(양력) 을 따라 4의 배수 해는 2월이 29일까지 있는 윤년이다. 단, 100의 배수 해는 윤년이 아니지만 400의 배수 해는 윤년이다.<br>X는 네 자리에 맞추어 표기하며, 나머지는 두 자리에 맞추어 표기한다. 모자라는 자리는 “0”으로 채운다.<br>예를 들어 2011년 9월 20일 23시 57분 11초의 경우, 20110920235711인데 이는 이를 뒤집은 11753202901102와 다르기 때문에 성시가 아니다. 한편 2011년 12월 11일 21시 11분 2초의 경우 20111211211102이므로 성시이다.</p>
-<p>이러한 패턴을 이용하여 WonhaJin을 공격하고자 WookMan은 1970년 1월 1일 0시 0분 0초 (이는 프로그래머들에게 있어 현존하는 모든 역사가 시작된 시간이다) 부터 N 번째로 등장하는 성시를 찾는 프로그램을 작성하려고 하였는데, 최근 취업과 육아를 동시에 시작하여 너무 바쁜 나머지 추종자들에게 도움을 요청하였<br>다.</p>
-<p>WookMan의 꼼꼼함에 반한 추종자인 당신은 이 프로그램을 작성해주어야 한다.</p>
-<p>입력</p>
-<blockquote>
-<p>입력은 여러 개의 테스트 케이스로 구성된다. 입력의 첫 행에는 테스트 케이스의 수 T 가 주어진다.</p>
-</blockquote>
-<p>각 테스트 케이스는 하나의 행으로 이루어져 있는데, 그 행에는 양의 정수 N (1 ≤ N ≤ 10000)이 주어진다.</p>
-<p>출력</p>
-<blockquote>
-<p>각 테스트 케이스에 대해 N 번째 성시를 한 행에 하나씩 “XXXX-YY-ZZ AA:BB:CC” 의 형식으로 출력한다.</p>
-</blockquote>
-<p>Input<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">7</span><br><span class="line">2</span><br><span class="line">20</span><br><span class="line">99</span><br></pre></td></tr></table></figure></p>
-<p>Output<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">2000-11-11 11:00:02</span><br><span class="line">2000-01-22 10:00:02</span><br><span class="line">2001-12-22 21:10:02</span><br><span class="line">2013-12-11 21:31:02</span><br></pre></td></tr></table></figure></p>
-<hr>
-<ul>
-<li>크게 어려운 문제는 아니었다고 생각하는데, 얼핏 보면 시,분,초 까지 구해야한다는 생각이 들 수 있는데 사실 년월일만 구하면 되는 문제였다.</li>
-</ul>
-<p>Solved<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">KWPATTERN</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span>[] YEARS;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> START = <span class="number">2000</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> START2 = <span class="number">2000</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Scanner sc = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        String year;</span><br><span class="line">        String month;</span><br><span class="line">        String day;</span><br><span class="line">        initYears();</span><br><span class="line">        <span class="keyword">int</span> caseSize = sc.nextInt();</span><br><span class="line"></span><br><span class="line">        String[] array = &#123;<span class="string">"01"</span>,<span class="string">"02"</span>,<span class="string">"10"</span>,<span class="string">"11"</span>,<span class="string">"12"</span>&#125;;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; caseSize; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> select = sc.nextInt();</span><br><span class="line">            <span class="keyword">int</span> temp = select / <span class="number">10</span>;</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 나누고, 뺐더니 오답, 빼고 나눠야 정답처리..</span></span><br><span class="line">            <span class="keyword">int</span> yearIndex = (select - <span class="number">1</span>) / <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(select &gt; <span class="number">10</span>) &#123;</span><br><span class="line">                select = select - ( <span class="number">10</span> * temp );</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span>(select == <span class="number">0</span>) &#123;</span><br><span class="line">                    select = <span class="number">10</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(select % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">                day = <span class="string">"22"</span>;</span><br><span class="line">                <span class="keyword">int</span> target = select / <span class="number">2</span>;</span><br><span class="line">                month = array[target-<span class="number">1</span>];</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                day = <span class="string">"11"</span>;</span><br><span class="line">                month = array[select/<span class="number">2</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            year = String.valueOf(YEARS[yearIndex]);</span><br><span class="line">            StringBuffer sMonth = <span class="keyword">new</span> StringBuffer(month);</span><br><span class="line">            StringBuffer sYear = <span class="keyword">new</span> StringBuffer(year);</span><br><span class="line">            sYear = sYear.reverse();</span><br><span class="line"></span><br><span class="line">            System.out.println(year+<span class="string">"-"</span>+month+ <span class="string">"-"</span> + day + <span class="string">" "</span> + sMonth.reverse().toString() + <span class="string">":"</span>+sYear.substring(<span class="number">0</span>,<span class="number">2</span>)+<span class="string">":"</span>+sYear.substring(<span class="number">2</span>,<span class="number">4</span>));</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">initYears</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        YEARS = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">1000</span>];</span><br><span class="line">        YEARS[<span class="number">0</span>]=START;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;<span class="number">1000</span>;i++) &#123;</span><br><span class="line">            String s = String.valueOf(YEARS[i-<span class="number">1</span>]);</span><br><span class="line">            <span class="keyword">if</span>(Integer.parseInt(s.split(<span class="string">""</span>)[s.length()-<span class="number">1</span>])&gt;<span class="number">5</span>) &#123;</span><br><span class="line">                YEARS[i-<span class="number">1</span>] = START+<span class="number">10</span>;</span><br><span class="line">                START =YEARS[i-<span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            String z= String.valueOf(START);</span><br><span class="line">            <span class="keyword">if</span>(Integer.parseInt(z.split(<span class="string">""</span>)[<span class="number">1</span>])&gt;<span class="number">5</span>) &#123;</span><br><span class="line">                YEARS[i-<span class="number">1</span>] = START2+<span class="number">1000</span>;</span><br><span class="line">                START2 =YEARS[i-<span class="number">1</span>];</span><br><span class="line">                START = START2;</span><br><span class="line">            &#125;</span><br><span class="line">            YEARS[i]=YEARS[i-<span class="number">1</span>]+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>이 문제를 5번 제출 만에 풀게되었는데 도저히 어떤부분에서 오답을 받는지 못찾고, 헤매다가 겨우 찾게되었다. 이유는 <em>뺄셈연산</em>과 <em>나눗셈</em> 연산 순서문제였는데 주어진 테스트케이스에서는 정확하게 답이 나와서 정말 찾기 힘들었었다…</li>
-</ul>
-<hr>
-<ul>
-<li><a href="https://velog.io/@essri" rel="external nofollow noopener noreferrer" target="_blank">velog</a></li>
-<li><a href="https://ggomi.github.io" rel="external nofollow noopener noreferrer" target="_blank">Blog</a></li>
-<li><a href="https://github.com/ggomi" rel="external nofollow noopener noreferrer" target="_blank">Github</a></li>
-</ul>
-
-                    
-                        
-
-                    
-                    
-                        <p>
-                            <a href="/kwpattern/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    <div class="pagination-bar">
-    <ul class="pagination">
-        
-        
-        <li class="pagination-number">page 1 of 1</li>
-    </ul>
-</div>
-
-</section>
-
-
-                <footer id="footer" class="main-content-wrap">
-    <span class="copyrights">
-        Copyrights &copy; 2019 Jeongmin Oh. All Rights Reserved.
-    </span>
-</footer>
-
-            </div>
-            
-        </div>
+      
         
 
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+    <header class="post-header">
 
-    
+      <h3 class="post-title">
         
-    
+            <a class="post-title-link" href="/kwpattern/" itemprop="url">
+              
+                <span itemprop="name">Algospot(알고스팟) KWPattern</span>
+              
+            </a>
+        
+      </h3>
 
-<div id="about">
-    <div id="about-card">
-        <div id="about-btn-close">
-            <i class="fa fa-times"></i>
-        </div>
-        
-            <img id="about-card-picture" src="/assets/images/profile.jpg" alt="Author&#39;s picture">
-        
-            <h4 id="about-card-name">Jeongmin Oh</h4>
-        
-            <div id="about-card-bio"><table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Mokpo Univ.</td>
-<td>2013.03 ~ 2019.02</td>
-</tr>
-<tr>
-<td>Mobile C&amp;C</td>
-<td>2018.08 ~ 2019.02(예정)</td>
-</tr>
-</tbody>
-</table>
-</div>
-        
-        
-            <div id="about-card-job">
-                <i class="fa fa-briefcase"></i>
-                <br>
-                <p>Mobile C&amp;C 인턴 2018.08 ~</p>
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2018-12-26T16:20:21+09:00" content="2018-12-26">
+          12-26
+        </time>
+      </div>
 
-            </div>
-        
-        
-            <div id="about-card-location">
-                <i class="fa fa-map-marker-alt"></i>
-                <br>
-                Seoul, Korea Republic Of.
-            </div>
-        
+    </header>
+  </article>
+
+
+      
     </div>
+
+  </div>
+  
+  
+  
+
+  
+
+
+          </div>
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/profile.jpg" alt="Jeongmin Oh">
+            
+              <p class="site-author-name" itemprop="name">Jeongmin Oh</p>
+              <p class="site-description motion-element" itemprop="description">IT 기술블로그입니다.</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-name">포스트</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">카테고리</span>
+                  
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">32</span>
+                    <span class="site-state-item-name">태그</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/ggomi" target="_blank" title="GitHub" rel="external nofollow noopener noreferrer"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:dhkdn4042@gmail.com" target="_blank" title="E-Mail" rel="external nofollow noopener noreferrer"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jeongmin Oh</span>
+
+  
+
+  
 </div>
 
+
+  
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" rel="external nofollow noopener noreferrer" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.0.6</div>
+
+
+
+
         
+
+
+
+
+
+
+
+
         
-<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
-        <!--SCRIPTS-->
-<script src="/assets/js/jquery.js"></script>
-<script src="/assets/js/jquery.fancybox.js"></script>
-<script src="/assets/js/thumbs.js"></script>
-<script src="/assets/js/tranquilpeak.js"></script>
-<!--SCRIPTS END-->
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
 
 
 
-    </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.0.6"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.0.6"></script>
+
+
+
+  
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.6"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
 </html>

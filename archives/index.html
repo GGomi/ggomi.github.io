@@ -1,1390 +1,1084 @@
-
 <!DOCTYPE html>
-<html lang="en">
-    
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Jeongmin&#39;s Blog">
-    <title>Archives - Jeongmin&#39;s Blog</title>
-    <meta name="author" content="Jeongmin Oh">
-    
-        <meta name="keywords" content="스프링,스프링부트,주니어개발자,개발,자바,알고리즘,알고스팟,algorithm,algospot,TDD,java,spring boot,JPA,jpa,Java,Spring Boot,lombok,">
-    
-    
-        <link rel="icon" href="https://localhost:4000/assets/images/cheese_thumb.jpg">
-    
-    
-        <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
-    
-    <script type="application/ld+json">{}</script>
-    <meta name="description" content="주니어개발자의 IT 기술블로그입니다.">
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="ko">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.0.6" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.0.6">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.0.6">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.0.6">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.0.6" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.0.6',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="IT 기술블로그입니다.">
 <meta name="keywords" content="스프링,스프링부트,주니어개발자,개발,자바,알고리즘,알고스팟,algorithm,algospot,TDD,java,spring boot,JPA,jpa,Java,Spring Boot,lombok">
-<meta property="og:type" content="blog">
+<meta property="og:type" content="website">
 <meta property="og:title" content="Jeongmin&#39;s Blog">
 <meta property="og:url" content="https://localhost:4000/archives/index.html">
 <meta property="og:site_name" content="Jeongmin&#39;s Blog">
-<meta property="og:description" content="주니어개발자의 IT 기술블로그입니다.">
-<meta property="og:locale" content="en">
+<meta property="og:description" content="IT 기술블로그입니다.">
+<meta property="og:locale" content="ko">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Jeongmin&#39;s Blog">
-<meta name="twitter:description" content="주니어개발자의 IT 기술블로그입니다.">
-    
-    
-        
-    
-    
-        <meta property="og:image" content="https://localhost:4000/assets/images/profile.jpg">
-    
-    
-    
-    
-    <!--STYLES-->
-    <link rel="stylesheet" href="/assets/css/all.css">
-    <link rel="stylesheet" href="/assets/css/jquery.fancybox.css">
-    <link rel="stylesheet" href="/assets/css/thumbs.css">
-    <link rel="stylesheet" href="/assets/css/tranquilpeak.css">
-    <!--STYLES END-->
-    
-    <script type="text/javascript">
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-109295981-1', 'auto');
-        ga('send', 'pageview');
-    </script>
+<meta name="twitter:description" content="IT 기술블로그입니다.">
 
 
-    
+
+  <link rel="alternate" href="/atom.xml" title="Jeongmin's Blog" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="https://localhost:4000/archives/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>아카이브 | Jeongmin's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
 </head>
 
-    <body>
-        <div id="blog">
-            <!-- Define author's picture -->
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="ko">
 
-
+  
+  
     
-        
-            
-        
+  
+
+  <div class="container sidebar-position-left page-archive">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> 
+
+<div class="site-brand-wrapper">
+  <div class="site-meta ">
     
 
-<header id="header" data-behavior="2">
-    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
-    <div class="header-title">
-        <a class="header-title-link" href="/ ">Jeongmin&#39;s Blog</a>
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jeongmin's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
+      
+        <h1 class="site-subtitle" itemprop="description">Tech & Note</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+          
+  <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>홈</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>태그</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>카테고리</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>아카이브</a>
+</li>
+
+      
+
+      
+    </ul>
+  
+
+  
     
-        
-            <a class="header-right-picture " href="#about">
-        
-        
-            <img class="header-picture" src="/assets/images/profile.jpg" alt="Author&#39;s picture">
-        
-        </a>
+
     
-    <link rel="canonical" href="https://localhost:4000/archives/">
-</header>
-
-            <!-- Define author's picture -->
-
-
-
-        
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
     
 
-<nav id="sidebar" data-behavior="2">
-    <div class="sidebar-container">
-        
-            <div class="sidebar-profile">
-                <a href="/#about">
-                    <img class="sidebar-profile-picture" src="/assets/images/profile.jpg" alt="Author&#39;s picture">
-                </a>
-                <h4 class="sidebar-profile-name">Jeongmin Oh</h4>
-                
-                    <h5 class="sidebar-profile-bio"><table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Mokpo Univ.</td>
-<td>2013.03 ~ 2019.02</td>
-</tr>
-<tr>
-<td>Mobile C&amp;C</td>
-<td>2018.08 ~ 2019.02(예정)</td>
-</tr>
-</tbody>
-</table>
-</h5>
-                
-            </div>
-        
-        
-            <ul class="sidebar-buttons">
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link " href="/ " title="Home">
-                    
-                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Home</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link " href="/all-categories" title="Categories">
-                    
-                        <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Categories</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link " href="/all-tags" title="Tags">
-                    
-                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Tags</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link " href="/all-archives" title="Archives">
-                    
-                        <i class="sidebar-button-icon fa fa-archive" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Archives</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link open-algolia-search" href="#search" title="Search">
-                    
-                        <i class="sidebar-button-icon fa fa-search" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Search</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link " href="#about" title="About">
-                    
-                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">About</span>
-                    </a>
-            </li>
-            
-        </ul>
-        
-            <ul class="sidebar-buttons">
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link " href="https://github.com/ggomi" target="_blank" rel="external nofollow noopener noreferrer" title="GitHub">
-                    
-                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">GitHub</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link " href="https://twitter.com/" target="_blank" rel="external nofollow noopener noreferrer" title="Twitter">
-                    
-                        <i class="sidebar-button-icon fab fa-twitter" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Twitter</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link " href="https://www.facebook.com/Jeongmin.Oo" target="_blank" rel="external nofollow noopener noreferrer" title="Facebook">
-                    
-                        <i class="sidebar-button-icon fab fa-facebook" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Facebook</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link " href="https://www.linkedin.com/in/%EC%A0%95%EB%AF%BC-%EC%98%A4-50b22511b/" target="_blank" rel="external nofollow noopener noreferrer" title="LinkedIn">
-                    
-                        <i class="sidebar-button-icon fab fa-linkedin" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">LinkedIn</span>
-                    </a>
-            </li>
-            
-        </ul>
-        
-            <ul class="sidebar-buttons">
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link " href="/atom.xml" title="RSS">
-                    
-                        <i class="sidebar-button-icon fa fa-rss" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">RSS</span>
-                    </a>
-            </li>
-            
-        </ul>
-        
-    </div>
+  
+
+
+  
+
+  
 </nav>
 
+
+  
+
+
+
+ </div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
             
-            <div id="main" data-behavior="2" class="
-                        hasCoverMetaIn
-                        ">
-                
-    <section class="postShorten-group main-content-wrap">
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/JPA-개념-및-설명/">
-                            JPA 개념 및 설명
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2019-01-04T22:22:20+09:00">
-	
-		    Jan 04, 2019
-    	
-    </time>
-    
-        <span>in </span>
-        
-    <a class="category-link" href="/categories/JPA/">JPA</a>
 
+  
+  
+  
+  <div class="post-block archive">
+    <div id="posts" class="posts-collapse">
+      <span class="archive-move-on"></span>
 
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <blockquote>
-<p>SpringBoot와 JPA를 사용하면서 제대로 된 이해도가 낮다고 생각해서 JPA의 개념에 대해서 공부해보고, 끄적여보았습니다.. 틀린 점이나 이상한 점 있으시면 조언해주시면 감사드리겠습니다.</p>
-</blockquote>
-<h2 id="객체지향적-개발-vs-SQL-매핑"><a href="#객체지향적-개발-vs-SQL-매핑" class="headerlink" title="객체지향적 개발 vs SQL 매핑"></a>객체지향적 개발 vs SQL 매핑</h2><p>처음 Java라는 객체지향언어를 처음 배우고, 웹에 관심을 가지게 되면서 <em>MVC</em> 같은 디자인패턴도 배우고, 구조적인 부분이나 개발방법 등 기초적인 부분에 대해서 관심을 많이 가지기 시작했다.</p>
-<p><strong>하지만</strong> Spring을 배우고, 익숙해지면서 서로 다른 프로젝트를 해도 내 프로젝트 구조는 점점 획일화되고, 주구장창 SQL매핑만 하고있는 나를 발견하게 되었다.</p>
-<p>SQL매핑에 신경을 쏟다보니 나에게 객체지향은 의미가 없었다..<del>객체지향이 뭐더라</del></p>
-<h2 id="JPA"><a href="#JPA" class="headerlink" title="JPA?"></a>JPA?</h2><p>iBatis, Mybatis 밖에 모르던 때에 개발을 하면 SQL매핑만 잘하고 쿼리 잘 짜면 장땡인 줄 알았다. </p>
-<p>하지만 Mybatis같은 것은 ORM이라고 불린다는 것을 알고, 다른 ORM은 없나하고 찾아보다가 알게된 것이 <strong>JPA</strong>였다. (무려 Java ORM 표준)</p>
-<p>내가 느낀 <strong>JPA</strong>는 서로 상반된 사상을 가진 객체지향과 RDBS 사이를 연결을 시켜주는 ORM역할을 하고, 철저하게 분리 시켜주는 역할을 해주는 것 같아보인다. 그럼 Mybatis도 ORM인데 더 나은 점이 무엇이길래 열광하고, 인기가 있을까?</p>
-<h2 id="JPA를-사용해야하는-이유-장점"><a href="#JPA를-사용해야하는-이유-장점" class="headerlink" title="JPA를 사용해야하는 이유(장점)"></a>JPA를 사용해야하는 이유(장점)</h2><ul>
-<li>SQL 중심적인 개발이 아닌 객체중심으로 개발을 할 수 있다.<ul>
-<li>이러한 이유때문에 비즈니스로직에 집중할 수 있게된다.</li>
-</ul>
-</li>
-<li>생산성<ul>
-<li>쿼리를 작성할 필요없이 jpa가 대신해준다.</li>
-</ul>
-</li>
-<li>유지보수<ul>
-<li>객체중심의 개발이므로 실제 테이블에서 컬럼이 수정,추가,삭제 되었을 때 개발자는 필드만 수정하면된다. </li>
-</ul>
-</li>
-<li><strong>패러다임의 불일치 해결</strong><ul>
-<li>상속<ul>
-<li>저장</li>
-<li>조회</li>
-</ul>
-</li>
-<li>연관관계</li>
-<li>신뢰할 수 있는 엔티티, 계층</li>
-<li>동일한 트랜잭션에서 조회한 엔티티는 같음을 보장한다.(Java Collection처럼)</li>
-</ul>
-</li>
-<li>RDBS와 객체사이에서 동작하기 때문에 성능 상에서 문제가 생길 수 있다고 생각하지만 개발하기 나름이다. 중간 레이어가 있다는 것은 양날의 검이다.</li>
-<li>지연로딩<ul>
-<li>객체가 실제 사용될 때 로딩</li>
-</ul>
-</li>
-<li>즉시로딩<ul>
-<li>JOIN SQL로 한번에 연관된 객체까지 미리 조회</li>
-</ul>
-</li>
-</ul>
-<hr>
-<ul>
-<li>JPA가 쿼리를 작성하고 지원하는 기능이 많다고 해서 그냥 아무생각없이 사용하면 안되고, 알고 써야한다! <em>근본</em>이 중요하다.</li>
-</ul>
-<hr>
-<ul>
-<li><a href="https://velog.io/@essri" rel="external nofollow noopener noreferrer" target="_blank">velog</a></li>
-<li><a href="https://ggomi.github.io" rel="external nofollow noopener noreferrer" target="_blank">Blog</a></li>
-<li><a href="https://github.com/ggomi" rel="external nofollow noopener noreferrer" target="_blank">Github</a></li>
-</ul>
-
-                    
-                        
-
-                    
-                    
-                        <p>
-                            <a href="/JPA-개념-및-설명/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/tdd/">
-                            TDD(Test Driven Development)란?
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2019-01-01T19:55:43+09:00">
-	
-		    Jan 01, 2019
-    	
-    </time>
-    
-        <span>in </span>
-        
-    <a class="category-link" href="/categories/TDD/">TDD</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <blockquote>
-<p><a href="https://www.youtube.com/user/codetemplate/videos" rel="external nofollow noopener noreferrer" target="_blank"> 클린코더스 - 백명석님 </a> 강의를 보고 작성한 글입니다.</p>
-</blockquote>
-<hr>
-<h2 id="1-TDD의-세가지-법칙"><a href="#1-TDD의-세가지-법칙" class="headerlink" title="1. TDD의 세가지 법칙"></a>1. TDD의 세가지 법칙</h2><ul>
-<li>Failing Test가 있을때만 프로덕션코드에 작성하라</li>
-<li>실패를 나타내는데 충분한 테스트만 작성하라.</li>
-<li>테스트가 성공하는 만큼만의 코드를 작성하라. (이해가 아직 잘 안됨..)</li>
-</ul>
-<h2 id="2-TDD-절차"><a href="#2-TDD-절차" class="headerlink" title="2. TDD 절차"></a>2. TDD 절차</h2><p>세가지 법칙이나 TDD작성 절차를 지키지 않았을경우 Stocking이라는 옴짝달싹하지 못하는 상태에 빠질 수 있다.<br><img src="/assets/images/tdd_1.png" alt="TDD 절차"></p>
-<ol>
-<li>Failing 테스트 작성(Red page)</li>
-<li>Failing 테스트를 통과할 만큼의 코드를 작성(Green page) </li>
-<li>Refactor(Blue Page)<blockquote>
-<p>리팩토링 전까지 모두 최소한의 코드를 작성해서 절차를 만족시키기만 하면된다. 일단 돌아만 가게하면된다. Refactor는 선택이 아닌 필수이다.</p>
-</blockquote>
-</li>
-</ol>
-<h2 id="3-원칙"><a href="#3-원칙" class="headerlink" title="3. 원칙"></a>3. 원칙</h2><ul>
-<li>남들이 봤을때 별거 아닌 것처럼 보일만큼 쉬운 것부터!!</li>
-<li>테스트가 구체적으로 변해갈 때 프로덕션코드는 점점 범용(Generic)적이 되어간다.</li>
-</ul>
-<h2 id="4-TDD의-이점"><a href="#4-TDD의-이점" class="headerlink" title="4. TDD의 이점"></a>4. TDD의 이점</h2><h3 id="Debugging-Time"><a href="#Debugging-Time" class="headerlink" title="Debugging Time"></a>Debugging Time</h3><ul>
-<li>TDD가 디버깅시간을 1/10으로 줄여 줄 것이다.</li>
-</ul>
-<h3 id="Design-Documents"><a href="#Design-Documents" class="headerlink" title="Design Documents"></a>Design Documents</h3><ul>
-<li>TDD의 3가지 법칙을 잘 따르면 설계문서를 얻을 수 있다.(low level design Document이다.)</li>
-</ul>
-<h3 id="Decoupling"><a href="#Decoupling" class="headerlink" title="Decoupling"></a>Decoupling</h3><ul>
-<li>테스트를 먼저 작성하면 Prooduction 코드가 테스트 가능해진다.</li>
-<li>모든 코드라인을 테스트하는 유일한 방법은 테스트 코드에서 그 코드들에 접근하는 것이다.</li>
-<li>TDD로 구현하면 보다 decouple된 시스템을 갖게된다.</li>
-</ul>
-<h3 id="Courage-to-Change"><a href="#Courage-to-Change" class="headerlink" title="Courage to Change"></a>Courage to Change</h3><ul>
-<li>테스트가 있기 때문에 시스템이 정상적으로 동작하는지 확인할 수 있다면 변경이 두렵지 않다. =&gt; Refactor를 공격적으로 할 수 있다.</li>
-<li>테스트는 코드를 깨끗하게 하고, 썩는 것을 방지한다.</li>
-<li>하지만, 레거시한 코드에 테스트를 추가하기는 힘들다.</li>
-<li>regression test</li>
-<li>완벽한 설계에 기반해 개발을 했더라도 테스트가 없다면 코드를 clean하는데 두려움이 생길 것이다.</li>
-</ul>
-<h3 id="Trust"><a href="#Trust" class="headerlink" title="Trust"></a>Trust</h3><ul>
-<li>3가지 규칙을 준수했을 때 낙하산을 가지고 있는 것처럼 테스트로 하여금 믿음을 가질 수 있다.</li>
-<li>개발 후 테스트를 작성하게되면, 테스트에 대한 신뢰가 떨어진다.</li>
-<li>이미 작성된 코드에서 테스트를 작성하라고 하면 실행 잘되는 케이스만 생각하게 될 것.</li>
-</ul>
-<hr>
-<ul>
-<li><a href="https://velog.io/@essri" rel="external nofollow noopener noreferrer" target="_blank">velog</a></li>
-<li><a href="https://ggomi.github.io" rel="external nofollow noopener noreferrer" target="_blank">Blog</a></li>
-<li><a href="https://github.com/ggomi" rel="external nofollow noopener noreferrer" target="_blank">Github</a></li>
-</ul>
-
-                    
-                        
-
-                    
-                    
-                        <p>
-                            <a href="/tdd/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/data-structure/">
-                            Data Structure &amp; Impedance Mismatch
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2018-12-26T17:16:24+09:00">
-	
-		    Dec 26, 2018
-    	
-    </time>
-    
-        <span>in </span>
-        
-    <a class="category-link" href="/categories/Basic-sense/">Basic_sense</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <blockquote>
-<p><a href="https://www.youtube.com/user/codetemplate/videos" rel="external nofollow noopener noreferrer" target="_blank"> 클린코더스 - 백명석님 </a> 강의를 보고 작성한 글입니다.</p>
-</blockquote>
-<hr>
-<h2 id="Data-Structure"><a href="#Data-Structure" class="headerlink" title="Data Structure"></a>Data Structure</h2><table>
-<thead>
-<tr>
-<th>Class</th>
-<th>Data Structure</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>private 변수들 + 이를 다루는 함수들</td>
-<td>public 변수들 + Getter/Setter </td>
-</tr>
-<tr>
-<td>cohesive groups of variables를 조작하는 메소드</td>
-<td>개별 변수들을 조작(Getter/Setter)</td>
-</tr>
-<tr>
-<td>구현을 hide, abstract</td>
-<td>구현을 노출</td>
-</tr>
-<tr>
-<td>Tell 가능</td>
-<td>Tell불가, Ask만 가능</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>Data Structure는 Class와 반대되는 개념으로 볼 수 있다.</li>
-<li>DS는 기능의 추가에 대해서 자유롭다. 하지만 타입의 추가에 대해서는 취약함. OOP는 타입추가에 대해서 자유롭다.</li>
-</ul>
-<h2 id="Impedance-Mismatch"><a href="#Impedance-Mismatch" class="headerlink" title="Impedance Mismatch"></a>Impedance Mismatch</h2><blockquote>
-<p>OOP에서 RDB를 사용할 때 발생하는 일련의 개념적/기술적 어려움</p>
-</blockquote>
-<ul>
-<li>특히 객체나 클래스의 정의가 데이터베이스 테이블이나 관계스키마에 직접 매핑될 때 발생</li>
-</ul>
-<h3 id="DB-테이블은-DS이다"><a href="#DB-테이블은-DS이다" class="headerlink" title="DB 테이블은 DS이다."></a>DB 테이블은 DS이다.</h3><ul>
-<li>data를 노출하고, 메소드는 없다.</li>
-<li>테이블은 너무 concrete해서 polymorphic(다형화)할 수 없다.</li>
-<li>DB는 어떠한 객체도 포함 할 수 없다.</li>
-</ul>
-<h3 id="ORM"><a href="#ORM" class="headerlink" title="ORM"></a>ORM</h3><ul>
-<li>Hibernate<ul>
-<li>진정한 Object-Relational Mapper는 아니다.</li>
-<li>DB row와 객체간의 직접적인 매핑이 없기 때문</li>
-<li>Hibernate는 DB의 DS를 메모리의 DS로 매핑한다.</li>
-</ul>
-</li>
-</ul>
-<hr>
-<ul>
-<li><a href="https://velog.io/@essri" rel="external nofollow noopener noreferrer" target="_blank">velog</a></li>
-<li><a href="https://ggomi.github.io" rel="external nofollow noopener noreferrer" target="_blank">Blog</a></li>
-<li><a href="https://github.com/ggomi" rel="external nofollow noopener noreferrer" target="_blank">Github</a></li>
-</ul>
-
-                    
-                        
-
-                    
-                    
-                        <p>
-                            <a href="/data-structure/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/kwpattern/">
-                            Algospot(알고스팟) KWPattern
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2018-12-26T16:20:21+09:00">
-	
-		    Dec 26, 2018
-    	
-    </time>
-    
-        <span>in </span>
-        
-    <a class="category-link" href="/categories/Algorithm/">Algorithm</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h2 id="KWPATTERN"><a href="#KWPATTERN" class="headerlink" title="KWPATTERN"></a>KWPATTERN</h2><h3 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h3><p>서기 2222년, cdinside 알고스팟 갤러리에서 WonhaJin은 무패 전설의 키보드 워리어로 유명하다. WonhaJin은 항상 만년떡밥을 던짐으로써 낚여든 상대방을 무참히 공격하여 굴복시키곤 했다. 이러한 패턴으로 그는 한 번도 키보드 배틀에서 패배한 적이 없다.</p>
-<p>한편, 그동안 그와 대등하게 승부했지만 한 번도 이겨 본 적이 없는 숙명의 라이벌 WookMan은 WonhaJin에게 패배를 안겨주고자 22개월간 WonhaJin의 키보드 배틀 패턴을 파악하고자 노력하였다.</p>
-<p>그러던 도중 2222년 2월 22일 22시 22분 22초에 그가 뻘글을 쓰는 것을 확인하였다. 이는 키보드 워리어에게 있어 치명적인 약점이다. WookMan은 이로부터 그가 성시마다 약점을 보인다는 가설을 세웠다. 성시란 다음과 같다:</p>
-<p>어떤 시각이 24시간제 기준으로 X 년 Y 월 Z 일 A시 B분 C 초이면, 이를 XY ZABC 의 형태로 이어 붙인 것과 그것을 뒤집은 문자열이 서로 같을 때 그 시각은 성시이다.<br>시각은 그레고리력(양력) 을 따라 4의 배수 해는 2월이 29일까지 있는 윤년이다. 단, 100의 배수 해는 윤년이 아니지만 400의 배수 해는 윤년이다.<br>X는 네 자리에 맞추어 표기하며, 나머지는 두 자리에 맞추어 표기한다. 모자라는 자리는 “0”으로 채운다.<br>예를 들어 2011년 9월 20일 23시 57분 11초의 경우, 20110920235711인데 이는 이를 뒤집은 11753202901102와 다르기 때문에 성시가 아니다. 한편 2011년 12월 11일 21시 11분 2초의 경우 20111211211102이므로 성시이다.</p>
-<p>이러한 패턴을 이용하여 WonhaJin을 공격하고자 WookMan은 1970년 1월 1일 0시 0분 0초 (이는 프로그래머들에게 있어 현존하는 모든 역사가 시작된 시간이다) 부터 N 번째로 등장하는 성시를 찾는 프로그램을 작성하려고 하였는데, 최근 취업과 육아를 동시에 시작하여 너무 바쁜 나머지 추종자들에게 도움을 요청하였<br>다.</p>
-<p>WookMan의 꼼꼼함에 반한 추종자인 당신은 이 프로그램을 작성해주어야 한다.</p>
-<p>입력</p>
-<blockquote>
-<p>입력은 여러 개의 테스트 케이스로 구성된다. 입력의 첫 행에는 테스트 케이스의 수 T 가 주어진다.</p>
-</blockquote>
-<p>각 테스트 케이스는 하나의 행으로 이루어져 있는데, 그 행에는 양의 정수 N (1 ≤ N ≤ 10000)이 주어진다.</p>
-<p>출력</p>
-<blockquote>
-<p>각 테스트 케이스에 대해 N 번째 성시를 한 행에 하나씩 “XXXX-YY-ZZ AA:BB:CC” 의 형식으로 출력한다.</p>
-</blockquote>
-<p>Input<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">7</span><br><span class="line">2</span><br><span class="line">20</span><br><span class="line">99</span><br></pre></td></tr></table></figure></p>
-<p>Output<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">2000-11-11 11:00:02</span><br><span class="line">2000-01-22 10:00:02</span><br><span class="line">2001-12-22 21:10:02</span><br><span class="line">2013-12-11 21:31:02</span><br></pre></td></tr></table></figure></p>
-<hr>
-<ul>
-<li>크게 어려운 문제는 아니었다고 생각하는데, 얼핏 보면 시,분,초 까지 구해야한다는 생각이 들 수 있는데 사실 년월일만 구하면 되는 문제였다.</li>
-</ul>
-<p>Solved<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">KWPATTERN</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span>[] YEARS;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> START = <span class="number">2000</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> START2 = <span class="number">2000</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Scanner sc = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        String year;</span><br><span class="line">        String month;</span><br><span class="line">        String day;</span><br><span class="line">        initYears();</span><br><span class="line">        <span class="keyword">int</span> caseSize = sc.nextInt();</span><br><span class="line"></span><br><span class="line">        String[] array = &#123;<span class="string">"01"</span>,<span class="string">"02"</span>,<span class="string">"10"</span>,<span class="string">"11"</span>,<span class="string">"12"</span>&#125;;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; caseSize; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> select = sc.nextInt();</span><br><span class="line">            <span class="keyword">int</span> temp = select / <span class="number">10</span>;</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 나누고, 뺐더니 오답, 빼고 나눠야 정답처리..</span></span><br><span class="line">            <span class="keyword">int</span> yearIndex = (select - <span class="number">1</span>) / <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(select &gt; <span class="number">10</span>) &#123;</span><br><span class="line">                select = select - ( <span class="number">10</span> * temp );</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span>(select == <span class="number">0</span>) &#123;</span><br><span class="line">                    select = <span class="number">10</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(select % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">                day = <span class="string">"22"</span>;</span><br><span class="line">                <span class="keyword">int</span> target = select / <span class="number">2</span>;</span><br><span class="line">                month = array[target-<span class="number">1</span>];</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                day = <span class="string">"11"</span>;</span><br><span class="line">                month = array[select/<span class="number">2</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            year = String.valueOf(YEARS[yearIndex]);</span><br><span class="line">            StringBuffer sMonth = <span class="keyword">new</span> StringBuffer(month);</span><br><span class="line">            StringBuffer sYear = <span class="keyword">new</span> StringBuffer(year);</span><br><span class="line">            sYear = sYear.reverse();</span><br><span class="line"></span><br><span class="line">            System.out.println(year+<span class="string">"-"</span>+month+ <span class="string">"-"</span> + day + <span class="string">" "</span> + sMonth.reverse().toString() + <span class="string">":"</span>+sYear.substring(<span class="number">0</span>,<span class="number">2</span>)+<span class="string">":"</span>+sYear.substring(<span class="number">2</span>,<span class="number">4</span>));</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">initYears</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        YEARS = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">1000</span>];</span><br><span class="line">        YEARS[<span class="number">0</span>]=START;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;<span class="number">1000</span>;i++) &#123;</span><br><span class="line">            String s = String.valueOf(YEARS[i-<span class="number">1</span>]);</span><br><span class="line">            <span class="keyword">if</span>(Integer.parseInt(s.split(<span class="string">""</span>)[s.length()-<span class="number">1</span>])&gt;<span class="number">5</span>) &#123;</span><br><span class="line">                YEARS[i-<span class="number">1</span>] = START+<span class="number">10</span>;</span><br><span class="line">                START =YEARS[i-<span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            String z= String.valueOf(START);</span><br><span class="line">            <span class="keyword">if</span>(Integer.parseInt(z.split(<span class="string">""</span>)[<span class="number">1</span>])&gt;<span class="number">5</span>) &#123;</span><br><span class="line">                YEARS[i-<span class="number">1</span>] = START2+<span class="number">1000</span>;</span><br><span class="line">                START2 =YEARS[i-<span class="number">1</span>];</span><br><span class="line">                START = START2;</span><br><span class="line">            &#125;</span><br><span class="line">            YEARS[i]=YEARS[i-<span class="number">1</span>]+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>이 문제를 5번 제출 만에 풀게되었는데 도저히 어떤부분에서 오답을 받는지 못찾고, 헤매다가 겨우 찾게되었다. 이유는 <em>뺄셈연산</em>과 <em>나눗셈</em> 연산 순서문제였는데 주어진 테스트케이스에서는 정확하게 답이 나와서 정말 찾기 힘들었었다…</li>
-</ul>
-<hr>
-<ul>
-<li><a href="https://velog.io/@essri" rel="external nofollow noopener noreferrer" target="_blank">velog</a></li>
-<li><a href="https://ggomi.github.io" rel="external nofollow noopener noreferrer" target="_blank">Blog</a></li>
-<li><a href="https://github.com/ggomi" rel="external nofollow noopener noreferrer" target="_blank">Github</a></li>
-</ul>
-
-                    
-                        
-
-                    
-                    
-                        <p>
-                            <a href="/kwpattern/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/vertical-classes/">
-                            Vertical Formatting과 Classes
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2018-12-23T22:23:20+09:00">
-	
-		    Dec 23, 2018
-    	
-    </time>
-    
-        <span>in </span>
-        
-    <a class="category-link" href="/categories/Basic-sense/">Basic_sense</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <hr>
-<h1 id="Vertical-Formatting"><a href="#Vertical-Formatting" class="headerlink" title="Vertical Formatting"></a>Vertical Formatting</h1><hr>
-<h2 id="1-공란을-함부로-사용하지마라"><a href="#1-공란을-함부로-사용하지마라" class="headerlink" title="1. 공란을 함부로 사용하지마라."></a>1. 공란을 함부로 사용하지마라.</h2><blockquote>
-<p>공란은 비어있는 라인을 말하는데 이것도 일련의 규칙을 가지고 하는 것이 좋다고 한다. 아래와 같은 경우에 공란을 주자!</p>
-</blockquote>
-<ul>
-<li>메소드 사이</li>
-<li>private 변수들과 public 변수들 사이</li>
-<li>변수선언과 메소드 실행의 나머지 부분 사이</li>
-<li>if / while 블록과 다른 코드 사이</li>
-</ul>
-<h2 id="2-서로-관련된-것들은-Vertical하게-근접해야한다"><a href="#2-서로-관련된-것들은-Vertical하게-근접해야한다" class="headerlink" title="2. 서로 관련된 것들은 Vertical하게 근접해야한다."></a>2. 서로 관련된 것들은 Vertical하게 근접해야한다.</h2><blockquote>
-<p>Vertical한 거리가 그들간의 관련성을 나타낸다!</p>
-</blockquote>
-<hr>
-<h1 id="Class"><a href="#Class" class="headerlink" title="Class"></a>Class</h1><h2 id="1-Class란-무엇인가"><a href="#1-Class란-무엇인가" class="headerlink" title="1. Class란 무엇인가?"></a>1. Class란 무엇인가?</h2><blockquote>
-<p>private 변수와 그 변수들에 대해서 동작하는 public 함수들의 집합이다.(private함수일 수 도..)</p>
-</blockquote>
-<p><em>private</em>변수들을 작성함으로써 클래스를 작성한다. 그리고 <em>private</em>변수들을 public 함수들로 조작한다. 그렇기 때문에 외부에서는 클래스 내의 <em>private</em>변수들이 존재하지 않는 것처럼 보인다.</p>
-<h2 id="하지만"><a href="#하지만" class="headerlink" title="하지만,"></a><strong>하지만,</strong></h2><p>너무 잘 보인다.</p>
-<p>왜냐하면 <em>Getter/Setter</em> 때문에 짐작할 수 있게된다. 왜 변수는 <em>private</em>로 선언하고, <em>Getter/Setter</em>를 제공하나?</p>
-<blockquote>
-<p><strong>필요하지도 않는 <em>Getter/Setter</em>들을 만드는 것은 정말 좋지않은 습관이다.</strong></p>
-</blockquote>
-<p>또한, 객체의 상태를 외부에서 사용할 수 있도록 하는 <em>Getter/Setter/property</em> 등을 제공하는 것은 잘못 된 설계다.</p>
-<p>여기서, 또다시 <em>Tell, Don’t Ask Rule</em>이 나온다.</p>
-<blockquote>
-<p>객체가 관찰할 수 있는 상태를 가지지 않는다면, Tell 하기 쉽고, ask할 가치가 없어진다. 이 규칙을 따르게 되면 Getter가 많지않고, Getter가 많지않으므로 Setter도 적다.</p>
-</blockquote>
-<p>Max cohesive(응집도 최대)를 생각했을 때 Getter/Setter는 cohesive 하지않다.<br>왜냐하면 하나의 변수만 사용하기 때문에 응집도가 높을 수 없다. 그렇다고 해서 Getter/Setter가 없을 수는 없다.. </p>
-<p><strong>그래서 최소화하고 본래변수를 그대로 노출하지않고, 추상화를 통해 제공해야한다.</strong></p>
-<p> <img src="/assets/images/class.png" alt="class"></p>
-<p> 위의 사진처럼 getter를 추상화를 통해서 제공하고, 추상화하기 때문에 getter 이름을 잘 정해야한다.</p>
-<p> 이렇게 했을 때 다형성이 자연스럽게 따라오게 된다.<br> 다형성은 클라이언트 코드를 서버코드의 구현 변경으로부터 보호하고,<br> IoC를 통해 High Level Policy(클라이언트, 비즈니스 로직)를 Low Level Detail로부터 보호하는 것.</p>
-<hr>
-<ul>
-<li><a href="https://velog.io/@essri" rel="external nofollow noopener noreferrer" target="_blank">velog</a></li>
-<li><a href="https://ggomi.github.io" rel="external nofollow noopener noreferrer" target="_blank">Blog</a></li>
-<li><a href="https://github.com/ggomi" rel="external nofollow noopener noreferrer" target="_blank">Github</a></li>
-</ul>
-
-                    
-                        
-
-                    
-                    
-                        <p>
-                            <a href="/vertical-classes/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/comments-rules/">
-                            Comments Rules
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2018-12-22T14:18:29+09:00">
-	
-		    Dec 22, 2018
-    	
-    </time>
-    
-        <span>in </span>
-        
-    <a class="category-link" href="/categories/Basic-sense/">Basic_sense</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <blockquote>
-<p><a href="https://www.youtube.com/user/codetemplate/videos" rel="external nofollow noopener noreferrer" target="_blank"> 클린코더스 - 백명석님 </a> 강의를 보고 작성한 글입니다.</p>
-</blockquote>
-<hr>
-<h1 id="Comments"><a href="#Comments" class="headerlink" title="Comments"></a>Comments</h1><blockquote>
-<p><strong>조직이 일정수준의 크기가 되면 문서화를 요구한다. 하지만 별도의 문서를 작성하는 것은 반대!!</strong></p>
-</blockquote>
-<p>처음에는 별도의 문서가 있어도 괜찮을거라고 생각이 들었는데 강의를 듣다보니 생각이 바뀌었다. 코드에 대한 설명을 코드 자체로 설명하는 것이지 별도의 문서로 설명한다는 것은 아니라고 한다. 별도의 문서가 필요하다는 말은 해당 코드가 Coding Standard의 예로 적합하지 않다는 뜻이 된다.<br>Comments 작성을 강요하면 프로그래머는 필요해서가 아니라 해야하므로 Comment를 작성하게된다.<br>그리고 이런 Comments는 무의미하고, 무시당하기 십상이다. <del>너무해ㅠ</del><br>Comments를 보는사람이 감사하는 마음이 생겨야 좋은 Comments이다.</p>
-<blockquote>
-<p><strong>모든 Comments는 당신의 코드가 ‘제대로 표현되고있지않다’라는 실패의 상징이다.</strong></p>
-</blockquote>
-<p>이 말은 좀 충격이었다. 지금까지 사람들에게 내 코드를 이해시키기위해 주석을 열심히 써왔는데… 차라리 이 노력을 코드표현력에 쏟을걸 하는 생각이 들었다.</p>
-<p>그렇다면 Comments를 꼭 써야하는 상황에서의 좋은 Comments 그리고 나쁜 Comments는 무엇일까?</p>
-<hr>
-<h2 id="좋은-Comments"><a href="#좋은-Comments" class="headerlink" title="좋은 Comments"></a>좋은 Comments</h2><p><strong>Legal Comments</strong></p>
-<ul>
-<li>법적인 문제가 쓰여져있는 Comments</li>
-<li>Ex) LICENSE 문제</li>
-</ul>
-<p><strong>Informative Comments</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="comment">// format matched kk:mm:ss EEE, MMM dd, yyyy</span></span><br><span class="line">Pattern timePattern = Pattern.compile(<span class="string">"\\d*:\\d*:\\d* \\w*. \\w* \\d*, \\d*"</span>);</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>예를 들면 정규식을 사용할 때 이 패턴이 어떤 패턴인지 설명해주는 그런 정보를 제공하는 Comments</li>
-</ul>
-<p><strong>Warning of Consequences</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// don't run unless you have some time to kill</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">readReallyBigFile</span><span class="params">()</span> </span>&#123;...&#125;</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>코드에 관해서 <strong>경고</strong>할 때</li>
-</ul>
-<p><strong>TODO Comments</strong></p>
-<ul>
-<li>TODO(해야할 일에 관한 Comment)<br><strong>Public API Documentation</strong></li>
-</ul>
-<hr>
-<h2 id="나쁜-Comments"><a href="#나쁜-Comments" class="headerlink" title="나쁜 Comments"></a>나쁜 Comments</h2><p><strong>Mumbling</strong> </p>
-<ul>
-<li>주저리주저리 써놓은 Comments들</li>
-</ul>
-<p><strong>Redundant Explanations</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// The Child Containers belong to this container, keyed by name</span></span><br><span class="line"><span class="keyword">private</span> Map&lt;String, Child&gt; children = <span class="keyword">new</span> HashMap&lt;String, Child&gt;();</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>코드한줄만 봐도 뻔히 알 수 있는 내용인데 굳이 Comment에서 중복되게 다시 설명하고 있는 Comment</li>
-</ul>
-<p><strong>Mandated Redundancy</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> dateIn input date</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> formatted string</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">convertDateFormat</span><span class="params">(String dateIn)</span> </span>&#123;</span><br><span class="line">     ...</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>IDE에서 자동으로 생기는 Comment</li>
-</ul>
-<p><strong>Journal Comments</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 변경이력</span></span><br><span class="line"><span class="comment"> * 2018.11.01 : 생성</span></span><br><span class="line"><span class="comment"> * 2018.11.05 : convertDateFormat 메소드 구현 ...</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>코드의 변경이력을 써놓은 Comment</li>
-</ul>
-<p><strong>Noways Comments</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DateFormatUtils</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     *  default constructor</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="title">DateFormatUtils</span><span class="params">()</span> </span>&#123;</span><br><span class="line">         ...</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>누가봐도 default 생성자인데 굳이 위에 생성자라고 Comment를 작성하는 것처럼 너무 말도 안되게 뻔한 Comments (<strong>절대 해선안된다!!</strong>)</li>
-</ul>
-<p><strong>Big Banner Comments</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DateFormatUtils</span> </span>&#123;</span><br><span class="line">    <span class="comment">/************************</span></span><br><span class="line"><span class="comment">     * instance variables   *</span></span><br><span class="line"><span class="comment">     ************************/</span></span><br><span class="line">     <span class="keyword">private</span> <span class="keyword">int</span> day;</span><br><span class="line">     <span class="keyword">private</span> <span class="keyword">int</span> date;</span><br><span class="line">     ... </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>잘보이게 하려고 특수문자로 도배해놓은 Comment</li>
-</ul>
-<p><strong>Closing Brace Comments</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i&lt; length; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span>(...) &#123;</span><br><span class="line"></span><br><span class="line">    &#125; <span class="comment">//end of if</span></span><br><span class="line">&#125; <span class="comment">//end of for</span></span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>loop의 끝과 Method의 끝 등등 코드블록 끝을 표시해놓은 Comment</li>
-</ul>
-<p><strong>Attribution Comments</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// add by jm</span></span><br><span class="line"><span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">Child</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>누가 작성했는지 써놓은 Comment, 굳이 코드에 써놓을 필요가 없다.</li>
-</ul>
-<p><strong>HTML in Comments</strong> </p>
-<ul>
-<li>HTML 코드로 Comment 작성 (javadoc 작성을 위해서 이렇게 하는 사람들이 있다고한다.)</li>
-</ul>
-<p><strong>Non-Local Information</strong> </p>
-<ul>
-<li>local이 아닌 멀리 떨어진 곳의 코드를 설명하는 Comments는 Comments와 무고나하게 변경될 수 있다.</li>
-</ul>
-<hr>
-<ul>
-<li><a href="https://velog.io/@essri" rel="external nofollow noopener noreferrer" target="_blank">velog</a></li>
-<li><a href="https://ggomi.github.io" rel="external nofollow noopener noreferrer" target="_blank">Blog</a></li>
-<li><a href="https://github.com/ggomi" rel="external nofollow noopener noreferrer" target="_blank">Github</a></li>
-</ul>
-
-                    
-                        
-
-                    
-                    
-                        <p>
-                            <a href="/comments-rules/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/function-structure-2/">
-                            함수의 구조 (function Structure) - 2
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2018-12-20T13:57:56+09:00">
-	
-		    Dec 20, 2018
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h1 id="함수의-구조"><a href="#함수의-구조" class="headerlink" title="함수의 구조"></a>함수의 구조</h1><blockquote>
-<p><a href="https://www.youtube.com/user/codetemplate/videos" rel="external nofollow noopener noreferrer" target="_blank"> 클린코더스 - 백명석님 </a> 강의를 보고 작성한 글입니다.</p>
-</blockquote>
-<hr>
-<blockquote>
-<p><a href="/function-structure">함수의 구조 - 1</a></p>
-</blockquote>
-<p><strong>—————————————————————————————————————</strong></p>
-<h1 id="목차"><a href="#목차" class="headerlink" title="목차"></a>목차</h1><ul>
-<li><a href="#cqs">CQS(Command Query Seperate)</a></li>
-<li><a href="#Tell-Don&#39;t-Ask">Tell Don’t Ask</a></li>
-<li><a href="#law-of-demeter">Law of Demeter</a></li>
-<li><a href="#early-returns">Early returns</a></li>
-<li><a href="#error-handling">Error Handling</a></li>
-<li><a href="#special-cases">Special Cases</a></li>
-<li><a href="#null-is-a-value">Null is a value</a></li>
-<li><a href="#try">try도 하나의 역할 / 기능</a></li>
-</ul>
-<p><strong>———————————————————————————————————————————————–</strong></p>
-<h1 id="CQS"><a href="#CQS" class="headerlink" title="CQS"></a>CQS</h1><ul>
-<li>상태를 변경하는 함수는 값을 반환하면 안된다. 값을 반환하는 함수는 상태를 변경하면 안된다.</li>
-</ul>
-<h3 id="command"><a href="#command" class="headerlink" title="command"></a>command</h3><ul>
-<li>시스템의 상태변경가능</li>
-<li>side effect를 갖는다</li>
-<li>아무것도 반환하지않는다.</li>
-</ul>
-<h3 id="query"><a href="#query" class="headerlink" title="query"></a>query</h3><ul>
-<li>side effect가 없다.</li>
-<li>계산값이나 시스템의 상태를 반환</li>
-<li>신뢰의 문제</li>
-</ul>
-<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">User u = authorize.login(userName, password);</span><br></pre></td></tr></table></figure>
-<ul>
-<li>위의 상황에서 User를 사용하기 위해서는 항상 login을 해야함. login을 하면 원치않아도 User정보를 읽어야만 한다.</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">authorize.login(userName, password);</span><br><span class="line">User u = authorize.getUser(userName);</span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>login Method</strong>의 리턴을 void로 변경하고, <strong>User</strong> 정보가 필요할때만 읽음.</li>
-<li><p>값을 반환하는 함수는 상태를 변경하면 안된다.<br>상태를 변경하는 함수는 <strong>exception</strong>을 발생시킬 수는 있지만, 값을 반환할 수 없다.</p>
-</li>
-<li><p>이것은 SideEffect를 관리하는 약속이다. 약속을 어겨서 혼란을 주지말자.</p>
-</li>
-</ul>
-<p><strong>———————————————————————————————————————————————–</strong></p>
-<h1 id="Tell-Don’t-Ask"><a href="#Tell-Don’t-Ask" class="headerlink" title="Tell Don’t Ask"></a>Tell Don’t Ask</h1><ul>
-<li>extream한 CQS는 C와 Q를 함께 사용하지 말도록</li>
-</ul>
-<p><img src="/assets/images/ask.png" style="width: 60%;"></p>
-<blockquote>
-<p>로그인 여부는 user객체에 속한다. Tell Don’t Ask 인데 isLoggedIn()은 이상함.</p>
-<ul>
-<li>Tell Don’t Ask 는 CQS를 강화하는 수단</li>
-<li>이 규칙을 준수하다보면 Query메소드가 많이 필요없어진다. - 매우 좋은 현상(왜냐하면 Q는 Out of control되는 경향이 있기 때문)</li>
-</ul>
-</blockquote>
-<h1 id="Law-of-Demeter"><a href="#Law-of-Demeter" class="headerlink" title="Law of Demeter"></a>Law of Demeter</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 예를 들어서 아래와 같은 코드가 있다면, </span></span><br><span class="line">o.getX()</span><br><span class="line">    .getY()</span><br><span class="line">        .getZ()</span><br><span class="line">            .doSomething();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 함수가 시스템에 너무 많은 의존성을 가지게 된다.</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>함수가 시스템의 전체를 알게 하면 안된다.</li>
-<li>개별 함수는 아주 제한된 지식만 가져야한다.</li>
-<li>이전 메소드 호출의 결과로 얻은 객체의 메소드를 호출하면 안된다.</li>
-<li>Tell Don’t Ask나, Law of Demeter 모두 어떻게 의존도를 낮추고, <em>Testable</em>하게 만들고, 클린하게 만들건지에 대한 방법, 규칙들이다.<blockquote>
-<p><em>ask대신 tell하면 surrounding과 decouple 된다.</em> </p>
-</blockquote>
-</li>
-</ul>
-<h1 id="early-returns"><a href="#early-returns" class="headerlink" title="early returns"></a>early returns</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(...)</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(...)</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(...)</span><br><span class="line"><span class="keyword">else</span> (...)&#123; <span class="keyword">return</span>; &#125;</span><br></pre></td></tr></table></figure>
-<p>위 코드처럼 <em>else</em>에다가 리턴을 두지말고 return 되는 로직을 상단으로 올려서 코드를 끝까지 읽지않아도 될 수 있게하는 것</p>
-<ul>
-<li>루프 중간에서 return 하는 것은 문제이다.</li>
-<li>코드가 동작하도록 하는 것보다 이해할 수 있게하는 것이 더 중요하다.</li>
-</ul>
-<h1 id="Error-handling"><a href="#Error-handling" class="headerlink" title="Error handling"></a>Error handling</h1><ul>
-<li>Error처리를 위해 pop은 null을 반환하고, push는 false를 반환하는 것보다 Exception을 발생시키는 것이 좋다.</li>
-<li>Exception의 이름은 최대한 구체적이어야 한다.</li>
-<li>Inner클래스로 Exception을 정의하면 읽기 편할 수 있다. 고려해볼 것</li>
-<li>checked vs unchecked ?(찾아봐야함.) Checked Exception은 되도록 사용하지말자.</li>
-<li>unchecked는 throws를 말하는 것 같고, checked는 try~catch를 말하는 것 같다.</li>
-</ul>
-<h2 id="Exception은-어떤-메시지를-담아야-할까"><a href="#Exception은-어떤-메시지를-담아야-할까" class="headerlink" title="Exception은 어떤 메시지를 담아야 할까?"></a>Exception은 어떤 메시지를 담아야 할까?</h2><ul>
-<li>필요없는 것이 가장 좋다.</li>
-<li>Exception이름을 명확하게 지어서 이름으로 의미가 전달되도록 하자.</li>
-<li>클래스 내부에 Message를 절대 두지말자.</li>
-</ul>
-<h1 id="Special-Cases"><a href="#Special-Cases" class="headerlink" title="Special Cases"></a>Special Cases</h1><ul>
-<li><a href="https://github.com/msbaek/stack-example" rel="external nofollow noopener noreferrer" target="_blank">Special Cases 참고</a></li>
-</ul>
-<h1 id="Null-is-a-value"><a href="#Null-is-a-value" class="headerlink" title="Null is a value"></a>Null is a value</h1><ul>
-<li>stack이 empty일 때 top함수는 무엇을 반환해야하나?</li>
-<li>Null 대신 Empty 객체를 발생시키는 것이 좋다.</li>
-</ul>
-<h1 id="try"><a href="#try" class="headerlink" title="try"></a>try</h1><ul>
-<li>try가 있다면 함수내에서 변수선언을 제외하고 첫번째문장이여야한다.</li>
-<li>try 블럭 내에는 함수호출만 있어야한다.</li>
-<li>finally가 함수의 마지막 블럭이어야한다. 이후에 어떤라인도 없어야 한다.</li>
-<li>Error handling은 하나의 일이다.</li>
-</ul>
-<hr>
-<blockquote>
-<p>지금은 이해할 수 있고, 다 이해한것 같아도 속지말고, 직접 내 코드에 적용해보고, 설계해보자</p>
-</blockquote>
-<ul>
-<li><p><a href="https://velog.io/@essri" rel="external nofollow noopener noreferrer" target="_blank">velog</a></p>
-</li>
-<li><p><a href="https://ggomi.github.io" rel="external nofollow noopener noreferrer" target="_blank">Blog</a></p>
-</li>
-</ul>
-<hr>
-
-                    
-                        
-
-                    
-                    
-                        <p>
-                            <a href="/function-structure-2/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/function-structure/">
-                            함수의 구조 (function Structure) - 1
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2018-12-20T09:14:01+09:00">
-	
-		    Dec 20, 2018
-    	
-    </time>
-    
-        <span>in </span>
-        
-    <a class="category-link" href="/categories/Basic-sense/">Basic_sense</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <p><img src="/assets/images/function-structure.png" alt="함수의 구조"></p>
-<blockquote>
-<p><a href="https://www.youtube.com/user/codetemplate/videos" rel="external nofollow noopener noreferrer" target="_blank"> 클린코더스 - 백명석님 </a> 강의를 보고 작성한 글입니다.</p>
-</blockquote>
-<p><strong>————————————————————————————————————————————————————-</strong></p>
-<h1 id="목차"><a href="#목차" class="headerlink" title="목차"></a>목차</h1><ul>
-<li><a href="#Arguments">Arguments</a></li>
-<li><a href="#The-Stepdown-Rule">The Stepdown Rule</a></li>
-<li><a href="#Switches-and-cases">Switches and cases</a></li>
-<li><a href="#Temporal-Coupling">Tomporal Coupling</a></li>
-</ul>
-<p><strong>————————————————————————————————————————————————————-</strong></p>
-<h1 id="Arguments"><a href="#Arguments" class="headerlink" title="Arguments"></a>Arguments</h1><ul>
-<li>인자가 많아지면 복잡도가 증가한다.</li>
-<li><p>인자를 최대 3개</p>
-<h2 id="생성자의-많은-수의-넘겨야한다면"><a href="#생성자의-많은-수의-넘겨야한다면" class="headerlink" title="생성자의 많은 수의 넘겨야한다면?"></a>생성자의 많은 수의 넘겨야한다면?</h2><pre><code>Java Bean Pattern을 사용(Getter &amp; Setter)
-Builder 패턴을 적용하는 것이 더 좋은방법!!
-</code></pre><h2 id="Boolean-인자-사용-금지"><a href="#Boolean-인자-사용-금지" class="headerlink" title="Boolean 인자 사용 금지"></a>Boolean 인자 사용 금지</h2><pre><code>Boolean 이라면 true, false 두가지 일을 한다는 것이기 때문에 &apos;Method는 한가지 일만 해야한다.&apos; 를 위반한다.
-</code></pre></li>
-</ul>
-<h2 id="Innies-not-Outies"><a href="#Innies-not-Outies" class="headerlink" title="Innies not Outies"></a>Innies not Outies</h2><ul>
-<li>Parameter는 입력으로 작용해야지 출력으로 작용하면 안된다.</li>
-</ul>
-<p><strong>————————————————————————————————————————————————————-</strong></p>
-<h2 id="Null-defense"><a href="#Null-defense" class="headerlink" title="Null defense"></a>Null defense</h2><ul>
-<li><strong>null</strong>을 전달/기대하는 함수는 boolean을 전달하는만큼 잘못된 것</li>
-<li><strong>public api</strong>의 경우는 <strong>defensive</strong>하게 프로그래밍하는 것이 맞지만 같은 팀 내에서 <strong>defensive programming</strong>을 하는것은 잘못됨. =&gt; 팀원이나 단위테스트를 못 믿는다는 말</li>
-<li><strong>null</strong>을 <strong>boolean</strong>처럼 사용하지마라</li>
-<li><strong>null</strong>체크를 한다는 것 자체가 무언가 잘못되었다는 단서</li>
-<li><strong>null</strong>여부를 지속적으로 체크할 것이 아니라 단위테스트에서 검증을 해라.</li>
-</ul>
-<p><strong>————————————————————————————————————————————————————-</strong></p>
-<h1 id="The-Stepdown-Rule"><a href="#The-Stepdown-Rule" class="headerlink" title="The Stepdown Rule"></a>The Stepdown Rule</h1><ul>
-<li>코드 상 public은 위로 private는 아래로</li>
-<li><strong>public</strong> 필드만 보고도 이해할 수 있을정도로</li>
-<li><strong>public</strong> part만 사용자들에게 전달하면 됨.</li>
-<li>중요한 부분은 위로, 상세한 부분은 밑으로  </li>
-</ul>
-<p><strong>———————————————————————————————————————————————————–</strong></p>
-<h1 id="Switches-and-cases"><a href="#Switches-and-cases" class="headerlink" title="Switches and cases"></a>Switches and cases</h1><ul>
-<li>switch문장 사용을 왜 꺼리나 =&gt; OO(Object-Oriented) 스럽지않아서?<h2 id="그럼-OO-Object-Oriented-는-뭐가-좋을까"><a href="#그럼-OO-Object-Oriented-는-뭐가-좋을까" class="headerlink" title="그럼 OO(Object-Oriented)는 뭐가 좋을까?"></a>그럼 OO(Object-Oriented)는 뭐가 좋을까?</h2></li>
-<li>OO의 가장 큰 이점 중 하나는 의존성 관리능력이다.</li>
-<li>예시</li>
-</ul>
-<p><img src="/assets/images/switch.png" alt="switch"></p>
-<ul>
-<li>이상태에서는 독립적으로 배포/컴파일/개발 불가하다.</li>
-<li>runtime 의존성은 그대로 둔 채로 의존성을 역전시킨다.(Dependency Inversion Principle)</li>
-</ul>
-<p><img src="/assets/images/oo2.png" alt="switch2"></p>
-<ul>
-<li>A와 B사이에 interface를 두면 source code 의존성은 runtime 의존성과 반대가 된다.</li>
-<li>Unit테스트도 잘된다 =&gt; 설계가 잘된 것.</li>
-<li>TDD도 잘된다. =&gt; TDD가 잘 안된다, 어렵다 싶으면 설계가 잘못된 것.</li>
-</ul>
-<h2 id="switch-case"><a href="#switch-case" class="headerlink" title="switch case"></a>switch case</h2><ul>
-<li>각 case는 외부 모듈에 의존성을 갖는다.</li>
-<li>독립적 배포에 방해가 됨.</li>
-<li><em>fan-out problem</em></li>
-<li>외부모듈 중 하나라도 변경이 일어나면 switch문 문제생김.</li>
-</ul>
-<h2 id="제거하려면"><a href="#제거하려면" class="headerlink" title="제거하려면?"></a>제거하려면?</h2><blockquote>
-<ol>
-<li>polymorphic interface 호출로 변환 </li>
-<li>case에 있는 문장들을 별도의 클래스로 추출하여 변경 영향이 발생하지 않도록 한다.</li>
-</ol>
-<ul>
-<li><a href="https://github.com/msbaek/videostore" rel="external nofollow noopener noreferrer" target="_blank">switch-case제거 실습</a> <em>branch:</em> remove-switch-statement</li>
-</ul>
-</blockquote>
-<p><strong>———————————————————————————————————————————————————–</strong></p>
-<h1 id="Temporal-Coupling"><a href="#Temporal-Coupling" class="headerlink" title="Temporal Coupling"></a>Temporal Coupling</h1><p>DB연결처럼 Connection을 열고, 닫고, 이런 코딩을 할 때 순서가 중요한 상황을 말한다.</p>
-<ul>
-<li>함수들이 순서를 지키며 호출되어야한다. </li>
-<li><em>Passing a Block</em></li>
-<li>Strategy Pattern</li>
-</ul>
-<p><img src="/assets/images/temporal.png" alt="temporal"></p>
-<ul>
-<li>사용자에게 ‘주의해서 사용하라’가 아니고 위의 사진처럼 구현</li>
-</ul>
-<hr>
-<ul>
-<li><p><a href="https://velog.io/@essri" rel="external nofollow noopener noreferrer" target="_blank">velog</a></p>
-</li>
-<li><p><a href="https://ggomi.github.io" rel="external nofollow noopener noreferrer" target="_blank">Blog</a></p>
-</li>
-</ul>
-<hr>
-
-                    
-                        
-
-                    
-                    
-                        <p>
-                            <a href="/function-structure/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/SSE/">
-                            SSE란?
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2018-12-18T13:10:05+09:00">
-	
-		    Dec 18, 2018
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h2 id="SSE-Server-Sent-Events"><a href="#SSE-Server-Sent-Events" class="headerlink" title="SSE(Server-Sent Events)"></a>SSE(Server-Sent Events)</h2><ul>
-<li>HTML5 표준안 권고사항!! (IE 미지원)</li>
-</ul>
-<h2 id="그래서-뭔데"><a href="#그래서-뭔데" class="headerlink" title="그래서 뭔데?"></a>그래서 뭔데?</h2><ul>
-<li><strong>서버가 필요할 때마다 클라이언트에게 데이터를 줄 수 있게 해주는 서버 푸쉬 기술</strong></li>
-<li>HTML5가 등장하기 전까지는 HTML에 서버 푸시를 위한 표준화된 기술이 없었기 때문에 웹에서 실시간 정보를 받아와야 할 때 외부플러그인을 이용하거나 서버푸시를 흉내 낸 Ajax Polling 기법등을 사용했다고 한다.</li>
-</ul>
-<h2 id="그럼-뭐가-더-좋을까"><a href="#그럼-뭐가-더-좋을까" class="headerlink" title="그럼 뭐가 더 좋을까?"></a>그럼 뭐가 더 좋을까?</h2><p>먼저, 장점을 말하기 전에 기존 기술을 살펴보자.</p>
-<ul>
-<li><p><strong>Poling</strong></p>
-<ul>
-<li>대다수의 AJAX 응용 프로그램에서 사용되는 전통적인 기술입니다.</li>
-<li>기본 개념은 응용 프로그램이 서버에서 데이터를 반복적으로 요청하는 것.</li>
-<li><strong>장점</strong><ul>
-<li>일정하게 갱신이 되는 서버 데이터의 경우 매우 유용하며 기존 단순한 모델을 유지 할 수 있습니다.</li>
-</ul>
-</li>
-<li><strong>단점</strong><ul>
-<li>클라이언트는 요청을 하고 서버가 데이터로 응답 할 때까지 기다립니다. 갱신되지 않은 의미없는 응답이 리턴될 수 도 있습니다. 그렇기 때문에 HTTP 오버헤드가 커지게 된다.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><strong>Long Polling</strong></p>
-<ul>
-<li>폴링의 변형, 폴링과 비슷하지만 서버에 사용 가능한 데이터가 없으면 서버는 새 데이터를 사용할 수 있을 때까지 요청을 보류한다. 그래서 <em>Hang GET</em>이라고 불리기도 한다.</li>
-<li>폴링의 단점을 해결한 것처럼 보이지만 사용 가능한 데이터가 지속적으로 응답해야하기 때문에 다른 추가적인 방법이 필요하다.</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h1 id="SSE"><a href="#SSE" class="headerlink" title="SSE"></a>SSE</h1><ul>
-<li>처음부터 효율적으로 설계되어서 <strong>SSE</strong>를 사용하여 통신 할 때 서버는 초기 요청을 하지 않고도 필요할 때마다 데이터를 앱으로 푸시 할 수 있다. 즉, 서버와 클라이언트 사이에 단일 단방향 채널을 열게되는 것. <strong>Long Polling</strong>과 가장 큰 차이점은 브라우저에서 직접 처리된다는 점이다.</li>
-<li>HTTP를 사용하기 때문에 작동하기위해 별도의 프로토콜이나 서버구현이 필요없다.</li>
-</ul>
-
-                    
-                        
-
-                    
-                    
-                        <p>
-                            <a href="/SSE/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/function-example2/">
-                            함수 리팩토링, 추상화 예제 (2)
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2018-12-18T11:14:05+09:00">
-	
-		    Dec 18, 2018
-    	
-    </time>
-    
-        <span>in </span>
-        
-    <a class="category-link" href="/categories/Basic-sense/">Basic_sense</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <h2 id="함수-리팩토링-추상화-예제-2"><a href="#함수-리팩토링-추상화-예제-2" class="headerlink" title="함수 리팩토링, 추상화 예제 (2)"></a>함수 리팩토링, 추상화 예제 (2)</h2><p><img src="/assets/images/function.png" alt="banner"></p>
-<blockquote>
-<p><a href="https://www.youtube.com/user/codetemplate/videos" rel="external nofollow noopener noreferrer" target="_blank"> 클린코더스 - 백명석님 </a> 강의를 보고 작성한 글입니다.<br><a href="https://github.com/msbaek/clean-coders-2013" rel="external nofollow noopener noreferrer" target="_blank">Source Code</a></p>
-</blockquote>
-<hr>
-<p><img src="/assets/images/gif/test5.gif" alt="pageName"><br><img src="/assets/images/gif/test6.gif" alt="method Extract"></p>
-<ul>
-<li>함수의 파라미터에 <code>Extract Valuable</code>를 진행하고, <code>Extract Method</code>를 진행하기위해 가장안쪽 <code>if</code> 내부에 있던 지역변수를 <code>if</code>문 밖으로 꺼내어 메소드 추출 준비를 합니다.</li>
-<li>그리고 유사한 코드를 찾아 메소드로 추출합니다.</li>
-</ul>
-<p><img src="/assets/images/gif/test7.gif" alt="inline"><br><img src="/assets/images/gif/test8.gif" alt="method Extract"></p>
-<ul>
-<li>추출하고 남아있는 코드에서 의미없이 라인만 차지하는 코드들을 <code>inline</code>형태로 변경하고, 다시 메소드 추출을 진행합니다.</li>
-</ul>
-<p><img src="/assets/images/result.png" alt="method Extract"></p>
-<ul>
-<li>마지막으로 같은레벨의 <code>if</code>문 두개로 나누어져있는 코드를 하나로 병합해줍니다.</li>
-</ul>
-<hr>
-<ul>
-<li>이렇게 코드를 리팩토링을 연습해보았는데, 저번 <a href="/basic-3">포스트</a>에서 나온 것처럼 함수추출을 진행해도 추상화단계에 변화가 없을 때까지 추출을 진행해야 한다는 것이 크게 와닿지 않았었는데 코드예제를 보고 연습을 하다보니 왜 그렇게 해야할지 알 수 있었고, 역시 어렵다..</li>
-<li>같은 코드만 10번정도 반복한 것 같다.. <del>멍청..</del></li>
-</ul>
-<hr>
-<ul>
-<li><p><a href="https://velog.io/@essri" rel="external nofollow noopener noreferrer" target="_blank">velog</a></p>
-</li>
-<li><p><a href="https://ggomi.github.io" rel="external nofollow noopener noreferrer" target="_blank">Blog</a></p>
-</li>
-</ul>
-<hr>
-
-                    
-                        
-
-                    
-                    
-                        <p>
-                            <a href="/function-example2/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    <div class="pagination-bar">
-    <ul class="pagination">
+      
+      <span class="archive-page-counter">
         
         
-          <li class="pagination-next">
-            <a class="btn btn--default btn--small" href="/archives/page/2/">
-              <span>OLDER POSTS</span>
-              <i class="fa fa-angle-right text-base icon-ml"></i>
+        
+          
+        
+        음..! 총 16개의 포스트 포스트를 마저 작성하세요
+      </span>
+      
+
+      
+
+        
+        
+        
+
+        
+          
+          <div class="collection-title">
+            <h2 class="archive-year" id="archive-year-2019">2019</h2>
+          </div>
+        
+        
+
+        
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h3 class="post-title">
+        
+            <a class="post-title-link" href="/DDD/" itemprop="url">
+              
+                <span itemprop="name">DDD 정리 (도메인 주도 설계)</span>
+              
             </a>
-          </li>
         
-        <li class="pagination-number">page 1 of 2</li>
-    </ul>
-</div>
+      </h3>
 
-</section>
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2019-01-21T11:45:04+09:00" content="2019-01-21">
+          01-21
+        </time>
+      </div>
 
-
-
-                <footer id="footer" class="main-content-wrap">
-    <span class="copyrights">
-        Copyrights &copy; 2019 Jeongmin Oh. All Rights Reserved.
-    </span>
-</footer>
-
-            </div>
-            
-        </div>
-        
+    </header>
+  </article>
 
 
-    
-        
-    
 
-<div id="about">
-    <div id="about-card">
-        <div id="about-btn-close">
-            <i class="fa fa-times"></i>
-        </div>
-        
-            <img id="about-card-picture" src="/assets/images/profile.jpg" alt="Author&#39;s picture">
-        
-            <h4 id="about-card-name">Jeongmin Oh</h4>
-        
-            <div id="about-card-bio"><table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Mokpo Univ.</td>
-<td>2013.03 ~ 2019.02</td>
-</tr>
-<tr>
-<td>Mobile C&amp;C</td>
-<td>2018.08 ~ 2019.02(예정)</td>
-</tr>
-</tbody>
-</table>
-</div>
-        
-        
-            <div id="about-card-job">
-                <i class="fa fa-briefcase"></i>
-                <br>
-                <p>Mobile C&amp;C 인턴 2018.08 ~</p>
+      
 
-            </div>
         
         
-            <div id="about-card-location">
-                <i class="fa fa-map-marker-alt"></i>
-                <br>
-                Seoul, Korea Republic Of.
-            </div>
         
+
+        
+        
+
+        
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h3 class="post-title">
+        
+            <a class="post-title-link" href="/JPA-개념-및-설명/" itemprop="url">
+              
+                <span itemprop="name">JPA 개념 및 설명</span>
+              
+            </a>
+        
+      </h3>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2019-01-04T22:22:20+09:00" content="2019-01-04">
+          01-04
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+
+      
+
+        
+        
+        
+
+        
+        
+
+        
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h3 class="post-title">
+        
+            <a class="post-title-link" href="/tdd/" itemprop="url">
+              
+                <span itemprop="name">TDD(Test Driven Development)란?</span>
+              
+            </a>
+        
+      </h3>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2019-01-01T19:55:43+09:00" content="2019-01-01">
+          01-01
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+
+      
+
+        
+        
+        
+
+        
+          
+          <div class="collection-title">
+            <h2 class="archive-year" id="archive-year-2018">2018</h2>
+          </div>
+        
+        
+
+        
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h3 class="post-title">
+        
+            <a class="post-title-link" href="/data-structure/" itemprop="url">
+              
+                <span itemprop="name">Data Structure & Impedance Mismatch</span>
+              
+            </a>
+        
+      </h3>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2018-12-26T17:16:24+09:00" content="2018-12-26">
+          12-26
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+
+      
+
+        
+        
+        
+
+        
+        
+
+        
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h3 class="post-title">
+        
+            <a class="post-title-link" href="/kwpattern/" itemprop="url">
+              
+                <span itemprop="name">Algospot(알고스팟) KWPattern</span>
+              
+            </a>
+        
+      </h3>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2018-12-26T16:20:21+09:00" content="2018-12-26">
+          12-26
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+
+      
+
+        
+        
+        
+
+        
+        
+
+        
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h3 class="post-title">
+        
+            <a class="post-title-link" href="/vertical-classes/" itemprop="url">
+              
+                <span itemprop="name">Vertical Formatting과 Classes</span>
+              
+            </a>
+        
+      </h3>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2018-12-23T22:23:20+09:00" content="2018-12-23">
+          12-23
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+
+      
+
+        
+        
+        
+
+        
+        
+
+        
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h3 class="post-title">
+        
+            <a class="post-title-link" href="/comments-rules/" itemprop="url">
+              
+                <span itemprop="name">Comments Rules</span>
+              
+            </a>
+        
+      </h3>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2018-12-22T14:18:29+09:00" content="2018-12-22">
+          12-22
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+
+      
+
+        
+        
+        
+
+        
+        
+
+        
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h3 class="post-title">
+        
+            <a class="post-title-link" href="/function-structure-2/" itemprop="url">
+              
+                <span itemprop="name">함수의 구조 (function Structure) - 2</span>
+              
+            </a>
+        
+      </h3>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2018-12-20T13:57:56+09:00" content="2018-12-20">
+          12-20
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+
+      
+
+        
+        
+        
+
+        
+        
+
+        
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h3 class="post-title">
+        
+            <a class="post-title-link" href="/function-structure/" itemprop="url">
+              
+                <span itemprop="name">함수의 구조 (function Structure) - 1</span>
+              
+            </a>
+        
+      </h3>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2018-12-20T09:14:01+09:00" content="2018-12-20">
+          12-20
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+
+      
+
+        
+        
+        
+
+        
+        
+
+        
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h3 class="post-title">
+        
+            <a class="post-title-link" href="/SSE/" itemprop="url">
+              
+                <span itemprop="name">SSE란?</span>
+              
+            </a>
+        
+      </h3>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2018-12-18T13:10:05+09:00" content="2018-12-18">
+          12-18
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+
+      
+
     </div>
+  </div>
+  
+  
+  
+
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+  </nav>
+
+
+
+
+          </div>
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/profile.jpg" alt="Jeongmin Oh">
+            
+              <p class="site-author-name" itemprop="name">Jeongmin Oh</p>
+              <p class="site-description motion-element" itemprop="description">IT 기술블로그입니다.</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-name">포스트</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">카테고리</span>
+                  
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">32</span>
+                    <span class="site-state-item-name">태그</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/ggomi" target="_blank" title="GitHub" rel="external nofollow noopener noreferrer"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:dhkdn4042@gmail.com" target="_blank" title="E-Mail" rel="external nofollow noopener noreferrer"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jeongmin Oh</span>
+
+  
+
+  
 </div>
 
+
+  
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" rel="external nofollow noopener noreferrer" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.0.6</div>
+
+
+
+
         
+
+
+
+
+
+
+
+
         
-<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
-        <!--SCRIPTS-->
-<script src="/assets/js/jquery.js"></script>
-<script src="/assets/js/jquery.fancybox.js"></script>
-<script src="/assets/js/thumbs.js"></script>
-<script src="/assets/js/tranquilpeak.js"></script>
-<!--SCRIPTS END-->
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
 
 
 
-    </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.0.6"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.0.6"></script>
+
+
+
+  
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.6"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
 </html>

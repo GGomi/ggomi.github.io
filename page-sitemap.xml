@@ -8,29 +8,36 @@
     </url>
     
     <url>
+        <loc>https://localhost:4000/about/</loc>
+        <lastmod>2019-01-22T02:14:42.287Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
         <loc>https://localhost:4000/404-md/</loc>
-        <lastmod>2018-12-12T06:32:49.413Z</lastmod>
+        <lastmod>2018-12-12T06:32:50.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
         <loc>https://localhost:4000/all-tags/</loc>
-        <lastmod>2018-12-12T06:08:29.533Z</lastmod>
+        <lastmod>2018-12-12T06:08:30.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
         <loc>https://localhost:4000/all-archives/</loc>
-        <lastmod>2018-12-12T06:08:25.843Z</lastmod>
+        <lastmod>2018-12-12T06:08:26.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
         <loc>https://localhost:4000/all-categories/</loc>
-        <lastmod>2018-12-12T06:08:20.171Z</lastmod>
+        <lastmod>2018-12-12T06:08:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

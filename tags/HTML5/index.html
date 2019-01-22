@@ -1,416 +1,738 @@
-
 <!DOCTYPE html>
-<html lang="en">
-    
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Jeongmin&#39;s Blog">
-    <title>Tag: HTML5 - Jeongmin&#39;s Blog</title>
-    <meta name="author" content="Jeongmin Oh">
-    
-        <meta name="keywords" content="스프링,스프링부트,주니어개발자,개발,자바,알고리즘,알고스팟,algorithm,algospot,TDD,java,spring boot,JPA,jpa,Java,Spring Boot,lombok,">
-    
-    
-        <link rel="icon" href="https://localhost:4000/assets/images/cheese_thumb.jpg">
-    
-    
-        <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
-    
-    <script type="application/ld+json">{}</script>
-    <meta name="description" content="주니어개발자의 IT 기술블로그입니다.">
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="ko">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.0.6" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.0.6">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.0.6">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.0.6">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.0.6" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.0.6',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="IT 기술블로그입니다.">
 <meta name="keywords" content="스프링,스프링부트,주니어개발자,개발,자바,알고리즘,알고스팟,algorithm,algospot,TDD,java,spring boot,JPA,jpa,Java,Spring Boot,lombok">
-<meta property="og:type" content="blog">
+<meta property="og:type" content="website">
 <meta property="og:title" content="Jeongmin&#39;s Blog">
 <meta property="og:url" content="https://localhost:4000/tags/HTML5/index.html">
 <meta property="og:site_name" content="Jeongmin&#39;s Blog">
-<meta property="og:description" content="주니어개발자의 IT 기술블로그입니다.">
-<meta property="og:locale" content="en">
+<meta property="og:description" content="IT 기술블로그입니다.">
+<meta property="og:locale" content="ko">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Jeongmin&#39;s Blog">
-<meta name="twitter:description" content="주니어개발자의 IT 기술블로그입니다.">
-    
-    
-        
-    
-    
-        <meta property="og:image" content="https://localhost:4000/assets/images/profile.jpg">
-    
-    
-    
-    
-    <!--STYLES-->
-    <link rel="stylesheet" href="/assets/css/all.css">
-    <link rel="stylesheet" href="/assets/css/jquery.fancybox.css">
-    <link rel="stylesheet" href="/assets/css/thumbs.css">
-    <link rel="stylesheet" href="/assets/css/tranquilpeak.css">
-    <!--STYLES END-->
-    
-    <script type="text/javascript">
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-109295981-1', 'auto');
-        ga('send', 'pageview');
-    </script>
+<meta name="twitter:description" content="IT 기술블로그입니다.">
 
 
-    
+
+  <link rel="alternate" href="/atom.xml" title="Jeongmin's Blog" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="https://localhost:4000/tags/HTML5/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>태그: HTML5 | Jeongmin's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
 </head>
 
-    <body>
-        <div id="blog">
-            <!-- Define author's picture -->
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="ko">
 
-
+  
+  
     
-        
-            
-        
+  
+
+  <div class="container sidebar-position-left ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> 
+
+<div class="site-brand-wrapper">
+  <div class="site-meta ">
     
 
-<header id="header" data-behavior="2">
-    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
-    <div class="header-title">
-        <a class="header-title-link" href="/ ">Jeongmin&#39;s Blog</a>
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jeongmin's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
+      
+        <h1 class="site-subtitle" itemprop="description">Tech & Note</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+          
+  <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>홈</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>태그</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>카테고리</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>아카이브</a>
+</li>
+
+      
+
+      
+    </ul>
+  
+
+  
     
-        
-            <a class="header-right-picture " href="#about">
-        
-        
-            <img class="header-picture" src="/assets/images/profile.jpg" alt="Author&#39;s picture">
-        
-        </a>
+
     
-    <link rel="canonical" href="https://localhost:4000/tags/html5/">
-</header>
-
-            <!-- Define author's picture -->
-
-
-
-        
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
     
 
-<nav id="sidebar" data-behavior="2">
-    <div class="sidebar-container">
-        
-            <div class="sidebar-profile">
-                <a href="/#about">
-                    <img class="sidebar-profile-picture" src="/assets/images/profile.jpg" alt="Author&#39;s picture">
-                </a>
-                <h4 class="sidebar-profile-name">Jeongmin Oh</h4>
-                
-                    <h5 class="sidebar-profile-bio"><table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Mokpo Univ.</td>
-<td>2013.03 ~ 2019.02</td>
-</tr>
-<tr>
-<td>Mobile C&amp;C</td>
-<td>2018.08 ~ 2019.02(예정)</td>
-</tr>
-</tbody>
-</table>
-</h5>
-                
-            </div>
-        
-        
-            <ul class="sidebar-buttons">
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link " href="/ " title="Home">
-                    
-                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Home</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link " href="/all-categories" title="Categories">
-                    
-                        <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Categories</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link " href="/all-tags" title="Tags">
-                    
-                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Tags</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link " href="/all-archives" title="Archives">
-                    
-                        <i class="sidebar-button-icon fa fa-archive" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Archives</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link open-algolia-search" href="#search" title="Search">
-                    
-                        <i class="sidebar-button-icon fa fa-search" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Search</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link " href="#about" title="About">
-                    
-                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">About</span>
-                    </a>
-            </li>
-            
-        </ul>
-        
-            <ul class="sidebar-buttons">
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link " href="https://github.com/ggomi" target="_blank" rel="external nofollow noopener noreferrer" title="GitHub">
-                    
-                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">GitHub</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link " href="https://twitter.com/" target="_blank" rel="external nofollow noopener noreferrer" title="Twitter">
-                    
-                        <i class="sidebar-button-icon fab fa-twitter" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Twitter</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link " href="https://www.facebook.com/Jeongmin.Oo" target="_blank" rel="external nofollow noopener noreferrer" title="Facebook">
-                    
-                        <i class="sidebar-button-icon fab fa-facebook" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Facebook</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link " href="https://www.linkedin.com/in/%EC%A0%95%EB%AF%BC-%EC%98%A4-50b22511b/" target="_blank" rel="external nofollow noopener noreferrer" title="LinkedIn">
-                    
-                        <i class="sidebar-button-icon fab fa-linkedin" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">LinkedIn</span>
-                    </a>
-            </li>
-            
-        </ul>
-        
-            <ul class="sidebar-buttons">
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link " href="/atom.xml" title="RSS">
-                    
-                        <i class="sidebar-button-icon fa fa-rss" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">RSS</span>
-                    </a>
-            </li>
-            
-        </ul>
-        
-    </div>
+  
+
+
+  
+
+  
 </nav>
 
+
+  
+
+
+
+ </div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
             
-            <div id="main" data-behavior="2" class="
-                        hasCoverMetaIn
-                        ">
-                
-    <section class="postShorten-group main-content-wrap">
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a class="link-unstyled" href="/SSE/">
-                            SSE란?
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2018-12-18T13:10:05+09:00">
-	
-		    Dec 18, 2018
-    	
-    </time>
-    
-</div>
 
-            </div>
-            
-                <div class="postShorten-content">
-                    <h2 id="SSE-Server-Sent-Events"><a href="#SSE-Server-Sent-Events" class="headerlink" title="SSE(Server-Sent Events)"></a>SSE(Server-Sent Events)</h2><ul>
-<li>HTML5 표준안 권고사항!! (IE 미지원)</li>
-</ul>
-<h2 id="그래서-뭔데"><a href="#그래서-뭔데" class="headerlink" title="그래서 뭔데?"></a>그래서 뭔데?</h2><ul>
-<li><strong>서버가 필요할 때마다 클라이언트에게 데이터를 줄 수 있게 해주는 서버 푸쉬 기술</strong></li>
-<li>HTML5가 등장하기 전까지는 HTML에 서버 푸시를 위한 표준화된 기술이 없었기 때문에 웹에서 실시간 정보를 받아와야 할 때 외부플러그인을 이용하거나 서버푸시를 흉내 낸 Ajax Polling 기법등을 사용했다고 한다.</li>
-</ul>
-<h2 id="그럼-뭐가-더-좋을까"><a href="#그럼-뭐가-더-좋을까" class="headerlink" title="그럼 뭐가 더 좋을까?"></a>그럼 뭐가 더 좋을까?</h2><p>먼저, 장점을 말하기 전에 기존 기술을 살펴보자.</p>
-<ul>
-<li><p><strong>Poling</strong></p>
-<ul>
-<li>대다수의 AJAX 응용 프로그램에서 사용되는 전통적인 기술입니다.</li>
-<li>기본 개념은 응용 프로그램이 서버에서 데이터를 반복적으로 요청하는 것.</li>
-<li><strong>장점</strong><ul>
-<li>일정하게 갱신이 되는 서버 데이터의 경우 매우 유용하며 기존 단순한 모델을 유지 할 수 있습니다.</li>
-</ul>
-</li>
-<li><strong>단점</strong><ul>
-<li>클라이언트는 요청을 하고 서버가 데이터로 응답 할 때까지 기다립니다. 갱신되지 않은 의미없는 응답이 리턴될 수 도 있습니다. 그렇기 때문에 HTTP 오버헤드가 커지게 된다.</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><strong>Long Polling</strong></p>
-<ul>
-<li>폴링의 변형, 폴링과 비슷하지만 서버에 사용 가능한 데이터가 없으면 서버는 새 데이터를 사용할 수 있을 때까지 요청을 보류한다. 그래서 <em>Hang GET</em>이라고 불리기도 한다.</li>
-<li>폴링의 단점을 해결한 것처럼 보이지만 사용 가능한 데이터가 지속적으로 응답해야하기 때문에 다른 추가적인 방법이 필요하다.</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h1 id="SSE"><a href="#SSE" class="headerlink" title="SSE"></a>SSE</h1><ul>
-<li>처음부터 효율적으로 설계되어서 <strong>SSE</strong>를 사용하여 통신 할 때 서버는 초기 요청을 하지 않고도 필요할 때마다 데이터를 앱으로 푸시 할 수 있다. 즉, 서버와 클라이언트 사이에 단일 단방향 채널을 열게되는 것. <strong>Long Polling</strong>과 가장 큰 차이점은 브라우저에서 직접 처리된다는 점이다.</li>
-<li>HTTP를 사용하기 때문에 작동하기위해 별도의 프로토콜이나 서버구현이 필요없다.</li>
-</ul>
+  
+  
+  
+  <div class="post-block tag">
 
-                    
-                        
+    <div id="posts" class="posts-collapse">
+      <div class="collection-title">
+        <h2>HTML5<small>태그</small>
+        </h2>
+      </div>
 
-                    
-                    
-                        <p>
-                            <a href="/SSE/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    <div class="pagination-bar">
-    <ul class="pagination">
-        
-        
-        <li class="pagination-number">page 1 of 1</li>
-    </ul>
-</div>
-
-</section>
-
-
-                <footer id="footer" class="main-content-wrap">
-    <span class="copyrights">
-        Copyrights &copy; 2019 Jeongmin Oh. All Rights Reserved.
-    </span>
-</footer>
-
-            </div>
-            
-        </div>
+      
         
 
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+    <header class="post-header">
 
-    
+      <h3 class="post-title">
         
-    
+            <a class="post-title-link" href="/SSE/" itemprop="url">
+              
+                <span itemprop="name">SSE란?</span>
+              
+            </a>
+        
+      </h3>
 
-<div id="about">
-    <div id="about-card">
-        <div id="about-btn-close">
-            <i class="fa fa-times"></i>
-        </div>
-        
-            <img id="about-card-picture" src="/assets/images/profile.jpg" alt="Author&#39;s picture">
-        
-            <h4 id="about-card-name">Jeongmin Oh</h4>
-        
-            <div id="about-card-bio"><table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Mokpo Univ.</td>
-<td>2013.03 ~ 2019.02</td>
-</tr>
-<tr>
-<td>Mobile C&amp;C</td>
-<td>2018.08 ~ 2019.02(예정)</td>
-</tr>
-</tbody>
-</table>
-</div>
-        
-        
-            <div id="about-card-job">
-                <i class="fa fa-briefcase"></i>
-                <br>
-                <p>Mobile C&amp;C 인턴 2018.08 ~</p>
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2018-12-18T13:10:05+09:00" content="2018-12-18">
+          12-18
+        </time>
+      </div>
 
-            </div>
-        
-        
-            <div id="about-card-location">
-                <i class="fa fa-map-marker-alt"></i>
-                <br>
-                Seoul, Korea Republic Of.
-            </div>
-        
+    </header>
+  </article>
+
+
+      
     </div>
+
+  </div>
+  
+  
+  
+
+  
+
+
+          </div>
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/profile.jpg" alt="Jeongmin Oh">
+            
+              <p class="site-author-name" itemprop="name">Jeongmin Oh</p>
+              <p class="site-description motion-element" itemprop="description">IT 기술블로그입니다.</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-name">포스트</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">카테고리</span>
+                  
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">32</span>
+                    <span class="site-state-item-name">태그</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/ggomi" target="_blank" title="GitHub" rel="external nofollow noopener noreferrer"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:dhkdn4042@gmail.com" target="_blank" title="E-Mail" rel="external nofollow noopener noreferrer"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jeongmin Oh</span>
+
+  
+
+  
 </div>
 
+
+  
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" rel="external nofollow noopener noreferrer" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.0.6</div>
+
+
+
+
         
+
+
+
+
+
+
+
+
         
-<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
-        <!--SCRIPTS-->
-<script src="/assets/js/jquery.js"></script>
-<script src="/assets/js/jquery.fancybox.js"></script>
-<script src="/assets/js/thumbs.js"></script>
-<script src="/assets/js/tranquilpeak.js"></script>
-<!--SCRIPTS END-->
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
 
 
 
-    </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.0.6"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.0.6"></script>
+
+
+
+  
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.6"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
 </html>

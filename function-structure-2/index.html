@@ -1,280 +1,419 @@
-
 <!DOCTYPE html>
-<html lang="en">
-    
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Jeongmin&#39;s Blog">
-    <title>함수의 구조 (function Structure) - 2 - Jeongmin&#39;s Blog</title>
-    <meta name="author" content="Jeongmin Oh">
-    
-        <meta name="keywords" content="스프링,스프링부트,주니어개발자,개발,자바,알고리즘,알고스팟,algorithm,algospot,TDD,java,spring boot,JPA,jpa,Java,Spring Boot,lombok,">
-    
-    
-        <link rel="icon" href="https://localhost:4000/assets/images/cheese_thumb.jpg">
-    
-    
-        <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
-    
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Jeongmin Oh","sameAs":["https://github.com/ggomi","https://twitter.com/","https://www.facebook.com/Jeongmin.Oo","https://www.linkedin.com/in/%EC%A0%95%EB%AF%BC-%EC%98%A4-50b22511b/"],"image":"profile.jpg"},"articleBody":"함수의 구조\n 클린코더스 - 백명석님  강의를 보고 작성한 글입니다.\n\n\n\n함수의 구조 - 1\n\n—————————————————————————————————————\n목차\nCQS(Command Query Seperate)\nTell Don’t Ask\nLaw of Demeter\nEarly returns\nError Handling\nSpecial Cases\nNull is a value\ntry도 하나의 역할 / 기능\n\n———————————————————————————————————————————————–\nCQS\n상태를 변경하는 함수는 값을 반환하면 안된다. 값을 반환하는 함수는 상태를 변경하면 안된다.\n\ncommand\n시스템의 상태변경가능\nside effect를 갖는다\n아무것도 반환하지않는다.\n\nquery\nside effect가 없다.\n계산값이나 시스템의 상태를 반환\n신뢰의 문제\n\nExample1User u = authorize.login(userName, password);\n\n위의 상황에서 User를 사용하기 위해서는 항상 login을 해야함. login을 하면 원치않아도 User정보를 읽어야만 한다.\n\n12authorize.login(userName, password);User u = authorize.getUser(userName);\n\nlogin Method의 리턴을 void로 변경하고, User 정보가 필요할때만 읽음.\n값을 반환하는 함수는 상태를 변경하면 안된다.상태를 변경하는 함수는 exception을 발생시킬 수는 있지만, 값을 반환할 수 없다.\n\n이것은 SideEffect를 관리하는 약속이다. 약속을 어겨서 혼란을 주지말자.\n\n\n———————————————————————————————————————————————–\nTell Don’t Ask\nextream한 CQS는 C와 Q를 함께 사용하지 말도록\n\n\n\n로그인 여부는 user객체에 속한다. Tell Don’t Ask 인데 isLoggedIn()은 이상함.\n\nTell Don’t Ask 는 CQS를 강화하는 수단\n이 규칙을 준수하다보면 Query메소드가 많이 필요없어진다. - 매우 좋은 현상(왜냐하면 Q는 Out of control되는 경향이 있기 때문)\n\n\nLaw of Demeter1234567// 예를 들어서 아래와 같은 코드가 있다면, o.getX()    .getY()        .getZ()            .doSomething();// 함수가 시스템에 너무 많은 의존성을 가지게 된다.\n\n함수가 시스템의 전체를 알게 하면 안된다.\n개별 함수는 아주 제한된 지식만 가져야한다.\n이전 메소드 호출의 결과로 얻은 객체의 메소드를 호출하면 안된다.\nTell Don’t Ask나, Law of Demeter 모두 어떻게 의존도를 낮추고, Testable하게 만들고, 클린하게 만들건지에 대한 방법, 규칙들이다.\nask대신 tell하면 surrounding과 decouple 된다. \n\n\n\nearly returns1234if(...)else if(...)else if(...)else (...)&#123; return; &#125;\n위 코드처럼 else에다가 리턴을 두지말고 return 되는 로직을 상단으로 올려서 코드를 끝까지 읽지않아도 될 수 있게하는 것\n\n루프 중간에서 return 하는 것은 문제이다.\n코드가 동작하도록 하는 것보다 이해할 수 있게하는 것이 더 중요하다.\n\nError handling\nError처리를 위해 pop은 null을 반환하고, push는 false를 반환하는 것보다 Exception을 발생시키는 것이 좋다.\nException의 이름은 최대한 구체적이어야 한다.\nInner클래스로 Exception을 정의하면 읽기 편할 수 있다. 고려해볼 것\nchecked vs unchecked ?(찾아봐야함.) Checked Exception은 되도록 사용하지말자.\nunchecked는 throws를 말하는 것 같고, checked는 try~catch를 말하는 것 같다.\n\nException은 어떤 메시지를 담아야 할까?\n필요없는 것이 가장 좋다.\nException이름을 명확하게 지어서 이름으로 의미가 전달되도록 하자.\n클래스 내부에 Message를 절대 두지말자.\n\nSpecial Cases\nSpecial Cases 참고\n\nNull is a value\nstack이 empty일 때 top함수는 무엇을 반환해야하나?\nNull 대신 Empty 객체를 발생시키는 것이 좋다.\n\ntry\ntry가 있다면 함수내에서 변수선언을 제외하고 첫번째문장이여야한다.\ntry 블럭 내에는 함수호출만 있어야한다.\nfinally가 함수의 마지막 블럭이어야한다. 이후에 어떤라인도 없어야 한다.\nError handling은 하나의 일이다.\n\n\n\n지금은 이해할 수 있고, 다 이해한것 같아도 속지말고, 직접 내 코드에 적용해보고, 설계해보자\n\n\nvelog\n\nBlog\n\n\n\n","dateCreated":"2018-12-20T13:57:56+09:00","dateModified":"2018-12-21T15:45:32+09:00","datePublished":"2018-12-20T13:57:56+09:00","description":"","headline":"함수의 구조 (function Structure) - 2","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://localhost:4000/function-structure-2/"},"publisher":{"@type":"Organization","name":"Jeongmin Oh","sameAs":["https://github.com/ggomi","https://twitter.com/","https://www.facebook.com/Jeongmin.Oo","https://www.linkedin.com/in/%EC%A0%95%EB%AF%BC-%EC%98%A4-50b22511b/"],"image":"profile.jpg","logo":{"@type":"ImageObject","url":"profile.jpg"}},"url":"https://localhost:4000/function-structure-2/","keywords":"개발자 기초다지기_함수, 함수, 리팩토링"}</script>
-    <meta name="description" content="함수의 구조  클린코더스 - 백명석님  강의를 보고 작성한 글입니다.    함수의 구조 - 1  ————————————————————————————————————— 목차 CQS(Command Query Seperate) Tell Don’t Ask Law of Demeter Early returns Error Handling Special Cases Null">
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="ko">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.0.6" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.0.6">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.0.6">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.0.6">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.0.6" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.0.6',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="함수의 구조  클린코더스 - 백명석님  강의를 보고 작성한 글입니다.    함수의 구조 - 1  ————————————————————————————————————— 목차 함수의 구조 목차 CQS command query Example     Tell Don’t Ask Law of Demeter early returns Error handling Except">
 <meta name="keywords" content="개발자 기초다지기_함수,함수,리팩토링">
-<meta property="og:type" content="blog">
+<meta property="og:type" content="article">
 <meta property="og:title" content="함수의 구조 (function Structure) - 2">
 <meta property="og:url" content="https://localhost:4000/function-structure-2/index.html">
 <meta property="og:site_name" content="Jeongmin&#39;s Blog">
-<meta property="og:description" content="함수의 구조  클린코더스 - 백명석님  강의를 보고 작성한 글입니다.    함수의 구조 - 1  ————————————————————————————————————— 목차 CQS(Command Query Seperate) Tell Don’t Ask Law of Demeter Early returns Error Handling Special Cases Null">
-<meta property="og:locale" content="en">
+<meta property="og:description" content="함수의 구조  클린코더스 - 백명석님  강의를 보고 작성한 글입니다.    함수의 구조 - 1  ————————————————————————————————————— 목차 함수의 구조 목차 CQS command query Example     Tell Don’t Ask Law of Demeter early returns Error handling Except">
+<meta property="og:locale" content="ko">
 <meta property="og:image" content="https://localhost:4000/assets/images/ask.png">
-<meta property="og:updated_time" content="2018-12-21T06:45:32.781Z">
+<meta property="og:updated_time" content="2019-01-22T02:12:54.321Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="함수의 구조 (function Structure) - 2">
-<meta name="twitter:description" content="함수의 구조  클린코더스 - 백명석님  강의를 보고 작성한 글입니다.    함수의 구조 - 1  ————————————————————————————————————— 목차 CQS(Command Query Seperate) Tell Don’t Ask Law of Demeter Early returns Error Handling Special Cases Null">
+<meta name="twitter:description" content="함수의 구조  클린코더스 - 백명석님  강의를 보고 작성한 글입니다.    함수의 구조 - 1  ————————————————————————————————————— 목차 함수의 구조 목차 CQS command query Example     Tell Don’t Ask Law of Demeter early returns Error handling Except">
 <meta name="twitter:image" content="https://localhost:4000/assets/images/ask.png">
-    
-    
-        
-    
-    
-        <meta property="og:image" content="https://localhost:4000/assets/images/profile.jpg">
-    
-    
-    
-    
-    <!--STYLES-->
-    <link rel="stylesheet" href="/assets/css/all.css">
-    <link rel="stylesheet" href="/assets/css/jquery.fancybox.css">
-    <link rel="stylesheet" href="/assets/css/thumbs.css">
-    <link rel="stylesheet" href="/assets/css/tranquilpeak.css">
-    <!--STYLES END-->
-    
-    <script type="text/javascript">
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-109295981-1', 'auto');
-        ga('send', 'pageview');
-    </script>
 
 
-    
+
+  <link rel="alternate" href="/atom.xml" title="Jeongmin's Blog" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="https://localhost:4000/function-structure-2/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>함수의 구조 (function Structure) - 2 | Jeongmin's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
 </head>
 
-    <body>
-        <div id="blog">
-            <!-- Define author's picture -->
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="ko">
 
-
+  
+  
     
-        
-            
-        
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> 
+
+<div class="site-brand-wrapper">
+  <div class="site-meta ">
     
 
-<header id="header" data-behavior="5">
-    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
-    <div class="header-title">
-        <a class="header-title-link" href="/ ">Jeongmin&#39;s Blog</a>
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jeongmin's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
+      
+        <h1 class="site-subtitle" itemprop="description">Tech & Note</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+          
+  <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>홈</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>태그</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>카테고리</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>아카이브</a>
+</li>
+
+      
+
+      
+    </ul>
+  
+
+  
     
-        
-            <a class="header-right-picture " href="#about">
-        
-        
-            <img class="header-picture" src="/assets/images/profile.jpg" alt="Author&#39;s picture">
-        
-        </a>
+
     
-    <link rel="canonical" href="https://localhost:4000/function-structure-2/">
-</header>
-
-            <!-- Define author's picture -->
-
-
-
-        
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
     
 
-<nav id="sidebar" data-behavior="5">
-    <div class="sidebar-container">
-        
-            <div class="sidebar-profile">
-                <a href="/#about">
-                    <img class="sidebar-profile-picture" src="/assets/images/profile.jpg" alt="Author&#39;s picture">
-                </a>
-                <h4 class="sidebar-profile-name">Jeongmin Oh</h4>
-                
-                    <h5 class="sidebar-profile-bio"><table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Mokpo Univ.</td>
-<td>2013.03 ~ 2019.02</td>
-</tr>
-<tr>
-<td>Mobile C&amp;C</td>
-<td>2018.08 ~ 2019.02(예정)</td>
-</tr>
-</tbody>
-</table>
-</h5>
-                
-            </div>
-        
-        
-            <ul class="sidebar-buttons">
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link " href="/ " title="Home">
-                    
-                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Home</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link " href="/all-categories" title="Categories">
-                    
-                        <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Categories</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link " href="/all-tags" title="Tags">
-                    
-                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Tags</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link " href="/all-archives" title="Archives">
-                    
-                        <i class="sidebar-button-icon fa fa-archive" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Archives</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link open-algolia-search" href="#search" title="Search">
-                    
-                        <i class="sidebar-button-icon fa fa-search" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Search</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link " href="#about" title="About">
-                    
-                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">About</span>
-                    </a>
-            </li>
-            
-        </ul>
-        
-            <ul class="sidebar-buttons">
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link " href="https://github.com/ggomi" target="_blank" rel="external nofollow noopener noreferrer" title="GitHub">
-                    
-                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">GitHub</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link " href="https://twitter.com/" target="_blank" rel="external nofollow noopener noreferrer" title="Twitter">
-                    
-                        <i class="sidebar-button-icon fab fa-twitter" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Twitter</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link " href="https://www.facebook.com/Jeongmin.Oo" target="_blank" rel="external nofollow noopener noreferrer" title="Facebook">
-                    
-                        <i class="sidebar-button-icon fab fa-facebook" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">Facebook</span>
-                    </a>
-            </li>
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link " href="https://www.linkedin.com/in/%EC%A0%95%EB%AF%BC-%EC%98%A4-50b22511b/" target="_blank" rel="external nofollow noopener noreferrer" title="LinkedIn">
-                    
-                        <i class="sidebar-button-icon fab fa-linkedin" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">LinkedIn</span>
-                    </a>
-            </li>
-            
-        </ul>
-        
-            <ul class="sidebar-buttons">
-            
-                <li class="sidebar-button">
-                    
-                        <a class="sidebar-button-link " href="/atom.xml" title="RSS">
-                    
-                        <i class="sidebar-button-icon fa fa-rss" aria-hidden="true"></i>
-                        <span class="sidebar-button-desc">RSS</span>
-                    </a>
-            </li>
-            
-        </ul>
-        
-    </div>
+  
+
+
+  
+
+  
 </nav>
 
+
+  
+
+
+
+ </div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
             
-            <div id="main" data-behavior="5" class="
-                        hasCoverMetaIn
-                        ">
-                
-<article class="post">
+
+  <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://localhost:4000/function-structure-2/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jeongmin Oh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/profile.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jeongmin's Blog">
+    </span>
+
     
-        <div class="post-header main-content-wrap text-left">
-    
-        <h1 class="post-title">
-            함수의 구조 (function Structure) - 2
-        </h1>
-    
-    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">함수의 구조 (function Structure) - 2</h2>
+        
+
         <div class="post-meta">
-    <time datetime="2018-12-20T13:57:56+09:00">
-	
-		    Dec 20, 2018
-    	
-    </time>
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-20T13:57:56+09:00">2018-12-20</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Basic-sense/" itemprop="url" rel="index"><span itemprop="name">Basic_sense</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
     
-</div>
 
     
-</div>
-
     
-    <div class="post-content markdown">
-        <div class="main-content-wrap">
-            <h1 id="함수의-구조"><a href="#함수의-구조" class="headerlink" title="함수의 구조"></a>함수의 구조</h1><blockquote>
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="함수의-구조"><a href="#함수의-구조" class="headerlink" title="함수의 구조"></a>함수의 구조</h1><blockquote>
 <p><a href="https://www.youtube.com/user/codetemplate/videos" rel="external nofollow noopener noreferrer" target="_blank"> 클린코더스 - 백명석님 </a> 강의를 보고 작성한 글입니다.</p>
 </blockquote>
 <hr>
@@ -283,14 +422,26 @@
 </blockquote>
 <p><strong>—————————————————————————————————————</strong></p>
 <h1 id="목차"><a href="#목차" class="headerlink" title="목차"></a>목차</h1><ul>
-<li><a href="#cqs">CQS(Command Query Seperate)</a></li>
-<li><a href="#Tell-Don&#39;t-Ask">Tell Don’t Ask</a></li>
+<li><a href="#%ED%95%A8%EC%88%98%EC%9D%98-%EA%B5%AC%EC%A1%B0">함수의 구조</a></li>
+<li><a href="#%EB%AA%A9%EC%B0%A8">목차</a></li>
+<li><a href="#cqs">CQS</a><ul>
+<li><a href="#command">command</a></li>
+<li><a href="#query">query</a><ul>
+<li><a href="#example">Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#tell-dont-ask">Tell Don’t Ask</a></li>
 <li><a href="#law-of-demeter">Law of Demeter</a></li>
-<li><a href="#early-returns">Early returns</a></li>
-<li><a href="#error-handling">Error Handling</a></li>
+<li><a href="#early-returns">early returns</a></li>
+<li><a href="#error-handling">Error handling</a><ul>
+<li><a href="#exception%EC%9D%80-%EC%96%B4%EB%96%A4-%EB%A9%94%EC%8B%9C%EC%A7%80%EB%A5%BC-%EB%8B%B4%EC%95%84%EC%95%BC-%ED%95%A0%EA%B9%8C">Exception은 어떤 메시지를 담아야 할까?</a></li>
+</ul>
+</li>
 <li><a href="#special-cases">Special Cases</a></li>
 <li><a href="#null-is-a-value">Null is a value</a></li>
-<li><a href="#try">try도 하나의 역할 / 기능</a></li>
+<li><a href="#try">try</a></li>
 </ul>
 <p><strong>———————————————————————————————————————————————–</strong></p>
 <h1 id="CQS"><a href="#CQS" class="headerlink" title="CQS"></a>CQS</h1><ul>
@@ -383,276 +534,485 @@
 </ul>
 <hr>
 
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/개발자-기초다지기-함수/" rel="tag"># 개발자 기초다지기_함수</a>
+          
+            <a href="/tags/함수/" rel="tag"># 함수</a>
+          
+            <a href="/tags/리팩토링/" rel="tag"># 리팩토링</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
+              <a href="/function-structure/" rel="next" title="함수의 구조 (function Structure) - 1">
+                <i class="fa fa-chevron-left"></i> 함수의 구조 (function Structure) - 1
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/comments-rules/" rel="prev" title="Comments Rules">
+                Comments Rules <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
 
         </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
     </div>
-    <div id="post-footer" class="post-footer main-content-wrap">
-        
-            <div class="post-footer-tags">
-                <span class="text-color-light text-small">TAGGED IN</span><br>
-                
-    <a class="tag tag--primary tag--small t-link" href="/tags/개발자-기초다지기-함수/">개발자 기초다지기_함수</a> <a class="tag tag--primary tag--small t-link" href="/tags/리팩토링/">리팩토링</a> <a class="tag tag--primary tag--small t-link" href="/tags/함수/">함수</a>
+  </div>
 
-            </div>
-        
-        
-            <div class="post-actions-wrap">
-    <nav>
-        <ul class="post-actions post-action-nav">
-            <li class="post-action">
-                
-                    
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/comments-rules/" data-tooltip="Comments Rules" aria-label="PREVIOUS: Comments Rules">
-                
-                    <i class="fa fa-angle-left" aria-hidden="true"></i>
-                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
-                </a>
-            </li>
-            <li class="post-action">
-                
-                    
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/function-structure/" data-tooltip="함수의 구조 (function Structure) - 1" aria-label="NEXT: 함수의 구조 (function Structure) - 1">
-                
-                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </a>
-            </li>
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            목차
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            흝어보기
+          </li>
         </ul>
-    </nav>
-    <ul class="post-actions post-action-share">
-        <li class="post-action hide-lg hide-md hide-sm">
-            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
-                <i class="fa fa-share-alt" aria-hidden="true"></i>
-            </a>
-        </li>
-        
-            
-            
-            <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://localhost:4000/function-structure-2/" title="Share on Facebook" rel="external nofollow noopener noreferrer">
-                    <i class="fab fa-facebook" aria-hidden="true"></i>
-                </a>
-            </li>
-        
-            
-            
-            <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=https://localhost:4000/function-structure-2/" title="Share on Twitter" rel="external nofollow noopener noreferrer">
-                    <i class="fab fa-twitter" aria-hidden="true"></i>
-                </a>
-            </li>
-        
-            
-            
-            <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=https://localhost:4000/function-structure-2/" title="Share on Google+" rel="external nofollow noopener noreferrer">
-                    <i class="fab fa-google-plus" aria-hidden="true"></i>
-                </a>
-            </li>
-        
-        
-            
-        
-        <li class="post-action">
-            
-                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
-            
-                <i class="fa fa-list" aria-hidden="true"></i>
-            </a>
-        </li>
-    </ul>
-</div>
+      
 
-
-        
-        
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
-        
-    </div>
-</article>
-
-
-
-                <footer id="footer" class="main-content-wrap">
-    <span class="copyrights">
-        Copyrights &copy; 2019 Jeongmin Oh. All Rights Reserved.
-    </span>
-</footer>
-
-            </div>
+              <img class="site-author-image" itemprop="image" src="/images/profile.jpg" alt="Jeongmin Oh">
             
-                <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
-                    <div class="post-actions-wrap">
-    <nav>
-        <ul class="post-actions post-action-nav">
-            <li class="post-action">
+              <p class="site-author-name" itemprop="name">Jeongmin Oh</p>
+              <p class="site-description motion-element" itemprop="description">IT 기술블로그입니다.</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
                 
-                    
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/comments-rules/" data-tooltip="Comments Rules" aria-label="PREVIOUS: Comments Rules">
+                  <a href="/archives/">
                 
-                    <i class="fa fa-angle-left" aria-hidden="true"></i>
-                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
-                </a>
-            </li>
-            <li class="post-action">
-                
-                    
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/function-structure/" data-tooltip="함수의 구조 (function Structure) - 1" aria-label="NEXT: 함수의 구조 (function Structure) - 1">
-                
-                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
-                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                </a>
-            </li>
-        </ul>
-    </nav>
-    <ul class="post-actions post-action-share">
-        <li class="post-action hide-lg hide-md hide-sm">
-            <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Share this post">
-                <i class="fa fa-share-alt" aria-hidden="true"></i>
-            </a>
-        </li>
-        
-            
-            
-            <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://localhost:4000/function-structure-2/" title="Share on Facebook" rel="external nofollow noopener noreferrer">
-                    <i class="fab fa-facebook" aria-hidden="true"></i>
-                </a>
-            </li>
-        
-            
-            
-            <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://twitter.com/intent/tweet?text=https://localhost:4000/function-structure-2/" title="Share on Twitter" rel="external nofollow noopener noreferrer">
-                    <i class="fab fa-twitter" aria-hidden="true"></i>
-                </a>
-            </li>
-        
-            
-            
-            <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="_blank" href="https://plus.google.com/share?url=https://localhost:4000/function-structure-2/" title="Share on Google+" rel="external nofollow noopener noreferrer">
-                    <i class="fab fa-google-plus" aria-hidden="true"></i>
-                </a>
-            </li>
-        
-        
-            
-        
-        <li class="post-action">
-            
-                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
-            
-                <i class="fa fa-list" aria-hidden="true"></i>
-            </a>
-        </li>
-    </ul>
-</div>
-
-
+                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-name">포스트</span>
+                  </a>
                 </div>
-                <div id="share-options-bar" class="share-options-bar" data-behavior="5">
-    <i id="btn-close-shareoptions" class="fa fa-times"></i>
-    <ul class="share-options">
-        
-            
-            
-            <li class="share-option">
-                <a class="share-option-btn" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://localhost:4000/function-structure-2/" rel="external nofollow noopener noreferrer">
-                    <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
-                </a>
-            </li>
-        
-            
-            
-            <li class="share-option">
-                <a class="share-option-btn" target="_blank" href="https://twitter.com/intent/tweet?text=https://localhost:4000/function-structure-2/" rel="external nofollow noopener noreferrer">
-                    <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
-                </a>
-            </li>
-        
-            
-            
-            <li class="share-option">
-                <a class="share-option-btn" target="_blank" href="https://plus.google.com/share?url=https://localhost:4000/function-structure-2/" rel="external nofollow noopener noreferrer">
-                    <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
-                </a>
-            </li>
-        
-    </ul>
-</div>
+              
 
-            
-        </div>
-        
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">카테고리</span>
+                  
+                </div>
+              
 
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">32</span>
+                    <span class="site-state-item-name">태그</span>
+                  
+                </div>
+              
+            </nav>
+          
 
-    
-        
-    
-
-<div id="about">
-    <div id="about-card">
-        <div id="about-btn-close">
-            <i class="fa fa-times"></i>
-        </div>
-        
-            <img id="about-card-picture" src="/assets/images/profile.jpg" alt="Author&#39;s picture">
-        
-            <h4 id="about-card-name">Jeongmin Oh</h4>
-        
-            <div id="about-card-bio"><table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Mokpo Univ.</td>
-<td>2013.03 ~ 2019.02</td>
-</tr>
-<tr>
-<td>Mobile C&amp;C</td>
-<td>2018.08 ~ 2019.02(예정)</td>
-</tr>
-</tbody>
-</table>
-</div>
-        
-        
-            <div id="about-card-job">
-                <i class="fa fa-briefcase"></i>
-                <br>
-                <p>Mobile C&amp;C 인턴 2018.08 ~</p>
-
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
             </div>
-        
-        
-            <div id="about-card-location">
-                <i class="fa fa-map-marker-alt"></i>
-                <br>
-                Seoul, Korea Republic Of.
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/ggomi" target="_blank" title="GitHub" rel="external nofollow noopener noreferrer"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:dhkdn4042@gmail.com" target="_blank" title="E-Mail" rel="external nofollow noopener noreferrer"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
             </div>
-        
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#함수의-구조"><span class="nav-number">1.</span> <span class="nav-text">함수의 구조</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#목차"><span class="nav-number">2.</span> <span class="nav-text">목차</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CQS"><span class="nav-number">3.</span> <span class="nav-text">CQS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#command"><span class="nav-number">3.0.1.</span> <span class="nav-text">command</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#query"><span class="nav-number">3.0.2.</span> <span class="nav-text">query</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">3.1.</span> <span class="nav-text">Example</span></a></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#Tell-Don’t-Ask"><span class="nav-number">4.</span> <span class="nav-text">Tell Don’t Ask</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Law-of-Demeter"><span class="nav-number">5.</span> <span class="nav-text">Law of Demeter</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#early-returns"><span class="nav-number">6.</span> <span class="nav-text">early returns</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Error-handling"><span class="nav-number">7.</span> <span class="nav-text">Error handling</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Exception은-어떤-메시지를-담아야-할까"><span class="nav-number">7.1.</span> <span class="nav-text">Exception은 어떤 메시지를 담아야 할까?</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Special-Cases"><span class="nav-number">8.</span> <span class="nav-text">Special Cases</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Null-is-a-value"><span class="nav-number">9.</span> <span class="nav-text">Null is a value</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#try"><span class="nav-number">10.</span> <span class="nav-text">try</span></a></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
     </div>
-</div>
+  </aside>
+
 
         
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jeongmin Oh</span>
+
+  
+
+  
+</div>
+
+
+  
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" rel="external nofollow noopener noreferrer" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.0.6</div>
+
+
+
+
         
-<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
-        <!--SCRIPTS-->
-<script src="/assets/js/jquery.js"></script>
-<script src="/assets/js/jquery.fancybox.js"></script>
-<script src="/assets/js/thumbs.js"></script>
-<script src="/assets/js/tranquilpeak.js"></script>
-<!--SCRIPTS END-->
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
 
     
 
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
 
 
-    </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.0.6"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.0.6"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.6"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.6"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.6"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
 </html>
