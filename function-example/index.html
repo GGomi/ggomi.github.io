@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="ko">
+<html class="theme-next pisces use-motion" lang="ko">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -75,7 +75,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Gemini',
+    scheme: 'Pisces',
     version: '6.0.6',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: false,
@@ -107,16 +107,16 @@
 <meta property="og:site_name" content="Jeongmin&#39;s Blog">
 <meta property="og:description" content="함수 리팩토링, 추상화 예제 (1)   클린코더스 - 백명석님  강의를 보고 작성한 글입니다.Source Code    해당 강의에서 나온 예제입니다. 처음 소스파일은 클래스 하나에 메소드 하나의 구조로 되어있었습니다.    처음 상태에 Method 하나에 너무 많은 내용이 들어있다. 위의 사진처럼 따로 Builder라는 클래스를 따로 빼주었다.    Wi">
 <meta property="og:locale" content="ko">
-<meta property="og:image" content="https://ggomi.github.io/assets/images/function.png">
-<meta property="og:image" content="https://ggomi.github.io/assets/images/initialize_builder.PNG">
-<meta property="og:image" content="https://ggomi.github.io/assets/images/gif/test2.gif">
-<meta property="og:image" content="https://ggomi.github.io/assets/images/gif/test3.gif">
-<meta property="og:image" content="https://ggomi.github.io/assets/images/gif/test4.gif">
-<meta property="og:updated_time" content="2019-01-22T02:12:29.710Z">
+<meta property="og:image" content="https://ggomi.github.io/images/function.png">
+<meta property="og:image" content="https://ggomi.github.io/images/initialize_builder.PNG">
+<meta property="og:image" content="https://ggomi.github.io/images/gif/test2.gif">
+<meta property="og:image" content="https://ggomi.github.io/images/gif/test3.gif">
+<meta property="og:image" content="https://ggomi.github.io/images/gif/test4.gif">
+<meta property="og:updated_time" content="2019-01-22T14:15:26.293Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="함수 리팩토링, 추상화 예제 (1)">
 <meta name="twitter:description" content="함수 리팩토링, 추상화 예제 (1)   클린코더스 - 백명석님  강의를 보고 작성한 글입니다.Source Code    해당 강의에서 나온 예제입니다. 처음 소스파일은 클래스 하나에 메소드 하나의 구조로 되어있었습니다.    처음 상태에 Method 하나에 너무 많은 내용이 들어있다. 위의 사진처럼 따로 Builder라는 클래스를 따로 빼주었다.    Wi">
-<meta name="twitter:image" content="https://ggomi.github.io/assets/images/function.png">
+<meta name="twitter:image" content="https://ggomi.github.io/images/function.png">
 
 
 
@@ -404,7 +404,7 @@
       
 
       
-        <h2 id="함수-리팩토링-추상화-예제-1"><a href="#함수-리팩토링-추상화-예제-1" class="headerlink" title="함수 리팩토링, 추상화 예제 (1)"></a>함수 리팩토링, 추상화 예제 (1)</h2><p><img src="/assets/images/function.png" alt="banner"></p>
+        <h2 id="함수-리팩토링-추상화-예제-1"><a href="#함수-리팩토링-추상화-예제-1" class="headerlink" title="함수 리팩토링, 추상화 예제 (1)"></a>함수 리팩토링, 추상화 예제 (1)</h2><p><img src="/images/function.png" alt="banner"></p>
 <blockquote>
 <p><a href="https://www.youtube.com/user/codetemplate/videos" rel="external nofollow noopener noreferrer" target="_blank"> 클린코더스 - 백명석님 </a> 강의를 보고 작성한 글입니다.<br><a href="https://github.com/msbaek/clean-coders-2013" rel="external nofollow noopener noreferrer" target="_blank">Source Code</a></p>
 </blockquote>
@@ -412,16 +412,16 @@
 <ul>
 <li>해당 강의에서 나온 예제입니다. 처음 소스파일은 클래스 하나에 메소드 하나의 구조로 되어있었습니다.</li>
 </ul>
-<p><img src="/assets/images/initialize_builder.PNG" alt="initialize-Builder"></p>
+<p><img src="/images/initialize_builder.PNG" alt="initialize-Builder"></p>
 <ul>
 <li>처음 상태에 <code>Method</code> 하나에 너무 많은 내용이 들어있다. 위의 사진처럼 따로 Builder라는 클래스를 따로 빼주었다.</li>
 </ul>
-<p><img src="/assets/images/gif/test2.gif" alt="Extract-field"></p>
+<p><img src="/images/gif/test2.gif" alt="Extract-field"></p>
 <ul>
 <li><code>WikiPage</code>와 <code>builder</code> 지역 변수가 여러 번에 걸쳐서 사용되고 있으므로 필드 변수로 뺄 수 있다. 이작업으로 인해 <code>Method</code>는 최소한의 변수를 가져야한다는 사항을 만족시킬 수 있다.</li>
 <li>그리고 <code>Method</code>에서 두개 이상의 변수를 가지고, 수정하고 있으면 IDE에서 제공하는 Extract기능을 사용할 수 없다.</li>
 </ul>
-<p><img src="/assets/images/gif/test3.gif" alt="Extract-Variable"><br><img src="/assets/images/gif/test4.gif" alt="Extract-Method"></p>
+<p><img src="/images/gif/test3.gif" alt="Extract-Variable"><br><img src="/images/gif/test4.gif" alt="Extract-Method"></p>
 <ul>
 <li>가장 안쪽의 <code>if</code>문이 비슷한 형태로 반복되고있는걸 볼 수 있다. 하지만 <code>buffer(...)</code>에서 각자 취하고 있는 값이 조금 다르기 때문에 <code>Variable</code>로 Extract 해준다. </li>
 <li>그 후 유사한 부분에 대해서 <code>Extract Method</code>를 진행한다. </li>
@@ -758,7 +758,7 @@
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next" rel="external nofollow noopener noreferrer">NexT.Gemini</a> v6.0.6</div>
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next" rel="external nofollow noopener noreferrer">NexT.Pisces</a> v6.0.6</div>
 
 
 

@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="ko">
+<html class="theme-next pisces use-motion" lang="ko">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -75,7 +75,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Gemini',
+    scheme: 'Pisces',
     version: '6.0.6',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: false,
@@ -107,17 +107,17 @@
 <meta property="og:site_name" content="Jeongmin&#39;s Blog">
 <meta property="og:description" content="함수 리팩토링, 추상화 예제 (2)   클린코더스 - 백명석님  강의를 보고 작성한 글입니다.Source Code     함수의 파라미터에 Extract Valuable를 진행하고, Extract Method를 진행하기위해 가장안쪽 if 내부에 있던 지역변수를 if문 밖으로 꺼내어 메소드 추출 준비를 합니다. 그리고 유사한 코드를 찾아 메소드로 추출합니다.">
 <meta property="og:locale" content="ko">
-<meta property="og:image" content="https://ggomi.github.io/assets/images/function.png">
-<meta property="og:image" content="https://ggomi.github.io/assets/images/gif/test5.gif">
-<meta property="og:image" content="https://ggomi.github.io/assets/images/gif/test6.gif">
-<meta property="og:image" content="https://ggomi.github.io/assets/images/gif/test7.gif">
-<meta property="og:image" content="https://ggomi.github.io/assets/images/gif/test8.gif">
-<meta property="og:image" content="https://ggomi.github.io/assets/images/result.png">
-<meta property="og:updated_time" content="2019-01-22T02:12:37.203Z">
+<meta property="og:image" content="https://ggomi.github.io/images/function.png">
+<meta property="og:image" content="https://ggomi.github.io/images/gif/test5.gif">
+<meta property="og:image" content="https://ggomi.github.io/images/gif/test6.gif">
+<meta property="og:image" content="https://ggomi.github.io/images/gif/test7.gif">
+<meta property="og:image" content="https://ggomi.github.io/images/gif/test8.gif">
+<meta property="og:image" content="https://ggomi.github.io/images/result.png">
+<meta property="og:updated_time" content="2019-01-22T14:16:32.996Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="함수 리팩토링, 추상화 예제 (2)">
 <meta name="twitter:description" content="함수 리팩토링, 추상화 예제 (2)   클린코더스 - 백명석님  강의를 보고 작성한 글입니다.Source Code     함수의 파라미터에 Extract Valuable를 진행하고, Extract Method를 진행하기위해 가장안쪽 if 내부에 있던 지역변수를 if문 밖으로 꺼내어 메소드 추출 준비를 합니다. 그리고 유사한 코드를 찾아 메소드로 추출합니다.">
-<meta name="twitter:image" content="https://ggomi.github.io/assets/images/function.png">
+<meta name="twitter:image" content="https://ggomi.github.io/images/function.png">
 
 
 
@@ -405,21 +405,21 @@
       
 
       
-        <h2 id="함수-리팩토링-추상화-예제-2"><a href="#함수-리팩토링-추상화-예제-2" class="headerlink" title="함수 리팩토링, 추상화 예제 (2)"></a>함수 리팩토링, 추상화 예제 (2)</h2><p><img src="/assets/images/function.png" alt="banner"></p>
+        <h2 id="함수-리팩토링-추상화-예제-2"><a href="#함수-리팩토링-추상화-예제-2" class="headerlink" title="함수 리팩토링, 추상화 예제 (2)"></a>함수 리팩토링, 추상화 예제 (2)</h2><p><img src="/images/function.png" alt="banner"></p>
 <blockquote>
 <p><a href="https://www.youtube.com/user/codetemplate/videos" rel="external nofollow noopener noreferrer" target="_blank"> 클린코더스 - 백명석님 </a> 강의를 보고 작성한 글입니다.<br><a href="https://github.com/msbaek/clean-coders-2013" rel="external nofollow noopener noreferrer" target="_blank">Source Code</a></p>
 </blockquote>
 <hr>
-<p><img src="/assets/images/gif/test5.gif" alt="pageName"><br><img src="/assets/images/gif/test6.gif" alt="method Extract"></p>
+<p><img src="/images/gif/test5.gif" alt="pageName"><br><img src="/images/gif/test6.gif" alt="method Extract"></p>
 <ul>
 <li>함수의 파라미터에 <code>Extract Valuable</code>를 진행하고, <code>Extract Method</code>를 진행하기위해 가장안쪽 <code>if</code> 내부에 있던 지역변수를 <code>if</code>문 밖으로 꺼내어 메소드 추출 준비를 합니다.</li>
 <li>그리고 유사한 코드를 찾아 메소드로 추출합니다.</li>
 </ul>
-<p><img src="/assets/images/gif/test7.gif" alt="inline"><br><img src="/assets/images/gif/test8.gif" alt="method Extract"></p>
+<p><img src="/images/gif/test7.gif" alt="inline"><br><img src="/images/gif/test8.gif" alt="method Extract"></p>
 <ul>
 <li>추출하고 남아있는 코드에서 의미없이 라인만 차지하는 코드들을 <code>inline</code>형태로 변경하고, 다시 메소드 추출을 진행합니다.</li>
 </ul>
-<p><img src="/assets/images/result.png" alt="method Extract"></p>
+<p><img src="/images/result.png" alt="method Extract"></p>
 <ul>
 <li>마지막으로 같은레벨의 <code>if</code>문 두개로 나누어져있는 코드를 하나로 병합해줍니다.</li>
 </ul>
@@ -760,7 +760,7 @@
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next" rel="external nofollow noopener noreferrer">NexT.Gemini</a> v6.0.6</div>
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next" rel="external nofollow noopener noreferrer">NexT.Pisces</a> v6.0.6</div>
 
 
 

@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="ko">
+<html class="theme-next pisces use-motion" lang="ko">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -75,7 +75,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Gemini',
+    scheme: 'Pisces',
     version: '6.0.6',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: false,
@@ -402,21 +402,21 @@
       
         
           
-            <h2 id="함수-리팩토링-추상화-예제-2"><a href="#함수-리팩토링-추상화-예제-2" class="headerlink" title="함수 리팩토링, 추상화 예제 (2)"></a>함수 리팩토링, 추상화 예제 (2)</h2><p><img src="/assets/images/function.png" alt="banner"></p>
+            <h2 id="함수-리팩토링-추상화-예제-2"><a href="#함수-리팩토링-추상화-예제-2" class="headerlink" title="함수 리팩토링, 추상화 예제 (2)"></a>함수 리팩토링, 추상화 예제 (2)</h2><p><img src="/images/function.png" alt="banner"></p>
 <blockquote>
 <p><a href="https://www.youtube.com/user/codetemplate/videos" rel="external nofollow noopener noreferrer" target="_blank"> 클린코더스 - 백명석님 </a> 강의를 보고 작성한 글입니다.<br><a href="https://github.com/msbaek/clean-coders-2013" rel="external nofollow noopener noreferrer" target="_blank">Source Code</a></p>
 </blockquote>
 <hr>
-<p><img src="/assets/images/gif/test5.gif" alt="pageName"><br><img src="/assets/images/gif/test6.gif" alt="method Extract"></p>
+<p><img src="/images/gif/test5.gif" alt="pageName"><br><img src="/images/gif/test6.gif" alt="method Extract"></p>
 <ul>
 <li>함수의 파라미터에 <code>Extract Valuable</code>를 진행하고, <code>Extract Method</code>를 진행하기위해 가장안쪽 <code>if</code> 내부에 있던 지역변수를 <code>if</code>문 밖으로 꺼내어 메소드 추출 준비를 합니다.</li>
 <li>그리고 유사한 코드를 찾아 메소드로 추출합니다.</li>
 </ul>
-<p><img src="/assets/images/gif/test7.gif" alt="inline"><br><img src="/assets/images/gif/test8.gif" alt="method Extract"></p>
+<p><img src="/images/gif/test7.gif" alt="inline"><br><img src="/images/gif/test8.gif" alt="method Extract"></p>
 <ul>
 <li>추출하고 남아있는 코드에서 의미없이 라인만 차지하는 코드들을 <code>inline</code>형태로 변경하고, 다시 메소드 추출을 진행합니다.</li>
 </ul>
-<p><img src="/assets/images/result.png" alt="method Extract"></p>
+<p><img src="/images/result.png" alt="method Extract"></p>
 <ul>
 <li>마지막으로 같은레벨의 <code>if</code>문 두개로 나누어져있는 코드를 하나로 병합해줍니다.</li>
 </ul>
@@ -574,7 +574,7 @@
       
         
           
-            <h2 id="함수-리팩토링-추상화-예제-1"><a href="#함수-리팩토링-추상화-예제-1" class="headerlink" title="함수 리팩토링, 추상화 예제 (1)"></a>함수 리팩토링, 추상화 예제 (1)</h2><p><img src="/assets/images/function.png" alt="banner"></p>
+            <h2 id="함수-리팩토링-추상화-예제-1"><a href="#함수-리팩토링-추상화-예제-1" class="headerlink" title="함수 리팩토링, 추상화 예제 (1)"></a>함수 리팩토링, 추상화 예제 (1)</h2><p><img src="/images/function.png" alt="banner"></p>
 <blockquote>
 <p><a href="https://www.youtube.com/user/codetemplate/videos" rel="external nofollow noopener noreferrer" target="_blank"> 클린코더스 - 백명석님 </a> 강의를 보고 작성한 글입니다.<br><a href="https://github.com/msbaek/clean-coders-2013" rel="external nofollow noopener noreferrer" target="_blank">Source Code</a></p>
 </blockquote>
@@ -582,16 +582,16 @@
 <ul>
 <li>해당 강의에서 나온 예제입니다. 처음 소스파일은 클래스 하나에 메소드 하나의 구조로 되어있었습니다.</li>
 </ul>
-<p><img src="/assets/images/initialize_builder.PNG" alt="initialize-Builder"></p>
+<p><img src="/images/initialize_builder.PNG" alt="initialize-Builder"></p>
 <ul>
 <li>처음 상태에 <code>Method</code> 하나에 너무 많은 내용이 들어있다. 위의 사진처럼 따로 Builder라는 클래스를 따로 빼주었다.</li>
 </ul>
-<p><img src="/assets/images/gif/test2.gif" alt="Extract-field"></p>
+<p><img src="/images/gif/test2.gif" alt="Extract-field"></p>
 <ul>
 <li><code>WikiPage</code>와 <code>builder</code> 지역 변수가 여러 번에 걸쳐서 사용되고 있으므로 필드 변수로 뺄 수 있다. 이작업으로 인해 <code>Method</code>는 최소한의 변수를 가져야한다는 사항을 만족시킬 수 있다.</li>
 <li>그리고 <code>Method</code>에서 두개 이상의 변수를 가지고, 수정하고 있으면 IDE에서 제공하는 Extract기능을 사용할 수 없다.</li>
 </ul>
-<p><img src="/assets/images/gif/test3.gif" alt="Extract-Variable"><br><img src="/assets/images/gif/test4.gif" alt="Extract-Method"></p>
+<p><img src="/images/gif/test3.gif" alt="Extract-Variable"><br><img src="/images/gif/test4.gif" alt="Extract-Method"></p>
 <ul>
 <li>가장 안쪽의 <code>if</code>문이 비슷한 형태로 반복되고있는걸 볼 수 있다. 하지만 <code>buffer(...)</code>에서 각자 취하고 있는 값이 조금 다르기 때문에 <code>Variable</code>로 Extract 해준다. </li>
 <li>그 후 유사한 부분에 대해서 <code>Extract Method</code>를 진행한다. </li>
@@ -745,7 +745,7 @@
       
         
           
-            <p><img src="/assets/images/basic1.png" alt="기초개발상식"></p>
+            <p><img src="/images/basic1.png" alt="기초개발상식"></p>
 <h1 id="재사용"><a href="#재사용" class="headerlink" title="재사용"></a>재사용</h1><ul>
 <li>코드에 변경이 일어나도 내가 짰던 코드는 문제가 안생긴다. =&gt; 재사용</li>
 <li>여기저기에서 쓰일수있다 =&gt; 재사용이 아니다.</li>
@@ -920,7 +920,7 @@
       
         
           
-            <h2 id="기초-개발상식-및-개념들-2"><a href="#기초-개발상식-및-개념들-2" class="headerlink" title="기초 개발상식 및 개념들 - 2"></a>기초 개발상식 및 개념들 - 2</h2><p><img src="/assets/images/basic1.png" alt="기초개발상식"></p>
+            <h2 id="기초-개발상식-및-개념들-2"><a href="#기초-개발상식-및-개념들-2" class="headerlink" title="기초 개발상식 및 개념들 - 2"></a>기초 개발상식 및 개념들 - 2</h2><p><img src="/images/basic1.png" alt="기초개발상식"></p>
 <hr>
 <h2 id="1-상속과-재사용"><a href="#1-상속과-재사용" class="headerlink" title="1. 상속과 재사용"></a>1. 상속과 재사용</h2><h3 id="1-1-상속을-통한-재사용-단점"><a href="#1-1-상속을-통한-재사용-단점" class="headerlink" title="1.1 상속을 통한 재사용 단점"></a>1.1 상속을 통한 재사용 단점</h3><ul>
 <li><p><em>상위클래스의 변경이 어렵다.</em></p>
@@ -1635,7 +1635,7 @@
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next" rel="external nofollow noopener noreferrer">NexT.Gemini</a> v6.0.6</div>
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next" rel="external nofollow noopener noreferrer">NexT.Pisces</a> v6.0.6</div>
 
 
 
