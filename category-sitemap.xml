@@ -2,41 +2,41 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
-        <loc>https://localhost:4000</loc>
+        <loc>https://ggomi.github.io</loc>
         <changefreq>daily</changefreq>
         <priority>1</priority>
     </url>
 
     <url>
-        <loc>https://localhost:4000/categories/JPA/</loc>
+        <loc>https://ggomi.github.io/categories/JPA/</loc>
         <lastmod>2019-01-22T02:13:06.614Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://localhost:4000/categories/Algorithm/</loc>
+        <loc>https://ggomi.github.io/categories/Algorithm/</loc>
         <lastmod>2019-01-22T02:13:11.787Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://localhost:4000/categories/HTML5/</loc>
+        <loc>https://ggomi.github.io/categories/HTML5/</loc>
         <lastmod>2019-01-22T02:13:31.299Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://localhost:4000/categories/TDD/</loc>
+        <loc>https://ggomi.github.io/categories/TDD/</loc>
         <lastmod>2019-01-22T02:13:37.962Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://localhost:4000/categories/Basic-sense/</loc>
+        <loc>https://ggomi.github.io/categories/Basic-sense/</loc>
         <lastmod>2019-01-22T02:13:44.772Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>

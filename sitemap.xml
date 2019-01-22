@@ -3,22 +3,22 @@
 
 
     <sitemap>
-        <loc>https://localhost:4000/post-sitemap.xml</loc>
+        <loc>https://ggomi.github.io/post-sitemap.xml</loc>
         <lastmod>2019-01-22T02:13:44.772Z</lastmod>
     </sitemap>
 
     <sitemap>
-        <loc>https://localhost:4000/page-sitemap.xml</loc>
-        <lastmod>2019-01-22T02:14:42.287Z</lastmod>
+        <loc>https://ggomi.github.io/page-sitemap.xml</loc>
+        <lastmod>2019-01-22T02:23:53.690Z</lastmod>
     </sitemap>
 
     <sitemap>
-        <loc>https://localhost:4000/category-sitemap.xml</loc>
+        <loc>https://ggomi.github.io/category-sitemap.xml</loc>
         <lastmod>2019-01-22T02:13:06.614Z</lastmod>
     </sitemap>
 
     <sitemap>
-        <loc>https://localhost:4000/tag-sitemap.xml</loc>
+        <loc>https://ggomi.github.io/tag-sitemap.xml</loc>
         <lastmod>2019-01-22T02:11:42.551Z</lastmod>
     </sitemap>
 

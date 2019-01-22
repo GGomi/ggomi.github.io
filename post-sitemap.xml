@@ -2,13 +2,13 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
-        <loc>https://localhost:4000</loc>
+        <loc>https://ggomi.github.io</loc>
         <changefreq>daily</changefreq>
         <priority>1</priority>
     </url>
 
     <url>
-        <loc>https://localhost:4000/vertical-classes/</loc>
+        <loc>https://ggomi.github.io/vertical-classes/</loc>
         <lastmod>2019-01-22T02:13:44.772Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -16,7 +16,7 @@
     </url>
 
     <url>
-        <loc>https://localhost:4000/tdd/</loc>
+        <loc>https://ggomi.github.io/tdd/</loc>
         <lastmod>2019-01-22T02:13:37.962Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -24,7 +24,7 @@
     </url>
 
     <url>
-        <loc>https://localhost:4000/SSE/</loc>
+        <loc>https://ggomi.github.io/SSE/</loc>
         <lastmod>2019-01-22T02:13:31.299Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -32,7 +32,7 @@
     </url>
 
     <url>
-        <loc>https://localhost:4000/kwpattern/</loc>
+        <loc>https://ggomi.github.io/kwpattern/</loc>
         <lastmod>2019-01-22T02:13:11.787Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -40,7 +40,7 @@
     </url>
 
     <url>
-        <loc>https://localhost:4000/JPA-%EA%B0%9C%EB%85%90-%EB%B0%8F-%EC%84%A4%EB%AA%85/</loc>
+        <loc>https://ggomi.github.io/JPA-%EA%B0%9C%EB%85%90-%EB%B0%8F-%EC%84%A4%EB%AA%85/</loc>
         <lastmod>2019-01-22T02:13:06.614Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -48,7 +48,7 @@
     </url>
 
     <url>
-        <loc>https://localhost:4000/function-structure/</loc>
+        <loc>https://ggomi.github.io/function-structure/</loc>
         <lastmod>2019-01-22T02:13:01.014Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -56,7 +56,7 @@
     </url>
 
     <url>
-        <loc>https://localhost:4000/function-structure-2/</loc>
+        <loc>https://ggomi.github.io/function-structure-2/</loc>
         <lastmod>2019-01-22T02:12:54.321Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -64,7 +64,7 @@
     </url>
 
     <url>
-        <loc>https://localhost:4000/function-example2/</loc>
+        <loc>https://ggomi.github.io/function-example2/</loc>
         <lastmod>2019-01-22T02:12:37.203Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -72,7 +72,7 @@
     </url>
 
     <url>
-        <loc>https://localhost:4000/function-example/</loc>
+        <loc>https://ggomi.github.io/function-example/</loc>
         <lastmod>2019-01-22T02:12:29.710Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -80,7 +80,7 @@
     </url>
 
     <url>
-        <loc>https://localhost:4000/DDD/</loc>
+        <loc>https://ggomi.github.io/DDD/</loc>
         <lastmod>2019-01-22T02:12:23.795Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -88,7 +88,7 @@
     </url>
 
     <url>
-        <loc>https://localhost:4000/data-structure/</loc>
+        <loc>https://ggomi.github.io/data-structure/</loc>
         <lastmod>2019-01-22T02:12:17.206Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -96,7 +96,7 @@
     </url>
 
     <url>
-        <loc>https://localhost:4000/comments-rules/</loc>
+        <loc>https://ggomi.github.io/comments-rules/</loc>
         <lastmod>2019-01-22T02:12:12.315Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -104,7 +104,7 @@
     </url>
 
     <url>
-        <loc>https://localhost:4000/basic-3/</loc>
+        <loc>https://ggomi.github.io/basic-3/</loc>
         <lastmod>2019-01-22T02:12:06.099Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -112,7 +112,7 @@
     </url>
 
     <url>
-        <loc>https://localhost:4000/basic-1/</loc>
+        <loc>https://ggomi.github.io/basic-1/</loc>
         <lastmod>2019-01-22T02:11:57.675Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -120,7 +120,7 @@
     </url>
 
     <url>
-        <loc>https://localhost:4000/basic-0/</loc>
+        <loc>https://ggomi.github.io/basic-0/</loc>
         <lastmod>2019-01-22T02:11:51.480Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -128,7 +128,7 @@
     </url>
 
     <url>
-        <loc>https://localhost:4000/basic-2/</loc>
+        <loc>https://ggomi.github.io/basic-2/</loc>
         <lastmod>2019-01-22T02:11:42.551Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>

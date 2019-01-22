@@ -2,42 +2,35 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
-        <loc>https://localhost:4000</loc>
+        <loc>https://ggomi.github.io</loc>
         <changefreq>daily</changefreq>
         <priority>1</priority>
     </url>
     
     <url>
-        <loc>https://localhost:4000/about/</loc>
-        <lastmod>2019-01-22T02:14:42.287Z</lastmod>
+        <loc>https://ggomi.github.io/about/</loc>
+        <lastmod>2019-01-22T02:23:53.690Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>https://localhost:4000/404-md/</loc>
+        <loc>https://ggomi.github.io/categories/</loc>
+        <lastmod>2019-01-22T02:21:57.865Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://ggomi.github.io/tags/</loc>
+        <lastmod>2019-01-22T02:19:27.583Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://ggomi.github.io/404-md/</loc>
         <lastmod>2018-12-12T06:32:50.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <url>
-        <loc>https://localhost:4000/all-tags/</loc>
-        <lastmod>2018-12-12T06:08:30.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <url>
-        <loc>https://localhost:4000/all-archives/</loc>
-        <lastmod>2018-12-12T06:08:26.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <url>
-        <loc>https://localhost:4000/all-categories/</loc>
-        <lastmod>2018-12-12T06:08:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
