@@ -8,6 +8,22 @@
     </url>
 
     <url>
+        <loc>https://ggomi.github.io/function-structure/</loc>
+        <lastmod>2019-01-22T14:34:26.583Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://ggomi.github.io/function-structure-2/</loc>
+        <lastmod>2019-01-22T14:33:57.500Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://ggomi.github.io/data-structure/</loc>
         <lastmod>2019-01-22T14:21:09.174Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -34,14 +50,6 @@
     <url>
         <loc>https://ggomi.github.io/vertical-classes/</loc>
         <lastmod>2019-01-22T14:20:05.719Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://ggomi.github.io/function-structure/</loc>
-        <lastmod>2019-01-22T14:17:10.582Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -90,14 +98,6 @@
     <url>
         <loc>https://ggomi.github.io/JPA-%EA%B0%9C%EB%85%90-%EB%B0%8F-%EC%84%A4%EB%AA%85/</loc>
         <lastmod>2019-01-22T02:13:06.614Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://ggomi.github.io/function-structure-2/</loc>
-        <lastmod>2019-01-22T02:12:54.321Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

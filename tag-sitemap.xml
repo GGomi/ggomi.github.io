@@ -136,13 +136,6 @@
     </url>
 
     <url>
-        <loc>https://ggomi.github.io/tags/%EB%A6%AC%ED%8C%A9%ED%86%A0%EB%A7%81/</loc>
-        <lastmod>2019-01-22T14:17:10.582Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://ggomi.github.io/tags/%EC%A3%BC%EC%84%9D/</loc>
         <lastmod>2019-01-22T14:20:05.719Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -192,20 +185,6 @@
     </url>
 
     <url>
-        <loc>https://ggomi.github.io/tags/%EA%B0%9C%EB%B0%9C%EC%9E%90-%EA%B8%B0%EC%B4%88%EB%8B%A4%EC%A7%80%EA%B8%B0-%ED%95%A8%EC%88%98/</loc>
-        <lastmod>2019-01-22T14:21:01.024Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://ggomi.github.io/tags/%ED%95%A8%EC%88%98/</loc>
-        <lastmod>2019-01-22T14:21:01.024Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://ggomi.github.io/tags/%EA%B0%9C%EB%B0%9C%EC%9E%90-%EA%B8%B0%EC%B4%88%EB%8B%A4%EC%A7%80%EA%B8%B0/</loc>
         <lastmod>2019-01-22T14:21:09.174Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -222,6 +201,27 @@
     <url>
         <loc>https://ggomi.github.io/tags/Boundaries/</loc>
         <lastmod>2019-01-22T14:21:09.174Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://ggomi.github.io/tags/%EA%B0%9C%EB%B0%9C%EC%9E%90-%EA%B8%B0%EC%B4%88%EB%8B%A4%EC%A7%80%EA%B8%B0-%ED%95%A8%EC%88%98/</loc>
+        <lastmod>2019-01-22T14:34:26.583Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://ggomi.github.io/tags/%ED%95%A8%EC%88%98/</loc>
+        <lastmod>2019-01-22T14:34:26.583Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://ggomi.github.io/tags/%EB%A6%AC%ED%8C%A9%ED%86%A0%EB%A7%81/</loc>
+        <lastmod>2019-01-22T14:34:26.583Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
