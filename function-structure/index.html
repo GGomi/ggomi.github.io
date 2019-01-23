@@ -379,6 +379,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/function-structure/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="function-structure/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -566,6 +576,16 @@ Builder 패턴을 적용하는 것이 더 좋은방법!!
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript" rel="external nofollow noopener noreferrer" target="_blank">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
 
   
 
@@ -928,6 +948,31 @@ Builder 패턴을 적용하는 것이 더 좋은방법!!
 
   
 
+  
+    <script id="dsq-count-scr" src="https://ggomi-github-io.disqus.com/count.js" async></script>
+  
+
+  
+    <script type="text/javascript">
+      var disqus_config = function () {
+        this.page.url = 'https://ggomi.github.io/function-structure/';
+        this.page.identifier = 'function-structure/';
+        this.page.title = '함수의 구조 (function Structure) - 1';
+      };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://ggomi-github-io.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
+  
+
+
+
 
 
 	
@@ -939,10 +984,6 @@ Builder 패턴을 적용하는 것이 더 좋은방법!!
   
 
 
-
-
-
-  
 
 
 
