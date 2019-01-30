@@ -211,11 +211,11 @@
       <category term="Basic_sense" scheme="https://ggomi.github.io/categories/Basic-sense/"/>
     
     
-      <category term="개발자 기초다지기" scheme="https://ggomi.github.io/tags/%EA%B0%9C%EB%B0%9C%EC%9E%90-%EA%B8%B0%EC%B4%88%EB%8B%A4%EC%A7%80%EA%B8%B0/"/>
-    
       <category term="주석" scheme="https://ggomi.github.io/tags/%EC%A3%BC%EC%84%9D/"/>
     
       <category term="문서화" scheme="https://ggomi.github.io/tags/%EB%AC%B8%EC%84%9C%ED%99%94/"/>
+    
+      <category term="개발자 기초다지기" scheme="https://ggomi.github.io/tags/%EA%B0%9C%EB%B0%9C%EC%9E%90-%EA%B8%B0%EC%B4%88%EB%8B%A4%EC%A7%80%EA%B8%B0/"/>
     
       <category term="Vertical Formatting" scheme="https://ggomi.github.io/tags/Vertical-Formatting/"/>
     
