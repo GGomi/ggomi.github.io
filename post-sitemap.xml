@@ -8,6 +8,22 @@
     </url>
 
     <url>
+        <loc>https://ggomi.github.io/TDD-%EC%98%88%EC%A0%9C(1)/</loc>
+        <lastmod>2019-02-12T07:37:48.918Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://ggomi.github.io/weekly-retrospective-20190128-20190201/</loc>
+        <lastmod>2019-02-04T05:04:56.176Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://ggomi.github.io/weekly-retrospective-20190121-20190125/</loc>
         <lastmod>2019-01-30T07:46:34.771Z</lastmod>
         <changefreq>weekly</changefreq>

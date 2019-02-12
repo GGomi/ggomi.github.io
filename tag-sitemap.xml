@@ -94,13 +94,6 @@
     </url>
 
     <url>
-        <loc>https://ggomi.github.io/tags/TDD/</loc>
-        <lastmod>2019-01-22T14:14:01.176Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://ggomi.github.io/tags/Test-Driven-Development/</loc>
         <lastmod>2019-01-22T14:14:01.176Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -228,7 +221,28 @@
 
     <url>
         <loc>https://ggomi.github.io/tags/%EC%A3%BC%EA%B0%84%ED%9A%8C%EA%B3%A0/</loc>
-        <lastmod>2019-01-30T07:46:34.771Z</lastmod>
+        <lastmod>2019-02-04T05:04:56.176Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://ggomi.github.io/tags/TDD/</loc>
+        <lastmod>2019-02-12T07:37:48.918Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://ggomi.github.io/tags/msbaek/</loc>
+        <lastmod>2019-02-12T07:37:48.918Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://ggomi.github.io/tags/%EB%B0%B1%EB%AA%85%EC%84%9D/</loc>
+        <lastmod>2019-02-12T07:37:48.918Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
