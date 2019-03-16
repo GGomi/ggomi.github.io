@@ -8,8 +8,24 @@
     </url>
 
     <url>
+        <loc>https://ggomi.github.io/spring-injection/</loc>
+        <lastmod>2019-03-16T18:54:39.483Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://ggomi.github.io/weekly-retrospective-20190128-20190201/</loc>
+        <lastmod>2019-02-17T23:59:38.898Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://ggomi.github.io/weekly-retrospective-20190211-0215/</loc>
-        <lastmod>2019-02-17T10:23:01.632Z</lastmod>
+        <lastmod>2019-02-17T23:59:35.967Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -18,14 +34,6 @@
     <url>
         <loc>https://ggomi.github.io/TDD-%EC%98%88%EC%A0%9C(1)/</loc>
         <lastmod>2019-02-12T07:39:18.820Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://ggomi.github.io/weekly-retrospective-20190128-20190201/</loc>
-        <lastmod>2019-02-04T05:04:56.176Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

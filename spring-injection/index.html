@@ -131,20 +131,18 @@
 
 
 
-  <meta name="description" content="Vertical Formatting 1. 공란을 함부로 사용하지마라. 공란은 비어있는 라인을 말하는데 이것도 일련의 규칙을 가지고 하는 것이 좋다고 한다. 아래와 같은 경우에 공란을 주자!   메소드 사이 private 변수들과 public 변수들 사이 변수선언과 메소드 실행의 나머지 부분 사이 if / while 블록과 다른 코드 사이  2. 서로 관련된">
-<meta name="keywords" content="개발자 기초다지기,주석,문서화,Vertical Formatting,Classes">
+  <meta name="description" content="DI(Dependency Injection)를 하는 방법은 여러가지가 있다. 그 방법을 알아보기 전에 DI가 왜 필요한가에 대해서 알아보자. DI는 왜 필요한가?객체 의존성은 객체가 다른객체를 참조, 상호작용을 하여 긴밀한 연결, 결합이 생기는 것이다.객체 의존은 아래와 같은 문제가 발생된다.  하나의 모듈이 바뀌면 의존한 다른 모듈까지 변경되어야한다. 결">
+<meta name="keywords" content="spring,Dependency Injection">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vertical Formatting과 Classes">
-<meta property="og:url" content="https://ggomi.github.io/vertical-classes/index.html">
+<meta property="og:title" content="DI(Dependency Injection)">
+<meta property="og:url" content="https://ggomi.github.io/spring-injection/index.html">
 <meta property="og:site_name" content="Jeongmin&#39;s Blog">
-<meta property="og:description" content="Vertical Formatting 1. 공란을 함부로 사용하지마라. 공란은 비어있는 라인을 말하는데 이것도 일련의 규칙을 가지고 하는 것이 좋다고 한다. 아래와 같은 경우에 공란을 주자!   메소드 사이 private 변수들과 public 변수들 사이 변수선언과 메소드 실행의 나머지 부분 사이 if / while 블록과 다른 코드 사이  2. 서로 관련된">
+<meta property="og:description" content="DI(Dependency Injection)를 하는 방법은 여러가지가 있다. 그 방법을 알아보기 전에 DI가 왜 필요한가에 대해서 알아보자. DI는 왜 필요한가?객체 의존성은 객체가 다른객체를 참조, 상호작용을 하여 긴밀한 연결, 결합이 생기는 것이다.객체 의존은 아래와 같은 문제가 발생된다.  하나의 모듈이 바뀌면 의존한 다른 모듈까지 변경되어야한다. 결">
 <meta property="og:locale" content="ko">
-<meta property="og:image" content="https://ggomi.github.io/images/class.png">
-<meta property="og:updated_time" content="2019-01-22T14:20:05.719Z">
+<meta property="og:updated_time" content="2019-03-16T18:54:39.483Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Vertical Formatting과 Classes">
-<meta name="twitter:description" content="Vertical Formatting 1. 공란을 함부로 사용하지마라. 공란은 비어있는 라인을 말하는데 이것도 일련의 규칙을 가지고 하는 것이 좋다고 한다. 아래와 같은 경우에 공란을 주자!   메소드 사이 private 변수들과 public 변수들 사이 변수선언과 메소드 실행의 나머지 부분 사이 if / while 블록과 다른 코드 사이  2. 서로 관련된">
-<meta name="twitter:image" content="https://ggomi.github.io/images/class.png">
+<meta name="twitter:title" content="DI(Dependency Injection)">
+<meta name="twitter:description" content="DI(Dependency Injection)를 하는 방법은 여러가지가 있다. 그 방법을 알아보기 전에 DI가 왜 필요한가에 대해서 알아보자. DI는 왜 필요한가?객체 의존성은 객체가 다른객체를 참조, 상호작용을 하여 긴밀한 연결, 결합이 생기는 것이다.객체 의존은 아래와 같은 문제가 발생된다.  하나의 모듈이 바뀌면 의존한 다른 모듈까지 변경되어야한다. 결">
 
 
 
@@ -153,7 +151,7 @@
 
 
 
-  <link rel="canonical" href="https://ggomi.github.io/vertical-classes/">
+  <link rel="canonical" href="https://ggomi.github.io/spring-injection/">
 
 
 
@@ -163,7 +161,7 @@
   };
 </script>
 
-  <title>Vertical Formatting과 Classes | Jeongmin's Blog</title>
+  <title>DI(Dependency Injection) | Jeongmin's Blog</title>
   
 
 
@@ -375,7 +373,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ggomi.github.io/vertical-classes/">
+    <link itemprop="mainEntityOfPage" href="https://ggomi.github.io/spring-injection/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jeongmin Oh">
@@ -392,7 +390,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Vertical Formatting과 Classes</h1>
+          <h1 class="post-title" itemprop="name headline">DI(Dependency Injection)</h1>
         
 
         <div class="post-meta">
@@ -404,7 +402,7 @@
               
                 <span class="post-meta-item-text">작성일</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-23T22:23:20+09:00">2018-12-23</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-17T01:55:22+09:00">2019-03-17</time>
             
 
             
@@ -425,7 +423,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Basic-sense/" itemprop="url" rel="index"><span itemprop="name">Basic_sense</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Spring/" itemprop="url" rel="index"><span itemprop="name">Spring</span></a></span>
 
                 
                 
@@ -440,8 +438,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/vertical-classes/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="vertical-classes/" itemprop="commentCount"></span>
+                <a href="/spring-injection/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="spring-injection/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -469,43 +467,41 @@
       
 
       
-        <h1 id="Vertical-Formatting"><a href="#Vertical-Formatting" class="headerlink" title="Vertical Formatting"></a>Vertical Formatting</h1><hr>
-<h2 id="1-공란을-함부로-사용하지마라"><a href="#1-공란을-함부로-사용하지마라" class="headerlink" title="1. 공란을 함부로 사용하지마라."></a>1. 공란을 함부로 사용하지마라.</h2><blockquote>
-<p>공란은 비어있는 라인을 말하는데 이것도 일련의 규칙을 가지고 하는 것이 좋다고 한다. 아래와 같은 경우에 공란을 주자!</p>
-</blockquote>
+        <p><code>DI(Dependency Injection)</code>를 하는 방법은 여러가지가 있다. 그 방법을 알아보기 전에 DI가 왜 필요한가에 대해서 알아보자.</p>
+<h1 id="DI는-왜-필요한가"><a href="#DI는-왜-필요한가" class="headerlink" title="DI는 왜 필요한가?"></a>DI는 왜 필요한가?</h1><p>객체 의존성은 객체가 다른객체를 참조, 상호작용을 하여 긴밀한 연결, 결합이 생기는 것이다.<br>객체 의존은 아래와 같은 문제가 발생된다.</p>
+<ol>
+<li>하나의 모듈이 바뀌면 의존한 다른 모듈까지 변경되어야한다.</li>
+<li>결합이 강하기 때문에 Unit Test 작성이 어렵다.</li>
+</ol>
+<p>그렇기 때문에 <strong>Framework에 의해 객체의 의존성을 주입하게 되는 설계패턴</strong>, <code>DI</code>를 이용하게 되는 것이다.</p>
+<p><code>DI</code>를 찾다보면 <code>Ioc(제어의 역전)</code>라는 것도 보게되는데 이 둘은 같은의미로 사용되며 <code>Ioc</code>는 <code>DI</code>를 통해 달성된다. </p>
+<p><code>Ioc</code>는 말그대로 모든 제어의 중심이 Framework로 넘어가는 것이다.</p>
+<h2 id="DI의-장점"><a href="#DI의-장점" class="headerlink" title="DI의 장점"></a>DI의 장점</h2><ol>
+<li><strong>종속성 감소(느슨한 결합)</strong></li>
+<li>재사용성 증가</li>
+<li>더 많은 테스트코드 작성 가능</li>
+<li>코드 가독성 증가</li>
+</ol>
+<h1 id="의존성-주입-방법"><a href="#의존성-주입-방법" class="headerlink" title="의존성 주입 방법"></a>의존성 주입 방법</h1><p>대표적으로 마틴파울러가 제시한 세가지 방법이 있다.</p>
+<h3 id="1-생성자를-통한-주입"><a href="#1-생성자를-통한-주입" class="headerlink" title="1. 생성자를 통한 주입"></a>1. 생성자를 통한 주입</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DI</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Dependency dependency;</span><br><span class="line">    <span class="keyword">private</span> Dependency2 dependency2;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">DI</span><span class="params">(Dependency dependency,Dependency2 dependency2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.dependency = dependency;</span><br><span class="line">        <span class="keyword">this</span>.dependency2 = dependency2;</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>메소드 사이</li>
-<li>private 변수들과 public 변수들 사이</li>
-<li>변수선언과 메소드 실행의 나머지 부분 사이</li>
-<li>if / while 블록과 다른 코드 사이</li>
+<li>필요한 의존성을 모두 포함하는 클래스의 생성자를 만들고, 그 생성자를 통해 의존성을 주입한다.</li>
 </ul>
-<h2 id="2-서로-관련된-것들은-Vertical하게-근접해야한다"><a href="#2-서로-관련된-것들은-Vertical하게-근접해야한다" class="headerlink" title="2. 서로 관련된 것들은 Vertical하게 근접해야한다."></a>2. 서로 관련된 것들은 Vertical하게 근접해야한다.</h2><blockquote>
-<p>Vertical한 거리가 그들간의 관련성을 나타낸다!</p>
-</blockquote>
-<hr>
-<h1 id="Class"><a href="#Class" class="headerlink" title="Class"></a>Class</h1><h2 id="1-Class란-무엇인가"><a href="#1-Class란-무엇인가" class="headerlink" title="1. Class란 무엇인가?"></a>1. Class란 무엇인가?</h2><blockquote>
-<p>private 변수와 그 변수들에 대해서 동작하는 public 함수들의 집합이다.(private함수일 수 도..)</p>
-</blockquote>
-<p><em>private</em>변수들을 작성함으로써 클래스를 작성한다. 그리고 <em>private</em>변수들을 public 함수들로 조작한다. 그렇기 때문에 외부에서는 클래스 내의 <em>private</em>변수들이 존재하지 않는 것처럼 보인다.</p>
-<h2 id="하지만"><a href="#하지만" class="headerlink" title="하지만,"></a><strong>하지만,</strong></h2><p>너무 잘 보인다.</p>
-<p>왜냐하면 <em>Getter/Setter</em> 때문에 짐작할 수 있게된다. 왜 변수는 <em>private</em>로 선언하고, <em>Getter/Setter</em>를 제공하나?</p>
-<blockquote>
-<p><strong>필요하지도 않는 <em>Getter/Setter</em>들을 만드는 것은 정말 좋지않은 습관이다.</strong></p>
-</blockquote>
-<p>또한, 객체의 상태를 외부에서 사용할 수 있도록 하는 <em>Getter/Setter/property</em> 등을 제공하는 것은 잘못 된 설계다.</p>
-<p>여기서, 또다시 <em>Tell, Don’t Ask Rule</em>이 나온다.</p>
-<blockquote>
-<p>객체가 관찰할 수 있는 상태를 가지지 않는다면, Tell 하기 쉽고, ask할 가치가 없어진다. 이 규칙을 따르게 되면 Getter가 많지않고, Getter가 많지않으므로 Setter도 적다.</p>
-</blockquote>
-<p>Max cohesive(응집도 최대)를 생각했을 때 Getter/Setter는 cohesive 하지않다.<br>왜냐하면 하나의 변수만 사용하기 때문에 응집도가 높을 수 없다. 그렇다고 해서 Getter/Setter가 없을 수는 없다.. </p>
-<p><strong>그래서 최소화하고 본래변수를 그대로 노출하지않고, 추상화를 통해 제공해야한다.</strong></p>
-<p> <img src="/images/class.png" alt="class"></p>
-<p> 위의 사진처럼 getter를 추상화를 통해서 제공하고, 추상화하기 때문에 getter 이름을 잘 정해야한다.</p>
-<p> 이렇게 했을 때 다형성이 자연스럽게 따라오게 된다.<br> 다형성은 클라이언트 코드를 서버코드의 구현 변경으로부터 보호하고,<br> IoC를 통해 High Level Policy(클라이언트, 비즈니스 로직)를 Low Level Detail로부터 보호하는 것.</p>
+<h3 id="2-Setter를-통한-주입"><a href="#2-Setter를-통한-주입" class="headerlink" title="2. Setter를 통한 주입"></a>2. Setter를 통한 주입</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DI</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Dependency dependency;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setDependency</span><span class="params">(Dependency dependency)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.dependency = dependency;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>의존성을 입력받는 Setter메소드를 만들고, 이를 통해 의존성을 주입한다.</p>
+<h3 id="3-Interface를-통한-주입"><a href="#3-Interface를-통한-주입" class="headerlink" title="3. Interface를 통한 주입"></a>3. Interface를 통한 주입</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">InjectFinder</span> </span>&#123;  </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">injectFinder</span><span class="params">(MovieFinder finder)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MovieLister</span> <span class="keyword">implements</span> <span class="title">InjectFinder</span>...  </span></span><br><span class="line"><span class="class">    <span class="title">public</span> <span class="title">void</span> <span class="title">injectFinder</span>(<span class="title">MovieFinder</span> <span class="title">finder</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.finder = finder;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">InjectFinderFilename</span> </span>&#123;  </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">injectFilename</span> <span class="params">(String filename)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ColonMovieFinder</span> <span class="keyword">implements</span> <span class="title">MovieFinder</span>, <span class="title">InjectFinderFilename</span>......  </span></span><br><span class="line"><span class="class">    <span class="title">public</span> <span class="title">void</span> <span class="title">injectFilename</span>(<span class="title">String</span> <span class="title">filename</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.filename = filename;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>의존성을 주입하는 함수를 포함한 인터페이스를 작성하고 인터페이스를 구현함으로써 실행시에 주입을 한다. (스프링에서 지원하지 않는 방식)</p>
+</li>
+</ul>
+<h1 id="어떤방법을-쓸까"><a href="#어떤방법을-쓸까" class="headerlink" title="어떤방법을 쓸까?"></a>어떤방법을 쓸까?</h1><ul>
+<li>Spring에서는 <code>Setter를 이용한 방법</code>을 지지하고있다. 왜냐하면 외부에서 제공받은 오브젝트 레퍼런스를 저장해뒀다가 내부의 메소드에 의해서 사용하게 하기 때문에 DI방식에서 활용하기 적당하기 때문이다.</li>
+</ul>
+<p>다음에는 Spring에서의 다양한 의존성 주입 예제를 살펴보도록 하자.</p>
 <hr>
 <ul>
 <li><a href="https://velog.io/@essri" rel="external nofollow noopener noreferrer" target="_blank">velog</a></li>
-<li><a href="https://ggomi.github.io">Blog</a></li>
 <li><a href="https://github.com/ggomi" rel="external nofollow noopener noreferrer" target="_blank">Github</a></li>
 </ul>
 
@@ -528,15 +524,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/개발자-기초다지기/" rel="tag"># 개발자 기초다지기</a>
+            <a href="/tags/spring/" rel="tag"># spring</a>
           
-            <a href="/tags/주석/" rel="tag"># 주석</a>
-          
-            <a href="/tags/문서화/" rel="tag"># 문서화</a>
-          
-            <a href="/tags/Vertical-Formatting/" rel="tag"># Vertical Formatting</a>
-          
-            <a href="/tags/Classes/" rel="tag"># Classes</a>
+            <a href="/tags/Dependency-Injection/" rel="tag"># Dependency Injection</a>
           
         </div>
       
@@ -549,8 +539,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/comments-rules/" rel="next" title="Comments Rules">
-                <i class="fa fa-chevron-left"></i> Comments Rules
+              <a href="/weekly-retrospective-20190211-0215/" rel="next" title="20190211 _ 20190215">
+                <i class="fa fa-chevron-left"></i> 20190211 _ 20190215
               </a>
             
           </div>
@@ -558,10 +548,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/kwpattern/" rel="prev" title="Algospot(알고스팟) KWPattern">
-                Algospot(알고스팟) KWPattern <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -691,7 +677,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Vertical-Formatting"><span class="nav-number">1.</span> <span class="nav-text">Vertical Formatting</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-공란을-함부로-사용하지마라"><span class="nav-number">1.1.</span> <span class="nav-text">1. 공란을 함부로 사용하지마라.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-서로-관련된-것들은-Vertical하게-근접해야한다"><span class="nav-number">1.2.</span> <span class="nav-text">2. 서로 관련된 것들은 Vertical하게 근접해야한다.</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Class"><span class="nav-number">2.</span> <span class="nav-text">Class</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Class란-무엇인가"><span class="nav-number">2.1.</span> <span class="nav-text">1. Class란 무엇인가?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#하지만"><span class="nav-number">2.2.</span> <span class="nav-text">하지만,</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#DI는-왜-필요한가"><span class="nav-number">1.</span> <span class="nav-text">DI는 왜 필요한가?</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#DI의-장점"><span class="nav-number">1.1.</span> <span class="nav-text">DI의 장점</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#의존성-주입-방법"><span class="nav-number">2.</span> <span class="nav-text">의존성 주입 방법</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-생성자를-통한-주입"><span class="nav-number">2.0.1.</span> <span class="nav-text">1. 생성자를 통한 주입</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Setter를-통한-주입"><span class="nav-number">2.0.2.</span> <span class="nav-text">2. Setter를 통한 주입</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Interface를-통한-주입"><span class="nav-number">2.0.3.</span> <span class="nav-text">3. Interface를 통한 주입</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#어떤방법을-쓸까"><span class="nav-number">3.</span> <span class="nav-text">어떤방법을 쓸까?</span></a></li></div>
             
 
           </div>
@@ -843,9 +829,9 @@
   
     <script type="text/javascript">
       var disqus_config = function () {
-        this.page.url = 'https://ggomi.github.io/vertical-classes/';
-        this.page.identifier = 'vertical-classes/';
-        this.page.title = 'Vertical Formatting과 Classes';
+        this.page.url = 'https://ggomi.github.io/spring-injection/';
+        this.page.identifier = 'spring-injection/';
+        this.page.title = 'DI(Dependency Injection)';
       };
       function loadComments () {
         var d = document, s = d.createElement('script');
