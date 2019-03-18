@@ -131,20 +131,18 @@
 
 
 
-  <meta name="description" content="Vertical Formatting 1. 공란을 함부로 사용하지마라. 공란은 비어있는 라인을 말하는데 이것도 일련의 규칙을 가지고 하는 것이 좋다고 한다. 아래와 같은 경우에 공란을 주자!   메소드 사이 private 변수들과 public 변수들 사이 변수선언과 메소드 실행의 나머지 부분 사이 if / while 블록과 다른 코드 사이  2. 서로 관련된">
-<meta name="keywords" content="주석,문서화,개발자 기초다지기,Vertical Formatting,Classes">
+  <meta name="description" content="의존주입에 대해서 학습하면서 정리한 글입니다.  Field Injection@Autowired를 통한 자동주입12345678@Componentpublic class FieldInjection &amp;#123;    @Autowired    private Service1 service1;    @Autowired    private Service2 service">
+<meta name="keywords" content="Spring,Dependency Injection,의존주입">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vertical Formatting과 Classes">
-<meta property="og:url" content="https://ggomi.github.io/vertical-classes/index.html">
+<meta property="og:title" content="필드 주입? 생성자 주입?">
+<meta property="og:url" content="https://ggomi.github.io/injection/index.html">
 <meta property="og:site_name" content="Jeongmin&#39;s Blog">
-<meta property="og:description" content="Vertical Formatting 1. 공란을 함부로 사용하지마라. 공란은 비어있는 라인을 말하는데 이것도 일련의 규칙을 가지고 하는 것이 좋다고 한다. 아래와 같은 경우에 공란을 주자!   메소드 사이 private 변수들과 public 변수들 사이 변수선언과 메소드 실행의 나머지 부분 사이 if / while 블록과 다른 코드 사이  2. 서로 관련된">
+<meta property="og:description" content="의존주입에 대해서 학습하면서 정리한 글입니다.  Field Injection@Autowired를 통한 자동주입12345678@Componentpublic class FieldInjection &amp;#123;    @Autowired    private Service1 service1;    @Autowired    private Service2 service">
 <meta property="og:locale" content="ko">
-<meta property="og:image" content="https://ggomi.github.io/images/class.png">
-<meta property="og:updated_time" content="2019-01-22T14:20:05.719Z">
+<meta property="og:updated_time" content="2019-03-18T10:42:35.131Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Vertical Formatting과 Classes">
-<meta name="twitter:description" content="Vertical Formatting 1. 공란을 함부로 사용하지마라. 공란은 비어있는 라인을 말하는데 이것도 일련의 규칙을 가지고 하는 것이 좋다고 한다. 아래와 같은 경우에 공란을 주자!   메소드 사이 private 변수들과 public 변수들 사이 변수선언과 메소드 실행의 나머지 부분 사이 if / while 블록과 다른 코드 사이  2. 서로 관련된">
-<meta name="twitter:image" content="https://ggomi.github.io/images/class.png">
+<meta name="twitter:title" content="필드 주입? 생성자 주입?">
+<meta name="twitter:description" content="의존주입에 대해서 학습하면서 정리한 글입니다.  Field Injection@Autowired를 통한 자동주입12345678@Componentpublic class FieldInjection &amp;#123;    @Autowired    private Service1 service1;    @Autowired    private Service2 service">
 
 
 
@@ -153,7 +151,7 @@
 
 
 
-  <link rel="canonical" href="https://ggomi.github.io/vertical-classes/">
+  <link rel="canonical" href="https://ggomi.github.io/injection/">
 
 
 
@@ -163,7 +161,7 @@
   };
 </script>
 
-  <title>Vertical Formatting과 Classes | Jeongmin's Blog</title>
+  <title>필드 주입? 생성자 주입? | Jeongmin's Blog</title>
   
 
 
@@ -375,7 +373,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ggomi.github.io/vertical-classes/">
+    <link itemprop="mainEntityOfPage" href="https://ggomi.github.io/injection/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jeongmin Oh">
@@ -392,7 +390,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Vertical Formatting과 Classes</h1>
+          <h1 class="post-title" itemprop="name headline">필드 주입? 생성자 주입?</h1>
         
 
         <div class="post-meta">
@@ -404,7 +402,7 @@
               
                 <span class="post-meta-item-text">작성일</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-23T22:23:20+09:00">2018-12-23</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-18T17:09:12+09:00">2019-03-18</time>
             
 
             
@@ -425,7 +423,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Basic-sense/" itemprop="url" rel="index"><span itemprop="name">Basic_sense</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Spring/" itemprop="url" rel="index"><span itemprop="name">Spring</span></a></span>
 
                 
                 
@@ -440,8 +438,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/vertical-classes/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="vertical-classes/" itemprop="commentCount"></span>
+                <a href="/injection/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="injection/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -469,43 +467,35 @@
       
 
       
-        <h1 id="Vertical-Formatting"><a href="#Vertical-Formatting" class="headerlink" title="Vertical Formatting"></a>Vertical Formatting</h1><hr>
-<h2 id="1-공란을-함부로-사용하지마라"><a href="#1-공란을-함부로-사용하지마라" class="headerlink" title="1. 공란을 함부로 사용하지마라."></a>1. 공란을 함부로 사용하지마라.</h2><blockquote>
-<p>공란은 비어있는 라인을 말하는데 이것도 일련의 규칙을 가지고 하는 것이 좋다고 한다. 아래와 같은 경우에 공란을 주자!</p>
+        <blockquote>
+<p>의존주입에 대해서 학습하면서 정리한 글입니다.</p>
 </blockquote>
+<h1 id="Field-Injection"><a href="#Field-Injection" class="headerlink" title="Field Injection"></a>Field Injection</h1><h2 id="Autowired를-통한-자동주입"><a href="#Autowired를-통한-자동주입" class="headerlink" title="@Autowired를 통한 자동주입"></a><code>@Autowired</code>를 통한 자동주입</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FieldInjection</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> Service1 service1;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> Service2 service2;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>메소드 사이</li>
-<li>private 변수들과 public 변수들 사이</li>
-<li>변수선언과 메소드 실행의 나머지 부분 사이</li>
-<li>if / while 블록과 다른 코드 사이</li>
+<li>위와 같은 방법은 불필요한 코드없이 간결하게 보이기 때문에 좋아보일 수 있다.</li>
 </ul>
-<h2 id="2-서로-관련된-것들은-Vertical하게-근접해야한다"><a href="#2-서로-관련된-것들은-Vertical하게-근접해야한다" class="headerlink" title="2. 서로 관련된 것들은 Vertical하게 근접해야한다."></a>2. 서로 관련된 것들은 Vertical하게 근접해야한다.</h2><blockquote>
-<p>Vertical한 거리가 그들간의 관련성을 나타낸다!</p>
+<h1 id="Constructor-Injection"><a href="#Constructor-Injection" class="headerlink" title="Constructor Injection"></a>Constructor Injection</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FieldInjection</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Service1 service1;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Service2 service2;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">FieldInjection</span><span class="params">(Service1 service1, Service2 service2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.service1 = service1;</span><br><span class="line">        <span class="keyword">this</span>.service2 = service2;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>생성자의 파라미터가 늘어날수록 책임에 대한 위기감이 생기게 된다.</li>
+<li>의존을 추가할 때마다 생성자에 추가해줘야하기 때문에 번거로울 수 있지만 조심할 수 있다.</li>
+<li>Spring 4.3 버전부터는 단일 생성자일 때 <code>@Autowired</code>를 쓰지않아도 된다.</li>
+</ul>
+<h2 id="왜-Field-Injection보다-Constructor-Injection인가"><a href="#왜-Field-Injection보다-Constructor-Injection인가" class="headerlink" title="왜 Field Injection보다 Constructor Injection인가?"></a>왜 Field Injection보다 Constructor Injection인가?</h2><ol>
+<li><code>불변성 위반</code> - Field Injection은 final을 선언할 수 없기 때문에 객체가 변경가능한 상태가 된다.</li>
+<li><code>단일 책임의 원칙 위반</code> - 필드주입은 의존주입이 쉬워져서 책임에 대한 위기감이 덜 느껴지게된다.</li>
+<li><code>Field Injection</code>은 숨은 의존성만 제공한다. - </li>
+<li>필요한 의존성을 가진 클래스를 곧바로 인스턴스화 시킬 수 없다.</li>
+<li>생성자를 통한 주입은 순환의존성인지를 알 수 있다.<blockquote>
+<p>순환의존성?</p>
+<ul>
+<li>의존하는 것들끼리 꼬리에 꼬리를 물어서 <code>A-&gt;B-&gt;C-&gt;A</code> 와 같은 형태를 말한다.</li>
+</ul>
 </blockquote>
-<hr>
-<h1 id="Class"><a href="#Class" class="headerlink" title="Class"></a>Class</h1><h2 id="1-Class란-무엇인가"><a href="#1-Class란-무엇인가" class="headerlink" title="1. Class란 무엇인가?"></a>1. Class란 무엇인가?</h2><blockquote>
-<p>private 변수와 그 변수들에 대해서 동작하는 public 함수들의 집합이다.(private함수일 수 도..)</p>
-</blockquote>
-<p><em>private</em>변수들을 작성함으로써 클래스를 작성한다. 그리고 <em>private</em>변수들을 public 함수들로 조작한다. 그렇기 때문에 외부에서는 클래스 내의 <em>private</em>변수들이 존재하지 않는 것처럼 보인다.</p>
-<h2 id="하지만"><a href="#하지만" class="headerlink" title="하지만,"></a><strong>하지만,</strong></h2><p>너무 잘 보인다.</p>
-<p>왜냐하면 <em>Getter/Setter</em> 때문에 짐작할 수 있게된다. 왜 변수는 <em>private</em>로 선언하고, <em>Getter/Setter</em>를 제공하나?</p>
-<blockquote>
-<p><strong>필요하지도 않는 <em>Getter/Setter</em>들을 만드는 것은 정말 좋지않은 습관이다.</strong></p>
-</blockquote>
-<p>또한, 객체의 상태를 외부에서 사용할 수 있도록 하는 <em>Getter/Setter/property</em> 등을 제공하는 것은 잘못 된 설계다.</p>
-<p>여기서, 또다시 <em>Tell, Don’t Ask Rule</em>이 나온다.</p>
-<blockquote>
-<p>객체가 관찰할 수 있는 상태를 가지지 않는다면, Tell 하기 쉽고, ask할 가치가 없어진다. 이 규칙을 따르게 되면 Getter가 많지않고, Getter가 많지않으므로 Setter도 적다.</p>
-</blockquote>
-<p>Max cohesive(응집도 최대)를 생각했을 때 Getter/Setter는 cohesive 하지않다.<br>왜냐하면 하나의 변수만 사용하기 때문에 응집도가 높을 수 없다. 그렇다고 해서 Getter/Setter가 없을 수는 없다.. </p>
-<p><strong>그래서 최소화하고 본래변수를 그대로 노출하지않고, 추상화를 통해 제공해야한다.</strong></p>
-<p> <img src="/images/class.png" alt="class"></p>
-<p> 위의 사진처럼 getter를 추상화를 통해서 제공하고, 추상화하기 때문에 getter 이름을 잘 정해야한다.</p>
-<p> 이렇게 했을 때 다형성이 자연스럽게 따라오게 된다.<br> 다형성은 클라이언트 코드를 서버코드의 구현 변경으로부터 보호하고,<br> IoC를 통해 High Level Policy(클라이언트, 비즈니스 로직)를 Low Level Detail로부터 보호하는 것.</p>
-<hr>
+</li>
+</ol>
+<h2 id="앞으로-생성자를-통한-의존주입을-하자"><a href="#앞으로-생성자를-통한-의존주입을-하자" class="headerlink" title="앞으로 생성자를 통한 의존주입을 하자!"></a>앞으로 생성자를 통한 의존주입을 하자!</h2><hr>
 <ul>
 <li><a href="https://velog.io/@essri" rel="external nofollow noopener noreferrer" target="_blank">velog</a></li>
-<li><a href="https://ggomi.github.io">Blog</a></li>
 <li><a href="https://github.com/ggomi" rel="external nofollow noopener noreferrer" target="_blank">Github</a></li>
 </ul>
 
@@ -528,15 +518,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/주석/" rel="tag"># 주석</a>
+            <a href="/tags/Spring/" rel="tag"># Spring</a>
           
-            <a href="/tags/문서화/" rel="tag"># 문서화</a>
+            <a href="/tags/Dependency-Injection/" rel="tag"># Dependency Injection</a>
           
-            <a href="/tags/개발자-기초다지기/" rel="tag"># 개발자 기초다지기</a>
-          
-            <a href="/tags/Vertical-Formatting/" rel="tag"># Vertical Formatting</a>
-          
-            <a href="/tags/Classes/" rel="tag"># Classes</a>
+            <a href="/tags/의존주입/" rel="tag"># 의존주입</a>
           
         </div>
       
@@ -549,8 +535,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/comments-rules/" rel="next" title="Comments Rules">
-                <i class="fa fa-chevron-left"></i> Comments Rules
+              <a href="/spring-injection/" rel="next" title="DI(Dependency Injection)">
+                <i class="fa fa-chevron-left"></i> DI(Dependency Injection)
               </a>
             
           </div>
@@ -558,10 +544,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/kwpattern/" rel="prev" title="Algospot(알고스팟) KWPattern">
-                Algospot(알고스팟) KWPattern <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -691,7 +673,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Vertical-Formatting"><span class="nav-number">1.</span> <span class="nav-text">Vertical Formatting</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-공란을-함부로-사용하지마라"><span class="nav-number">1.1.</span> <span class="nav-text">1. 공란을 함부로 사용하지마라.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-서로-관련된-것들은-Vertical하게-근접해야한다"><span class="nav-number">1.2.</span> <span class="nav-text">2. 서로 관련된 것들은 Vertical하게 근접해야한다.</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Class"><span class="nav-number">2.</span> <span class="nav-text">Class</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Class란-무엇인가"><span class="nav-number">2.1.</span> <span class="nav-text">1. Class란 무엇인가?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#하지만"><span class="nav-number">2.2.</span> <span class="nav-text">하지만,</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Field-Injection"><span class="nav-number">1.</span> <span class="nav-text">Field Injection</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Autowired를-통한-자동주입"><span class="nav-number">1.1.</span> <span class="nav-text">@Autowired를 통한 자동주입</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Constructor-Injection"><span class="nav-number">2.</span> <span class="nav-text">Constructor Injection</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#왜-Field-Injection보다-Constructor-Injection인가"><span class="nav-number">2.1.</span> <span class="nav-text">왜 Field Injection보다 Constructor Injection인가?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#앞으로-생성자를-통한-의존주입을-하자"><span class="nav-number">2.2.</span> <span class="nav-text">앞으로 생성자를 통한 의존주입을 하자!</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -843,9 +825,9 @@
   
     <script type="text/javascript">
       var disqus_config = function () {
-        this.page.url = 'https://ggomi.github.io/vertical-classes/';
-        this.page.identifier = 'vertical-classes/';
-        this.page.title = 'Vertical Formatting과 Classes';
+        this.page.url = 'https://ggomi.github.io/injection/';
+        this.page.identifier = 'injection/';
+        this.page.title = '필드 주입? 생성자 주입?';
       };
       function loadComments () {
         var d = document, s = d.createElement('script');

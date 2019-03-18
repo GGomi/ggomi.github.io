@@ -132,14 +132,14 @@
 
 
   <meta name="description" content="DI(Dependency Injection)를 하는 방법은 여러가지가 있다. 그 방법을 알아보기 전에 DI가 왜 필요한가에 대해서 알아보자. DI는 왜 필요한가?객체 의존성은 객체가 다른객체를 참조, 상호작용을 하여 긴밀한 연결, 결합이 생기는 것이다.객체 의존은 아래와 같은 문제가 발생된다.  하나의 모듈이 바뀌면 의존한 다른 모듈까지 변경되어야한다. 결">
-<meta name="keywords" content="spring,Dependency Injection">
+<meta name="keywords" content="Spring,Dependency Injection">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DI(Dependency Injection)">
 <meta property="og:url" content="https://ggomi.github.io/spring-injection/index.html">
 <meta property="og:site_name" content="Jeongmin&#39;s Blog">
 <meta property="og:description" content="DI(Dependency Injection)를 하는 방법은 여러가지가 있다. 그 방법을 알아보기 전에 DI가 왜 필요한가에 대해서 알아보자. DI는 왜 필요한가?객체 의존성은 객체가 다른객체를 참조, 상호작용을 하여 긴밀한 연결, 결합이 생기는 것이다.객체 의존은 아래와 같은 문제가 발생된다.  하나의 모듈이 바뀌면 의존한 다른 모듈까지 변경되어야한다. 결">
 <meta property="og:locale" content="ko">
-<meta property="og:updated_time" content="2019-03-16T18:54:39.483Z">
+<meta property="og:updated_time" content="2019-03-18T10:30:30.056Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DI(Dependency Injection)">
 <meta name="twitter:description" content="DI(Dependency Injection)를 하는 방법은 여러가지가 있다. 그 방법을 알아보기 전에 DI가 왜 필요한가에 대해서 알아보자. DI는 왜 필요한가?객체 의존성은 객체가 다른객체를 참조, 상호작용을 하여 긴밀한 연결, 결합이 생기는 것이다.객체 의존은 아래와 같은 문제가 발생된다.  하나의 모듈이 바뀌면 의존한 다른 모듈까지 변경되어야한다. 결">
@@ -476,7 +476,7 @@
 <p>그렇기 때문에 <strong>Framework에 의해 객체의 의존성을 주입하게 되는 설계패턴</strong>, <code>DI</code>를 이용하게 되는 것이다.</p>
 <p><code>DI</code>를 찾다보면 <code>Ioc(제어의 역전)</code>라는 것도 보게되는데 이 둘은 같은의미로 사용되며 <code>Ioc</code>는 <code>DI</code>를 통해 달성된다. </p>
 <p><code>Ioc</code>는 말그대로 모든 제어의 중심이 Framework로 넘어가는 것이다.</p>
-<h2 id="DI의-장점"><a href="#DI의-장점" class="headerlink" title="DI의 장점"></a>DI의 장점</h2><ol>
+<h2 id="DI의-장점"><a href="#DI의-장점" class="headerlink" title="#DI의 장점"></a>#DI의 장점</h2><ol>
 <li><strong>종속성 감소(느슨한 결합)</strong></li>
 <li>재사용성 증가</li>
 <li>더 많은 테스트코드 작성 가능</li>
@@ -496,9 +496,9 @@
 </li>
 </ul>
 <h1 id="어떤방법을-쓸까"><a href="#어떤방법을-쓸까" class="headerlink" title="어떤방법을 쓸까?"></a>어떤방법을 쓸까?</h1><ul>
-<li>Spring에서는 <code>Setter를 이용한 방법</code>을 지지하고있다. 왜냐하면 외부에서 제공받은 오브젝트 레퍼런스를 저장해뒀다가 내부의 메소드에 의해서 사용하게 하기 때문에 DI방식에서 활용하기 적당하기 때문이다.</li>
+<li>Spring 3.x에서는 <code>Setter를 이용한 방법</code>을 지지하고있다. 왜냐하면 외부에서 제공받은 오브젝트 레퍼런스를 저장해뒀다가 내부의 메소드에 의해서 사용하게 하기 때문에 DI 방식에서 활용하기 적당하기 때문이다.</li>
+<li>하지만 Spring 4.x로 넘어오면서 <code>Constructor를 이용한 주입</code>을 지지하고있다. 생성자에는 <code>final</code>을 선언할 수 있으므로 객체가 불변하도록 할 수 있고, 순환의존성도 알 수 있다고한다.</li>
 </ul>
-<p>다음에는 Spring에서의 다양한 의존성 주입 예제를 살펴보도록 하자.</p>
 <hr>
 <ul>
 <li><a href="https://velog.io/@essri" rel="external nofollow noopener noreferrer" target="_blank">velog</a></li>
@@ -524,7 +524,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/spring/" rel="tag"># spring</a>
+            <a href="/tags/Spring/" rel="tag"># Spring</a>
           
             <a href="/tags/Dependency-Injection/" rel="tag"># Dependency Injection</a>
           
@@ -548,6 +548,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/injection/" rel="prev" title="필드 주입? 생성자 주입?">
+                필드 주입? 생성자 주입? <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -677,7 +681,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#DI는-왜-필요한가"><span class="nav-number">1.</span> <span class="nav-text">DI는 왜 필요한가?</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#DI의-장점"><span class="nav-number">1.1.</span> <span class="nav-text">DI의 장점</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#의존성-주입-방법"><span class="nav-number">2.</span> <span class="nav-text">의존성 주입 방법</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-생성자를-통한-주입"><span class="nav-number">2.0.1.</span> <span class="nav-text">1. 생성자를 통한 주입</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Setter를-통한-주입"><span class="nav-number">2.0.2.</span> <span class="nav-text">2. Setter를 통한 주입</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Interface를-통한-주입"><span class="nav-number">2.0.3.</span> <span class="nav-text">3. Interface를 통한 주입</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#어떤방법을-쓸까"><span class="nav-number">3.</span> <span class="nav-text">어떤방법을 쓸까?</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#DI는-왜-필요한가"><span class="nav-number">1.</span> <span class="nav-text">DI는 왜 필요한가?</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#DI의-장점"><span class="nav-number">1.1.</span> <span class="nav-text">#DI의 장점</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#의존성-주입-방법"><span class="nav-number">2.</span> <span class="nav-text">의존성 주입 방법</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-생성자를-통한-주입"><span class="nav-number">2.0.1.</span> <span class="nav-text">1. 생성자를 통한 주입</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Setter를-통한-주입"><span class="nav-number">2.0.2.</span> <span class="nav-text">2. Setter를 통한 주입</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Interface를-통한-주입"><span class="nav-number">2.0.3.</span> <span class="nav-text">3. Interface를 통한 주입</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#어떤방법을-쓸까"><span class="nav-number">3.</span> <span class="nav-text">어떤방법을 쓸까?</span></a></li></div>
             
 
           </div>
