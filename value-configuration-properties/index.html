@@ -131,17 +131,18 @@
 
 
 
-  <meta name="description" content="IT 기술블로그입니다.">
-<meta name="keywords" content="스프링,스프링부트,주니어개발자,개발,자바,알고리즘,알고스팟,algorithm,algospot,TDD,java,spring boot,JPA,jpa,Java,Spring Boot,lombok">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Jeongmin&#39;s Blog">
-<meta property="og:url" content="https://ggomi.github.io/page/3/index.html">
+  <meta name="description" content="이 글에서 YAML파일에 있는 데이터를 가져오는데 유용하게 사용되는 @Value와 @ConfigurationProperties에 대해서 다뤄보겠습니다. @Value프로퍼티의 키를 사용하여 특정한 값을 호출할 수 있습니다. 주로 단일 값을 가져올 때 사용합니다. 매핑방식 @Value(&amp;quot;${propertyName.??.??}&amp;quot;) : 깊이가 존">
+<meta name="keywords" content="YAML 파일 매핑,Value,ConfigurationProperties">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Value와 ConfigurationProperties Annotation">
+<meta property="og:url" content="https://ggomi.github.io/value-configuration-properties/index.html">
 <meta property="og:site_name" content="Jeongmin&#39;s Blog">
-<meta property="og:description" content="IT 기술블로그입니다.">
+<meta property="og:description" content="이 글에서 YAML파일에 있는 데이터를 가져오는데 유용하게 사용되는 @Value와 @ConfigurationProperties에 대해서 다뤄보겠습니다. @Value프로퍼티의 키를 사용하여 특정한 값을 호출할 수 있습니다. 주로 단일 값을 가져올 때 사용합니다. 매핑방식 @Value(&amp;quot;${propertyName.??.??}&amp;quot;) : 깊이가 존">
 <meta property="og:locale" content="ko">
+<meta property="og:updated_time" content="2019-04-17T07:02:47.074Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jeongmin&#39;s Blog">
-<meta name="twitter:description" content="IT 기술블로그입니다.">
+<meta name="twitter:title" content="Value와 ConfigurationProperties Annotation">
+<meta name="twitter:description" content="이 글에서 YAML파일에 있는 데이터를 가져오는데 유용하게 사용되는 @Value와 @ConfigurationProperties에 대해서 다뤄보겠습니다. @Value프로퍼티의 키를 사용하여 특정한 값을 호출할 수 있습니다. 주로 단일 값을 가져올 때 사용합니다. 매핑방식 @Value(&amp;quot;${propertyName.??.??}&amp;quot;) : 깊이가 존">
 
 
 
@@ -150,7 +151,7 @@
 
 
 
-  <link rel="canonical" href="https://ggomi.github.io/page/3/">
+  <link rel="canonical" href="https://ggomi.github.io/value-configuration-properties/">
 
 
 
@@ -160,7 +161,7 @@
   };
 </script>
 
-  <title>Jeongmin's Blog</title>
+  <title>Value와 ConfigurationProperties Annotation | Jeongmin's Blog</title>
   
 
 
@@ -215,8 +216,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -356,9 +356,9 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -373,7 +373,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ggomi.github.io/basic-2/">
+    <link itemprop="mainEntityOfPage" href="https://ggomi.github.io/value-configuration-properties/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jeongmin Oh">
@@ -390,9 +390,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/basic-2/" itemprop="url">개발자 기초 다지기 - 2 (상속과 재사용)</a></h1>
+          <h1 class="post-title" itemprop="name headline">Value와 ConfigurationProperties Annotation</h1>
         
 
         <div class="post-meta">
@@ -404,7 +402,7 @@
               
                 <span class="post-meta-item-text">작성일</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-17T12:57:25+09:00">2018-12-17</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-17T15:24:55+09:00">2019-04-17</time>
             
 
             
@@ -425,7 +423,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Basic-sense/" itemprop="url" rel="index"><span itemprop="name">Basic_sense</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Spring/" itemprop="url" rel="index"><span itemprop="name">Spring</span></a></span>
 
                 
                 
@@ -440,8 +438,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/basic-2/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="basic-2/" itemprop="commentCount"></span>
+                <a href="/value-configuration-properties/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="value-configuration-properties/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -469,23 +467,28 @@
       
 
       
-        
-          
-          기초 개발상식 및 개념들 - 2
+        <p>이 글에서 YAML파일에 있는 데이터를 가져오는데 유용하게 사용되는 <code>@Value</code>와 <code>@ConfigurationProperties</code>에 대해서 다뤄보겠습니다.</p>
+<h1 id="Value"><a href="#Value" class="headerlink" title="@Value"></a>@Value</h1><p>프로퍼티의 키를 사용하여 특정한 값을 호출할 수 있습니다. 주로 단일 값을 가져올 때 사용합니다.</p>
+<h2 id="매핑방식"><a href="#매핑방식" class="headerlink" title="매핑방식"></a>매핑방식</h2><ul>
+<li><code>@Value(&quot;${propertyName.??.??}&quot;)</code> : 깊이가 존재하는 키값에 대해 <code>.</code>으로 구분하여 값을 매핑합니다.</li>
+<li><code>@Value(&quot;${propertyTest}&quot;)</code> : 단일 키값을 매핑합니다.</li>
+<li><code>@Value(&quot;${noKey : default value}&quot;)</code> : 키값이 존재하지 않으면 디폴트값이 매핑되도록 설정합니다.</li>
+<li><code>@Value(&quot;${propertyTestArray}&quot;)</code> : 여러 값을 나열할 때는 배열로 매핑합니다.</li>
+<li><code>@Value(&quot;#{&#39;${propertyTestList}&#39;.split(&#39;,&#39;)}&quot;)</code> : SpEL을 사용하여 <code>,</code>를 기준으로 List에 매핑합니다.</li>
+</ul>
+<h1 id="ConfigurationProperties"><a href="#ConfigurationProperties" class="headerlink" title="@ConfigurationProperties"></a>@ConfigurationProperties</h1><ul>
+<li>List, Map 자료구조로 프로퍼티값을 매핑하는 방식에 주로 사용됩니다.</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fruit:</span><br><span class="line">    list:</span><br><span class="line">        - name : banana</span><br><span class="line">          color: yellow</span><br><span class="line">        - name: apple</span><br><span class="line">          color: red</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> lombok.Getter;</span><br><span class="line"><span class="keyword">import</span> lombok.Setter;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.context.properties.ConfigurationProperties;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Component;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Getter</span></span><br><span class="line"><span class="meta">@Setter</span></span><br><span class="line"><span class="meta">@ConfigurationProperties</span>(<span class="string">"fruit"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FruitProperty</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> List&lt;Map&gt; list;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>이런 식으로 매핑이 가능하지만 <code>Map</code>이라는 기본 컬렉션을 사용하는 것보다 더 직관적이고, 명확하게 객체를 구성할 수 있게 아래와 같이 별도로 <code>POJO 타입</code>을 생성하고 <code>Map</code>대신 아래 <code>POJO타입</code>을 매핑하는 것이 더 좋습니다. </li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> lombok.Getter;</span><br><span class="line"><span class="keyword">import</span> lombok.Setter;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Getter</span></span><br><span class="line"><span class="meta">@Setter</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FruitProperty</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> String color;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<li><a href="http://www.yes24.com/Product/Goods/64584833?scode=032&amp;OzSrank=1" rel="external nofollow noopener noreferrer" target="_blank">처음으로 배우는 스프링부트2</a></li>
+</ul>
 
-1. 상속과 재사용1.1 상속을 통한 재사용 단점
-상위클래스의 변경이 어렵다.
-
-상위클래스를 변경하게되면 그에 해당하는 하위클래스 모두에게 영향을
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/basic-2/#more" rel="contents">
-              더 읽어보기 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
       
     </div>
 
@@ -503,342 +506,40 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ggomi.github.io/basic-1/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jeongmin Oh">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/profile.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jeongmin's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/basic-1/" itemprop="url">개발자 기초 다지기 - 1</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-16T11:14:05+09:00">2018-12-16</time>
-            
-
-            
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Basic-sense/" itemprop="url" rel="index"><span itemprop="name">Basic_sense</span></a></span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/YAML-파일-매핑/" rel="tag"># YAML 파일 매핑</a>
           
-
+            <a href="/tags/Value/" rel="tag"># Value</a>
           
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/basic-1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="basic-1/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
+            <a href="/tags/ConfigurationProperties/" rel="tag"># ConfigurationProperties</a>
           
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          
-          기초 개발상식 및 개념들 - 1
-
-1. OOP (객체지향프로그래밍)
-OOP 란 인간중심적 프로그래밍 패러다임이라고 할 수 있다.
-OOP로 작성한 코드는 재사용성이 높다.
-소프트웨어
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/basic-1/#more" rel="contents">
-              더 읽어보기 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/injection/" rel="next" title="필드 주입? 생성자 주입?">
+                <i class="fa fa-chevron-left"></i> 필드 주입? 생성자 주입?
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ggomi.github.io/basic-0/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jeongmin Oh">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/profile.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jeongmin's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/basic-0/" itemprop="url">개발자 기초 다지기 - 0</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+          <div class="post-nav-prev post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">작성일</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-15T11:14:05+09:00">2018-12-15</time>
-            
-
-            
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Basic-sense/" itemprop="url" rel="index"><span itemprop="name">Basic_sense</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/basic-0/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="basic-0/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-          기초다지기!!
-졸업이 두달 정도 남은 상황이다. 취업을 앞두고, 해왔던 것들에 대해서 회의감이 들어서 지금까지 해왔던 공부들을 복습하고, 기초를 다시 다져보려고한다.
-
-
-
-
-목차
-
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/basic-0/#more" rel="contents">
-              더 읽어보기 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -848,18 +549,29 @@ OOP로 작성한 코드는 재사용성이 높다.
   </article>
 
 
-    
-  </section>
 
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
-  </nav>
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript" rel="external nofollow noopener noreferrer" target="_blank">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -880,8 +592,17 @@ OOP로 작성한 코드는 재사용성이 높다.
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            목차
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            흝어보기
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -932,6 +653,22 @@ OOP로 작성한 코드는 재사용성이 높다.
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Value"><span class="nav-number">1.</span> <span class="nav-text">@Value</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#매핑방식"><span class="nav-number">1.1.</span> <span class="nav-text">매핑방식</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ConfigurationProperties"><span class="nav-number">2.</span> <span class="nav-text">@ConfigurationProperties</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">3.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1057,6 +794,10 @@ OOP로 작성한 코드는 재사용성이 높다.
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.6"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.6"></script>
+
+
 
   
 
@@ -1071,6 +812,23 @@ OOP로 작성한 코드는 재사용성이 높다.
     <script id="dsq-count-scr" src="https://ggomi-github-io.disqus.com/count.js" async></script>
   
 
+  
+    <script type="text/javascript">
+      var disqus_config = function () {
+        this.page.url = 'https://ggomi.github.io/value-configuration-properties/';
+        this.page.identifier = 'value-configuration-properties/';
+        this.page.title = 'Value와 ConfigurationProperties Annotation';
+      };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://ggomi-github-io.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
   
 
 

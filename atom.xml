@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://ggomi.github.io/"/>
-  <updated>2019-03-18T10:42:35.131Z</updated>
+  <updated>2019-04-17T07:02:47.074Z</updated>
   <id>https://ggomi.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Value와 ConfigurationProperties Annotation</title>
+    <link href="https://ggomi.github.io/value-configuration-properties/"/>
+    <id>https://ggomi.github.io/value-configuration-properties/</id>
+    <published>2019-04-17T06:24:55.000Z</published>
+    <updated>2019-04-17T07:02:47.074Z</updated>
+    
+    <content type="html"><![CDATA[<p>이 글에서 YAML파일에 있는 데이터를 가져오는데 유용하게 사용되는 <code>@Value</code>와 <code>@ConfigurationProperties</code>에 대해서 다뤄보겠습니다.</p><h1 id="Value"><a href="#Value" class="headerlink" title="@Value"></a>@Value</h1><p>프로퍼티의 키를 사용하여 특정한 값을 호출할 수 있습니다. 주로 단일 값을 가져올 때 사용합니다.</p><h2 id="매핑방식"><a href="#매핑방식" class="headerlink" title="매핑방식"></a>매핑방식</h2><ul><li><code>@Value(&quot;${propertyName.??.??}&quot;)</code> : 깊이가 존재하는 키값에 대해 <code>.</code>으로 구분하여 값을 매핑합니다.</li><li><code>@Value(&quot;${propertyTest}&quot;)</code> : 단일 키값을 매핑합니다.</li><li><code>@Value(&quot;${noKey : default value}&quot;)</code> : 키값이 존재하지 않으면 디폴트값이 매핑되도록 설정합니다.</li><li><code>@Value(&quot;${propertyTestArray}&quot;)</code> : 여러 값을 나열할 때는 배열로 매핑합니다.</li><li><code>@Value(&quot;#{&#39;${propertyTestList}&#39;.split(&#39;,&#39;)}&quot;)</code> : SpEL을 사용하여 <code>,</code>를 기준으로 List에 매핑합니다.</li></ul><h1 id="ConfigurationProperties"><a href="#ConfigurationProperties" class="headerlink" title="@ConfigurationProperties"></a>@ConfigurationProperties</h1><ul><li>List, Map 자료구조로 프로퍼티값을 매핑하는 방식에 주로 사용됩니다.</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fruit:</span><br><span class="line">    list:</span><br><span class="line">        - name : banana</span><br><span class="line">          color: yellow</span><br><span class="line">        - name: apple</span><br><span class="line">          color: red</span><br></pre></td></tr></table></figure><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> lombok.Getter;</span><br><span class="line"><span class="keyword">import</span> lombok.Setter;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.context.properties.ConfigurationProperties;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Component;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Getter</span></span><br><span class="line"><span class="meta">@Setter</span></span><br><span class="line"><span class="meta">@ConfigurationProperties</span>(<span class="string">"fruit"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FruitProperty</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> List&lt;Map&gt; list;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ul><li>이런 식으로 매핑이 가능하지만 <code>Map</code>이라는 기본 컬렉션을 사용하는 것보다 더 직관적이고, 명확하게 객체를 구성할 수 있게 아래와 같이 별도로 <code>POJO 타입</code>을 생성하고 <code>Map</code>대신 아래 <code>POJO타입</code>을 매핑하는 것이 더 좋습니다. </li></ul><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> lombok.Getter;</span><br><span class="line"><span class="keyword">import</span> lombok.Setter;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Getter</span></span><br><span class="line"><span class="meta">@Setter</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FruitProperty</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> String color;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul><li><a href="http://www.yes24.com/Product/Goods/64584833?scode=032&amp;OzSrank=1" rel="external nofollow noopener noreferrer" target="_blank">처음으로 배우는 스프링부트2</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;이 글에서 YAML파일에 있는 데이터를 가져오는데 유용하게 사용되는 &lt;code&gt;@Value&lt;/code&gt;와 &lt;code&gt;@ConfigurationProperties&lt;/code&gt;에 대해서 다뤄보겠습니다.&lt;/p&gt;
+&lt;h1 id=&quot;Value&quot;&gt;&lt;a href
+      
+    
+    </summary>
+    
+      <category term="Spring" scheme="https://ggomi.github.io/categories/Spring/"/>
+    
+    
+      <category term="YAML 파일 매핑" scheme="https://ggomi.github.io/tags/YAML-%ED%8C%8C%EC%9D%BC-%EB%A7%A4%ED%95%91/"/>
+    
+      <category term="Value" scheme="https://ggomi.github.io/tags/Value/"/>
+    
+      <category term="ConfigurationProperties" scheme="https://ggomi.github.io/tags/ConfigurationProperties/"/>
+    
+  </entry>
   
   <entry>
     <title>필드 주입? 생성자 주입?</title>
@@ -575,35 +605,6 @@
       <category term="개발자 기초다지기_함수" scheme="https://ggomi.github.io/tags/%EA%B0%9C%EB%B0%9C%EC%9E%90-%EA%B8%B0%EC%B4%88%EB%8B%A4%EC%A7%80%EA%B8%B0-%ED%95%A8%EC%88%98/"/>
     
       <category term="함수" scheme="https://ggomi.github.io/tags/%ED%95%A8%EC%88%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>개발자 기초 다지기 - 2 (상속과 재사용)</title>
-    <link href="https://ggomi.github.io/basic-2/"/>
-    <id>https://ggomi.github.io/basic-2/</id>
-    <published>2018-12-17T03:57:25.000Z</published>
-    <updated>2019-01-22T14:20:49.841Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="기초-개발상식-및-개념들-2"><a href="#기초-개발상식-및-개념들-2" class="headerlink" title="기초 개발상식 및 개념들 - 2"></a>기초 개발상식 및 개념들 - 2</h2><p><img src="/images/basic1.png" alt="기초개발상식"></p><hr><h2 id="1-상속과-재사용"><a href="#1-상속과-재사용" class="headerlink" title="1. 상속과 재사용"></a>1. 상속과 재사용</h2><h3 id="1-1-상속을-통한-재사용-단점"><a href="#1-1-상속을-통한-재사용-단점" class="headerlink" title="1.1 상속을 통한 재사용 단점"></a>1.1 상속을 통한 재사용 단점</h3><ul><li><p><em>상위클래스의 변경이 어렵다.</em></p><blockquote><p>상위클래스를 변경하게되면 그에 해당하는 하위클래스 모두에게 영향을 줄 수 있다. 상위클래스 입장에서 앞으로 어떤 하위클래스가 생길지 모르기 때문에 쉽게 변경하기 어렵다.</p></blockquote></li><li><p><em>클래스가 증가할 수 있다.</em></p></li><li><p><em>상속 오용</em></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 예시 코드</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Container</span> <span class="keyword">extends</span> <span class="title">ArrayList</span>&lt;<span class="title">Luggage</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> maxSize;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> currentSize;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Container</span><span class="params">(<span class="keyword">int</span> maxSize)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.maxSize = maxSize;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">put</span><span class="params">(Luggage lug)</span> <span class="keyword">throws</span> NotEnoughSpaceException</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!canContain(lug))&#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> NotEnoughSpaceException();</span><br><span class="line">        &#125; </span><br><span class="line">        <span class="keyword">super</span>.add(lug);</span><br><span class="line">        currentSize += lug.size();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">extract</span><span class="params">(Luggage lug)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.remove(lug);</span><br><span class="line">        <span class="keyword">this</span>.currentSize -= lug.size();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">canContain</span><span class="params">(Luggage lug)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> maxSize &gt;= currentSize + lug.size();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>이러한 경우에 <code>put()</code> 메소드를 사용해야 <code>Luggage</code>사이즈를 변경할 수 있는데 Container 클래스를 상속받아서 사용하는 입장에서는 ArrayList클래스의 <code>add()</code>도 함께 상속받고, 사용가능하기 때문에 <code>put</code>과 <code>add</code>이 의미상 같기 때문에 오용할 수 있다. 오용한 사람보다 <code>Container</code>클래스를 오용하게끔 설계한 사람에게 더 잘못이 있다.</p></li></ul><h3 id="1-2-상속의-단점-해결방법"><a href="#1-2-상속의-단점-해결방법" class="headerlink" title="1.2 상속의 단점 해결방법"></a>1.2 상속의 단점 해결방법</h3><h4 id="1-2-1-조립"><a href="#1-2-1-조립" class="headerlink" title="1.2.1 조립"></a>1.2.1 조립</h4><ul><li><p>여러<code>객체</code>를 묶어서 더 복잡한 기능을 제공</p></li><li><p>보통<code>필드</code>로 다른 객체를 참조하는 방식으로 조립 또는 객체를 필요시점에 생성</p></li></ul><h4 id="1-2-2-조립을-통한-기능-재사용"><a href="#1-2-2-조립을-통한-기능-재사용" class="headerlink" title="1.2.2 조립을 통한 기능 재사용"></a>1.2.2 조립을 통한 기능 재사용</h4><ul><li><p>이전코드에서 <code>ArrayList&lt;Luggage&gt;</code>를 상속을 받아서 사용하고있는데 이 클래스는 <code>Container</code>클래스에서만 사용되어야하기 때문에 상속하지않고, 필드생성으로 재사용을 한다.</p></li><li><p><strong>상속하기에 앞서 조립으로 풀 수 없는지 검토를 먼저 해볼 것.</strong></p></li><li><strong>진짜 하위타입인 경우에만 상속을 사용한다.</strong></li></ul><hr><ul><li>객체지향적 사고를 제대로 갖추기 위해서 기초적인 것부터 하나씩 다시 공부하고있는데 개념으로는 알겠는데 막상 코드로 직접 설계하고, 구현해보려고하니 한계가 있었다. 잘짜여진 코드를 많이보고 연구해보아야 할 것 같다.</li></ul><hr><ul><li><p>inflearn <a href="https://www.inflearn.com/course/%EA%B0%9D%EC%B2%B4-%EC%A7%80%ED%96%A5-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-%EC%9E%85%EB%AC%B8/" rel="external nofollow noopener noreferrer" target="_blank"> 객체 지향 프로그래밍 입문 </a> 강의를 보고 작성한 글입니다.</p></li><li><p><a href="https://github.com/ggomi" rel="external nofollow noopener noreferrer" target="_blank">Github</a></p></li><li><a href="https://velog.io/@essri" rel="external nofollow noopener noreferrer" target="_blank">velog</a></li><li><a href="https://ggomi.github.io">Blog</a></li></ul><hr>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;기초-개발상식-및-개념들-2&quot;&gt;&lt;a href=&quot;#기초-개발상식-및-개념들-2&quot; class=&quot;headerlink&quot; title=&quot;기초 개발상식 및 개념들 - 2&quot;&gt;&lt;/a&gt;기초 개발상식 및 개념들 - 2&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;/ima
-      
-    
-    </summary>
-    
-      <category term="Basic_sense" scheme="https://ggomi.github.io/categories/Basic-sense/"/>
-    
-    
-      <category term="개발자 기초다지기_2" scheme="https://ggomi.github.io/tags/%EA%B0%9C%EB%B0%9C%EC%9E%90-%EA%B8%B0%EC%B4%88%EB%8B%A4%EC%A7%80%EA%B8%B0-2/"/>
-    
-      <category term="상속" scheme="https://ggomi.github.io/tags/%EC%83%81%EC%86%8D/"/>
-    
-      <category term="조립" scheme="https://ggomi.github.io/tags/%EC%A1%B0%EB%A6%BD/"/>
     
   </entry>
   
