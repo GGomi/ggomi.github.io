@@ -71,7 +71,7 @@
   
     
     
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Nanum Gothic Coding:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Gothic A1:300,300italic,400,400italic,700,700italic|Nanum Gothic Coding:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
   
 
 
@@ -139,7 +139,7 @@
 <meta property="og:site_name" content="Jeongmin&#39;s Blog">
 <meta property="og:description" content="스프링부트 테스트스프링부트2에서는 기본적인 테스트 스타터를 제공한다. 기본적으로 제공되는 테스트 어노테이션은 아래와 같이 제공됩니다.  @SpringBootTest @WebMvcTest @DataJpaTest @RestClientTest @JsonTest @DataRedisTest  이 글에서 @SpringBootTest, @WebMvcTest, @Data">
 <meta property="og:locale" content="ko">
-<meta property="og:updated_time" content="2019-04-20T13:51:42.726Z">
+<meta property="og:updated_time" content="2019-04-20T14:09:37.012Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="스프링 부트 테스트 (1)">
 <meta name="twitter:description" content="스프링부트 테스트스프링부트2에서는 기본적인 테스트 스타터를 제공한다. 기본적으로 제공되는 테스트 어노테이션은 아래와 같이 제공됩니다.  @SpringBootTest @WebMvcTest @DataJpaTest @RestClientTest @JsonTest @DataRedisTest  이 글에서 @SpringBootTest, @WebMvcTest, @Data">
@@ -478,7 +478,7 @@
 </ol>
 <p>이 글에서 <code>@SpringBootTest</code>, <code>@WebMvcTest</code>, <code>@DataJpaTest</code>에 관해서 살펴보도록 하겠습니다.</p>
 <hr>
-<h1 id="SpringBootTest"><a href="#SpringBootTest" class="headerlink" title="@SpringBootTest"></a>@SpringBootTest</h1><p>통합 테스트를 제공하는 기본적인 부트 테스트 어노테이션입니다. <code>여러단위의 테스트들을 하나의 테스트로 수행할 때 적합</code> 합니다.<br>하지만, 애플리케이션이 실행되는 것과 동일하게 애플리케이션에 설정된 모든 빈들을 로드하기 때문에 애플리케이션 규모가 클수록 느려집니다.</p>
+<h1 id="SpringBootTest"><a href="#SpringBootTest" class="headerlink" title="@SpringBootTest"></a>@SpringBootTest</h1><p>통합 테스트를 제공하는 기본적인 부트 테스트 어노테이션입니다. <strong>여러단위의 테스트들을 하나의 테스트로 수행할 때 적합</strong> 합니다.<br>하지만, 애플리케이션이 실행되는 것과 동일하게 애플리케이션에 설정된 모든 빈들을 로드하기 때문에 애플리케이션 규모가 클수록 느려집니다.</p>
 <ul>
 <li><code>@ActiveProfiles(&quot;local&quot;)</code>과 같은 방식으로 프로파일 환경값을 부여할 수 있다.</li>
 <li>테스트에서 <code>@Transactional</code>을 사용하면 데이터가 롤백됩니다. 하지만, 서버의 다른 스레드에서 실행 중이면 WebEnvironment의 <code>RANDOM_PORT</code>나 <code>DEFINDE_PORT</code>를 사용해서 테스트를 수행해도 트랜잭션이 롤백되지 않습니다.</li>
