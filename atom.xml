@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://ggomi.github.io/"/>
-  <updated>2019-04-20T14:09:37.012Z</updated>
+  <updated>2019-04-25T17:04:45.609Z</updated>
   <id>https://ggomi.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>스프링 부트 Security</title>
+    <link href="https://ggomi.github.io/spring-boot-security/"/>
+    <id>https://ggomi.github.io/spring-boot-security/</id>
+    <published>2019-04-25T16:35:43.000Z</published>
+    <updated>2019-04-25T17:04:45.609Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="개요"><a href="#개요" class="headerlink" title="개요"></a>개요</h1><p>스프링 부트 시큐리티는 스프링 시큐리티에 스타터를 제공해서 더 빠르게 보안설정을 지원합니다.</p><p>스프링 부트 시큐리티에서 가장 중요한 개념은 <strong>인증</strong>과 <strong>권한 부여</strong>입니다.</p><p>인증방식은 <code>Credential 기반 인증 방식</code>과 <code>이중 인증 방식</code>도 있습니다. credential기반 인증방식은 전통적인 아이디, 패스워드 인증 방식이며,<br><code>이중 인증 방식</code>의 대표적인 예는 <code>OAuth2</code>방식이 있습니다.</p><h1 id="OAuth2"><a href="#OAuth2" class="headerlink" title="OAuth2"></a>OAuth2</h1><p><code>OAuth</code>는 <code>토큰</code>을 사용한 범용적인 방법의 인증을 제공하는 표준 인증 프로토콜이며, <code>OAuth2</code>는 두번째 버전으로 총 4가지의 승인 타입을 제공합니다.</p><h2 id="권한-부여-코드-승인-타입-Authorization-Code-Grant-Type"><a href="#권한-부여-코드-승인-타입-Authorization-Code-Grant-Type" class="headerlink" title="권한 부여 코드 승인 타입(Authorization Code Grant Type)"></a>권한 부여 코드 승인 타입(Authorization Code Grant Type)</h2><ul><li>클라이언트가 다른 사용자 대신 특정 리소스에 접근을 요청할 때 사용됩니다. 리소스 접근을 위한 사용자명과 비밀번호, 권한 서버에 요청해서 받은 <code>권한코드</code>를 함께 활용하여 리소스에 대한 <code>액세스 토큰</code>을 받으면 이를 인증에 이용하는 방식입니다.</li></ul><h2 id="암시적-승인타입-Implicit-Grant-Type"><a href="#암시적-승인타입-Implicit-Grant-Type" class="headerlink" title="암시적 승인타입 (Implicit Grant Type)"></a>암시적 승인타입 (Implicit Grant Type)</h2><ul><li>권한 부여코드 승인 타입과 다르게 권한 코드 교환 단계없이 액세스 토큰을 즉시 반환받아 이를 인증에 이용하는 방식입니다.</li></ul><h2 id="리소스-소유자-암호-자격-증명-승인-타입-Resource-Owner-Password-Credentials-Grant-Type"><a href="#리소스-소유자-암호-자격-증명-승인-타입-Resource-Owner-Password-Credentials-Grant-Type" class="headerlink" title="리소스 소유자 암호 자격 증명 승인 타입 (Resource Owner Password Credentials Grant Type)"></a>리소스 소유자 암호 자격 증명 승인 타입 (Resource Owner Password Credentials Grant Type)</h2><ul><li>클라이언트가 암호를 사용하여 액세스 토큰에 대한 사용자의 자격증명을 교환하는 방식입니다.</li></ul><h2 id="클라이언트-자격-증명-승인-타입-Client-Credentials-Grant-Type"><a href="#클라이언트-자격-증명-승인-타입-Client-Credentials-Grant-Type" class="headerlink" title="클라이언트 자격 증명 승인 타입 (Client Credentials Grant Type)"></a>클라이언트 자격 증명 승인 타입 (Client Credentials Grant Type)</h2><ul><li>클라이언트가 컨텍스트 외부에서 액세스 토큰을 얻어 특정 리소스에 접근을 요청할 때 사용하는 방식입니다.</li></ul><p>이 중에서도 <code>권한부여코드승인타입</code>이 다양한 소셜미디어들이 웹서버 형태의 클라이언트 형태로 지원하는데 많은 서비스들이 이 방식이 사용하고 있습니다.</p><h1 id="특징"><a href="#특징" class="headerlink" title="특징"></a>특징</h1><ul><li>기존의 사용자명 + 비밀번호 인증 방식은 단 한 번의 요청으로 인증을 하며, OAuth2는 최소 세 번 요청을 하게 됩니다.</li><li>회원가입 없이 이미 사용하는 소셜미디어 계정으로 인증하기 때문에 사용자 입장에서는 더욱 편리하게 로그인을 할 수 있게됩니다.</li><li>서비스 측면에서는 회원가입관련 기능을 축소시키고, 소셜에서 제공하는 User정보를 가져올 수 있기 때문에 간편합니다.</li></ul><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul><li><a href="http://www.yes24.com/Product/Goods/64584833?scode=032&amp;OzSrank=1" rel="external nofollow noopener noreferrer" target="_blank">처음으로 배우는 스프링부트 2</a> - 김영재</li></ul><hr><ul><li><a href="https://velog.io/@essri" rel="external nofollow noopener noreferrer" target="_blank">velog</a></li><li><a href="https://ggomi.github.io">Blog</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;개요&quot;&gt;&lt;a href=&quot;#개요&quot; class=&quot;headerlink&quot; title=&quot;개요&quot;&gt;&lt;/a&gt;개요&lt;/h1&gt;&lt;p&gt;스프링 부트 시큐리티는 스프링 시큐리티에 스타터를 제공해서 더 빠르게 보안설정을 지원합니다.&lt;/p&gt;
+&lt;p&gt;스프링 부트 시큐리티
+      
+    
+    </summary>
+    
+      <category term="Spring" scheme="https://ggomi.github.io/categories/Spring/"/>
+    
+    
+      <category term="Spring" scheme="https://ggomi.github.io/tags/Spring/"/>
+    
+      <category term="Security" scheme="https://ggomi.github.io/tags/Security/"/>
+    
+      <category term="스프링 부트 시큐리티" scheme="https://ggomi.github.io/tags/%EC%8A%A4%ED%94%84%EB%A7%81-%EB%B6%80%ED%8A%B8-%EC%8B%9C%ED%81%90%EB%A6%AC%ED%8B%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>스프링 부트 테스트 (1)</title>
@@ -566,35 +596,6 @@
       
       
         &lt;h2 id=&quot;함수-리팩토링-추상화-예제-2&quot;&gt;&lt;a href=&quot;#함수-리팩토링-추상화-예제-2&quot; class=&quot;headerlink&quot; title=&quot;함수 리팩토링, 추상화 예제 (2)&quot;&gt;&lt;/a&gt;함수 리팩토링, 추상화 예제 (2)&lt;/h2&gt;&lt;p&gt;&lt;img src
-      
-    
-    </summary>
-    
-      <category term="Basic_sense" scheme="https://ggomi.github.io/categories/Basic-sense/"/>
-    
-    
-      <category term="개발자 기초다지기_함수" scheme="https://ggomi.github.io/tags/%EA%B0%9C%EB%B0%9C%EC%9E%90-%EA%B8%B0%EC%B4%88%EB%8B%A4%EC%A7%80%EA%B8%B0-%ED%95%A8%EC%88%98/"/>
-    
-      <category term="함수" scheme="https://ggomi.github.io/tags/%ED%95%A8%EC%88%98/"/>
-    
-      <category term="리팩토링" scheme="https://ggomi.github.io/tags/%EB%A6%AC%ED%8C%A9%ED%86%A0%EB%A7%81/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>함수 리팩토링, 추상화 예제 (1)</title>
-    <link href="https://ggomi.github.io/function-example/"/>
-    <id>https://ggomi.github.io/function-example/</id>
-    <published>2018-12-18T01:16:53.000Z</published>
-    <updated>2019-01-22T14:15:26.293Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="함수-리팩토링-추상화-예제-1"><a href="#함수-리팩토링-추상화-예제-1" class="headerlink" title="함수 리팩토링, 추상화 예제 (1)"></a>함수 리팩토링, 추상화 예제 (1)</h2><p><img src="/images/function.png" alt="banner"></p><blockquote><p><a href="https://www.youtube.com/user/codetemplate/videos" rel="external nofollow noopener noreferrer" target="_blank"> 클린코더스 - 백명석님 </a> 강의를 보고 작성한 글입니다.<br><a href="https://github.com/msbaek/clean-coders-2013" rel="external nofollow noopener noreferrer" target="_blank">Source Code</a></p></blockquote><hr><ul><li>해당 강의에서 나온 예제입니다. 처음 소스파일은 클래스 하나에 메소드 하나의 구조로 되어있었습니다.</li></ul><p><img src="/images/initialize_builder.PNG" alt="initialize-Builder"></p><ul><li>처음 상태에 <code>Method</code> 하나에 너무 많은 내용이 들어있다. 위의 사진처럼 따로 Builder라는 클래스를 따로 빼주었다.</li></ul><p><img src="/images/gif/test2.gif" alt="Extract-field"></p><ul><li><code>WikiPage</code>와 <code>builder</code> 지역 변수가 여러 번에 걸쳐서 사용되고 있으므로 필드 변수로 뺄 수 있다. 이작업으로 인해 <code>Method</code>는 최소한의 변수를 가져야한다는 사항을 만족시킬 수 있다.</li><li>그리고 <code>Method</code>에서 두개 이상의 변수를 가지고, 수정하고 있으면 IDE에서 제공하는 Extract기능을 사용할 수 없다.</li></ul><p><img src="/images/gif/test3.gif" alt="Extract-Variable"><br><img src="/images/gif/test4.gif" alt="Extract-Method"></p><ul><li>가장 안쪽의 <code>if</code>문이 비슷한 형태로 반복되고있는걸 볼 수 있다. 하지만 <code>buffer(...)</code>에서 각자 취하고 있는 값이 조금 다르기 때문에 <code>Variable</code>로 Extract 해준다. </li><li>그 후 유사한 부분에 대해서 <code>Extract Method</code>를 진행한다. </li></ul><hr><ul><li><p><a href="https://velog.io/@essri" rel="external nofollow noopener noreferrer" target="_blank">velog</a></p></li><li><p><a href="https://ggomi.github.io">Blog</a></p></li></ul><hr>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;함수-리팩토링-추상화-예제-1&quot;&gt;&lt;a href=&quot;#함수-리팩토링-추상화-예제-1&quot; class=&quot;headerlink&quot; title=&quot;함수 리팩토링, 추상화 예제 (1)&quot;&gt;&lt;/a&gt;함수 리팩토링, 추상화 예제 (1)&lt;/h2&gt;&lt;p&gt;&lt;img src
       
     
     </summary>

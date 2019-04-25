@@ -8,6 +8,14 @@
     </url>
 
     <url>
+        <loc>https://ggomi.github.io/spring-boot-security/</loc>
+        <lastmod>2019-04-25T17:04:45.609Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://ggomi.github.io/spring-test/</loc>
         <lastmod>2019-04-20T14:09:37.012Z</lastmod>
         <changefreq>weekly</changefreq>
