@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="ko">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Gothic A1:300,300italic,400,400italic,700,700italic|Nanum Gothic Coding:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.0.6" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.0.6">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/cheese_thumb.jpg?v=6.0.6">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/cheese_thumb.jpg?v=6.0.6">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.0.6" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.0.6',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Java 버전별 특징Java가 빠르게 릴리즈 함에 따라 한번 짚어보고 가야할 필요를 느껴서 Java 7~10까지 버전별 특징들을 정리해보았습니다. 목차 1. Java 7 2. Java 8 3. Java 9 4. Java 10  1. Java 71.1 Type Inference (타입 추론)12345// 7 버전 이전List&amp;lt;String&amp;gt; list">
+<meta name="keywords" content="Java,jdk version,java 8,java 7,java 10,java 9">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java 버전별 특징">
+<meta property="og:url" content="https://ggomi.github.io/jdk-version/index.html">
+<meta property="og:site_name" content="Jeongmin&#39;s Blog">
+<meta property="og:description" content="Java 버전별 특징Java가 빠르게 릴리즈 함에 따라 한번 짚어보고 가야할 필요를 느껴서 Java 7~10까지 버전별 특징들을 정리해보았습니다. 목차 1. Java 7 2. Java 8 3. Java 9 4. Java 10  1. Java 71.1 Type Inference (타입 추론)12345// 7 버전 이전List&amp;lt;String&amp;gt; list">
+<meta property="og:locale" content="ko">
+<meta property="og:updated_time" content="2019-05-13T14:27:37.219Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java 버전별 특징">
+<meta name="twitter:description" content="Java 버전별 특징Java가 빠르게 릴리즈 함에 따라 한번 짚어보고 가야할 필요를 느껴서 Java 7~10까지 버전별 특징들을 정리해보았습니다. 목차 1. Java 7 2. Java 8 3. Java 9 4. Java 10  1. Java 71.1 Type Inference (타입 추론)12345// 7 버전 이전List&amp;lt;String&amp;gt; list">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Jeongmin's Blog" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="https://ggomi.github.io/jdk-version/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Java 버전별 특징 | Jeongmin's Blog</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109295981-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-109295981-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="ko">
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> 
+
+<div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jeongmin's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Tech & Note</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+          
+  <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>홈</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>태그</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>카테고리</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>아카이브</a>
+</li>
+
+      
+
+      
+    </ul>
+  
+
+  
+    
+
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+    
+
+  
+
+
+  
+
+  
+</nav>
+
+
+  
+
+
+
+ </div>
+      <div style="text-align:center;"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- blog -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9081247697063156" data-ad-slot="6113290476" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+    </header>
+    
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ggomi.github.io/jdk-version/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jeongmin Oh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/profile.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jeongmin's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Java 버전별 특징</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-13T21:34:38+09:00">2019-05-13</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/jdk-version/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="jdk-version/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Java-버전별-특징"><a href="#Java-버전별-특징" class="headerlink" title="Java 버전별 특징"></a>Java 버전별 특징</h1><p>Java가 빠르게 릴리즈 함에 따라 한번 짚어보고 가야할 필요를 느껴서 Java 7~10까지 버전별 특징들을 정리해보았습니다.</p>
+<h1 id="목차"><a href="#목차" class="headerlink" title="목차"></a>목차</h1><ul>
+<li><a href="#1.-Java-7">1. Java 7</a></li>
+<li><a href="#2.-Java-8">2. Java 8</a></li>
+<li><a href="#3.-Java-9">3. Java 9</a></li>
+<li><a href="#4.-Java-10">4. Java 10</a></li>
+</ul>
+<h1 id="1-Java-7"><a href="#1-Java-7" class="headerlink" title="1. Java 7"></a>1. Java 7</h1><h2 id="1-1-Type-Inference-타입-추론"><a href="#1-1-Type-Inference-타입-추론" class="headerlink" title="1.1 Type Inference (타입 추론)"></a>1.1 Type Inference (타입 추론)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 7 버전 이전</span></span><br><span class="line">List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line"></span><br><span class="line"><span class="comment">//7 버전 이후</span></span><br><span class="line">List&lt;String&gt; list2 = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br></pre></td></tr></table></figure>
+<h2 id="1-2-Switch-문-문자열-case"><a href="#1-2-Switch-문-문자열-case" class="headerlink" title="1.2 Switch 문 문자열 case"></a>1.2 Switch 문 문자열 case</h2><ul>
+<li>말 그대로 Switch ~ Case 문에 문자열이 가능해졌다.</li>
+<li>어떤 식으로 컴파일하는지 궁금해서 직접해보았다.(<del>이렇게 String을 지원하기까지 약 16년이 걸렸다는..</del>)</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Java 코드</span></span><br><span class="line"><span class="keyword">switch</span> (a) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">"jeongmin"</span>:</span><br><span class="line">        System.out.println(<span class="string">"asd"</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">"jeongmin2"</span>:</span><br><span class="line">        System.out.println(<span class="string">"qweqwe"</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 컴파일 후 .class 파일(Java 8 기준)</span></span><br><span class="line"><span class="keyword">byte</span> var4 = -<span class="number">1</span>;</span><br><span class="line"><span class="keyword">switch</span>(a.hashCode()) &#123;</span><br><span class="line"><span class="keyword">case</span> -<span class="number">1514507291</span>:</span><br><span class="line">    <span class="keyword">if</span> (a.equals(<span class="string">"jeongmin"</span>)) &#123;</span><br><span class="line">        var4 = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">case</span> <span class="number">294914285</span>:</span><br><span class="line">    <span class="keyword">if</span> (a.equals(<span class="string">"jeongmin2"</span>)) &#123;</span><br><span class="line">        var4 = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">switch</span>(var4) &#123;</span><br><span class="line"><span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">    System.out.println(<span class="string">"asd"</span>);</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">    System.out.println(<span class="string">"qweqwe"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>첫번째 switch ~ case의 String 값을 hashcode 값 변경하고, equals 메소드를 통해서 실제 값과 같은지 다시 비교하고있다.</li>
+<li>그렇게 hashcode를 기준으로 초기화 된 <code>var4</code>라는 변수를 이용하여 두번째 switch ~ case 문에서 실질적인 동작을 하게 된다.</li>
+<li>사실 ‘hashcode로 바로 case문을 적용하면 되지않을까?’라는 생각을 할 수 있지만 hashcode라는게 다른 객체끼리 hash 충돌이 나게되면 중복될 수 있기 때문에 두번에 걸쳐서 검사를 한다고 한다.</li>
+</ul>
+<h2 id="1-3-Automatic-Resource-Management"><a href="#1-3-Automatic-Resource-Management" class="headerlink" title="1.3 Automatic Resource Management"></a>1.3 Automatic Resource Management</h2><ul>
+<li>보통 DB연동이나 파일스트림 같이 open하고 close를 해주어야하는 경우 try ~ catch문 다음에 finally에 close를 해주게 되는데 7부터는 finally에 close를 쓰지않게되면 알아서 try 마지막에 close 하게된다.</li>
+</ul>
+<h2 id="1-4-Catching-Multiple-Exception-Type-in-Single-Catch-Block"><a href="#1-4-Catching-Multiple-Exception-Type-in-Single-Catch-Block" class="headerlink" title="1.4 Catching Multiple Exception Type in Single Catch Block"></a>1.4 Catching Multiple Exception Type in Single Catch Block</h2><ul>
+<li>7 이후부터 멀티 catch가 가능해졌다.</li>
+</ul>
+<h2 id="이진수-표현"><a href="#이진수-표현" class="headerlink" title="이진수 표현"></a>이진수 표현</h2><ul>
+<li>숫자 앞에 0B나 0b를 붙이면 이진수로 판단 (8진수는 0, 16진수는 0x, 0X)</li>
+</ul>
+<h1 id="2-Java-8"><a href="#2-Java-8" class="headerlink" title="2. Java 8"></a>2. Java 8</h1><h2 id="2-1-Lambda"><a href="#2-1-Lambda" class="headerlink" title="2.1 Lambda"></a>2.1 Lambda</h2><ul>
+<li>Lambda 표현식 이라고 불리며, 다양한 표현식이 있다. (다양한 표현방식이 존재해서 다음에 따로 다시 정리할 것)</li>
+<li>람다표현식은 컴파일러(JIT 인터프리터)한테 실질적 구현을 시키는 방식이다.</li>
+<li>단순 for-loop와의 비교를 하게되면 람다표현식을 사용하면 더 느릴 수도 있지만 무조건적인 것은 아니라고한다. <a href="https://brunch.co.kr/@heracul/3" rel="external nofollow noopener noreferrer" target="_blank">참고 링크</a></li>
+</ul>
+<h2 id="2-2-interface-클래스에-구현체-작성-가능"><a href="#2-2-interface-클래스에-구현체-작성-가능" class="headerlink" title="2.2 interface 클래스에 구현체 작성 가능"></a>2.2 interface 클래스에 구현체 작성 가능</h2><ul>
+<li>default와 static 키워드를 사용해서 구현 메소드를 interface에 작성할 수 있게 되었다.</li>
+</ul>
+<h2 id="2-3-Optional"><a href="#2-3-Optional" class="headerlink" title="2.3 Optional"></a>2.3 Optional</h2><ul>
+<li>Optional은 <code>null이 될 수도 있는 객체</code>를 감싸는 일종의 래퍼 클래스이다.</li>
+<li>2019 SpringCamp에서도 세션으로 나왔을 만큼 null 다루는 것은 상당히 까다롭고, NPE 에러 또한 상당히 많이 나오는 에러이다.</li>
+<li>하지만, null체크를 최대한 하지않고도 코딩하게끔 나온 클래스이므로 사용을 잘해야한다. <a href="http://www.daleseo.com/java8-optional-effective/" rel="external nofollow noopener noreferrer" target="_blank">참고</a></li>
+</ul>
+<h2 id="2-4-다양한-DateTime-추가-LocalDateTime-…"><a href="#2-4-다양한-DateTime-추가-LocalDateTime-…" class="headerlink" title="2.4 다양한 DateTime 추가 (LocalDateTime, …)"></a>2.4 다양한 DateTime 추가 (LocalDateTime, …)</h2><h2 id="2-5-GC-성능-대폭-개선"><a href="#2-5-GC-성능-대폭-개선" class="headerlink" title="2.5 GC 성능 대폭 개선"></a>2.5 GC 성능 대폭 개선</h2><ul>
+<li>Java 8부터는 메모리 누수를 일으키던 메소드 영역의 PermGen Area를 제거하여 static 인스턴스와 리터럴 문자열도 GC의 대상이 되도록 바뀌었으며, 클래스, 메소드,배열의 메타 정보는 동적 리사이징이 가능한 Metaspace로 이동시켜 시스템 힙 영역에 저장된다. 덕분에 JVM 힙 영역의 공간이 늘어나고 PermGen Area를 스캔/삭제할 필요가 없어져 GC의 성능이 대폭 향상되었다.</li>
+</ul>
+<h1 id="3-Java-9"><a href="#3-Java-9" class="headerlink" title="3. Java 9"></a>3. Java 9</h1><h2 id="3-1"><a href="#3-1" class="headerlink" title="3.1"></a>3.1</h2>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+            <a href="/tags/jdk-version/" rel="tag"># jdk version</a>
+          
+            <a href="/tags/java-8/" rel="tag"># java 8</a>
+          
+            <a href="/tags/java-7/" rel="tag"># java 7</a>
+          
+            <a href="/tags/java-10/" rel="tag"># java 10</a>
+          
+            <a href="/tags/java-9/" rel="tag"># java 9</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/spring-boot-security/" rel="next" title="스프링 부트 Security">
+                <i class="fa fa-chevron-left"></i> 스프링 부트 Security
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript" rel="external nofollow noopener noreferrer" target="_blank">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            목차
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            흝어보기
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/profile.jpg" alt="Jeongmin Oh">
+            
+              <p class="site-author-name" itemprop="name">Jeongmin Oh</p>
+              <p class="site-description motion-element" itemprop="description">IT 기술블로그입니다.</p>
+          </div>
+
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/ggomi" target="_blank" title="GitHub" rel="external nofollow noopener noreferrer"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:dhkdn4042@gmail.com" target="_blank" title="E-Mail" rel="external nofollow noopener noreferrer"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java-버전별-특징"><span class="nav-number">1.</span> <span class="nav-text">Java 버전별 특징</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#목차"><span class="nav-number">2.</span> <span class="nav-text">목차</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Java-7"><span class="nav-number">3.</span> <span class="nav-text">1. Java 7</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-Type-Inference-타입-추론"><span class="nav-number">3.1.</span> <span class="nav-text">1.1 Type Inference (타입 추론)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-Switch-문-문자열-case"><span class="nav-number">3.2.</span> <span class="nav-text">1.2 Switch 문 문자열 case</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-Automatic-Resource-Management"><span class="nav-number">3.3.</span> <span class="nav-text">1.3 Automatic Resource Management</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-Catching-Multiple-Exception-Type-in-Single-Catch-Block"><span class="nav-number">3.4.</span> <span class="nav-text">1.4 Catching Multiple Exception Type in Single Catch Block</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#이진수-표현"><span class="nav-number">3.5.</span> <span class="nav-text">이진수 표현</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-Java-8"><span class="nav-number">4.</span> <span class="nav-text">2. Java 8</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-Lambda"><span class="nav-number">4.1.</span> <span class="nav-text">2.1 Lambda</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-interface-클래스에-구현체-작성-가능"><span class="nav-number">4.2.</span> <span class="nav-text">2.2 interface 클래스에 구현체 작성 가능</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-Optional"><span class="nav-number">4.3.</span> <span class="nav-text">2.3 Optional</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-다양한-DateTime-추가-LocalDateTime-…"><span class="nav-number">4.4.</span> <span class="nav-text">2.4 다양한 DateTime 추가 (LocalDateTime, …)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-GC-성능-대폭-개선"><span class="nav-number">4.5.</span> <span class="nav-text">2.5 GC 성능 대폭 개선</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-Java-9"><span class="nav-number">5.</span> <span class="nav-text">3. Java 9</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1"><span class="nav-number">5.1.</span> <span class="nav-text">3.1</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+    
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">author</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next" rel="external nofollow noopener noreferrer">NexT.Muse</a> v6.0.6</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.0.6"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.0.6"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.6"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.6"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.6"></script>
+
+
+
+  
+
+  
+    <script id="dsq-count-scr" src="https://ggomi-github-io.disqus.com/count.js" async></script>
+  
+
+  
+    <script type="text/javascript">
+      var disqus_config = function () {
+        this.page.url = 'https://ggomi.github.io/jdk-version/';
+        this.page.identifier = 'jdk-version/';
+        this.page.title = 'Java 버전별 특징';
+      };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://ggomi-github-io.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
+  
+
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>
