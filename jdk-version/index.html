@@ -131,18 +131,18 @@
 
 
 
-  <meta name="description" content="Java 버전별 특징Java가 빠르게 릴리즈 함에 따라 한번 짚어보고 가야할 필요를 느껴서 Java 7~10까지 버전별 특징들을 정리해보았습니다. 목차 1. Java 7 2. Java 8 3. Java 9 4. Java 10  1. Java 71.1 Type Inference (타입 추론)12345// 7 버전 이전List&amp;lt;String&amp;gt; list">
+  <meta name="description" content="Java 버전별 특징Java가 빠르게 릴리즈 함에 따라 한번 짚어보고 가야할 필요를 느껴서 Java 7~10까지 버전별 특징들을 정리해보았습니다. 1. Java 71.1 Type Inference (타입 추론)12345// 7 버전 이전List&amp;lt;String&amp;gt; list = new ArrayList&amp;lt;String&amp;gt;();//7 버전 이후Lis">
 <meta name="keywords" content="Java,jdk version,java 8,java 7,java 10,java 9">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java 버전별 특징">
 <meta property="og:url" content="https://ggomi.github.io/jdk-version/index.html">
 <meta property="og:site_name" content="Jeongmin&#39;s Blog">
-<meta property="og:description" content="Java 버전별 특징Java가 빠르게 릴리즈 함에 따라 한번 짚어보고 가야할 필요를 느껴서 Java 7~10까지 버전별 특징들을 정리해보았습니다. 목차 1. Java 7 2. Java 8 3. Java 9 4. Java 10  1. Java 71.1 Type Inference (타입 추론)12345// 7 버전 이전List&amp;lt;String&amp;gt; list">
+<meta property="og:description" content="Java 버전별 특징Java가 빠르게 릴리즈 함에 따라 한번 짚어보고 가야할 필요를 느껴서 Java 7~10까지 버전별 특징들을 정리해보았습니다. 1. Java 71.1 Type Inference (타입 추론)12345// 7 버전 이전List&amp;lt;String&amp;gt; list = new ArrayList&amp;lt;String&amp;gt;();//7 버전 이후Lis">
 <meta property="og:locale" content="ko">
-<meta property="og:updated_time" content="2019-05-13T14:27:37.219Z">
+<meta property="og:updated_time" content="2019-05-13T14:44:06.989Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java 버전별 특징">
-<meta name="twitter:description" content="Java 버전별 특징Java가 빠르게 릴리즈 함에 따라 한번 짚어보고 가야할 필요를 느껴서 Java 7~10까지 버전별 특징들을 정리해보았습니다. 목차 1. Java 7 2. Java 8 3. Java 9 4. Java 10  1. Java 71.1 Type Inference (타입 추론)12345// 7 버전 이전List&amp;lt;String&amp;gt; list">
+<meta name="twitter:description" content="Java 버전별 특징Java가 빠르게 릴리즈 함에 따라 한번 짚어보고 가야할 필요를 느껴서 Java 7~10까지 버전별 특징들을 정리해보았습니다. 1. Java 71.1 Type Inference (타입 추론)12345// 7 버전 이전List&amp;lt;String&amp;gt; list = new ArrayList&amp;lt;String&amp;gt;();//7 버전 이후Lis">
 
 
 
@@ -468,12 +468,6 @@
 
       
         <h1 id="Java-버전별-특징"><a href="#Java-버전별-특징" class="headerlink" title="Java 버전별 특징"></a>Java 버전별 특징</h1><p>Java가 빠르게 릴리즈 함에 따라 한번 짚어보고 가야할 필요를 느껴서 Java 7~10까지 버전별 특징들을 정리해보았습니다.</p>
-<h1 id="목차"><a href="#목차" class="headerlink" title="목차"></a>목차</h1><ul>
-<li><a href="#1.-Java-7">1. Java 7</a></li>
-<li><a href="#2.-Java-8">2. Java 8</a></li>
-<li><a href="#3.-Java-9">3. Java 9</a></li>
-<li><a href="#4.-Java-10">4. Java 10</a></li>
-</ul>
 <h1 id="1-Java-7"><a href="#1-Java-7" class="headerlink" title="1. Java 7"></a>1. Java 7</h1><h2 id="1-1-Type-Inference-타입-추론"><a href="#1-1-Type-Inference-타입-추론" class="headerlink" title="1.1 Type Inference (타입 추론)"></a>1.1 Type Inference (타입 추론)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 7 버전 이전</span></span><br><span class="line">List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line"></span><br><span class="line"><span class="comment">//7 버전 이후</span></span><br><span class="line">List&lt;String&gt; list2 = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br></pre></td></tr></table></figure>
 <h2 id="1-2-Switch-문-문자열-case"><a href="#1-2-Switch-문-문자열-case" class="headerlink" title="1.2 Switch 문 문자열 case"></a>1.2 Switch 문 문자열 case</h2><ul>
 <li>말 그대로 Switch ~ Case 문에 문자열이 가능해졌다.</li>
@@ -511,7 +505,7 @@
 <h2 id="2-4-다양한-DateTime-추가-LocalDateTime-…"><a href="#2-4-다양한-DateTime-추가-LocalDateTime-…" class="headerlink" title="2.4 다양한 DateTime 추가 (LocalDateTime, …)"></a>2.4 다양한 DateTime 추가 (LocalDateTime, …)</h2><h2 id="2-5-GC-성능-대폭-개선"><a href="#2-5-GC-성능-대폭-개선" class="headerlink" title="2.5 GC 성능 대폭 개선"></a>2.5 GC 성능 대폭 개선</h2><ul>
 <li>Java 8부터는 메모리 누수를 일으키던 메소드 영역의 PermGen Area를 제거하여 static 인스턴스와 리터럴 문자열도 GC의 대상이 되도록 바뀌었으며, 클래스, 메소드,배열의 메타 정보는 동적 리사이징이 가능한 Metaspace로 이동시켜 시스템 힙 영역에 저장된다. 덕분에 JVM 힙 영역의 공간이 늘어나고 PermGen Area를 스캔/삭제할 필요가 없어져 GC의 성능이 대폭 향상되었다.</li>
 </ul>
-<h1 id="3-Java-9"><a href="#3-Java-9" class="headerlink" title="3. Java 9"></a>3. Java 9</h1><h2 id="3-1"><a href="#3-1" class="headerlink" title="3.1"></a>3.1</h2>
+
       
     </div>
 
@@ -692,7 +686,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java-버전별-특징"><span class="nav-number">1.</span> <span class="nav-text">Java 버전별 특징</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#목차"><span class="nav-number">2.</span> <span class="nav-text">목차</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Java-7"><span class="nav-number">3.</span> <span class="nav-text">1. Java 7</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-Type-Inference-타입-추론"><span class="nav-number">3.1.</span> <span class="nav-text">1.1 Type Inference (타입 추론)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-Switch-문-문자열-case"><span class="nav-number">3.2.</span> <span class="nav-text">1.2 Switch 문 문자열 case</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-Automatic-Resource-Management"><span class="nav-number">3.3.</span> <span class="nav-text">1.3 Automatic Resource Management</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-Catching-Multiple-Exception-Type-in-Single-Catch-Block"><span class="nav-number">3.4.</span> <span class="nav-text">1.4 Catching Multiple Exception Type in Single Catch Block</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#이진수-표현"><span class="nav-number">3.5.</span> <span class="nav-text">이진수 표현</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-Java-8"><span class="nav-number">4.</span> <span class="nav-text">2. Java 8</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-Lambda"><span class="nav-number">4.1.</span> <span class="nav-text">2.1 Lambda</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-interface-클래스에-구현체-작성-가능"><span class="nav-number">4.2.</span> <span class="nav-text">2.2 interface 클래스에 구현체 작성 가능</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-Optional"><span class="nav-number">4.3.</span> <span class="nav-text">2.3 Optional</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-다양한-DateTime-추가-LocalDateTime-…"><span class="nav-number">4.4.</span> <span class="nav-text">2.4 다양한 DateTime 추가 (LocalDateTime, …)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-GC-성능-대폭-개선"><span class="nav-number">4.5.</span> <span class="nav-text">2.5 GC 성능 대폭 개선</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-Java-9"><span class="nav-number">5.</span> <span class="nav-text">3. Java 9</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1"><span class="nav-number">5.1.</span> <span class="nav-text">3.1</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java-버전별-특징"><span class="nav-number">1.</span> <span class="nav-text">Java 버전별 특징</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Java-7"><span class="nav-number">2.</span> <span class="nav-text">1. Java 7</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-Type-Inference-타입-추론"><span class="nav-number">2.1.</span> <span class="nav-text">1.1 Type Inference (타입 추론)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-Switch-문-문자열-case"><span class="nav-number">2.2.</span> <span class="nav-text">1.2 Switch 문 문자열 case</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-Automatic-Resource-Management"><span class="nav-number">2.3.</span> <span class="nav-text">1.3 Automatic Resource Management</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-Catching-Multiple-Exception-Type-in-Single-Catch-Block"><span class="nav-number">2.4.</span> <span class="nav-text">1.4 Catching Multiple Exception Type in Single Catch Block</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#이진수-표현"><span class="nav-number">2.5.</span> <span class="nav-text">이진수 표현</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-Java-8"><span class="nav-number">3.</span> <span class="nav-text">2. Java 8</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-Lambda"><span class="nav-number">3.1.</span> <span class="nav-text">2.1 Lambda</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-interface-클래스에-구현체-작성-가능"><span class="nav-number">3.2.</span> <span class="nav-text">2.2 interface 클래스에 구현체 작성 가능</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-Optional"><span class="nav-number">3.3.</span> <span class="nav-text">2.3 Optional</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-다양한-DateTime-추가-LocalDateTime-…"><span class="nav-number">3.4.</span> <span class="nav-text">2.4 다양한 DateTime 추가 (LocalDateTime, …)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-GC-성능-대폭-개선"><span class="nav-number">3.5.</span> <span class="nav-text">2.5 GC 성능 대폭 개선</span></a></li></ol></li></ol></div>
             
 
           </div>
