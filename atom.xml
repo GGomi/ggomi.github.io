@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://ggomi.github.io/"/>
-  <updated>2019-05-20T14:22:17.181Z</updated>
+  <updated>2019-06-21T14:46:55.436Z</updated>
   <id>https://ggomi.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Effective Java 정리 - Item 9</title>
+    <link href="https://ggomi.github.io/effective-java/"/>
+    <id>https://ggomi.github.io/effective-java/</id>
+    <published>2019-06-21T13:03:02.000Z</published>
+    <updated>2019-06-21T14:46:55.436Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>이 글은 Effective Java를 읽고 정리한 글입니다.</p></blockquote><h1 id="Item-9-try-finally-보다-try-with-resources를-사용하라"><a href="#Item-9-try-finally-보다-try-with-resources를-사용하라" class="headerlink" title="Item 9. try-finally 보다 try-with-resources를 사용하라."></a>Item 9. try-finally 보다 try-with-resources를 사용하라.</h1><p>DB 연결이나 파일 입출력 같은 close()를 통해 닫아주어야하는 자원들이 있다. 이런 자원들은 Java 7 이전에는 try-finally을 통해서 close를 시켜주었다.</p><p>하지만, 자원이 2개 이상이 되어버리면 아래와 같이 코드가 복잡해지고, 가독성이 떨어지게된다.</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">InputStream in = <span class="keyword">new</span> FileInputStream(src);</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    OutputStream out = <span class="keyword">new</span> FileOutputStream(dst);</span><br><span class="line">    <span class="keyword">try</span> &#123; </span><br><span class="line">        ...</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        out.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">    in.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><img src="https://user-images.githubusercontent.com/19489949/59926556-8251e380-9475-11e9-9257-6e88edd147c1.png" alt="josh-bloch"></p><p>그리고, 코드의 복잡성 이외에도 <code>finally</code> 문에서 예외가 나면 다른 예외를 덮어써버린다는 것이다. 그래서 finally 이전에 예외가 있었고, <code>finally</code>에서 예외가 난다면 상당히 찾기 힘들어질 수 있다.</p><p>이런 문제점들을 해결하고자 Java 7부터 <code>try-with-resources</code>가 나왔으며 이는 <code>AutoCloseable</code> 인터페이스를 구현하고있다. (이 책의 저자-Josh Bloch 가 작성함..)</p><p><code>try-with-resources</code>는 try 문에 AutoClosable을 구현하고 있는 클래스라면 아래와 같이 포함해서 작성할 수 있으며 자동으로 try문이 끝나게되면 close를 해주게 된다.</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> (InputStream in = <span class="keyword">new</span> FileInputStream(src); </span><br><span class="line">        OutputStream out = <span class="keyword">new</span> FileOutputStream(dst)) &#123;</span><br><span class="line">     ... </span><br><span class="line">&#125; <span class="keyword">catch</span> (..) &#123; &#125;</span><br></pre></td></tr></table></figure><p>두개 이상의 자원을 한번에 try문에 작성할 수 있으며, 두개의 자원 모두 close가 호출되게된다.</p><ul><li><a href="https://github.com/GGomi/TIL/blob/master/Java/effective_java.md" rel="external nofollow noopener noreferrer" target="_blank">TIL</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;이 글은 Effective Java를 읽고 정리한 글입니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;Item-9-try-finally-보다-try-with-resources를-사용하라&quot;&gt;&lt;a href=&quot;#Item-9
+      
+    
+    </summary>
+    
+      <category term="Effective Java" scheme="https://ggomi.github.io/categories/Effective-Java/"/>
+    
+    
+      <category term="Effective Java" scheme="https://ggomi.github.io/tags/Effective-Java/"/>
+    
+      <category term="이펙티브 자바" scheme="https://ggomi.github.io/tags/%EC%9D%B4%ED%8E%99%ED%8B%B0%EB%B8%8C-%EC%9E%90%EB%B0%94/"/>
+    
+  </entry>
   
   <entry>
     <title>Java 버전별 특징</title>
@@ -587,33 +617,6 @@
       <category term="함수" scheme="https://ggomi.github.io/tags/%ED%95%A8%EC%88%98/"/>
     
       <category term="리팩토링" scheme="https://ggomi.github.io/tags/%EB%A6%AC%ED%8C%A9%ED%86%A0%EB%A7%81/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SSE란?</title>
-    <link href="https://ggomi.github.io/SSE/"/>
-    <id>https://ggomi.github.io/SSE/</id>
-    <published>2018-12-18T04:10:05.000Z</published>
-    <updated>2019-01-22T02:13:31.299Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="SSE-Server-Sent-Events"><a href="#SSE-Server-Sent-Events" class="headerlink" title="SSE(Server-Sent Events)"></a>SSE(Server-Sent Events)</h2><ul><li>HTML5 표준안 권고사항!! (IE 미지원)</li></ul><h2 id="그래서-뭔데"><a href="#그래서-뭔데" class="headerlink" title="그래서 뭔데?"></a>그래서 뭔데?</h2><ul><li><strong>서버가 필요할 때마다 클라이언트에게 데이터를 줄 수 있게 해주는 서버 푸쉬 기술</strong></li><li>HTML5가 등장하기 전까지는 HTML에 서버 푸시를 위한 표준화된 기술이 없었기 때문에 웹에서 실시간 정보를 받아와야 할 때 외부플러그인을 이용하거나 서버푸시를 흉내 낸 Ajax Polling 기법등을 사용했다고 한다.</li></ul><h2 id="그럼-뭐가-더-좋을까"><a href="#그럼-뭐가-더-좋을까" class="headerlink" title="그럼 뭐가 더 좋을까?"></a>그럼 뭐가 더 좋을까?</h2><p>먼저, 장점을 말하기 전에 기존 기술을 살펴보자.</p><ul><li><p><strong>Poling</strong></p><ul><li>대다수의 AJAX 응용 프로그램에서 사용되는 전통적인 기술입니다.</li><li>기본 개념은 응용 프로그램이 서버에서 데이터를 반복적으로 요청하는 것.</li><li><strong>장점</strong><ul><li>일정하게 갱신이 되는 서버 데이터의 경우 매우 유용하며 기존 단순한 모델을 유지 할 수 있습니다.</li></ul></li><li><strong>단점</strong><ul><li>클라이언트는 요청을 하고 서버가 데이터로 응답 할 때까지 기다립니다. 갱신되지 않은 의미없는 응답이 리턴될 수 도 있습니다. 그렇기 때문에 HTTP 오버헤드가 커지게 된다.</li></ul></li></ul></li><li><p><strong>Long Polling</strong></p><ul><li>폴링의 변형, 폴링과 비슷하지만 서버에 사용 가능한 데이터가 없으면 서버는 새 데이터를 사용할 수 있을 때까지 요청을 보류한다. 그래서 <em>Hang GET</em>이라고 불리기도 한다.</li><li>폴링의 단점을 해결한 것처럼 보이지만 사용 가능한 데이터가 지속적으로 응답해야하기 때문에 다른 추가적인 방법이 필요하다.</li></ul></li></ul><hr><h1 id="SSE"><a href="#SSE" class="headerlink" title="SSE"></a>SSE</h1><ul><li>처음부터 효율적으로 설계되어서 <strong>SSE</strong>를 사용하여 통신 할 때 서버는 초기 요청을 하지 않고도 필요할 때마다 데이터를 앱으로 푸시 할 수 있다. 즉, 서버와 클라이언트 사이에 단일 단방향 채널을 열게되는 것. <strong>Long Polling</strong>과 가장 큰 차이점은 브라우저에서 직접 처리된다는 점이다.</li><li>HTTP를 사용하기 때문에 작동하기위해 별도의 프로토콜이나 서버구현이 필요없다.</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;SSE-Server-Sent-Events&quot;&gt;&lt;a href=&quot;#SSE-Server-Sent-Events&quot; class=&quot;headerlink&quot; title=&quot;SSE(Server-Sent Events)&quot;&gt;&lt;/a&gt;SSE(Server-Sent Eve
-      
-    
-    </summary>
-    
-      <category term="HTML5" scheme="https://ggomi.github.io/categories/HTML5/"/>
-    
-    
-      <category term="HTML5" scheme="https://ggomi.github.io/tags/HTML5/"/>
-    
-      <category term="SSE" scheme="https://ggomi.github.io/tags/SSE/"/>
     
   </entry>
   
