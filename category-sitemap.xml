@@ -9,63 +9,70 @@
 
     <url>
         <loc>https://ggomi.github.io/categories/JPA/</loc>
-        <lastmod>2019-01-22T02:13:06.614Z</lastmod>
+        <lastmod>2019-01-22T02:13:06.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://ggomi.github.io/categories/Algorithm/</loc>
-        <lastmod>2019-01-22T02:13:11.787Z</lastmod>
+        <lastmod>2019-01-22T02:13:11.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://ggomi.github.io/categories/HTML5/</loc>
-        <lastmod>2019-01-22T02:13:31.299Z</lastmod>
+        <lastmod>2019-01-22T02:13:31.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://ggomi.github.io/categories/Basic-sense/</loc>
-        <lastmod>2019-01-23T17:14:52.103Z</lastmod>
+        <lastmod>2019-01-23T17:14:52.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://ggomi.github.io/categories/%EC%A3%BC%EA%B0%84%ED%9A%8C%EA%B3%A0/</loc>
-        <lastmod>2019-02-17T23:59:38.898Z</lastmod>
+        <lastmod>2019-02-17T23:59:38.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://ggomi.github.io/categories/TDD/</loc>
-        <lastmod>2019-04-20T13:50:20.372Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://ggomi.github.io/categories/Spring/</loc>
-        <lastmod>2019-04-26T14:07:15.687Z</lastmod>
+        <lastmod>2019-04-20T13:50:20.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://ggomi.github.io/categories/Java/</loc>
-        <lastmod>2019-05-20T14:22:17.181Z</lastmod>
+        <lastmod>2019-05-20T14:22:17.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://ggomi.github.io/categories/Effective-Java/</loc>
-        <lastmod>2019-06-21T14:46:55.436Z</lastmod>
+        <lastmod>2019-06-21T14:46:55.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://ggomi.github.io/categories/Kotlin/</loc>
+        <lastmod>2019-10-09T10:04:12.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://ggomi.github.io/categories/Spring/</loc>
+        <lastmod>2020-02-17T08:36:24.816Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

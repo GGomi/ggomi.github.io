@@ -8,8 +8,24 @@
     </url>
 
     <url>
+        <loc>https://ggomi.github.io/boot-react/</loc>
+        <lastmod>2020-02-17T08:36:24.816Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://ggomi.github.io/kotlin/</loc>
+        <lastmod>2019-10-09T10:04:12.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://ggomi.github.io/effective-java/</loc>
-        <lastmod>2019-06-21T14:46:55.436Z</lastmod>
+        <lastmod>2019-06-21T14:46:55.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -17,7 +33,7 @@
 
     <url>
         <loc>https://ggomi.github.io/jdk-version/</loc>
-        <lastmod>2019-05-20T14:22:17.181Z</lastmod>
+        <lastmod>2019-05-20T14:22:17.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -25,7 +41,7 @@
 
     <url>
         <loc>https://ggomi.github.io/spring-boot-security/</loc>
-        <lastmod>2019-04-26T14:07:15.687Z</lastmod>
+        <lastmod>2019-04-26T14:07:15.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -33,15 +49,15 @@
 
     <url>
         <loc>https://ggomi.github.io/spring-test/</loc>
-        <lastmod>2019-04-20T14:09:37.012Z</lastmod>
+        <lastmod>2019-04-20T14:09:37.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://ggomi.github.io/TDD-%EC%98%88%EC%A0%9C(1)/</loc>
-        <lastmod>2019-04-20T13:50:20.372Z</lastmod>
+        <loc>https://ggomi.github.io/TDD-%E1%84%8B%E1%85%A8%E1%84%8C%E1%85%A6(1)/</loc>
+        <lastmod>2019-04-20T13:50:20.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -49,7 +65,7 @@
 
     <url>
         <loc>https://ggomi.github.io/value-configuration-properties/</loc>
-        <lastmod>2019-04-17T07:02:47.074Z</lastmod>
+        <lastmod>2019-04-17T07:02:47.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -57,7 +73,7 @@
 
     <url>
         <loc>https://ggomi.github.io/spring-injection/</loc>
-        <lastmod>2019-03-25T05:37:00.307Z</lastmod>
+        <lastmod>2019-03-25T05:37:00.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -65,7 +81,7 @@
 
     <url>
         <loc>https://ggomi.github.io/injection/</loc>
-        <lastmod>2019-03-18T10:42:35.131Z</lastmod>
+        <lastmod>2019-03-18T10:42:35.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -73,7 +89,7 @@
 
     <url>
         <loc>https://ggomi.github.io/weekly-retrospective-20190128-20190201/</loc>
-        <lastmod>2019-02-17T23:59:38.898Z</lastmod>
+        <lastmod>2019-02-17T23:59:38.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -81,7 +97,7 @@
 
     <url>
         <loc>https://ggomi.github.io/weekly-retrospective-20190211-0215/</loc>
-        <lastmod>2019-02-17T23:59:35.967Z</lastmod>
+        <lastmod>2019-02-17T23:59:35.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -89,7 +105,7 @@
 
     <url>
         <loc>https://ggomi.github.io/weekly-retrospective-20190121-20190125/</loc>
-        <lastmod>2019-01-30T07:46:34.771Z</lastmod>
+        <lastmod>2019-01-30T07:46:34.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -97,7 +113,7 @@
 
     <url>
         <loc>https://ggomi.github.io/basic-0/</loc>
-        <lastmod>2019-01-23T17:14:52.103Z</lastmod>
+        <lastmod>2019-01-23T17:14:52.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -105,7 +121,7 @@
 
     <url>
         <loc>https://ggomi.github.io/function-structure/</loc>
-        <lastmod>2019-01-22T14:34:26.583Z</lastmod>
+        <lastmod>2019-01-22T14:34:26.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -113,7 +129,7 @@
 
     <url>
         <loc>https://ggomi.github.io/function-structure-2/</loc>
-        <lastmod>2019-01-22T14:33:57.500Z</lastmod>
+        <lastmod>2019-01-22T14:33:57.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -121,7 +137,7 @@
 
     <url>
         <loc>https://ggomi.github.io/data-structure/</loc>
-        <lastmod>2019-01-22T14:21:09.174Z</lastmod>
+        <lastmod>2019-01-22T14:21:09.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -129,7 +145,7 @@
 
     <url>
         <loc>https://ggomi.github.io/basic-3/</loc>
-        <lastmod>2019-01-22T14:21:01.024Z</lastmod>
+        <lastmod>2019-01-22T14:21:01.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -137,7 +153,7 @@
 
     <url>
         <loc>https://ggomi.github.io/basic-2/</loc>
-        <lastmod>2019-01-22T14:20:49.841Z</lastmod>
+        <lastmod>2019-01-22T14:20:49.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -145,7 +161,7 @@
 
     <url>
         <loc>https://ggomi.github.io/vertical-classes/</loc>
-        <lastmod>2019-01-22T14:20:05.719Z</lastmod>
+        <lastmod>2019-01-22T14:20:05.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -153,7 +169,7 @@
 
     <url>
         <loc>https://ggomi.github.io/function-example2/</loc>
-        <lastmod>2019-01-22T14:16:32.996Z</lastmod>
+        <lastmod>2019-01-22T14:16:32.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -161,7 +177,7 @@
 
     <url>
         <loc>https://ggomi.github.io/function-example/</loc>
-        <lastmod>2019-01-22T14:15:26.293Z</lastmod>
+        <lastmod>2019-01-22T14:15:26.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -169,7 +185,7 @@
 
     <url>
         <loc>https://ggomi.github.io/tdd/</loc>
-        <lastmod>2019-01-22T14:14:01.176Z</lastmod>
+        <lastmod>2019-01-22T14:14:01.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -177,7 +193,7 @@
 
     <url>
         <loc>https://ggomi.github.io/SSE/</loc>
-        <lastmod>2019-01-22T02:13:31.299Z</lastmod>
+        <lastmod>2019-01-22T02:13:31.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -185,15 +201,15 @@
 
     <url>
         <loc>https://ggomi.github.io/kwpattern/</loc>
-        <lastmod>2019-01-22T02:13:11.787Z</lastmod>
+        <lastmod>2019-01-22T02:13:11.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://ggomi.github.io/JPA-%EA%B0%9C%EB%85%90-%EB%B0%8F-%EC%84%A4%EB%AA%85/</loc>
-        <lastmod>2019-01-22T02:13:06.614Z</lastmod>
+        <loc>https://ggomi.github.io/JPA-%E1%84%80%E1%85%A2%E1%84%82%E1%85%A7%E1%86%B7-%E1%84%86%E1%85%B5%E1%86%BE-%E1%84%89%E1%85%A5%E1%86%AF%E1%84%86%E1%85%A7%E1%86%BC/</loc>
+        <lastmod>2019-01-22T02:13:06.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -201,7 +217,7 @@
 
     <url>
         <loc>https://ggomi.github.io/DDD/</loc>
-        <lastmod>2019-01-22T02:12:23.795Z</lastmod>
+        <lastmod>2019-01-22T02:12:23.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -209,7 +225,7 @@
 
     <url>
         <loc>https://ggomi.github.io/comments-rules/</loc>
-        <lastmod>2019-01-22T02:12:12.315Z</lastmod>
+        <lastmod>2019-01-22T02:12:12.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -217,7 +233,7 @@
 
     <url>
         <loc>https://ggomi.github.io/basic-1/</loc>
-        <lastmod>2019-01-22T02:11:57.675Z</lastmod>
+        <lastmod>2019-01-22T02:11:57.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

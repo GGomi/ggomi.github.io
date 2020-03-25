@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="ko">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Gothic A1:300,300italic,400,400italic,700,700italic|Nanum Gothic Coding:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.0.6" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.0.6">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/cheese_thumb.jpg?v=6.0.6">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/cheese_thumb.jpg?v=6.0.6">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.0.6" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.0.6',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Webtoon 토이프로젝트를 진행하다보니 프론트엔드 서버(react)와 백엔드 서버(를 따로 빌드하고, 실행하는 것이 약간 불편하게 느껴지기 시작했다..그래서 ‘Spring 프로젝트에 프론트엔드 파일들을 넣어두고 Gradle을 통해서 build 한번에 프론트와 백엔드 모두 Build 할 수 있지않을까?’ 라는 생각이 들어 서칭을 시작해보았다.아니나다를까 이">
+<meta name="keywords" content="react,spring boot,프로젝트 병합,frontend">
+<meta property="og:type" content="article">
+<meta property="og:title" content="스프링부트 리액트 프로젝트 병합하기">
+<meta property="og:url" content="https://ggomi.github.io/boot-react/index.html">
+<meta property="og:site_name" content="Jeongmin&#39;s Blog">
+<meta property="og:description" content="Webtoon 토이프로젝트를 진행하다보니 프론트엔드 서버(react)와 백엔드 서버(를 따로 빌드하고, 실행하는 것이 약간 불편하게 느껴지기 시작했다..그래서 ‘Spring 프로젝트에 프론트엔드 파일들을 넣어두고 Gradle을 통해서 build 한번에 프론트와 백엔드 모두 Build 할 수 있지않을까?’ 라는 생각이 들어 서칭을 시작해보았다.아니나다를까 이">
+<meta property="og:locale" content="ko">
+<meta property="og:image" content="https://images.velog.io/post-images/essri/f2a5e1f0-ff68-11e9-8296-17c1ea2d2e9d/deploy-error.png">
+<meta property="og:updated_time" content="2020-02-17T08:36:24.816Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="스프링부트 리액트 프로젝트 병합하기">
+<meta name="twitter:description" content="Webtoon 토이프로젝트를 진행하다보니 프론트엔드 서버(react)와 백엔드 서버(를 따로 빌드하고, 실행하는 것이 약간 불편하게 느껴지기 시작했다..그래서 ‘Spring 프로젝트에 프론트엔드 파일들을 넣어두고 Gradle을 통해서 build 한번에 프론트와 백엔드 모두 Build 할 수 있지않을까?’ 라는 생각이 들어 서칭을 시작해보았다.아니나다를까 이">
+<meta name="twitter:image" content="https://images.velog.io/post-images/essri/f2a5e1f0-ff68-11e9-8296-17c1ea2d2e9d/deploy-error.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Jeongmin's Blog" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="https://ggomi.github.io/boot-react/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>스프링부트 리액트 프로젝트 병합하기 | Jeongmin's Blog</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109295981-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-109295981-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="ko">
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> 
+
+<div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jeongmin's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Tech & Note</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+          
+  <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>홈</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>태그</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>카테고리</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>아카이브</a>
+</li>
+
+      
+
+      
+    </ul>
+  
+
+  
+    
+
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+    
+
+  
+
+
+  
+
+  
+</nav>
+
+
+  
+
+
+
+ </div>
+      <div style="text-align:center;"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- blog -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9081247697063156" data-ad-slot="6113290476" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+    </header>
+    
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ggomi.github.io/boot-react/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jeongmin Oh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/profile.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jeongmin's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">스프링부트 리액트 프로젝트 병합하기</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-04T14:18:29+09:00">2019-11-04</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Spring/" itemprop="url" rel="index"><span itemprop="name">Spring</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/boot-react/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="boot-react/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><a href="http://github.com/ggomi/webtoon" rel="external nofollow noopener noreferrer" target="_blank">Webtoon 토이프로젝트</a>를 진행하다보니 프론트엔드 서버(react)와 백엔드 서버(를 따로 빌드하고, 실행하는 것이 약간 불편하게 느껴지기 시작했다..<br>그래서 ‘Spring 프로젝트에 프론트엔드 파일들을 넣어두고 Gradle을 통해서 build 한번에 프론트와 백엔드 모두 Build 할 수 있지않을까?’ 라는 생각이 들어 서칭을 시작해보았다.<br>아니나다를까 이미 그런 생각을 하신 분들이 많았고, 좋은 예제들이 있었다. 그래서 찾았던 예제를 바탕으로 내가 직접 적용해본 과정을 기록해보기로 했다.</p>
+<blockquote>
+<p>해당 프로젝트의 전체 코드는 <a href="https://github.com/ggomi/webtoon" rel="external nofollow noopener noreferrer" target="_blank">이 곳</a>에서 볼 수 있습니다.</p>
+</blockquote>
+<h1 id="1-Frontend-파일-Spring-Boot-Project로-옮기기"><a href="#1-Frontend-파일-Spring-Boot-Project로-옮기기" class="headerlink" title="1. Frontend 파일 Spring Boot Project로 옮기기"></a>1. Frontend 파일 Spring Boot Project로 옮기기</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">## spring projcet root</span><br><span class="line"></span><br><span class="line">|- frontend</span><br><span class="line">|    - webtoon</span><br><span class="line">|        - ...</span><br><span class="line">|- src</span><br><span class="line">|    - main</span><br><span class="line">|        - java</span><br><span class="line">|            - com.essri.webtoon</span><br><span class="line">|                - ...</span><br></pre></td></tr></table></figure>
+<ul>
+<li>내가 옮길 프론트엔드 프로젝트 디렉토리의 이름은 <code>webtoon</code>, 위의 구조처럼 우선 스프링 프로젝트의 최상단에 <code>frontend</code> 디렉토리를 생성하고, <code>frontend</code> 폴더 하위로 옮겨주었다.</li>
+</ul>
+<h1 id="2-frontend-프로젝트의-package-json-수정하기"><a href="#2-frontend-프로젝트의-package-json-수정하기" class="headerlink" title="2. frontend 프로젝트의 package.json 수정하기"></a>2. frontend 프로젝트의 package.json 수정하기</h1><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"name"</span>: <span class="string">"webtoon-react"</span>,</span><br><span class="line">  <span class="attr">"version"</span>: <span class="string">"1.0.0"</span>,</span><br><span class="line">  <span class="attr">"description"</span>: <span class="string">""</span>,</span><br><span class="line">  <span class="attr">"main"</span>: <span class="string">"App.js"</span>,</span><br><span class="line">  <span class="attr">"dependencies"</span>: &#123;</span><br><span class="line">    <span class="attr">"acorn"</span>: <span class="string">"^7.1.0"</span>,</span><br><span class="line">    <span class="attr">"bootstrap"</span>: <span class="string">"^4.3.1"</span>,</span><br><span class="line">    <span class="attr">"react"</span>: <span class="string">"^16.8.6"</span>,</span><br><span class="line">    <span class="attr">"react-dom"</span>: <span class="string">"^16.8.6"</span>,</span><br><span class="line">    <span class="attr">"react-router"</span>: <span class="string">"^5.0.1"</span>,</span><br><span class="line">    <span class="attr">"react-router-dom"</span>: <span class="string">"^5.0.1"</span>,</span><br><span class="line">    <span class="attr">"react-scripts"</span>: <span class="string">"3.0.1"</span>,</span><br><span class="line">    <span class="attr">"reactstrap"</span>: <span class="string">"^8.1.1"</span>,</span><br><span class="line">    <span class="attr">"stringquery"</span>: <span class="string">"^1.0.8"</span>,</span><br><span class="line">    <span class="attr">"webpack"</span>: <span class="string">"4.29.6"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"devDependencies"</span>: &#123;&#125;,</span><br><span class="line">  <span class="attr">"scripts"</span>: &#123;</span><br><span class="line">    <span class="attr">"start"</span>: <span class="string">"react-scripts start"</span>,</span><br><span class="line">    <span class="attr">"build"</span>: <span class="string">"react-scripts build"</span>,</span><br><span class="line">    <span class="attr">"test"</span>: <span class="string">"react-scripts test"</span>,</span><br><span class="line">    <span class="attr">"eject"</span>: <span class="string">"react-scripts eject"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"author"</span>: <span class="string">"Mark"</span>,</span><br><span class="line">  <span class="attr">"license"</span>: <span class="string">"ISC"</span>,</span><br><span class="line">  <span class="attr">"browserslist"</span>: &#123;</span><br><span class="line">    <span class="attr">"production"</span>: [</span><br><span class="line">      <span class="string">"&gt;0.2%"</span>,</span><br><span class="line">      <span class="string">"not dead"</span>,</span><br><span class="line">      <span class="string">"not op_mini all"</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">"development"</span>: [</span><br><span class="line">      <span class="string">"last 1 chrome version"</span>,</span><br><span class="line">      <span class="string">"last 1 firefox version"</span>,</span><br><span class="line">      <span class="string">"last 1 safari version"</span></span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>내가 진행했던 <code>package.json</code> 파일은 위와 같다. 사실 크게 수정할 내용은 없으며 기본적으로 create-react-app을 했을때 적용되어지는 라이브러리들만 포함하고 있으면 문제없다.</li>
+</ul>
+<h1 id="3-Gradle-수정-및-Task-추가하기"><a href="#3-Gradle-수정-및-Task-추가하기" class="headerlink" title="3. Gradle 수정 및 Task 추가하기"></a>3. Gradle 수정 및 Task 추가하기</h1><h2 id="3-1-nodejs-의존-추가"><a href="#3-1-nodejs-의존-추가" class="headerlink" title="3.1 nodejs 의존 추가"></a>3.1 nodejs 의존 추가</h2><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">classpath</span>(<span class="string">"com.moowork.gradle:gradle-node-plugin"</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>gradle build를 통해서 react project도 빌드되려면 기본적으로 nodejs가 필요하다. 그래서 위와 같이 buildscript에 의존을 추가해주어서 nodejs를 설치할 수 있게한다.</li>
+</ul>
+<h2 id="3-2-Task-추가"><a href="#3-2-Task-추가" class="headerlink" title="3.2 Task 추가"></a>3.2 Task 추가</h2><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> webappDir = <span class="string">"$projectDir/frontend/webtoon"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// node 버전 및 npm, node 설치파일 저장 디렉토리 명시</span></span><br><span class="line">node &#123;</span><br><span class="line">    version = <span class="string">'12.6.0'</span></span><br><span class="line">    download=<span class="keyword">true</span></span><br><span class="line">    workDir = <span class="keyword">file</span>(<span class="string">"$&#123;project.buildDir&#125;/nodejs"</span>)</span><br><span class="line">    npmWorkDir=<span class="keyword">file</span>(<span class="string">"$&#123;project.buildDir&#125;/npm"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// npm install 과정</span></span><br><span class="line"><span class="keyword">task</span> appNpmInstall(type: NpmTask) &#123;</span><br><span class="line">    workingDir = <span class="keyword">file</span>(<span class="string">"$&#123;project.projectDir&#125;/frontend/webtoon"</span>)</span><br><span class="line">    args = [<span class="string">"install"</span>]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// yarn build</span></span><br><span class="line"><span class="keyword">task</span> yarnBuild(type: YarnTask) &#123;</span><br><span class="line">    workingDir = <span class="keyword">file</span>(<span class="string">"$&#123;project.projectDir&#125;/frontend/webtoon"</span>)</span><br><span class="line">    args = [<span class="string">'build'</span>]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 빌드된 결과 resources로 이동</span></span><br><span class="line"><span class="keyword">task</span> copyWebApp(type: <span class="keyword">Copy</span>) &#123;</span><br><span class="line">    <span class="keyword">from</span> <span class="string">"frontend/webtoon/build"</span></span><br><span class="line">    <span class="keyword">into</span> <span class="string">'build/resources/main/static/.'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">yarnBuild.dependsOn appNpmInstall</span><br><span class="line">copyWebApp.dependsOn yarnBuild</span><br><span class="line">compileJava.dependsOn copyWebApp</span><br></pre></td></tr></table></figure>
+<ul>
+<li>react 프로젝트를 빌드하기위해서 <code>npm install</code> 후 <code>react build</code>를 진행하고, 그 결과를 백엔드에서 사용할 수 있게 <code>resources</code> 폴더로 옮겨주는 과정을 Gradle에 작성해주었다.</li>
+</ul>
+<h1 id="4-Build-하기"><a href="#4-Build-하기" class="headerlink" title="4. Build 하기 !!"></a>4. Build 하기 !!</h1><ul>
+<li>프로젝트 최상단에서 <code>gradle clean build</code>를 해주게 되면 빌드가 진행된다. (test코드를 제외하고싶다면 -x test를 붙여주면 된다.)</li>
+</ul>
+<h1 id="5-발생했었던-예외상황들"><a href="#5-발생했었던-예외상황들" class="headerlink" title="5. 발생했었던 예외상황들.."></a>5. 발생했었던 예외상황들..</h1><h2 id="5-1-travis-build-error"><a href="#5-1-travis-build-error" class="headerlink" title="5.1 travis build error"></a>5.1 travis build error</h2><ul>
+<li>이 프로젝트는 travis CI를 통해 빌드하고, AWS의 CodeDeploy를 통해 배포하도록 되어있었다. 여기에서 프로젝트 파일들을 압축할 때 <code>node_modules</code> 폴더를 포함시키는 바람에 빌드로그가 너무 많이 나오게 되어서 빌드를 실패했다. =&gt; 압축할 때 <code>-x</code> 옵션으로 불필요한 파일들을 제외시켜주었다.</li>
+</ul>
+<h2 id="5-2-Route-문제"><a href="#5-2-Route-문제" class="headerlink" title="5.2 Route 문제"></a>5.2 Route 문제</h2><ul>
+<li>처음에 전부 파일들을 병합하고 빌드하는데까지 무리없었지만 ViewResolver를 분명히 서버코드에 작성하지 않았었는데 어떻게 메인페이지가 출력된다는걸까? 하고 의심했었다.</li>
+<li>내 리액트 프로젝트는 페이지가 하나 뿐이라서 route를 설정을 하지않아도 될 줄 알았다.. 설정 전에는 역시 리액트 프로젝트의 메인페이지에 제대로 접근하지못했고 계속 삽질만 하다가.. 깨닫게 되었다..</li>
+</ul>
+<h2 id="5-3-CodeDeploy-에러"><a href="#5-3-CodeDeploy-에러" class="headerlink" title="5.3 CodeDeploy 에러"></a>5.3 CodeDeploy 에러</h2><p><img src="https://images.velog.io/post-images/essri/f2a5e1f0-ff68-11e9-8296-17c1ea2d2e9d/deploy-error.png" alt="deploy-error.png"></p>
+<ul>
+<li>처음에는 빌드 후 배포가 잘되더니 계속 프로젝트파일을 압축 후 CodeDeploy를 통해 배포하는 부분에서 뻗어버렸다.. 아무래도 프론트엔드 프로젝트를 합쳐서 빌드한 후로 부터 에러가 나기 시작했기 때문에 배포하는 용량적인 측면이 아닐까하고 생각하고, 서칭을 시작했다.</li>
+<li>결국 찾은 해결방법은 <a href="https://docs.aws.amazon.com/ko_kr/codedeploy/latest/userguide/troubleshooting-deployments.html#troubleshooting-skipped-lifecycle-events" rel="external nofollow noopener noreferrer" target="_blank">공식문서</a> 였다.</li>
+</ul>
+<h1 id="6-후기"><a href="#6-후기" class="headerlink" title="6. 후기.."></a>6. 후기..</h1><ul>
+<li>아무리 봐도 문제점이 없어보일 때는 잠깐 쉬고, 보면 보일 때가 더 많은 것 같다.. 정말 간단한 문제들이였지만 이번에는 삽질을 너무 많이 했다..</li>
+</ul>
+<hr>
+<ul>
+<li><a href="https://velog.io/@essri" rel="external nofollow noopener noreferrer" target="_blank">velog</a></li>
+<li><a href="https://ggomi.github.io">Blog</a></li>
+<li><a href="https://github.com/ggomi" rel="external nofollow noopener noreferrer" target="_blank">Github</a></li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/react/" rel="tag"># react</a>
+          
+            <a href="/tags/spring-boot/" rel="tag"># spring boot</a>
+          
+            <a href="/tags/프로젝트-병합/" rel="tag"># 프로젝트 병합</a>
+          
+            <a href="/tags/frontend/" rel="tag"># frontend</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/kotlin/" rel="next" title="코틀린 정리 (1)">
+                <i class="fa fa-chevron-left"></i> 코틀린 정리 (1)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript" rel="external nofollow noopener noreferrer" target="_blank">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            목차
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            흝어보기
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/profile.jpg" alt="Jeongmin Oh">
+            
+              <p class="site-author-name" itemprop="name">Jeongmin Oh</p>
+              <p class="site-description motion-element" itemprop="description">IT 기술블로그입니다.</p>
+          </div>
+
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/ggomi" target="_blank" title="GitHub" rel="external nofollow noopener noreferrer"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:dhkdn4042@gmail.com" target="_blank" title="E-Mail" rel="external nofollow noopener noreferrer"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Frontend-파일-Spring-Boot-Project로-옮기기"><span class="nav-number">1.</span> <span class="nav-text">1. Frontend 파일 Spring Boot Project로 옮기기</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-frontend-프로젝트의-package-json-수정하기"><span class="nav-number">2.</span> <span class="nav-text">2. frontend 프로젝트의 package.json 수정하기</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-Gradle-수정-및-Task-추가하기"><span class="nav-number">3.</span> <span class="nav-text">3. Gradle 수정 및 Task 추가하기</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-nodejs-의존-추가"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 nodejs 의존 추가</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-Task-추가"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 Task 추가</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-Build-하기"><span class="nav-number">4.</span> <span class="nav-text">4. Build 하기 !!</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-발생했었던-예외상황들"><span class="nav-number">5.</span> <span class="nav-text">5. 발생했었던 예외상황들..</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-travis-build-error"><span class="nav-number">5.1.</span> <span class="nav-text">5.1 travis build error</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-Route-문제"><span class="nav-number">5.2.</span> <span class="nav-text">5.2 Route 문제</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-3-CodeDeploy-에러"><span class="nav-number">5.3.</span> <span class="nav-text">5.3 CodeDeploy 에러</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-후기"><span class="nav-number">6.</span> <span class="nav-text">6. 후기..</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+    
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">author</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next" rel="external nofollow noopener noreferrer">NexT.Muse</a> v6.0.6</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.0.6"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.0.6"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.6"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.6"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.6"></script>
+
+
+
+  
+
+  
+    <script id="dsq-count-scr" src="https://ggomi-github-io.disqus.com/count.js" async></script>
+  
+
+  
+    <script type="text/javascript">
+      var disqus_config = function () {
+        this.page.url = 'https://ggomi.github.io/boot-react/';
+        this.page.identifier = 'boot-react/';
+        this.page.title = '스프링부트 리액트 프로젝트 병합하기';
+      };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://ggomi-github-io.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
+  
+
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>
