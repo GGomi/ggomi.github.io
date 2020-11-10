@@ -9,17 +9,7 @@
 
     <sitemap>
         <loc>https://ggomi.github.io/page-sitemap.xml</loc>
-        <lastmod>2019-04-16T13:28:17.000Z</lastmod>
-    </sitemap>
-
-    <sitemap>
-        <loc>https://ggomi.github.io/category-sitemap.xml</loc>
-        <lastmod>2019-01-22T02:13:06.000Z</lastmod>
-    </sitemap>
-
-    <sitemap>
-        <loc>https://ggomi.github.io/tag-sitemap.xml</loc>
-        <lastmod>2019-01-22T02:11:57.000Z</lastmod>
+        <lastmod>2020-11-10T08:29:53.705Z</lastmod>
     </sitemap>
 
 </sitemapindex>
