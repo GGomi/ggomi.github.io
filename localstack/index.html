@@ -139,10 +139,13 @@
 <meta property="og:site_name" content="Jeongmin&#39;s Blog">
 <meta property="og:description" content="개요프로젝트를 하다보면 AWS 리소스를 활용해야하는 경우가 항상 발생하는데 처음 사용해보는 리소스라면 실제로 구성해놓고 테스트하는게 항상 부담이였다.그래서 로컬에 세팅할 순 없을까하고 찾아보다가 알게 된 localstack의 사용기에 대해서 써보려고합니다. Localstack?localstack은 개발 단계에서 필요한 AWS 클라우드 리소스 기능들을 로컬환">
 <meta property="og:locale" content="ko">
-<meta property="og:updated_time" content="2022-05-31T07:08:36.931Z">
+<meta property="og:image" content="https://ggomi.github.io/images/localstack_docker.png">
+<meta property="og:image" content="https://ggomi.github.io/images/localstack_list_queue.png">
+<meta property="og:updated_time" content="2022-05-31T08:44:09.411Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Localstack 사용기">
 <meta name="twitter:description" content="개요프로젝트를 하다보면 AWS 리소스를 활용해야하는 경우가 항상 발생하는데 처음 사용해보는 리소스라면 실제로 구성해놓고 테스트하는게 항상 부담이였다.그래서 로컬에 세팅할 순 없을까하고 찾아보다가 알게 된 localstack의 사용기에 대해서 써보려고합니다. Localstack?localstack은 개발 단계에서 필요한 AWS 클라우드 리소스 기능들을 로컬환">
+<meta name="twitter:image" content="https://ggomi.github.io/images/localstack_docker.png">
 
 
 
@@ -486,6 +489,14 @@
 <li><code>docker-compose.yml</code>에 작성한대로 <code>/aws</code> 폴더 안에 json 파일을 위치시켜놓는다.</li>
 <li><code>aws --endpoint-url=https://localhost:4566 sqs list-queues</code> 명령어로 생성된 큐를 확인할 수 있습니다.</li>
 </ul>
+<h1 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h1><p><img src="/images/localstack_docker.png" alt="docker"></p>
+<ul>
+<li><code>docker ps -a</code></li>
+</ul>
+<p><img src="/images/localstack_list_queue.png" alt="list_queue"></p>
+<ul>
+<li><code>aws --endpoint-url=http://localhost:4566 sqs list-queues</code></li>
+</ul>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
 <li><a href="https://bottom-to-top.tistory.com/54" rel="external nofollow noopener noreferrer" target="_blank">https://bottom-to-top.tistory.com/54</a></li>
 </ul>
@@ -667,7 +678,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#개요"><span class="nav-number">1.</span> <span class="nav-text">개요</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Localstack"><span class="nav-number">2.</span> <span class="nav-text">Localstack?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#환경-세팅"><span class="nav-number">3.</span> <span class="nav-text">환경 세팅</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#docker-compose-yml"><span class="nav-number">4.</span> <span class="nav-text">docker-compose.yml</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#run-sh-amp-create-queue-json"><span class="nav-number">5.</span> <span class="nav-text">run.sh &amp; create_queue.json</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">5.1.</span> <span class="nav-text">Reference</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#개요"><span class="nav-number">1.</span> <span class="nav-text">개요</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Localstack"><span class="nav-number">2.</span> <span class="nav-text">Localstack?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#환경-세팅"><span class="nav-number">3.</span> <span class="nav-text">환경 세팅</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#docker-compose-yml"><span class="nav-number">4.</span> <span class="nav-text">docker-compose.yml</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#run-sh-amp-create-queue-json"><span class="nav-number">5.</span> <span class="nav-text">run.sh &amp; create_queue.json</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Result"><span class="nav-number">6.</span> <span class="nav-text">Result</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">6.1.</span> <span class="nav-text">Reference</span></a></li></ol></li></ol></div>
             
 
           </div>
