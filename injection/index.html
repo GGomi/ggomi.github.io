@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="ko">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Gothic A1:300,300italic,400,400italic,700,700italic|Nanum Gothic Coding:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.0.6" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.0.6">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/cheese_thumb.jpg?v=6.0.6">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/cheese_thumb.jpg?v=6.0.6">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.0.6" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.0.6',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="의존주입에 대해서 학습하면서 정리한 글입니다.  Field Injection@Autowired를 통한 자동주입12345678@Componentpublic class FieldInjection &amp;#123;    @Autowired    private Service1 service1;    @Autowired    private Service2 service">
+<meta name="keywords" content="Spring,Dependency Injection,의존주입">
+<meta property="og:type" content="article">
+<meta property="og:title" content="필드 주입? 생성자 주입?">
+<meta property="og:url" content="https://ggomi.github.io/injection/index.html">
+<meta property="og:site_name" content="Jeongmin&#39;s Blog">
+<meta property="og:description" content="의존주입에 대해서 학습하면서 정리한 글입니다.  Field Injection@Autowired를 통한 자동주입12345678@Componentpublic class FieldInjection &amp;#123;    @Autowired    private Service1 service1;    @Autowired    private Service2 service">
+<meta property="og:locale" content="ko">
+<meta property="og:updated_time" content="2019-03-18T10:42:35.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="필드 주입? 생성자 주입?">
+<meta name="twitter:description" content="의존주입에 대해서 학습하면서 정리한 글입니다.  Field Injection@Autowired를 통한 자동주입12345678@Componentpublic class FieldInjection &amp;#123;    @Autowired    private Service1 service1;    @Autowired    private Service2 service">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Jeongmin's Blog" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="https://ggomi.github.io/injection/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>필드 주입? 생성자 주입? | Jeongmin's Blog</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109295981-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-109295981-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+  <meta name="naver-site-verification" content="050fe916ad469e773d0b7ccdd950a6034b33f4c9">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="ko">
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> 
+
+<div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jeongmin's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Tech & Note</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+          
+  <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>홈</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>태그</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>카테고리</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>아카이브</a>
+</li>
+
+      
+
+      
+    </ul>
+  
+
+  
+    
+
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+    
+
+  
+
+
+  
+
+  
+</nav>
+
+
+  
+
+
+
+ </div>
+      <div style="text-align:center;"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- blog -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9081247697063156" data-ad-slot="6113290476" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+    </header>
+    
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ggomi.github.io/injection/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jeongmin">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/profile.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jeongmin's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">필드 주입? 생성자 주입?</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-18T17:09:12+09:00">2019-03-18</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Spring/" itemprop="url" rel="index"><span itemprop="name">Spring</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/injection/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="injection/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>의존주입에 대해서 학습하면서 정리한 글입니다.</p>
+</blockquote>
+<h1 id="Field-Injection"><a href="#Field-Injection" class="headerlink" title="Field Injection"></a>Field Injection</h1><h2 id="Autowired를-통한-자동주입"><a href="#Autowired를-통한-자동주입" class="headerlink" title="@Autowired를 통한 자동주입"></a><code>@Autowired</code>를 통한 자동주입</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FieldInjection</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> Service1 service1;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> Service2 service2;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>위와 같은 방법은 불필요한 코드없이 간결하게 보이기 때문에 좋아보일 수 있다.</li>
+</ul>
+<h1 id="Constructor-Injection"><a href="#Constructor-Injection" class="headerlink" title="Constructor Injection"></a>Constructor Injection</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FieldInjection</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Service1 service1;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Service2 service2;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">FieldInjection</span><span class="params">(Service1 service1, Service2 service2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.service1 = service1;</span><br><span class="line">        <span class="keyword">this</span>.service2 = service2;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>생성자의 파라미터가 늘어날수록 책임에 대한 위기감이 생기게 된다.</li>
+<li>의존을 추가할 때마다 생성자에 추가해줘야하기 때문에 번거로울 수 있지만 조심할 수 있다.</li>
+<li>Spring 4.3 버전부터는 단일 생성자일 때 <code>@Autowired</code>를 쓰지않아도 된다.</li>
+</ul>
+<h2 id="왜-Field-Injection보다-Constructor-Injection인가"><a href="#왜-Field-Injection보다-Constructor-Injection인가" class="headerlink" title="왜 Field Injection보다 Constructor Injection인가?"></a>왜 Field Injection보다 Constructor Injection인가?</h2><ol>
+<li><code>불변성 위반</code> - Field Injection은 final을 선언할 수 없기 때문에 객체가 변경가능한 상태가 된다.</li>
+<li><code>단일 책임의 원칙 위반</code> - 필드주입은 의존주입이 쉬워져서 책임에 대한 위기감이 덜 느껴지게된다.</li>
+<li><code>Field Injection</code>은 숨은 의존성만 제공한다. - </li>
+<li>필요한 의존성을 가진 클래스를 곧바로 인스턴스화 시킬 수 없다.</li>
+<li>생성자를 통한 주입은 순환의존성인지를 알 수 있다.<blockquote>
+<p>순환의존성?</p>
+<ul>
+<li>의존하는 것들끼리 꼬리에 꼬리를 물어서 <code>A-&gt;B-&gt;C-&gt;A</code> 와 같은 형태를 말한다.</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<h2 id="앞으로-생성자를-통한-의존주입을-하자"><a href="#앞으로-생성자를-통한-의존주입을-하자" class="headerlink" title="앞으로 생성자를 통한 의존주입을 하자!"></a>앞으로 생성자를 통한 의존주입을 하자!</h2><hr>
+<ul>
+<li><a href="https://velog.io/@essri" rel="external nofollow noopener noreferrer" target="_blank">velog</a></li>
+<li><a href="https://github.com/ggomi" rel="external nofollow noopener noreferrer" target="_blank">Github</a></li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Spring/" rel="tag"># Spring</a>
+          
+            <a href="/tags/Dependency-Injection/" rel="tag"># Dependency Injection</a>
+          
+            <a href="/tags/의존주입/" rel="tag"># 의존주입</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/spring-injection/" rel="next" title="DI(Dependency Injection)">
+                <i class="fa fa-chevron-left"></i> DI(Dependency Injection)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/value-configuration-properties/" rel="prev" title="Value와 ConfigurationProperties Annotation">
+                Value와 ConfigurationProperties Annotation <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript" rel="external nofollow noopener noreferrer" target="_blank">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            목차
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            흝어보기
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/profile.jpg" alt="Jeongmin">
+            
+              <p class="site-author-name" itemprop="name">Jeongmin</p>
+              <p class="site-description motion-element" itemprop="description">IT 기술블로그입니다.</p>
+          </div>
+
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/ggomi" target="_blank" title="GitHub" rel="external nofollow noopener noreferrer"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:dhkdn4042@gmail.com" target="_blank" title="E-Mail" rel="external nofollow noopener noreferrer"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Field-Injection"><span class="nav-number">1.</span> <span class="nav-text">Field Injection</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Autowired를-통한-자동주입"><span class="nav-number">1.1.</span> <span class="nav-text">@Autowired를 통한 자동주입</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Constructor-Injection"><span class="nav-number">2.</span> <span class="nav-text">Constructor Injection</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#왜-Field-Injection보다-Constructor-Injection인가"><span class="nav-number">2.1.</span> <span class="nav-text">왜 Field Injection보다 Constructor Injection인가?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#앞으로-생성자를-통한-의존주입을-하자"><span class="nav-number">2.2.</span> <span class="nav-text">앞으로 생성자를 통한 의존주입을 하자!</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+    
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">author</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next" rel="external nofollow noopener noreferrer">NexT.Muse</a> v6.0.6</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.0.6"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.0.6"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.6"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.6"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.6"></script>
+
+
+
+  
+
+  
+    <script id="dsq-count-scr" src="https://ggomi-github-io.disqus.com/count.js" async></script>
+  
+
+  
+    <script type="text/javascript">
+      var disqus_config = function () {
+        this.page.url = 'https://ggomi.github.io/injection/';
+        this.page.identifier = 'injection/';
+        this.page.title = '필드 주입? 생성자 주입?';
+      };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://ggomi-github-io.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
+  
+
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

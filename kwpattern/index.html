@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="ko">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Gothic A1:300,300italic,400,400italic,700,700italic|Nanum Gothic Coding:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.0.6" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.0.6">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/cheese_thumb.jpg?v=6.0.6">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/cheese_thumb.jpg?v=6.0.6">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.0.6" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.0.6',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="KWPATTERN문제서기 2222년, cdinside 알고스팟 갤러리에서 WonhaJin은 무패 전설의 키보드 워리어로 유명하다. WonhaJin은 항상 만년떡밥을 던짐으로써 낚여든 상대방을 무참히 공격하여 굴복시키곤 했다. 이러한 패턴으로 그는 한 번도 키보드 배틀에서 패배한 적이 없다. 한편, 그동안 그와 대등하게 승부했지만 한 번도 이겨 본 적이 없는">
+<meta name="keywords" content="Algorithm,Alogospot,KWPattern">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Algospot(알고스팟) KWPattern">
+<meta property="og:url" content="https://ggomi.github.io/kwpattern/index.html">
+<meta property="og:site_name" content="Jeongmin&#39;s Blog">
+<meta property="og:description" content="KWPATTERN문제서기 2222년, cdinside 알고스팟 갤러리에서 WonhaJin은 무패 전설의 키보드 워리어로 유명하다. WonhaJin은 항상 만년떡밥을 던짐으로써 낚여든 상대방을 무참히 공격하여 굴복시키곤 했다. 이러한 패턴으로 그는 한 번도 키보드 배틀에서 패배한 적이 없다. 한편, 그동안 그와 대등하게 승부했지만 한 번도 이겨 본 적이 없는">
+<meta property="og:locale" content="ko">
+<meta property="og:updated_time" content="2019-01-22T02:13:11.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Algospot(알고스팟) KWPattern">
+<meta name="twitter:description" content="KWPATTERN문제서기 2222년, cdinside 알고스팟 갤러리에서 WonhaJin은 무패 전설의 키보드 워리어로 유명하다. WonhaJin은 항상 만년떡밥을 던짐으로써 낚여든 상대방을 무참히 공격하여 굴복시키곤 했다. 이러한 패턴으로 그는 한 번도 키보드 배틀에서 패배한 적이 없다. 한편, 그동안 그와 대등하게 승부했지만 한 번도 이겨 본 적이 없는">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Jeongmin's Blog" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="https://ggomi.github.io/kwpattern/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Algospot(알고스팟) KWPattern | Jeongmin's Blog</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109295981-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-109295981-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+  <meta name="naver-site-verification" content="050fe916ad469e773d0b7ccdd950a6034b33f4c9">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="ko">
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> 
+
+<div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jeongmin's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Tech & Note</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+          
+  <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>홈</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>태그</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>카테고리</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>아카이브</a>
+</li>
+
+      
+
+      
+    </ul>
+  
+
+  
+    
+
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+    
+
+  
+
+
+  
+
+  
+</nav>
+
+
+  
+
+
+
+ </div>
+      <div style="text-align:center;"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- blog -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9081247697063156" data-ad-slot="6113290476" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+    </header>
+    
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ggomi.github.io/kwpattern/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jeongmin">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/profile.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jeongmin's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Algospot(알고스팟) KWPattern</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-26T16:20:21+09:00">2018-12-26</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/kwpattern/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="kwpattern/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="KWPATTERN"><a href="#KWPATTERN" class="headerlink" title="KWPATTERN"></a>KWPATTERN</h2><h3 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h3><p>서기 2222년, cdinside 알고스팟 갤러리에서 WonhaJin은 무패 전설의 키보드 워리어로 유명하다. WonhaJin은 항상 만년떡밥을 던짐으로써 낚여든 상대방을 무참히 공격하여 굴복시키곤 했다. 이러한 패턴으로 그는 한 번도 키보드 배틀에서 패배한 적이 없다.</p>
+<p>한편, 그동안 그와 대등하게 승부했지만 한 번도 이겨 본 적이 없는 숙명의 라이벌 WookMan은 WonhaJin에게 패배를 안겨주고자 22개월간 WonhaJin의 키보드 배틀 패턴을 파악하고자 노력하였다.</p>
+<p>그러던 도중 2222년 2월 22일 22시 22분 22초에 그가 뻘글을 쓰는 것을 확인하였다. 이는 키보드 워리어에게 있어 치명적인 약점이다. WookMan은 이로부터 그가 성시마다 약점을 보인다는 가설을 세웠다. 성시란 다음과 같다:</p>
+<p>어떤 시각이 24시간제 기준으로 X 년 Y 월 Z 일 A시 B분 C 초이면, 이를 XY ZABC 의 형태로 이어 붙인 것과 그것을 뒤집은 문자열이 서로 같을 때 그 시각은 성시이다.<br>시각은 그레고리력(양력) 을 따라 4의 배수 해는 2월이 29일까지 있는 윤년이다. 단, 100의 배수 해는 윤년이 아니지만 400의 배수 해는 윤년이다.<br>X는 네 자리에 맞추어 표기하며, 나머지는 두 자리에 맞추어 표기한다. 모자라는 자리는 “0”으로 채운다.<br>예를 들어 2011년 9월 20일 23시 57분 11초의 경우, 20110920235711인데 이는 이를 뒤집은 11753202901102와 다르기 때문에 성시가 아니다. 한편 2011년 12월 11일 21시 11분 2초의 경우 20111211211102이므로 성시이다.</p>
+<p>이러한 패턴을 이용하여 WonhaJin을 공격하고자 WookMan은 1970년 1월 1일 0시 0분 0초 (이는 프로그래머들에게 있어 현존하는 모든 역사가 시작된 시간이다) 부터 N 번째로 등장하는 성시를 찾는 프로그램을 작성하려고 하였는데, 최근 취업과 육아를 동시에 시작하여 너무 바쁜 나머지 추종자들에게 도움을 요청하였<br>다.</p>
+<p>WookMan의 꼼꼼함에 반한 추종자인 당신은 이 프로그램을 작성해주어야 한다.</p>
+<p>입력</p>
+<blockquote>
+<p>입력은 여러 개의 테스트 케이스로 구성된다. 입력의 첫 행에는 테스트 케이스의 수 T 가 주어진다.</p>
+</blockquote>
+<p>각 테스트 케이스는 하나의 행으로 이루어져 있는데, 그 행에는 양의 정수 N (1 ≤ N ≤ 10000)이 주어진다.</p>
+<p>출력</p>
+<blockquote>
+<p>각 테스트 케이스에 대해 N 번째 성시를 한 행에 하나씩 “XXXX-YY-ZZ AA:BB:CC” 의 형식으로 출력한다.</p>
+</blockquote>
+<p>Input<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">7</span><br><span class="line">2</span><br><span class="line">20</span><br><span class="line">99</span><br></pre></td></tr></table></figure></p>
+<p>Output<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">2000-11-11 11:00:02</span><br><span class="line">2000-01-22 10:00:02</span><br><span class="line">2001-12-22 21:10:02</span><br><span class="line">2013-12-11 21:31:02</span><br></pre></td></tr></table></figure></p>
+<hr>
+<ul>
+<li>크게 어려운 문제는 아니었다고 생각하는데, 얼핏 보면 시,분,초 까지 구해야한다는 생각이 들 수 있는데 사실 년월일만 구하면 되는 문제였다.</li>
+</ul>
+<p>Solved<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">KWPATTERN</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span>[] YEARS;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> START = <span class="number">2000</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> START2 = <span class="number">2000</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Scanner sc = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        String year;</span><br><span class="line">        String month;</span><br><span class="line">        String day;</span><br><span class="line">        initYears();</span><br><span class="line">        <span class="keyword">int</span> caseSize = sc.nextInt();</span><br><span class="line"></span><br><span class="line">        String[] array = &#123;<span class="string">"01"</span>,<span class="string">"02"</span>,<span class="string">"10"</span>,<span class="string">"11"</span>,<span class="string">"12"</span>&#125;;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; caseSize; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> select = sc.nextInt();</span><br><span class="line">            <span class="keyword">int</span> temp = select / <span class="number">10</span>;</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 나누고, 뺐더니 오답, 빼고 나눠야 정답처리..</span></span><br><span class="line">            <span class="keyword">int</span> yearIndex = (select - <span class="number">1</span>) / <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(select &gt; <span class="number">10</span>) &#123;</span><br><span class="line">                select = select - ( <span class="number">10</span> * temp );</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span>(select == <span class="number">0</span>) &#123;</span><br><span class="line">                    select = <span class="number">10</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(select % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">                day = <span class="string">"22"</span>;</span><br><span class="line">                <span class="keyword">int</span> target = select / <span class="number">2</span>;</span><br><span class="line">                month = array[target-<span class="number">1</span>];</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                day = <span class="string">"11"</span>;</span><br><span class="line">                month = array[select/<span class="number">2</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            year = String.valueOf(YEARS[yearIndex]);</span><br><span class="line">            StringBuffer sMonth = <span class="keyword">new</span> StringBuffer(month);</span><br><span class="line">            StringBuffer sYear = <span class="keyword">new</span> StringBuffer(year);</span><br><span class="line">            sYear = sYear.reverse();</span><br><span class="line"></span><br><span class="line">            System.out.println(year+<span class="string">"-"</span>+month+ <span class="string">"-"</span> + day + <span class="string">" "</span> + sMonth.reverse().toString() + <span class="string">":"</span>+sYear.substring(<span class="number">0</span>,<span class="number">2</span>)+<span class="string">":"</span>+sYear.substring(<span class="number">2</span>,<span class="number">4</span>));</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">initYears</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        YEARS = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">1000</span>];</span><br><span class="line">        YEARS[<span class="number">0</span>]=START;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;<span class="number">1000</span>;i++) &#123;</span><br><span class="line">            String s = String.valueOf(YEARS[i-<span class="number">1</span>]);</span><br><span class="line">            <span class="keyword">if</span>(Integer.parseInt(s.split(<span class="string">""</span>)[s.length()-<span class="number">1</span>])&gt;<span class="number">5</span>) &#123;</span><br><span class="line">                YEARS[i-<span class="number">1</span>] = START+<span class="number">10</span>;</span><br><span class="line">                START =YEARS[i-<span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            String z= String.valueOf(START);</span><br><span class="line">            <span class="keyword">if</span>(Integer.parseInt(z.split(<span class="string">""</span>)[<span class="number">1</span>])&gt;<span class="number">5</span>) &#123;</span><br><span class="line">                YEARS[i-<span class="number">1</span>] = START2+<span class="number">1000</span>;</span><br><span class="line">                START2 =YEARS[i-<span class="number">1</span>];</span><br><span class="line">                START = START2;</span><br><span class="line">            &#125;</span><br><span class="line">            YEARS[i]=YEARS[i-<span class="number">1</span>]+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>이 문제를 5번 제출 만에 풀게되었는데 도저히 어떤부분에서 오답을 받는지 못찾고, 헤매다가 겨우 찾게되었다. 이유는 <em>뺄셈연산</em>과 <em>나눗셈</em> 연산 순서문제였는데 주어진 테스트케이스에서는 정확하게 답이 나와서 정말 찾기 힘들었었다…</li>
+</ul>
+<hr>
+<ul>
+<li><a href="https://velog.io/@essri" rel="external nofollow noopener noreferrer" target="_blank">velog</a></li>
+<li><a href="https://ggomi.github.io">Blog</a></li>
+<li><a href="https://github.com/ggomi" rel="external nofollow noopener noreferrer" target="_blank">Github</a></li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Algorithm/" rel="tag"># Algorithm</a>
+          
+            <a href="/tags/Alogospot/" rel="tag"># Alogospot</a>
+          
+            <a href="/tags/KWPattern/" rel="tag"># KWPattern</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/vertical-classes/" rel="next" title="Vertical Formatting과 Classes">
+                <i class="fa fa-chevron-left"></i> Vertical Formatting과 Classes
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/data-structure/" rel="prev" title="Data Structure & Impedance Mismatch">
+                Data Structure & Impedance Mismatch <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript" rel="external nofollow noopener noreferrer" target="_blank">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            목차
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            흝어보기
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/profile.jpg" alt="Jeongmin">
+            
+              <p class="site-author-name" itemprop="name">Jeongmin</p>
+              <p class="site-description motion-element" itemprop="description">IT 기술블로그입니다.</p>
+          </div>
+
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/ggomi" target="_blank" title="GitHub" rel="external nofollow noopener noreferrer"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:dhkdn4042@gmail.com" target="_blank" title="E-Mail" rel="external nofollow noopener noreferrer"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#KWPATTERN"><span class="nav-number">1.</span> <span class="nav-text">KWPATTERN</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#문제"><span class="nav-number">1.1.</span> <span class="nav-text">문제</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+    
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">author</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next" rel="external nofollow noopener noreferrer">NexT.Muse</a> v6.0.6</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.0.6"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.0.6"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.6"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.6"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.6"></script>
+
+
+
+  
+
+  
+    <script id="dsq-count-scr" src="https://ggomi-github-io.disqus.com/count.js" async></script>
+  
+
+  
+    <script type="text/javascript">
+      var disqus_config = function () {
+        this.page.url = 'https://ggomi.github.io/kwpattern/';
+        this.page.identifier = 'kwpattern/';
+        this.page.title = 'Algospot(알고스팟) KWPattern';
+      };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://ggomi-github-io.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
+  
+
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

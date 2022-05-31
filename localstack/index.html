@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="ko">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Gothic A1:300,300italic,400,400italic,700,700italic|Nanum Gothic Coding:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.0.6" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.0.6">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/cheese_thumb.jpg?v=6.0.6">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/cheese_thumb.jpg?v=6.0.6">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.0.6" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.0.6',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="개요프로젝트를 하다보면 AWS 리소스를 활용해야하는 경우가 항상 발생하는데 처음 사용해보는 리소스라면 실제로 구성해놓고 테스트하는게 항상 부담이였다.그래서 로컬에 세팅할 순 없을까하고 찾아보다가 알게 된 localstack의 사용기에 대해서 써보려고합니다. Localstack?localstack은 개발 단계에서 필요한 AWS 클라우드 리소스 기능들을 로컬환">
+<meta name="keywords" content="AWS,docker-compose">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Localstack 사용기">
+<meta property="og:url" content="https://ggomi.github.io/localstack/index.html">
+<meta property="og:site_name" content="Jeongmin&#39;s Blog">
+<meta property="og:description" content="개요프로젝트를 하다보면 AWS 리소스를 활용해야하는 경우가 항상 발생하는데 처음 사용해보는 리소스라면 실제로 구성해놓고 테스트하는게 항상 부담이였다.그래서 로컬에 세팅할 순 없을까하고 찾아보다가 알게 된 localstack의 사용기에 대해서 써보려고합니다. Localstack?localstack은 개발 단계에서 필요한 AWS 클라우드 리소스 기능들을 로컬환">
+<meta property="og:locale" content="ko">
+<meta property="og:updated_time" content="2022-05-31T07:08:36.931Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Localstack 사용기">
+<meta name="twitter:description" content="개요프로젝트를 하다보면 AWS 리소스를 활용해야하는 경우가 항상 발생하는데 처음 사용해보는 리소스라면 실제로 구성해놓고 테스트하는게 항상 부담이였다.그래서 로컬에 세팅할 순 없을까하고 찾아보다가 알게 된 localstack의 사용기에 대해서 써보려고합니다. Localstack?localstack은 개발 단계에서 필요한 AWS 클라우드 리소스 기능들을 로컬환">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Jeongmin's Blog" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="https://ggomi.github.io/localstack/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Localstack 사용기 | Jeongmin's Blog</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109295981-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-109295981-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+  <meta name="naver-site-verification" content="050fe916ad469e773d0b7ccdd950a6034b33f4c9">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="ko">
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> 
+
+<div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jeongmin's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Tech & Note</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+          
+  <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>홈</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>태그</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>카테고리</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>아카이브</a>
+</li>
+
+      
+
+      
+    </ul>
+  
+
+  
+    
+
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+    
+
+  
+
+
+  
+
+  
+</nav>
+
+
+  
+
+
+
+ </div>
+      <div style="text-align:center;"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- blog -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9081247697063156" data-ad-slot="6113290476" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+    </header>
+    
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ggomi.github.io/localstack/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jeongmin">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/profile.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jeongmin's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Localstack 사용기</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2022-05-31T14:32:30+09:00">2022-05-31</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/AWS/" itemprop="url" rel="index"><span itemprop="name">AWS</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/localstack/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="localstack/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="개요"><a href="#개요" class="headerlink" title="개요"></a>개요</h1><p>프로젝트를 하다보면 AWS 리소스를 활용해야하는 경우가 항상 발생하는데 처음 사용해보는 리소스라면 실제로 구성해놓고 테스트하는게 항상 부담이였다.<br>그래서 로컬에 세팅할 순 없을까하고 찾아보다가 알게 된 localstack의 사용기에 대해서 써보려고합니다.</p>
+<h1 id="Localstack"><a href="#Localstack" class="headerlink" title="Localstack?"></a>Localstack?</h1><p><a href="https://localstack.cloud/" rel="external nofollow noopener noreferrer" target="_blank">localstack</a>은 개발 단계에서 필요한 AWS 클라우드 리소스 기능들을 로컬환경에서 에뮬레이션하여 제공해준다.<br>도커를 사용하여 간단하게 에뮬레이션할 수 있기 때문에 테스트에 매우 용이합니다.</p>
+<h1 id="환경-세팅"><a href="#환경-세팅" class="headerlink" title="환경 세팅"></a>환경 세팅</h1><p>테스트 해본 AWS 리소스는 <code>SQS</code>였고 <code>docker-compose</code>를 이용하여 테스트를 진행했습니다.</p>
+<ul>
+<li>docker: 20.10.11</li>
+<li>docker-compose: 1.29.2</li>
+</ul>
+<h1 id="docker-compose-yml"><a href="#docker-compose-yml" class="headerlink" title="docker-compose.yml"></a>docker-compose.yml</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">version: &quot;3&quot;</span><br><span class="line"></span><br><span class="line">services:</span><br><span class="line">  localstack:</span><br><span class="line">    container_name: localstack</span><br><span class="line">    image: localstack/localstack:0.12.11</span><br><span class="line">    ports:</span><br><span class="line">      - &quot;4566-4576:4566-4576&quot;</span><br><span class="line">    environment:</span><br><span class="line">      - SERVICES=sqs</span><br><span class="line">      - DEFAULT_REGION=$&#123;DEFAULT_REGION- &#125;</span><br><span class="line">      - DEBUG=0</span><br><span class="line">      - DOCKER_HOST=unix:///var/run/docker.sock</span><br><span class="line">      - &quot;/var/run/docker.sock:/var/run/docker.sock&quot;</span><br><span class="line">      - &quot;$&#123;TMPDIR:-/tmp/localstack&#125;:/tmp/localstack&quot;</span><br><span class="line"></span><br><span class="line">  setup-aws-resources:</span><br><span class="line">    image: amazon/aws-cli:2.2.7</span><br><span class="line">    volumes:</span><br><span class="line">      - ./dev_env:/project/dev_env</span><br><span class="line">      - ./aws:/aws</span><br><span class="line">    environment:</span><br><span class="line">      - AWS_ACCESS_KEY_ID=$&#123;ACCESS_KEY_ID- &#125;</span><br><span class="line">      - AWS_SECRET_ACCESS_KEY=$&#123;SECRET_ACCESS_KEY- &#125;</span><br><span class="line">      - AWS_DEFAULT_REGION=$&#123;DEFAULT_REGION- &#125;</span><br><span class="line">    entrypoint: /bin/sh -c</span><br><span class="line">    command: &gt;</span><br><span class="line">      &quot;</span><br><span class="line">        echo wait for the state of localstack to become ready...</span><br><span class="line">        sleep 10</span><br><span class="line">        aws sqs create-queue --queue-name $&#123;QUEUE_NAME- &#125; --endpoint-url=http://localstack:4566 --attributes file://$&#123;QUEUE_FILE_NAME- &#125;</span><br><span class="line">        echo set up aws resources is complete</span><br><span class="line">      &quot;</span><br><span class="line">    depends_on:</span><br><span class="line">      - localstack</span><br></pre></td></tr></table></figure>
+<ul>
+<li>참고한 사이트와 동일하게 docker-compose.yml을 구성하였습니다.</li>
+</ul>
+<h1 id="run-sh-amp-create-queue-json"><a href="#run-sh-amp-create-queue-json" class="headerlink" title="run.sh &amp; create_queue.json"></a>run.sh &amp; create_queue.json</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"></span><br><span class="line"># Localstack</span><br><span class="line">export SERVICES=sqs</span><br><span class="line">export TMPDIR=/private$TMPDIR</span><br><span class="line">export DEBUG=0</span><br><span class="line">export DEFAULT_REGION=ap-northeast-2</span><br><span class="line">export ACCESS_KEY_ID=accesskey</span><br><span class="line">export SECRET_ACCESS_KEY=secretkey</span><br><span class="line">export QUEUE_NAME=test-queue</span><br><span class="line">export QUEUE_FILE_NAME=create_queue.json</span><br><span class="line"></span><br><span class="line">docker-compose up -d --remove-orphans</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;ReceiveMessageWaitTimeSeconds&quot;: &quot;20&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>위와 같이 <code>run.sh</code> 파일과 <code>create_queue.json</code> 파일을 작성하여 실행할 수 있으며 SQS attributes에 관련된 사항은 <a href="https://docs.aws.amazon.com/cli/latest/reference/sqs/set-queue-attributes.html#options" rel="external nofollow noopener noreferrer" target="_blank">링크</a>에서 확인 할 수 있습니다.</li>
+<li><code>docker-compose.yml</code>에 작성한대로 <code>/aws</code> 폴더 안에 json 파일을 위치시켜놓는다.</li>
+<li><code>aws --endpoint-url=https://localhost:4566 sqs list-queues</code> 명령어로 생성된 큐를 확인할 수 있습니다.</li>
+</ul>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<li><a href="https://bottom-to-top.tistory.com/54" rel="external nofollow noopener noreferrer" target="_blank">https://bottom-to-top.tistory.com/54</a></li>
+</ul>
+<hr>
+<ul>
+<li><a href="https://velog.io/@essri" rel="external nofollow noopener noreferrer" target="_blank">velog</a></li>
+<li><a href="https://ggomi.github.io">Blog</a></li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/AWS/" rel="tag"># AWS</a>
+          
+            <a href="/tags/docker-compose/" rel="tag"># docker-compose</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/kotlin-cookbook-pair/" rel="next" title="[코틀린 쿡북] to로 Pair 인스턴스 생성하기">
+                <i class="fa fa-chevron-left"></i> [코틀린 쿡북] to로 Pair 인스턴스 생성하기
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript" rel="external nofollow noopener noreferrer" target="_blank">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            목차
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            흝어보기
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/profile.jpg" alt="Jeongmin">
+            
+              <p class="site-author-name" itemprop="name">Jeongmin</p>
+              <p class="site-description motion-element" itemprop="description">IT 기술블로그입니다.</p>
+          </div>
+
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/ggomi" target="_blank" title="GitHub" rel="external nofollow noopener noreferrer"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:dhkdn4042@gmail.com" target="_blank" title="E-Mail" rel="external nofollow noopener noreferrer"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#개요"><span class="nav-number">1.</span> <span class="nav-text">개요</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Localstack"><span class="nav-number">2.</span> <span class="nav-text">Localstack?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#환경-세팅"><span class="nav-number">3.</span> <span class="nav-text">환경 세팅</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#docker-compose-yml"><span class="nav-number">4.</span> <span class="nav-text">docker-compose.yml</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#run-sh-amp-create-queue-json"><span class="nav-number">5.</span> <span class="nav-text">run.sh &amp; create_queue.json</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">5.1.</span> <span class="nav-text">Reference</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+    
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">author</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next" rel="external nofollow noopener noreferrer">NexT.Muse</a> v6.0.6</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.0.6"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.0.6"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.6"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.6"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.6"></script>
+
+
+
+  
+
+  
+    <script id="dsq-count-scr" src="https://ggomi-github-io.disqus.com/count.js" async></script>
+  
+
+  
+    <script type="text/javascript">
+      var disqus_config = function () {
+        this.page.url = 'https://ggomi.github.io/localstack/';
+        this.page.identifier = 'localstack/';
+        this.page.title = 'Localstack 사용기';
+      };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://ggomi-github-io.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
+  
+
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="ko">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Gothic A1:300,300italic,400,400italic,700,700italic|Nanum Gothic Coding:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.0.6" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.0.6">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/cheese_thumb.jpg?v=6.0.6">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/cheese_thumb.jpg?v=6.0.6">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.0.6" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.0.6',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="클린코더스 - 백명석님  강의를 보고 작성한 글입니다.   1. TDD의 세가지 법칙 Failing Test가 있을때만 프로덕션코드에 작성하라 실패를 나타내는데 충분한 테스트만 작성하라. 테스트가 성공하는 만큼만의 코드를 작성하라. (이해가 아직 잘 안됨..)  2. TDD 절차세가지 법칙이나 TDD작성 절차를 지키지 않았을경우 Stocking이라는 옴">
+<meta name="keywords" content="TDD,Test Driven Development">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TDD(Test Driven Development)란?">
+<meta property="og:url" content="https://ggomi.github.io/tdd/index.html">
+<meta property="og:site_name" content="Jeongmin&#39;s Blog">
+<meta property="og:description" content="클린코더스 - 백명석님  강의를 보고 작성한 글입니다.   1. TDD의 세가지 법칙 Failing Test가 있을때만 프로덕션코드에 작성하라 실패를 나타내는데 충분한 테스트만 작성하라. 테스트가 성공하는 만큼만의 코드를 작성하라. (이해가 아직 잘 안됨..)  2. TDD 절차세가지 법칙이나 TDD작성 절차를 지키지 않았을경우 Stocking이라는 옴">
+<meta property="og:locale" content="ko">
+<meta property="og:image" content="https://ggomi.github.io/images/tdd_1.png">
+<meta property="og:updated_time" content="2019-01-22T14:14:01.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TDD(Test Driven Development)란?">
+<meta name="twitter:description" content="클린코더스 - 백명석님  강의를 보고 작성한 글입니다.   1. TDD의 세가지 법칙 Failing Test가 있을때만 프로덕션코드에 작성하라 실패를 나타내는데 충분한 테스트만 작성하라. 테스트가 성공하는 만큼만의 코드를 작성하라. (이해가 아직 잘 안됨..)  2. TDD 절차세가지 법칙이나 TDD작성 절차를 지키지 않았을경우 Stocking이라는 옴">
+<meta name="twitter:image" content="https://ggomi.github.io/images/tdd_1.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Jeongmin's Blog" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="https://ggomi.github.io/tdd/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>TDD(Test Driven Development)란? | Jeongmin's Blog</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109295981-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-109295981-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+  <meta name="naver-site-verification" content="050fe916ad469e773d0b7ccdd950a6034b33f4c9">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="ko">
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> 
+
+<div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jeongmin's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Tech & Note</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+          
+  <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>홈</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>태그</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>카테고리</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>아카이브</a>
+</li>
+
+      
+
+      
+    </ul>
+  
+
+  
+    
+
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+    
+
+  
+
+
+  
+
+  
+</nav>
+
+
+  
+
+
+
+ </div>
+      <div style="text-align:center;"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- blog -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9081247697063156" data-ad-slot="6113290476" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+    </header>
+    
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ggomi.github.io/tdd/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jeongmin">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/profile.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jeongmin's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">TDD(Test Driven Development)란?</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-01T19:55:43+09:00">2019-01-01</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/TDD/" itemprop="url" rel="index"><span itemprop="name">TDD</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/tdd/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="tdd/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p><a href="https://www.youtube.com/user/codetemplate/videos" rel="external nofollow noopener noreferrer" target="_blank"> 클린코더스 - 백명석님 </a> 강의를 보고 작성한 글입니다.</p>
+</blockquote>
+<hr>
+<h2 id="1-TDD의-세가지-법칙"><a href="#1-TDD의-세가지-법칙" class="headerlink" title="1. TDD의 세가지 법칙"></a>1. TDD의 세가지 법칙</h2><ul>
+<li>Failing Test가 있을때만 프로덕션코드에 작성하라</li>
+<li>실패를 나타내는데 충분한 테스트만 작성하라.</li>
+<li>테스트가 성공하는 만큼만의 코드를 작성하라. (이해가 아직 잘 안됨..)</li>
+</ul>
+<h2 id="2-TDD-절차"><a href="#2-TDD-절차" class="headerlink" title="2. TDD 절차"></a>2. TDD 절차</h2><p>세가지 법칙이나 TDD작성 절차를 지키지 않았을경우 Stocking이라는 옴짝달싹하지 못하는 상태에 빠질 수 있다.<br><img src="/images/tdd_1.png" alt="TDD 절차"></p>
+<ol>
+<li>Failing 테스트 작성(Red page)</li>
+<li>Failing 테스트를 통과할 만큼의 코드를 작성(Green page) </li>
+<li>Refactor(Blue Page)<blockquote>
+<p>리팩토링 전까지 모두 최소한의 코드를 작성해서 절차를 만족시키기만 하면된다. 일단 돌아만 가게하면된다. Refactor는 선택이 아닌 필수이다.</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="3-원칙"><a href="#3-원칙" class="headerlink" title="3. 원칙"></a>3. 원칙</h2><ul>
+<li>남들이 봤을때 별거 아닌 것처럼 보일만큼 쉬운 것부터!!</li>
+<li>테스트가 구체적으로 변해갈 때 프로덕션코드는 점점 범용(Generic)적이 되어간다.</li>
+</ul>
+<h2 id="4-TDD의-이점"><a href="#4-TDD의-이점" class="headerlink" title="4. TDD의 이점"></a>4. TDD의 이점</h2><h3 id="Debugging-Time"><a href="#Debugging-Time" class="headerlink" title="Debugging Time"></a>Debugging Time</h3><ul>
+<li>TDD가 디버깅시간을 1/10으로 줄여 줄 것이다.</li>
+</ul>
+<h3 id="Design-Documents"><a href="#Design-Documents" class="headerlink" title="Design Documents"></a>Design Documents</h3><ul>
+<li>TDD의 3가지 법칙을 잘 따르면 설계문서를 얻을 수 있다.(low level design Document이다.)</li>
+</ul>
+<h3 id="Decoupling"><a href="#Decoupling" class="headerlink" title="Decoupling"></a>Decoupling</h3><ul>
+<li>테스트를 먼저 작성하면 Prooduction 코드가 테스트 가능해진다.</li>
+<li>모든 코드라인을 테스트하는 유일한 방법은 테스트 코드에서 그 코드들에 접근하는 것이다.</li>
+<li>TDD로 구현하면 보다 decouple된 시스템을 갖게된다.</li>
+</ul>
+<h3 id="Courage-to-Change"><a href="#Courage-to-Change" class="headerlink" title="Courage to Change"></a>Courage to Change</h3><ul>
+<li>테스트가 있기 때문에 시스템이 정상적으로 동작하는지 확인할 수 있다면 변경이 두렵지 않다. =&gt; Refactor를 공격적으로 할 수 있다.</li>
+<li>테스트는 코드를 깨끗하게 하고, 썩는 것을 방지한다.</li>
+<li>하지만, 레거시한 코드에 테스트를 추가하기는 힘들다.</li>
+<li>regression test</li>
+<li>완벽한 설계에 기반해 개발을 했더라도 테스트가 없다면 코드를 clean하는데 두려움이 생길 것이다.</li>
+</ul>
+<h3 id="Trust"><a href="#Trust" class="headerlink" title="Trust"></a>Trust</h3><ul>
+<li>3가지 규칙을 준수했을 때 낙하산을 가지고 있는 것처럼 테스트로 하여금 믿음을 가질 수 있다.</li>
+<li>개발 후 테스트를 작성하게되면, 테스트에 대한 신뢰가 떨어진다.</li>
+<li>이미 작성된 코드에서 테스트를 작성하라고 하면 실행 잘되는 케이스만 생각하게 될 것.</li>
+</ul>
+<hr>
+<ul>
+<li><a href="https://velog.io/@essri" rel="external nofollow noopener noreferrer" target="_blank">velog</a></li>
+<li><a href="https://ggomi.github.io">Blog</a></li>
+<li><a href="https://github.com/ggomi" rel="external nofollow noopener noreferrer" target="_blank">Github</a></li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/TDD/" rel="tag"># TDD</a>
+          
+            <a href="/tags/Test-Driven-Development/" rel="tag"># Test Driven Development</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/data-structure/" rel="next" title="Data Structure & Impedance Mismatch">
+                <i class="fa fa-chevron-left"></i> Data Structure & Impedance Mismatch
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/JPA-개념-및-설명/" rel="prev" title="JPA 개념 및 설명">
+                JPA 개념 및 설명 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript" rel="external nofollow noopener noreferrer" target="_blank">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            목차
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            흝어보기
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/profile.jpg" alt="Jeongmin">
+            
+              <p class="site-author-name" itemprop="name">Jeongmin</p>
+              <p class="site-description motion-element" itemprop="description">IT 기술블로그입니다.</p>
+          </div>
+
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/ggomi" target="_blank" title="GitHub" rel="external nofollow noopener noreferrer"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:dhkdn4042@gmail.com" target="_blank" title="E-Mail" rel="external nofollow noopener noreferrer"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-TDD의-세가지-법칙"><span class="nav-number">1.</span> <span class="nav-text">1. TDD의 세가지 법칙</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-TDD-절차"><span class="nav-number">2.</span> <span class="nav-text">2. TDD 절차</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-원칙"><span class="nav-number">3.</span> <span class="nav-text">3. 원칙</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-TDD의-이점"><span class="nav-number">4.</span> <span class="nav-text">4. TDD의 이점</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Debugging-Time"><span class="nav-number">4.1.</span> <span class="nav-text">Debugging Time</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Design-Documents"><span class="nav-number">4.2.</span> <span class="nav-text">Design Documents</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Decoupling"><span class="nav-number">4.3.</span> <span class="nav-text">Decoupling</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Courage-to-Change"><span class="nav-number">4.4.</span> <span class="nav-text">Courage to Change</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Trust"><span class="nav-number">4.5.</span> <span class="nav-text">Trust</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+    
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">author</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next" rel="external nofollow noopener noreferrer">NexT.Muse</a> v6.0.6</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.0.6"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.0.6"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.6"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.6"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.6"></script>
+
+
+
+  
+
+  
+    <script id="dsq-count-scr" src="https://ggomi-github-io.disqus.com/count.js" async></script>
+  
+
+  
+    <script type="text/javascript">
+      var disqus_config = function () {
+        this.page.url = 'https://ggomi.github.io/tdd/';
+        this.page.identifier = 'tdd/';
+        this.page.title = 'TDD(Test Driven Development)란?';
+      };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://ggomi-github-io.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
+  
+
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

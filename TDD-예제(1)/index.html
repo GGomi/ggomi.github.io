@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="ko">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Gothic A1:300,300italic,400,400italic,700,700italic|Nanum Gothic Coding:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.0.6" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.0.6">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/cheese_thumb.jpg?v=6.0.6">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/cheese_thumb.jpg?v=6.0.6">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.0.6" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.0.6',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="TDD 실습 예제 (1) msbaek님의 강의를 보고 작성한 글입니다. 링크  개요 &amp;amp; 용어 정의개요 소인수 분해 알고리즘 작성 입력 값의 소인수 구하기 TDD로 개발을 진행합니다.(테스트 -&amp;gt; 해결 -&amp;gt; 리팩토링 순서)소수 1과 자기자신외의 정수로 나누어 떨어지지않는 정수소인수 어떤 정수를 소수만의 곱으로 나타낼 때 그 인수가 되는 각각">
+<meta name="keywords" content="TDD,msbaek,백명석">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TDD 실습 예제(1)">
+<meta property="og:url" content="https://ggomi.github.io/TDD-예제(1)/index.html">
+<meta property="og:site_name" content="Jeongmin&#39;s Blog">
+<meta property="og:description" content="TDD 실습 예제 (1) msbaek님의 강의를 보고 작성한 글입니다. 링크  개요 &amp;amp; 용어 정의개요 소인수 분해 알고리즘 작성 입력 값의 소인수 구하기 TDD로 개발을 진행합니다.(테스트 -&amp;gt; 해결 -&amp;gt; 리팩토링 순서)소수 1과 자기자신외의 정수로 나누어 떨어지지않는 정수소인수 어떤 정수를 소수만의 곱으로 나타낼 때 그 인수가 되는 각각">
+<meta property="og:locale" content="ko">
+<meta property="og:image" content="https://user-images.githubusercontent.com/19489949/52614673-cd5f5700-2ed5-11e9-8f2d-f52fa75297b4.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/19489949/52617035-d2280900-2edd-11e9-8496-ec675a18951d.png">
+<meta property="og:updated_time" content="2019-04-20T13:50:20.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TDD 실습 예제(1)">
+<meta name="twitter:description" content="TDD 실습 예제 (1) msbaek님의 강의를 보고 작성한 글입니다. 링크  개요 &amp;amp; 용어 정의개요 소인수 분해 알고리즘 작성 입력 값의 소인수 구하기 TDD로 개발을 진행합니다.(테스트 -&amp;gt; 해결 -&amp;gt; 리팩토링 순서)소수 1과 자기자신외의 정수로 나누어 떨어지지않는 정수소인수 어떤 정수를 소수만의 곱으로 나타낼 때 그 인수가 되는 각각">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/19489949/52614673-cd5f5700-2ed5-11e9-8f2d-f52fa75297b4.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Jeongmin's Blog" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="https://ggomi.github.io/TDD-예제(1)/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>TDD 실습 예제(1) | Jeongmin's Blog</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109295981-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-109295981-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+  <meta name="naver-site-verification" content="050fe916ad469e773d0b7ccdd950a6034b33f4c9">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="ko">
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> 
+
+<div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jeongmin's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Tech & Note</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+          
+  <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>홈</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>태그</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>카테고리</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>아카이브</a>
+</li>
+
+      
+
+      
+    </ul>
+  
+
+  
+    
+
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+    
+
+  
+
+
+  
+
+  
+</nav>
+
+
+  
+
+
+
+ </div>
+      <div style="text-align:center;"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- blog -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9081247697063156" data-ad-slot="6113290476" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+    </header>
+    
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ggomi.github.io/TDD-예제(1)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jeongmin">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/profile.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jeongmin's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">TDD 실습 예제(1)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">작성일</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-12T14:32:09+09:00">2019-02-12</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/TDD/" itemprop="url" rel="index"><span itemprop="name">TDD</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/TDD-예제(1)/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="TDD-예제(1)/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="TDD-실습-예제-1"><a href="#TDD-실습-예제-1" class="headerlink" title="TDD 실습 예제 (1)"></a>TDD 실습 예제 (1)</h1><blockquote>
+<p>msbaek님의 강의를 보고 작성한 글입니다. <a href="https://www.youtube.com/watch?v=X4JtF2BfA0U" rel="external nofollow noopener noreferrer" target="_blank">링크</a></p>
+</blockquote>
+<h1 id="개요-amp-용어-정의"><a href="#개요-amp-용어-정의" class="headerlink" title="개요 &amp; 용어 정의"></a>개요 &amp; 용어 정의</h1><h2 id="개요"><a href="#개요" class="headerlink" title="개요"></a>개요</h2><ul>
+<li>소인수 분해 알고리즘 작성</li>
+<li>입력 값의 소인수 구하기</li>
+<li><code>TDD</code>로 개발을 진행합니다.(테스트 -&gt; 해결 -&gt; 리팩토링 순서)<h2 id="소수"><a href="#소수" class="headerlink" title="소수"></a>소수</h2></li>
+<li>1과 자기자신외의 정수로 나누어 떨어지지않는 정수<h2 id="소인수"><a href="#소인수" class="headerlink" title="소인수"></a>소인수</h2></li>
+<li>어떤 정수를 소수만의 곱으로 나타낼 때 그 인수가 되는 각각의 소수</li>
+</ul>
+<hr>
+<h1 id="0-nothing"><a href="#0-nothing" class="headerlink" title="0. nothing"></a>0. nothing</h1><p>public void nothing으로 시작</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PrimeFactorsTest</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">nothing</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>이 테스트를 통해서 현재 프로젝트가 테스트 가능한 환경인지 확인한다.</li>
+</ul>
+<hr>
+<h1 id="1-canFactorIntoPrimes-for-1"><a href="#1-canFactorIntoPrimes-for-1" class="headerlink" title="1. canFactorIntoPrimes for 1"></a>1. canFactorIntoPrimes for 1</h1><h2 id="1-1-실패-테스트-추가"><a href="#1-1-실패-테스트-추가" class="headerlink" title="1.1 실패 테스트 추가"></a>1.1 실패 테스트 추가</h2><p><img src="https://user-images.githubusercontent.com/19489949/52614673-cd5f5700-2ed5-11e9-8f2d-f52fa75297b4.png" alt="createFactorInfoPrimes for 1"></p>
+<ul>
+<li>가장 단순한 1에 대한 소인수를 구하는 테스트를 진행한다.</li>
+<li>1을 제외한 <code>소인수</code>들을 구해야한다. 그래서 1의 <code>소인수</code>는 없다.</li>
+</ul>
+<h2 id="1-2-Test-성공시키기"><a href="#1-2-Test-성공시키기" class="headerlink" title="1.2 Test 성공시키기"></a>1.2 Test 성공시키기</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="function"><span class="keyword">private</span> List&lt;Integer&gt; <span class="title">of</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> Arrays.asList();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="1-3-Refactor"><a href="#1-3-Refactor" class="headerlink" title="1.3 Refactor"></a>1.3 Refactor</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">canFactorIntoPrimes</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    assertEquals(list(),of(<span class="number">1</span>));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> List&lt;Integer&gt; <span class="title">list</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> Arrays.asList();</span><br><span class="line">&#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>of()</code>의 리턴타입은 <code>Integer</code>인 반면에 테스트에서는 <code>Object</code>이므로 <code>Arrays.asList()</code>를 Extract 해준다.</li>
+</ul>
+<hr>
+<h1 id="2-canFactorIntoPrimes-for-2"><a href="#2-canFactorIntoPrimes-for-2" class="headerlink" title="2. canFactorIntoPrimes for 2"></a>2. canFactorIntoPrimes for 2</h1><p>2에 대한 소인수를 찾아야하는데 여기서 <strong>Variable arguments(가변인자)</strong>라는걸 사용했는데 일단 한번 코드로 보자</p>
+<h2 id="2-1-실패테스트-추가-및-테스트-성공시키기"><a href="#2-1-실패테스트-추가-및-테스트-성공시키기" class="headerlink" title="2.1 실패테스트 추가 및 테스트 성공시키기"></a>2.1 실패테스트 추가 및 테스트 성공시키기</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">canFactorIntoPrimes</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    assertEquals(list(),of(<span class="number">1</span>));</span><br><span class="line">    <span class="comment">// 2에 대한 테스트 추가</span></span><br><span class="line">    assertEquals(list(<span class="number">2</span>),of(<span class="number">2</span>));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> List&lt;Integer&gt; <span class="title">list</span><span class="params">(Integer... n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> Arrays.asList(n);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> List&lt;Integer&gt; <span class="title">of</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    List&lt;Integer&gt; factors = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">    <span class="keyword">if</span>(n == <span class="number">2</span>) </span><br><span class="line">        factors.add(<span class="number">2</span>);</span><br><span class="line">    <span class="keyword">return</span> factors;</span><br><span class="line">&#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<ul>
+<li>list()에서 가변인자 <strong>‘…’</strong> 를 통해 파라미터를 배열로 바꾸어준다.</li>
+<li>가변인자 : ‘해당 타입의 객체가 0개부터 여러개까지 매개변수로 올 수 있다.’ 라는 뜻</li>
+<li>Java 1.5부터 사용가능한 가변인자는 파라미터 <code>맨 끝에만</code> 사용가능하다.(오버로딩 주의)</li>
+</ul>
+<h2 id="2-2-Refactor"><a href="#2-2-Refactor" class="headerlink" title="2.2 Refactor"></a>2.2 Refactor</h2><ul>
+<li><code>n==2</code> 보다 <code>n&gt;1</code>이 좀 더 Generic하므로 수정한다.<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> List&lt;Integer&gt; <span class="title">of</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    List&lt;Integer&gt; factors = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">    <span class="keyword">if</span>(n &gt; <span class="number">1</span>) </span><br><span class="line">        factors.add(<span class="number">2</span>);</span><br><span class="line">    <span class="keyword">return</span> factors;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="3-canFactorIntoPrimes-for-3"><a href="#3-canFactorIntoPrimes-for-3" class="headerlink" title="3. canFactorIntoPrimes for 3"></a>3. canFactorIntoPrimes for 3</h1><h2 id="3-1-실패-테스트-추가"><a href="#3-1-실패-테스트-추가" class="headerlink" title="3.1 실패 테스트 추가"></a>3.1 실패 테스트 추가</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">...</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">canFactorIntoPrimes</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    assertEquals(list(),of(<span class="number">1</span>));</span><br><span class="line">    assertEquals(list(<span class="number">2</span>),of(<span class="number">2</span>));</span><br><span class="line">    assertEquals(list(<span class="number">3</span>),of(<span class="number">3</span>));</span><br><span class="line">&#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<h2 id="3-2-테스트-성공시키기"><a href="#3-2-테스트-성공시키기" class="headerlink" title="3.2 테스트 성공시키기"></a>3.2 테스트 성공시키기</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="function"><span class="keyword">private</span> List&lt;Integer&gt; <span class="title">of</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    List&lt;Integer&gt; factors = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">    <span class="keyword">if</span>(n &gt; <span class="number">1</span>) </span><br><span class="line">        factors.add(n);</span><br><span class="line">    <span class="keyword">return</span> factors;</span><br><span class="line">&#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<ul>
+<li>모든 테스트는 최소한의 코드로 성공시키려고한다.</li>
+</ul>
+<h2 id="3-3-Refactor"><a href="#3-3-Refactor" class="headerlink" title="3.3 Refactor"></a>3.3 Refactor</h2><p><code>assertEquals</code>가 반복되는게 보기 안좋다. <code>Extract method</code>시키자!</p>
+<h3 id="Extract-Variable"><a href="#Extract-Variable" class="headerlink" title="Extract Variable"></a>Extract Variable</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">canFactorIntoPrimes</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    List&lt;Integer&gt; list = list();</span><br><span class="line">    <span class="keyword">int</span> n = <span class="number">1</span>;</span><br><span class="line">    assertEquals(list, of(n));</span><br><span class="line">    assertEquals(list(<span class="number">2</span>), of(<span class="number">2</span>));</span><br><span class="line">    assertEquals(list(<span class="number">3</span>), of(<span class="number">3</span>));</span><br><span class="line">&#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<h3 id="Extract-Method"><a href="#Extract-Method" class="headerlink" title="Extract Method"></a>Extract Method</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">canFactorIntoPrimes</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    assertPrimeFactors(list(), <span class="number">1</span>);</span><br><span class="line">    assertPrimeFactors(list(<span class="number">2</span>), <span class="number">2</span>);</span><br><span class="line">    assertPrimeFactors(list(<span class="number">3</span>), <span class="number">3</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">assertPrimeFactors</span><span class="params">(List&lt;Integer&gt; list, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    assertEquals(list, of(n));</span><br><span class="line">&#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<h3 id="Change-Signature"><a href="#Change-Signature" class="headerlink" title="Change Signature"></a>Change Signature</h3><p><img src="https://user-images.githubusercontent.com/19489949/52617035-d2280900-2edd-11e9-8496-ec675a18951d.png" alt="image"></p>
+<ul>
+<li><code>Change Signature</code>를 통해서 <code>assertPrimeFactors</code> 메소드의 파라미터 순서를 바꿔준다(바꾸는게 보기편하다고 한다..)<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">canFactorIntoPrimes</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    assertPrimeFactors(<span class="number">1</span>, list());</span><br><span class="line">    assertPrimeFactors(<span class="number">2</span>, list(<span class="number">2</span>));</span><br><span class="line">    assertPrimeFactors(<span class="number">3</span>, list(<span class="number">3</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="4-canFactorIntoPrimes-for-4"><a href="#4-canFactorIntoPrimes-for-4" class="headerlink" title="4. canFactorIntoPrimes for 4"></a>4. canFactorIntoPrimes for 4</h1><ul>
+<li>4의 소인수는 <code>2,2</code></li>
+</ul>
+<h2 id="4-1-실패-테스트-추가"><a href="#4-1-실패-테스트-추가" class="headerlink" title="4.1 실패 테스트 추가"></a>4.1 실패 테스트 추가</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">canFactorIntoPrimes</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    assertPrimeFactors(<span class="number">1</span>, list());</span><br><span class="line">    assertPrimeFactors(<span class="number">2</span>, list(<span class="number">2</span>));</span><br><span class="line">    assertPrimeFactors(<span class="number">3</span>, list(<span class="number">3</span>));</span><br><span class="line">    assertPrimeFactors(<span class="number">4</span>, list(<span class="number">2</span>,<span class="number">2</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="4-2-테스트-통과시키기"><a href="#4-2-테스트-통과시키기" class="headerlink" title="4.2 테스트 통과시키기"></a>4.2 테스트 통과시키기</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> List&lt;Integer&gt; <span class="title">of</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    List&lt;Integer&gt; factors = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">    <span class="keyword">if</span>(n &gt; <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span>(n % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">            factors.add(<span class="number">2</span>);</span><br><span class="line">            n /= <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(n &gt; <span class="number">1</span>)</span><br><span class="line">            factors.add(n);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> factors;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>간단하게 <code>2</code>로 나누었을 때 나머지가 <code>0</code>이면 <code>2</code>를 <code>ArrayList</code>에 추가</li>
+</ul>
+<h2 id="4-3-Refactor"><a href="#4-3-Refactor" class="headerlink" title="4.3 Refactor"></a>4.3 Refactor</h2><ul>
+<li><code>factors</code>에 <code>n</code>을 더하는 부분을 <code>if(n&gt;1)</code> 밖으로 뺀다.<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> List&lt;Integer&gt; <span class="title">of</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">  List&lt;Integer&gt; factors = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">  <span class="keyword">if</span>(n &gt; <span class="number">1</span>) &#123;</span><br><span class="line">      <span class="keyword">if</span>(n % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">          factors.add(<span class="number">2</span>);</span><br><span class="line">          n /= <span class="number">2</span>;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(n &gt; <span class="number">1</span>)</span><br><span class="line">      factors.add(n);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> factors;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="5-canFactorIntoPrimes-for-8"><a href="#5-canFactorIntoPrimes-for-8" class="headerlink" title="5. canFactorIntoPrimes for 8"></a>5. canFactorIntoPrimes for 8</h1><ul>
+<li>그 전 숫자들은 모두 Pass, 8에서 걸림</li>
+</ul>
+<h2 id="5-1-실패-테스트-추가"><a href="#5-1-실패-테스트-추가" class="headerlink" title="5.1 실패 테스트 추가"></a>5.1 실패 테스트 추가</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">canFactorIntoPrimes</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    assertPrimeFactors(<span class="number">1</span>, list());</span><br><span class="line">    assertPrimeFactors(<span class="number">2</span>, list(<span class="number">2</span>));</span><br><span class="line">    assertPrimeFactors(<span class="number">3</span>, list(<span class="number">3</span>));</span><br><span class="line">    assertPrimeFactors(<span class="number">4</span>, list(<span class="number">2</span>,<span class="number">2</span>));</span><br><span class="line">    assertPrimeFactors(<span class="number">8</span>, list(<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="5-2-테스트-성공-시키기"><a href="#5-2-테스트-성공-시키기" class="headerlink" title="5.2 테스트 성공 시키기"></a>5.2 테스트 성공 시키기</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> List&lt;Integer&gt; <span class="title">of</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    List&lt;Integer&gt; factors = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">    <span class="keyword">if</span>(n &gt; <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">while</span>(n % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">            factors.add(<span class="number">2</span>);</span><br><span class="line">            n /= <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(n &gt; <span class="number">1</span>)</span><br><span class="line">        factors.add(n);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> factors;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>간단하게 <code>if(n % 2 == 0)</code> 부분을 <code>while</code>문으로 교체해서 해결</li>
+</ul>
+<h1 id="6-canFactorIntoPrimes-for-9"><a href="#6-canFactorIntoPrimes-for-9" class="headerlink" title="6. canFactorIntoPrimes for 9"></a>6. canFactorIntoPrimes for 9</h1><h2 id="6-1-실패-테스트-추가"><a href="#6-1-실패-테스트-추가" class="headerlink" title="6.1 실패 테스트 추가"></a>6.1 실패 테스트 추가</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">canFactorIntoPrimes</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    assertPrimeFactors(<span class="number">1</span>, list());</span><br><span class="line">    assertPrimeFactors(<span class="number">2</span>, list(<span class="number">2</span>));</span><br><span class="line">    assertPrimeFactors(<span class="number">3</span>, list(<span class="number">3</span>));</span><br><span class="line">    assertPrimeFactors(<span class="number">4</span>, list(<span class="number">2</span>,<span class="number">2</span>));</span><br><span class="line">    assertPrimeFactors(<span class="number">8</span>, list(<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>));</span><br><span class="line">    assertPrimeFactors(<span class="number">9</span>, list(<span class="number">3</span>,<span class="number">3</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="6-2-테스트-성공-시키기"><a href="#6-2-테스트-성공-시키기" class="headerlink" title="6.2 테스트 성공 시키기"></a>6.2 테스트 성공 시키기</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> List&lt;Integer&gt; <span class="title">of</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    List&lt;Integer&gt; factors = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">    <span class="keyword">if</span>(n &gt; <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">while</span>(n % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">            factors.add(<span class="number">2</span>);</span><br><span class="line">            n /= <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(n % <span class="number">3</span> == <span class="number">0</span>) &#123;</span><br><span class="line">            factors.add(<span class="number">3</span>);</span><br><span class="line">            n /= <span class="number">3</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(n &gt; <span class="number">1</span>)</span><br><span class="line">        factors.add(n);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> factors;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>간단하게 <code>3</code>에 대한 <code>while</code>문 추가로 테스트 패스</li>
+</ul>
+<h2 id="6-3-Refactor"><a href="#6-3-Refactor" class="headerlink" title="6.3 Refactor"></a>6.3 Refactor</h2><p>while문의 중복이 생기게 된다.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> List&lt;Integer&gt; <span class="title">of</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    List&lt;Integer&gt; factors = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">    <span class="keyword">int</span> divisor = <span class="number">2</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(n &gt; <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">while</span>(n % divisor == <span class="number">0</span>) &#123;</span><br><span class="line">            factors.add(divisor);</span><br><span class="line">            n /= divisor;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(n % <span class="number">3</span> == <span class="number">0</span>) &#123;</span><br><span class="line">            factors.add(<span class="number">3</span>);</span><br><span class="line">            n /= <span class="number">3</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(n &gt; <span class="number">1</span>)</span><br><span class="line">        factors.add(n);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> factors;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>첫번째 <code>while</code>문의 중복되는 <code>2</code>에 대해서 <code>extract variable</code>한다.</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> List&lt;Integer&gt; <span class="title">of</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    List&lt;Integer&gt; factors = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> divisor = <span class="number">2</span>;n &gt; <span class="number">1</span>;divisor++)</span><br><span class="line">        <span class="keyword">for</span>(;n % divisor == <span class="number">0</span>; n /= divisor)</span><br><span class="line">            factors.add(divisor);</span><br><span class="line">    <span class="keyword">return</span> factors;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>while</code>문들을 <code>for</code>문으로 변경해주면서 조건들을 <code>for</code>문에 담는다. <code>for</code>문의 조건상 마지막 <code>if(n&gt;1)</code>은 의미가 없기때문에 삭제한다.</li>
+</ul>
+<hr>
+<ul>
+<li><a href="https://velog.io/@essri" rel="external nofollow noopener noreferrer" target="_blank">velog</a></li>
+<li><a href="https://ggomi.github.io">Blog</a></li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/TDD/" rel="tag"># TDD</a>
+          
+            <a href="/tags/msbaek/" rel="tag"># msbaek</a>
+          
+            <a href="/tags/백명석/" rel="tag"># 백명석</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/weekly-retrospective-20190128-20190201/" rel="next" title="20190128 _ 20190201">
+                <i class="fa fa-chevron-left"></i> 20190128 _ 20190201
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/weekly-retrospective-20190211-0215/" rel="prev" title="20190211 _ 20190215">
+                20190211 _ 20190215 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript" rel="external nofollow noopener noreferrer" target="_blank">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            목차
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            흝어보기
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/profile.jpg" alt="Jeongmin">
+            
+              <p class="site-author-name" itemprop="name">Jeongmin</p>
+              <p class="site-description motion-element" itemprop="description">IT 기술블로그입니다.</p>
+          </div>
+
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/ggomi" target="_blank" title="GitHub" rel="external nofollow noopener noreferrer"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:dhkdn4042@gmail.com" target="_blank" title="E-Mail" rel="external nofollow noopener noreferrer"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#TDD-실습-예제-1"><span class="nav-number">1.</span> <span class="nav-text">TDD 실습 예제 (1)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#개요-amp-용어-정의"><span class="nav-number">2.</span> <span class="nav-text">개요 &amp; 용어 정의</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#개요"><span class="nav-number">2.1.</span> <span class="nav-text">개요</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#소수"><span class="nav-number">2.2.</span> <span class="nav-text">소수</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#소인수"><span class="nav-number">2.3.</span> <span class="nav-text">소인수</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0-nothing"><span class="nav-number">3.</span> <span class="nav-text">0. nothing</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-canFactorIntoPrimes-for-1"><span class="nav-number">4.</span> <span class="nav-text">1. canFactorIntoPrimes for 1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-실패-테스트-추가"><span class="nav-number">4.1.</span> <span class="nav-text">1.1 실패 테스트 추가</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-Test-성공시키기"><span class="nav-number">4.2.</span> <span class="nav-text">1.2 Test 성공시키기</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-Refactor"><span class="nav-number">4.3.</span> <span class="nav-text">1.3 Refactor</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-canFactorIntoPrimes-for-2"><span class="nav-number">5.</span> <span class="nav-text">2. canFactorIntoPrimes for 2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-실패테스트-추가-및-테스트-성공시키기"><span class="nav-number">5.1.</span> <span class="nav-text">2.1 실패테스트 추가 및 테스트 성공시키기</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-Refactor"><span class="nav-number">5.2.</span> <span class="nav-text">2.2 Refactor</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-canFactorIntoPrimes-for-3"><span class="nav-number">6.</span> <span class="nav-text">3. canFactorIntoPrimes for 3</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-실패-테스트-추가"><span class="nav-number">6.1.</span> <span class="nav-text">3.1 실패 테스트 추가</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-테스트-성공시키기"><span class="nav-number">6.2.</span> <span class="nav-text">3.2 테스트 성공시키기</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-Refactor"><span class="nav-number">6.3.</span> <span class="nav-text">3.3 Refactor</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Extract-Variable"><span class="nav-number">6.3.1.</span> <span class="nav-text">Extract Variable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Extract-Method"><span class="nav-number">6.3.2.</span> <span class="nav-text">Extract Method</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Change-Signature"><span class="nav-number">6.3.3.</span> <span class="nav-text">Change Signature</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-canFactorIntoPrimes-for-4"><span class="nav-number">7.</span> <span class="nav-text">4. canFactorIntoPrimes for 4</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-실패-테스트-추가"><span class="nav-number">7.1.</span> <span class="nav-text">4.1 실패 테스트 추가</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-테스트-통과시키기"><span class="nav-number">7.2.</span> <span class="nav-text">4.2 테스트 통과시키기</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-Refactor"><span class="nav-number">7.3.</span> <span class="nav-text">4.3 Refactor</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-canFactorIntoPrimes-for-8"><span class="nav-number">8.</span> <span class="nav-text">5. canFactorIntoPrimes for 8</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-실패-테스트-추가"><span class="nav-number">8.1.</span> <span class="nav-text">5.1 실패 테스트 추가</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-테스트-성공-시키기"><span class="nav-number">8.2.</span> <span class="nav-text">5.2 테스트 성공 시키기</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-canFactorIntoPrimes-for-9"><span class="nav-number">9.</span> <span class="nav-text">6. canFactorIntoPrimes for 9</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#6-1-실패-테스트-추가"><span class="nav-number">9.1.</span> <span class="nav-text">6.1 실패 테스트 추가</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-2-테스트-성공-시키기"><span class="nav-number">9.2.</span> <span class="nav-text">6.2 테스트 성공 시키기</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-3-Refactor"><span class="nav-number">9.3.</span> <span class="nav-text">6.3 Refactor</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+    
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">author</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next" rel="external nofollow noopener noreferrer">NexT.Muse</a> v6.0.6</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.0.6"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.0.6"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.6"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.6"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.6"></script>
+
+
+
+  
+
+  
+    <script id="dsq-count-scr" src="https://ggomi-github-io.disqus.com/count.js" async></script>
+  
+
+  
+    <script type="text/javascript">
+      var disqus_config = function () {
+        this.page.url = 'https://ggomi.github.io/TDD-예제(1)/';
+        this.page.identifier = 'TDD-예제(1)/';
+        this.page.title = 'TDD 실습 예제(1)';
+      };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://ggomi-github-io.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
+  
+
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>
